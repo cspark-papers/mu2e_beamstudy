@@ -73,7 +73,7 @@ Slow resonant extraction from the Delivery Ring is part of the proton-delivery s
 
 
 \begin{table}[width=\linewidth,cols=3,pos=htbp]
-  \caption{\label{table:param}Nominal beam and ring parameters shared with the published study~\cite{mu2e}. Study-specific geometry and acceptance differences are distinguished in Table~\ref{table:scope}. The mean number of protons per extracted pulse is $10^{12}/31{,}795 \simeq 3.15\times10^{7}$, assuming one extracted pulse per revolution.}
+  \caption{\label{table:param}Nominal beam and ring parameters from the original description of the present simulations; the same nominal values are reported in Ref.~\cite{mu2e}. The emittance describes the injected beam and is distinct from the acceptances in Table~\ref{table:scope}. The mean number of protons per extracted pulse is $10^{12}/31{,}795 \simeq 3.15\times10^{7}$, assuming one extracted pulse per revolution.}
   \begin{tabular*}{\tblwidth}{@{} LRR@{}}
     \toprule
     Parameter & Value & Unit \\
@@ -106,52 +106,76 @@ Septum scattering raises a complementary transport question: where do particles 
 
 The three models serve distinct purposes. Synergia2 provides multiparticle tracking with space charge~\cite{synergia2}; the reduced Kobayashi Hamiltonian isolates horizontal resonance dynamics; and MARS describes interactions with material. Their combined use connects the observed spill and phase-space behavior to particle motion, while the configuration and population boundaries in Sec.~\ref{sec:scope} define the extent of the comparison. The contribution relative to Ref.~\cite{mu2e} is the set of feedback, transit-time, and post-interception diagnostics, building on established RFKO and resonance descriptions.
 
-Section~\ref{sec:scope} defines the scope of the calculations. Section~\ref{sec:rfko1} presents the feedback response, and Sec.~\ref{sec:tracking} develops the reduced model and examines transit times and scattered-particle transport. Section~\ref{sec:rfko} addresses chromaticity-dependent RFKO excitation, and Sec.~\ref{sec:conclusion} brings together the implications for spill regulation and loss interpretation.
+Section~\ref{sec:scope} relates the calculations to the published baseline and defines the individual simulation cases. Section~\ref{sec:rfko1} presents the feedback response, and Sec.~\ref{sec:tracking} develops the reduced model and examines transit times and scattered-particle transport. Section~\ref{sec:rfko} addresses chromaticity-dependent RFKO excitation, and Sec.~\ref{sec:conclusion} brings together the implications for spill regulation and loss interpretation.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{\label{sec:scope}Published baseline and scope of the present calculations}
+\section{\label{sec:scope}Published baseline and simulation cases}
 
-The common beam parameters are listed in Table~\ref{table:param}. In Ref.~\cite{mu2e}, sextupole excitation was established during the first 100 turns, followed by a tune-quadrupole ramp with 200-turn segments. The published space-charge model used an open-boundary Hockney solver with a $64\times64\times128$ grid and 240 kicks per turn. Its comparison of 2.5D and 3D solvers concerned the incoherent tune shift. These are documented settings and checks of the preceding study; their inheritance by each present case and the convergence of spill and loss observables are not established here.
+\subsection{\label{sec:baseline}Shared parameters and published settings}
 
-Table~\ref{table:scope} summarizes the case boundaries. The present scattering calculation specifies $50\,\mu\mathrm{m}$ foils, compared with $100\,\mu\mathrm{m}$ in the published extraction model. The isolated RFKO test specifies a $20\pi\,\mathrm{mm\,mrad}$ acceptance, distinct from the published $35\pi\,\mathrm{mm\,mrad}$ normalized machine acceptance. We interpret these cases individually. They provide diagnostics of feedback response, transit dynamics, and scattering transport, but do not constitute a common, validated model of integrated spill regulation and extraction efficiency.
-% AUTHOR CHECK: confirm the 50-micrometre foil thickness from existing records;
-% do not substitute the published 100-micrometre geometry from the prior publication alone.
-% Confirm which published lattice, solver, ramp and bump settings were reused.
+Table~\ref{table:param} lists the nominal beam and ring parameters. Other settings are documented only for the published study~\cite{mu2e}. There, the harmonic sextupoles were ramped to their final strengths during the first 100 turns, after which the tune-control quadrupoles followed a piecewise linear ramp with 200-turn segments. Space charge was computed with an open-boundary Hockney solver on a $64\times64\times128$ grid with 240 kicks per turn, and a comparison of 2.5D and 3D solvers concerned the incoherent tune shift. The present Synergia2 cases include space charge, but their solver settings, lattice version, and use of the published ramp file and dynamic bumps are not documented. We therefore do not assume that they reproduce every published setting, and no convergence study of the present spill, transit-time, or loss observables is available.
+% AUTHOR CHECK: confirm the 50-micrometre foil from the MARS input, the acceptance
+% convention, and which published lattice, solver, ramp and bump settings each case reused.
+
+Table~\ref{table:scope} lists the configuration and population differences that affect interpretation. Three quantities of similar magnitude are distinct: the $20\pi\,\mathrm{mm\,mrad}$ 95\% normalized emittance of the injected beam; the $20\pi\,\mathrm{mm\,mrad}$ circular acceptance specified for the fixed-tune RFKO test, whose normalization convention is not documented; and the $35\pi\,\mathrm{mm\,mrad}$ normalized machine acceptance of Ref.~\cite{mu2e}. Similarly, the scattering study specifies $50\,\mu\mathrm{m}$ septum foils, whereas the published extraction model uses $100\,\mu\mathrm{m}$ foils.
 
 \begin{table}[width=\linewidth,cols=3,pos=tbp]
-  \caption{\label{table:scope}Relationship between the published baseline and the present calculations. Values in the middle column are reported in Ref.~\cite{mu2e}; the cases in the right column are interpreted individually.}
+  \caption{\label{table:scope}Configuration and population differences between the published baseline and the present calculations. Values in the middle column are reported in Ref.~\cite{mu2e}; the present cases are defined in Table~\ref{table:cases}.}
   \renewcommand{\arraystretch}{1.2}
   \begin{tabular}{@{}>{\raggedright\arraybackslash}p{.18\linewidth}>{\raggedright\arraybackslash}p{.36\linewidth}>{\raggedright\arraybackslash}p{.38\linewidth}@{}}
     \toprule
     Aspect & Published baseline & Present calculations \\
     \midrule
-    Spill control & Segmented tune ramp and dynamic bumps; RFKO excluded & RFKO feedback under imposed ripple and tune-step response diagnostics \\
-    Time intervals & 200-turn ramp segments; 100-turn moving window in the spill diagnostic & Approximately 100-turn feedback averaging and chirp sweeps; 300-turn pause and 500-turn observation in tune-step tests \\
+    Spill control & Segmented tune ramp and dynamic bumps; RFKO excluded & RFKO feedback under imposed ripple; tune-step response diagnostics \\
+    Ramp and bumps & 100-turn sextupole turn-on; 200-turn piecewise linear ramp segments; dynamic bumps & Optimized ramp stated for the tune-step case; reuse of the published ramp and bumps not documented \\
+    Space charge & Open-boundary Hockney solver; $64\times64\times128$ grid; 240 kicks per turn & Included in the Synergia2 cases; solver settings not documented \\
     Septum foil & $100\,\mu\mathrm{m}$ in the extraction model & $50\,\mu\mathrm{m}$ specified for the scattering study \\
-    Phase-space acceptance & $35\pi\,\mathrm{mm\,mrad}$, normalized & $20\pi\,\mathrm{mm\,mrad}$ in the isolated RFKO test; conversion convention requires confirmation \\
+    Phase-space acceptance & $35\pi\,\mathrm{mm\,mrad}$, normalized & $20\pi\,\mathrm{mm\,mrad}$ circular aperture in the fixed-tune RFKO test; normalization not documented \\
     Loss population & Geometric hit/cross losses relative to the injected beam & Subsequent ring losses conditional on the returned scattered-particle sample \\
-    RFKO test dynamics & No RFKO tracking result & Fixed tune 9.65, resonance drive disabled, $C_x=0$ and 1 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-The loss populations also differ. Ref.~\cite{mu2e} quotes a final geometric loss of 1.2\% of the injected beam with dynamic bumps; the approximately 43\% reported here concerns subsequent ring losses of the selected scattered-particle sample returned from MARS. Different foil geometries and particle accounting preclude interpreting these fractions as competing efficiency estimates or combining them into a corrected total loss. Likewise, the model comparisons below identify qualitative mechanisms without isolating every source of disagreement or establishing numerical controller performance.
+The loss populations also differ. Ref.~\cite{mu2e} quotes a final geometric loss of 1.2\% of the injected beam with dynamic bumps; the approximately 43\% reported here concerns subsequent ring losses of the selected scattered-particle sample returned from MARS. Different foil geometries and particle accounting preclude interpreting these fractions as competing efficiency estimates or combining them into a corrected total loss.
+
+\subsection{\label{sec:cases}Simulation cases}
+
+The calculations comprise the five cases in Table~\ref{table:cases}. Each is interpreted individually. Together they provide diagnostics of feedback response, transit dynamics, and scattering transport, not a common, validated model of integrated spill regulation and extraction efficiency. The model comparisons identify qualitative mechanisms without isolating every source of disagreement or establishing numerical controller performance.
+
+Several intervals of about 100 turns occur in this paper and describe different operations. In Ref.~\cite{mu2e}, 100 turns is the sextupole turn-on period and the width of the moving window used to display the spill. In the feedback case, the spill signal is accumulated over approximately 100 turns, about $0.17\,\mathrm{ms}$, and each RFKO chirp sweep lasts 100 turns. Neither interval specifies the controller update interval, which is not documented. Similarly, the 200-turn segments of the published feed-forward ramp are unrelated to the approximately 300-turn pause and 500-turn hold that define the tune-step diagnostic.
+
+\begin{table}[width=\linewidth,cols=4,pos=tbp]
+  \caption{\label{table:cases}Simulation cases. Only settings stated in the available simulation records are listed; settings not listed are not documented and are not inferred from Ref.~\cite{mu2e}.}
+  \small
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{.16\linewidth}>{\raggedright\arraybackslash}p{.31\linewidth}>{\raggedright\arraybackslash}p{.22\linewidth}>{\raggedright\arraybackslash}p{.22\linewidth}@{}}
+    \toprule
+    Case & Model and stated configuration & Time structure & Sample and endpoint \\
+    \midrule
+    Ripple and feedback (Sec.~\ref{sec:rfko1}; Fig.~\ref{fig:fig9}) & Synergia2 extraction with tune ramp; $C_x=1$; linear-chirp RFKO with randomized sweep phases; 60\,Hz quadrupole ripple of 0.5\% (convention in Sec.~\ref{sec:rfko1}); proportional--derivative control & 100-turn chirp sweeps; spill signal accumulated over about 100 turns & Normalized extracted spill rate for three runs; normalization not documented \\
+    Tune step (Sec.~\ref{sec:arrival}; Figs.~\ref{fig:arrival1} and~\ref{fig:arrival2}) & Synergia2 extraction with space charge and the optimized ramp; $5\times10^{5}$ initial macroparticles & Ramp paused at turns 2,000, 15,000, and 25,000 for about 300 turns; step to uninterrupted-ramp strengths; hold for about 500 turns & Particles released by the step, selection criterion not documented; endpoint at the septum field region \\
+    Reduced model (Secs.~\ref{sec:model}, \ref{sec:arrival}, and~\ref{sec:beamloss}; Figs.~\ref{fig:arrival2} and~\ref{fig:beamloss3}) & RK4 integration of Eq.~\eqref{eqn:motion}; no space charge, lattice detail, extraction fields, or apertures; resonance parameters at the restored settings in the tune-step comparison & Output every three turns & Synergia2 initial coordinates (tune step); initial line at the septum (Fig.~\ref{fig:beamloss3}) \\
+    Septum scattering (Sec.~\ref{sec:beamloss}; Figs.~\ref{fig:beamloss1} and~\ref{fig:beamloss2}) & Synergia2 septum aperture at ESS1; MARS transport from ESS1 to the C-magnet with $50\,\mu\mathrm{m}$ foils; Synergia2 ring tracking of selected MARS output & Turn-by-turn ring tracking & Returned sample, the denominator of the 43\% loss; species and weights not documented \\
+    Fixed-tune RFKO (Sec.~\ref{sec:rfko}; Figs.~\ref{fig:rfko1} and~\ref{fig:rfko2}) & Synergia2 with space charge; $\nu_x=9.65$; resonance drive and ramp off; $C_x=0$ and 1; linear-chirp RFKO with randomized sweep phases; $500\,\mathrm{W}$, about $1\,\mu\mathrm{rad}$ kick; circular $20\pi\,\mathrm{mm\,mrad}$ aperture & 30,000 turns; action distributions every 5,000 turns & Whole bunch; particles outside the aperture removed \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{\label{sec:rfko1}Spill regulation with RFKO feedback}
 
 The feed-forward result of Ref.~\cite{mu2e} motivates regulating the fluctuations that remain after the average spill has been flattened. The present feedback test adds an imposed quadrupole ripple and a transverse RFKO kick near the horizontal betatron frequency. It examines the beam response to feedback in the stated simulation case, rather than re-establishing the published tune-ramp and dynamic-bump optimization.
 
-The proposed feedback loop comprises an RFKO kicker, a spill monitor, and a controller. A wall-current monitor in the external beamline supplies the extracted-beam signal used to adjust the kicker amplitude~\cite{wcm}. The simulated control scheme uses a spill signal accumulated over approximately 100 turns, corresponding to about $0.17\,\mathrm{ms}$. This averaging interval and the particle transit-time distribution both contribute to the effective response time. The 100-turn moving window used to display the spill in Fig.~13 of Ref.~\cite{mu2e} is a diagnostic choice and does not, by itself, specify a feedback update rate or monitor transfer function.
+The proposed feedback loop comprises an RFKO kicker, a spill monitor, and a controller. A wall-current monitor in the external beamline supplies the extracted-beam signal used to adjust the kicker amplitude~\cite{wcm}. The simulated control scheme uses a spill signal accumulated over approximately 100 turns, corresponding to about $0.17\,\mathrm{ms}$. This averaging interval and the particle transit-time distribution both contribute to the effective response time. Section~\ref{sec:cases} distinguishes it from other intervals of similar length.
 
 The RFKO center frequency follows the betatron frequency associated with the ramped machine tune. Frequency modulation broadens the excitation to cover the chromatic tune spread. In the extraction simulations, the horizontal chromaticity is set to $C_x=d\nu_x/d\delta=1.0$, where $\delta=(p-p_0)/p_0$, using chromaticity-correction sextupoles. The incoherent space-charge tune spread alone need not provide the phase mixing required for efficient emittance growth under dipole excitation~\cite{ipac11}; this distinction is examined further in Sec.~\ref{sec:rfko}.
 
 The excitation uses a linear frequency chirp with a sweep duration of 100 turns. Repeating an identical sweep produces discrete spectral lines. Randomizing the phase at the start of each sweep reduces this periodic structure and broadens the excitation spectrum.
 
-To test the response to a controlled disturbance, a sinusoidal ripple at $60\,\mathrm{Hz}$ is applied to the quadrupole strengths. The fractional modulation is specified as $\pm0.5\%$ about the nominal strengths. It produces pronounced spill modulation, including components at harmonics of the applied ripple frequency.
-% AUTHOR CHECK: the original draft also called this value "peak-to-peak".
-% Confirm whether the simulation used a 0.5% amplitude or a 0.5% peak-to-peak ripple.
+To test the response to a controlled disturbance, a sinusoidal ripple at $60\,\mathrm{Hz}$ is applied to the quadrupole strengths. The original simulation description gives its size as a ``$\pm0.5\%$ peak-to-peak'' variation of the nominal strengths, which does not establish whether 0.5\% is the amplitude or the full peak-to-peak excursion. The ripple produces pronounced spill modulation, including components at harmonics of the applied ripple frequency.
+% AUTHOR CHECK: amplitude vs peak-to-peak; which quadrupoles were modulated and their
+% relative phases. See also Task 11 on the visible modulation period in Fig. fig9.
 
 \begin{figure}[pos=!tbp]
   \centering
@@ -230,7 +254,7 @@ The reduced model retains horizontal resonance dynamics but omits space charge a
 
 \subsection{\label{sec:arrival}Transit-time distributions}
 
-The transit time is the interval between a particle becoming unstable and reaching the septum field region~\cite{pullia}. In the diagnostic used here, elapsed time is measured from an imposed tune step. The resulting response includes particles already in transit as well as particles made unstable by the step, unless these populations are explicitly separated.
+The transit time is the interval between a particle becoming unstable and reaching the septum field region~\cite{pullia}. In the diagnostic used here, elapsed time is measured from an imposed tune step. According to the original simulation description, transit times are recorded for the particles in the narrow phase-space shell released by the step. The criterion used to identify these particles is not documented, so particles already in transit before the step may also contribute.
 
 Analytical treatments based on the Kobayashi Hamiltonian describe transit times for fixed or slowly varying resonance conditions~\cite{pullia}. Near an unstable fixed point, the phase-space velocity becomes small and escape can take many turns. This produces a strong dependence on initial conditions and long transit-time tails. Such behavior reflects slow passage near a hyperbolic point, rather than trapping by a stable fixed point.
 
@@ -245,7 +269,7 @@ Analytical treatments based on the Kobayashi Hamiltonian describe transit times 
   \caption{\label{fig:arrival1}Tune-step diagnostic at early (top), middle (center), and late (bottom) stages of extraction. Panel (a) shows the circulating-beam fraction and panel (b) the normalized spill intensity. Blue curves use the uninterrupted ramp; red curves use the paused-and-restored ramp. Purple vertical lines mark restoration of the quadrupole strengths to the values of the uninterrupted ramp at that turn.}
 \end{figure}
 
-The Synergia2 calculation starts with $5\times10^5$ macroparticles and the parameters in Table~\ref{table:param}. At a selected turn, the tune-quadrupole ramp is paused for approximately 300 turns, or about 1\% of the spill duration. The strengths are then stepped to the values that the uninterrupted ramp would have reached at that turn and held for a further observation interval of approximately 500 turns. The step reduces the stable region and releases a population near its boundary. This deliberately perturbed ramp differs from the uninterrupted 200-turn-segment feed-forward ramp studied in Ref.~\cite{mu2e}. The procedure probes the extraction response to a finite tune change; it is not a measurement of the feedback-loop transfer function.
+The Synergia2 calculation starts with $5\times10^5$ macroparticles, the parameters in Table~\ref{table:param}, and a tune-quadrupole ramp described as optimized for a uniform spill. At a selected turn, the ramp is paused for approximately 300 turns, or about 1\% of the spill duration. The strengths are then stepped to the values that the uninterrupted ramp would have reached at that turn and held for a further observation interval of approximately 500 turns. The step reduces the stable region and releases a population near its boundary. Whether the uninterrupted reference ramp is identical to the published 200-turn-segment ramp of Ref.~\cite{mu2e} is not documented. The procedure probes the extraction response to a finite tune change; it is not a measurement of the feedback-loop transfer function.
 
 The pauses begin at turns 2,000, 15,000, and 25,000, representing early, middle, and late extraction. The changing separatrix size and its distance from the septum can affect transit times. Using the same initial macroparticle population at the three stages allows these trends to be compared, although the number of particles contributing to each distribution differs and no statistical-convergence study is presented.
 
@@ -330,9 +354,9 @@ The tune-quadrupole ramp drives the principal extraction process, while RFKO pro
 
 Earlier simulations found effective excitation when the RFKO center frequency follows the machine tune and the modulation bandwidth is comparable to the chromatic tune spread~\cite{ipac11}. Dipole excitation can drive coherent motion without a corresponding increase in emittance about the beam centroid. A spread in betatron frequencies promotes phase mixing, allowing the excitation to increase the internal phase-space area. An incoherent space-charge tune spread does not necessarily provide the same mixing mechanism as chromaticity.
 
-Unlike the extraction baseline in Ref.~\cite{mu2e}, the horizontal machine tune is fixed at 9.65, and the resonance drive and tune ramp are disabled. The model includes space charge and uses a circular transverse aperture, specified in the original simulation as a $20\pi\,\mathrm{mm\,mrad}$ acceptance, to remove particles outside the accepted region. This diagnostic acceptance is not identified with the $35\pi\,\mathrm{mm\,mrad}$ normalized machine acceptance of Ref.~\cite{mu2e}. A linear chirp with randomized sweep phases supplies the RFKO excitation. Two horizontal chromaticities, $C_x=0$ and $C_x=1$, are compared. The assumed RFKO power is $500\,\mathrm{W}$, corresponding in the modeled kicker to an approximately $1\,\mu\mathrm{rad}$ horizontal kick.
-% AUTHOR CHECK: supply the acceptance/action convention, chirp bandwidth in
-% each case (including C_x=0), and kicker calibration from the simulation inputs.
+Unlike the extraction baseline in Ref.~\cite{mu2e}, the horizontal machine tune is fixed at 9.65, and the resonance drive and tune ramp are disabled. The model includes space charge. A circular transverse aperture, specified as a $20\pi\,\mathrm{mm\,mrad}$ acceptance whose normalization is discussed in Sec.~\ref{sec:baseline}, removes particles outside the accepted region. A linear chirp with randomized sweep phases supplies the RFKO excitation; its spectrum is described as covering the betatron tune spread of the beam. Two horizontal chromaticities, $C_x=0$ and $C_x=1$, are compared. The assumed RFKO power is $500\,\mathrm{W}$, corresponding in the modeled kicker to an approximately $1\,\mu\mathrm{rad}$ horizontal kick.
+% AUTHOR CHECK: acceptance/action convention; sweep period and numerical bandwidth
+% in each case (including C_x=0); kicker calibration linking 500 W to ~1 microrad.
 
 Figure~\ref{fig:rfko1a} shows little emittance growth at $C_x=0$ and substantially greater growth at $C_x=1$. The centroid trajectories in Fig.~\ref{fig:rfko1b} show the complementary behavior: large coherent excursions at zero chromaticity and motion concentrated near the origin at nonzero chromaticity. These results are consistent with chromatic phase mixing converting the driven response into increased internal beam spread. They do not imply that the RFKO force is absent or decoupled from the particles at zero chromaticity.
 

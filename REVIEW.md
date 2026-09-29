@@ -41,6 +41,33 @@ Main findings requiring author input:
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
 
+## Task 03 completed: methods and configurations
+
+Completed 2026-09-29 using the existing manuscript, the reference draft `beamstudy.tex`, the companion draft `modeling.tex`, and `PRIOR_WORK_COMPARISON.md`. No simulation was run.
+
+- Split Sec. 2 into two subsections: "Shared parameters and published settings" (`sec:baseline`) and "Simulation cases" (`sec:cases`). The first attributes the published 100-turn sextupole turn-on, 200-turn ramp segments, and Hockney solver settings to Ref. [2] only. It states that the solver settings, lattice version, and ramp/bump reuse of the present cases are not documented.
+- Rewrote the Table 1 caption. The nominal values come from the original description of the present simulations (the `beamstudy.tex` table) and match those reported in Ref. [2]. The injected-beam emittance is identified as distinct from both acceptances.
+- Revised Table 2 into configuration and population differences. Rows were added for ramp/bumps and space charge (published versus not documented). The mixed "Time intervals" and "RFKO test dynamics" rows were moved to the new case table and to the text. The 50 versus 100 µm foils and the 20π versus 35π mm mrad acceptances are kept, with the acceptance normalization marked as not documented.
+- Added Table 3 (`table:cases`), which defines five cases: ripple and feedback, tune step, reduced model, septum scattering, and fixed-tune RFKO. Each row gives the model, the stated configuration, the time structure, and the sample/endpoint. Its caption says that unlisted settings are undocumented and not inferred from Ref. [2].
+- Added a paragraph separating the intervals of about 100 turns (published sextupole turn-on and display window, feedback accumulation, chirp sweep) from each other and from the controller update interval, which is undocumented. The same paragraph separates the 200-turn ramp segments from the 300/500-turn tune-step protocol. A redundant display-window sentence was removed from Sec. 3.
+- Ripple: the text now quotes the original "±0.5% peak-to-peak" wording and states that amplitude versus peak-to-peak is not established. No value was changed.
+- Tune step: from `beamstudy.tex`, the manuscript now states that transit times were recorded for particles in the narrow shell released by the step, and that the reference ramp is described as optimized. Because the selection criterion is undocumented, particles already in transit may contribute. Identity with the published ramp file is stated as undocumented.
+- Fixed-tune RFKO: the chirp spectrum is described as covering the betatron tune spread, as the original states. The acceptance caveat now points to Sec. 2.1 instead of being repeated. `AUTHOR CHECK` comments were condensed.
+
+### Case metadata status
+
+| Case | Documented in existing records | Not documented (author input needed) |
+| --- | --- | --- |
+| Ripple and feedback | Synergia2 extraction with ramp; C_x = 1; linear chirp, 100-turn sweeps, random phase per sweep; 60 Hz ripple "±0.5% peak-to-peak"; about 100-turn spill accumulation; PD control with time-dependent P gain and constant D gain | Ripple amplitude convention, modulated quadrupoles and phases; gain values/schedule, derivative filter, update interval, latency, limits; spill normalization; space-charge settings; macroparticle count; visible modulation period (Task 11) |
+| Tune step | 5×10^5 macroparticles; optimized ramp; pauses at 2,000/15,000/25,000 for about 300 turns; restoration then about 500-turn hold; transit times for the shell released by the step | Exact restoration values; selection criterion; per-stage particle counts; extraction criterion; identity with the published ramp file; solver settings |
+| Reduced model | RK4 on Eq. (6); output every three turns; no space charge; effective sextupole strength at the restored settings (tune step) | Integration step; coefficient values and phase convention; Twiss parameters at the observation point; initial conditions for Fig. 6 |
+| Septum scattering | Synergia2 ESS1 aperture (head hits and plane crossings); MARS ESS1→C-magnet with 50 µm foils; Synergia2 ring tracking of MARS output; coordinates referred back to ESS1 for display; added circulating reference particles | MARS version/physics settings; species selected; particle count and weights; coordinate transform; tracking duration; loss/extraction criteria; whether reference particles enter the 43% |
+| Fixed-tune RFKO | ν_x = 9.65; resonance drive and ramp off; space charge included; C_x = 0 and 1; linear chirp with random phases, spectrum covering the tune spread; 500 W, about 1 µrad; circular 20π mm mrad aperture; 30,000 turns | Acceptance and emittance conventions; sweep period and numerical bandwidth per case; kicker calibration; seed policy; macroparticle count |
+
+These gaps are already covered by the High and Medium rows of "Author/data checks before submission"; this table assigns them to cases. Where a detail is missing, the manuscript now narrows the claim instead of requiring a new run.
+
+Validation: `latexmk` with pdfLaTeX and BibTeX succeeded (17 pages; previously 16, because of Table 3). All 40 labels are unique, and every `\ref`/`\eqref` target and citation resolves. The only box warning is the known 117.0831 pt CAS keyword overlay; a 7.9 pt overflow in the first draft of Table 3 was fixed by narrowing its columns. BibTeX reports only the two known missing-year warnings (`pimms`, `wcm`). All 17 pages were rendered and inspected. All 22 image files, both reference drafts, and `beamstudy-mod.bib` keep their pre-edit SHA-256 hashes. No simulations, figure edits, staging, commits, or pushes.
+
 ## Task 02 completed: contribution and narrative
 
 Completed 2026-09-29 using the existing results and figures only.

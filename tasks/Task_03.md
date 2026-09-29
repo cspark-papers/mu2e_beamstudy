@@ -1,6 +1,6 @@
 # Task 03 — Make methods and configurations explicit
 
-Status: Todo  
+Status: Done  
 Priority: P1  
 Depends on: Task 02
 
@@ -25,11 +25,11 @@ Common machine parameters, prior solver settings, and the individual present cal
 
 ## Acceptance criteria
 
-- [ ] Each present case can be identified without assuming it shares every published setting.
-- [ ] Known values, prior-only values, and unresolved metadata are clearly distinguished.
-- [ ] Ripple amplitude retains its documented ambiguity until source evidence resolves it.
-- [ ] No invented controller law, solver version, bandwidth, particle weight, or convergence claim.
-- [ ] Missing details lead to bounded interpretation, not a new-simulation task.
+- [x] Each present case can be identified without assuming it shares every published setting.
+- [x] Known values, prior-only values, and unresolved metadata are clearly distinguished.
+- [x] Ripple amplitude retains its documented ambiguity until source evidence resolves it.
+- [x] No invented controller law, solver version, bandwidth, particle weight, or convergence claim.
+- [x] Missing details lead to bounded interpretation, not a new-simulation task.
 
 ## If evidence is unavailable
 
@@ -37,4 +37,11 @@ Use the original stated setting with explicit scope, or state that the detail is
 
 ## Completion record
 
-Pending. Record changed sections, checks performed, and unresolved author questions here before marking Done.
+Completed: 2026-09-29.
+
+- Split `sec:scope` into `sec:baseline` (shared parameters; settings documented only for Ref. [2]) and `sec:cases`. Rewrote the Table 1 caption and revised Table 2 into configuration and population differences, adding space-charge and ramp/bump rows marked as not documented for the present cases.
+- Added Table 3 (`table:cases`) defining the five cases by model/configuration, time structure, and sample/endpoint, using only stated settings.
+- Added a paragraph separating the intervals of about 100 turns (turn-on, display window, feedback accumulation, chirp sweep) from each other, from the undocumented controller update, and from the 200-turn segments and 300/500-turn tune-step protocol.
+- Kept the ripple amplitude ambiguous by quoting the original wording. Added the documented tune-step shell selection and the optimized-ramp description from `beamstudy.tex`, and the documented chirp-spectrum description for the fixed-tune test. Condensed the `AUTHOR CHECK` comments.
+- Listed the missing metadata once, by case, in REVIEW ("Case metadata status").
+- Build succeeded (17 pages); labels are unique, all references and citations resolve, the only box warning is the known CAS keyword overlay, and all pages were inspected. Image files, reference drafts, and the bibliography are unchanged.

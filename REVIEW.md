@@ -26,6 +26,21 @@ This instruction supersedes the action requests below to repeat tracking, perfor
 
 The task-plan update changes documentation only. No TeX, figures, reference drafts, or simulation results were changed, and no simulation or manuscript build was run for this documentation update. Journal-specific requirements and essential unresolved author metadata remain submission considerations even when all feasible editorial tasks are complete.
 
+## Manuscript review and additional tasks (2026-09-29)
+
+At the author's request, the current source was reviewed beyond the scope of Tasks 02–10. It was built to 16 pages in a temporary directory, and every page and all 14 referenced image files were inspected at native resolution. Seven new tasks (11–17) record the findings. No TeX, figure, or bibliography file was changed by this review.
+
+Main findings requiring author input:
+
+- **Ripple frequency (Task 11).** The dominant modulation in the middle panel of `img/fig9.png` repeats about every 1,600 turns (about 2.7 ms, of order 360 Hz), whereas the text specifies a 60 Hz sinusoid with a period of about 9,800 turns. The plot also covers only about 20,000 of the 31,795 turns. Confirm the ripple frequency, waveform, and run length.
+- **Transit-time description (Task 11).** Fig. 3 shows transit times rising toward x = 0, with the longest times on the far side of the unstable-fixed-point line. This contradicts the text's "increasing times … nearer the unstable fixed point." The transit axis stops at 250 turns, against a stated 500-turn observation interval, and the tune-step traces extend about 1,000 turns past restoration.
+- **Unexplained plot elements (Task 11).** The red circle and orange lines in Figs. 5(a) and 6, the loss-map markers and axes in Fig. 5(b), and the hatted centroid coordinates in Fig. 7(b) are undefined.
+- **Beam parameters (Task 12).** Bρ = 29.650 T m corresponds to p = 8.889 GeV/c (8 GeV kinetic energy), not the tabulated 8.886 GeV/c, which gives 29.641 T m. For 20π mm mrad normalized 95% emittance, the expected rms geometric emittance is about 0.35π mm mrad, whereas Fig. 7(a) starts near 0.28. A normalized 20π acceptance (about 2.1π geometric) is incompatible with the rms emittance of about 2.75π reached at C_x = 1, so the acceptance or emittance convention needs confirmation.
+- **Structure, literature, and prose (Tasks 13–15).** The two RFKO sections are separated by the tracking section, and the paper has no discussion section. Related work beyond the author's prior article is thin, with 5 of 14 references internal. The source contains about 30 hedging constructions that repeat the same scope limits.
+- **Documentation and front matter (Tasks 16–17).** README still describes an inline `thebibliography`, contrary to the earlier statement in this file that it was updated for BibTeX. The `pimms` and `wcm` entries each merge two documents. `\floatpagepagefraction` has no effect. The running head no longer matches the title, and the contents block is unsuitable for submission.
+
+The visual readings above are review evidence for author questions only. They are not results for the manuscript.
+
 ## Task 02 completed: contribution and narrative
 
 Completed 2026-09-29 using the existing results and figures only.

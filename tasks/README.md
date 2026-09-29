@@ -1,6 +1,6 @@
 # Manuscript improvement tasks
 
-Created: 2026-09-29. Status: Task 02 completed; Tasks 03–10 remain planned.
+Created: 2026-09-29. Status: Task 02 completed; Tasks 03–17 remain planned. Tasks 11–17 were added on 2026-09-29 after a manuscript review.
 
 ## Objective and boundaries
 
@@ -15,7 +15,7 @@ Improve the journal submission quality of `beamstudy-mod.tex` using the existing
 
 ## Ordered backlog
 
-Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. Task 02 is **Done**; Tasks 03–10 are **Todo**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
+Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. Task 02 is **Done**; Tasks 03–17 are **Todo**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
 
 | Task | Status | Priority | Deliverable | Depends on |
 | --- | --- | --- | --- | --- |
@@ -27,9 +27,16 @@ Priority P1 means scientific interpretation and narrative; P2 means presentation
 | [07 — Scattering interpretation](Task_07.md) | Todo | P1 | Transparent handoff and conditional-loss discussion | 03, 04 |
 | [08 — Existing figures and captions](Task_08.md) | Todo | P2 | Self-contained captions and readable layout with unchanged images | 05, 06, 07 |
 | [09 — References and submission metadata](Task_09.md) | Todo | P2 | Verified attribution and a short author-only checklist | 02, 03 |
-| [10 — Final editorial and document checks](Task_10.md) | Todo | P2 | Compiled, visually inspected revision and readiness report | 02–09 |
+| [11 — Figure–text discrepancies](Task_11.md) | Todo | P1 | Text and captions that match the plotted content; open questions for undocumented plot elements | 03, 04 |
+| [12 — Numerical and unit consistency](Task_12.md) | Todo | P1 | Cross-checked table values, emittance/acceptance conventions, consistent units | 03 |
+| [13 — Structure and synthesis discussion](Task_13.md) | Todo | P1 | RFKO studies placed together, specific headings, a Discussion built from existing results | 05, 06, 07, 11 |
+| [14 — Literature positioning](Task_14.md) | Todo | P1 | Verified related-work context beyond the prior article | 02 |
+| [15 — Limitations and prose economy](Task_15.md) | Todo | P2 | Each scope limit stated once in full; concise results paragraphs | 13 |
+| [16 — Submission front matter](Task_16.md) | Todo | P2 | Running head, contents decision, highlights, declaration checklist | 09, 13 |
+| [17 — Build, bibliography structure, docs](Task_17.md) | Todo | P2 | README/REVIEW match the BibTeX build; merged bib entries split | None |
+| [10 — Final editorial and document checks](Task_10.md) | Todo | P2 | Compiled, visually inspected revision and readiness report | 02–09, 11–17 |
 
-Tasks 05–07 cover separate results sections; their order may change. Revisit the abstract and conclusion after those sections are settled. Every task has a fallback for unavailable evidence so editorial progress does not depend on new simulations.
+Tasks 05–07 cover separate results sections; their order may change. Task 11 supplies specific findings to Tasks 05–08, and Task 10 remains the final pass after Tasks 11–17. Revisit the abstract and conclusion after those sections are settled. Every task has a fallback for unavailable evidence so editorial progress does not depend on new simulations.
 
 ## Execution and completion
 

@@ -2,7 +2,7 @@
 
 Status: Todo  
 Priority: P2  
-Depends on: Tasks 02–09
+Depends on: Tasks 02–09 and 11–17
 
 ## Scope
 

@@ -19,6 +19,8 @@
 
 \begin{document}
 \let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
 
 \shorttitle{Particle dynamics during slow resonant extraction}
 \shortauthors{C.S. Park}
@@ -55,7 +57,11 @@ Mu2e \sep Resonant extraction \sep Spill regulation \sep Beam dynamics \sep Radi
 \maketitle
 \hypersetup{pdfauthor={Chong Shik Park}}
 
-% Review layout: retain line numbers and double spacing for editorial review.
+% Match the companion manuscript's contents and review layout.
+\setcounter{tocdepth}{10}
+\tableofcontents
+
+\clearpage
 \doublespacing
 \linenumbers
 
@@ -360,54 +366,8 @@ The evidence remains specific to the stated cases: it does not provide a quantit
 This work was supported by the United States Department of Energy under contract DE-AC02-07CH11359 and the ComPASS project funded through the Scientific Discovery through Advanced Computing program in the DOE Office of High Energy Physics.
 
 
-\clearpage
-\begin{thebibliography}{99}
-
-\bibitem{tdr}
-L. Bartoszek et al. (Mu2e Collaboration), ``Mu2e Technical Design Report,'' FERMILAB-TM-2594 (2014), \href{https://arxiv.org/abs/1501.05241}{arXiv:1501.05241}.
-
-\bibitem{mu2e}
-C.S. Park, ``Tracking simulation of third-integer resonant extraction for Fermilab's Mu2e experiment,'' Nuclear Engineering and Technology \textbf{58} (2026) 104097, \href{https://doi.org/10.1016/j.net.2025.104097}{doi:10.1016/j.net.2025.104097}.
-
-\bibitem{hardt}
-  W. Hardt, ``Ultraslow Extraction out of LEAR,'' CERN Internal Note PS/DL/LEAR Note 81-6, 1981.
-
-\bibitem{pullia}
-M. Pullia, ``Detailed dynamics of slow extraction and its influence on transfer line design,'' Ph.D. thesis, Universit\'e Claude Bernard Lyon 1 (1999).
-
-\bibitem{pimms}
-PIMMS Study Group, ``Proton-Ion Medical Machine Study (PIMMS),'' Part I, CERN/PS 99-010 (DI) (1999); Part II, CERN/PS 2000-007 (DR) (2000).
-
-\bibitem{HB10}
-  V. Nagaslaev, J. Amundson, J. Johnstone, L. Michelotti, C.S. Park, S. Werkema, and M. Syphers, ``Third Integer Resonance Slow Extraction Scheme for a $\mu\to e$ Experiment at Fermilab,'' FERMILAB-CONF-10-395-AD (2010), contribution to HB2010.
-
-\bibitem{ipac11}
-V. Nagaslaev, J. Amundson, J. Johnstone, C.S. Park, and S. Werkema, ``Third Integer Resonance Slow Extraction Using RFKO at High Space Charge,'' in Proceedings of IPAC2011, San Sebasti\'an, Spain (2011), pp. 3559--3561, paper THPS058.
-
-\bibitem{mars1}
-N. Mokhov, V. Nagaslaev, and I. Rakhno, ``MARS Simulations for the Mu2e Delivery Ring Extraction Channel,'' Mu2e Document 3697-v1, Fermilab (2010), internal report.
-% Metadata follows Ref. mu2e, bibliography item 19; original DocDB report not inspected.
-
-\bibitem{mars2}
-  N.V. Mokhov, ``Recent Mars15 Developments: Nuclide Inventory, DPA and Gas Production,'' Fermilab-Conf-10-518-APC (2010).
-
-\bibitem{synergia2}
-  J. Amundson, P. Spentzouris, J. Qiang, and R. Ryne, ``Synergia: An accelerator modeling tool with 3-D space charge,'' Journal of Computational Physics \textbf{211} (2006) 229--248, \href{https://doi.org/10.1016/j.jcp.2005.05.024}{doi:10.1016/j.jcp.2005.05.024}.
-
-\bibitem{wcm}
-  P. Prieto, ``Wall Current Monitor for fast Spill Measurement,'' Mu2e Document 3627-v4; ``RFKO regulation for the Mu2e Resonant Extraction,'' Mu2e Document 3625-v1 (internal reports).
-% Bibliographic details recovered from modeling.tex; author verification needed.
-
-\bibitem{pid}
-  T. Himel, ``Feedback: Theory and Accelerator Applications,'' SLAC-PUB-7398 (1997).
-
-\bibitem{preliminary}
-L. Michelotti and J. Johnstone, ``Preliminaries toward studying resonant extraction from the Debuncher,'' FERMILAB-FN-0842-APC-CD (2009; revised 2010), \href{https://doi.org/10.2172/966797}{doi:10.2172/966797}.
-
-\bibitem{kobayashi}
-  Y. Kobayashi, H. Takahashi, ``Improvement of the Emittance in the Resonant Ejection,'' Proceedings of 6th Int. Conf. on High Energy Accelerators, Cambridge, Massachusetts, (1967), p347-51.
-
-\end{thebibliography}
+\bibliographystyle{elsarticle-num}
+\bibliography{beamstudy-mod}
 
 
 \end{document}

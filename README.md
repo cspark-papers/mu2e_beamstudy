@@ -7,6 +7,7 @@ This repository contains a journal manuscript on particle dynamics during third-
 | Path | Purpose |
 | --- | --- |
 | `beamstudy-mod.tex` | Active submission manuscript using Elsevier's `cas-sc` class. |
+| `beamstudy-mod.bib` | Active manuscript references, formatted with `elsarticle-num`. |
 | `img/` | Existing PNG figure assets, including figures retained from earlier drafts. |
 | `beamstudy.tex` | Reference draft; not automatically synchronized with the active manuscript. |
 | `modeling.tex` | Companion/reference draft; also contains provenance for internal report citations. |
@@ -16,11 +17,11 @@ This repository contains a journal manuscript on particle dynamics during third-
 | `AGENTS.md` | Editing, validation, and version-control instructions. |
 | `.gitignore` | Excludes generated LaTeX products. |
 
-The active source contains its own `thebibliography`; a separate BibTeX run is not required. The repository does not contain the lattice/input decks, original particle samples, controller code, or plotting scripts needed to reproduce the simulations. Compiling this repository reproduces the manuscript, not the scientific calculations.
+The active source uses `beamstudy-mod.bib` and the `elsarticle-num` bibliography style, matching the companion manuscript `../mu2e_modeling-submission/mu2e_modeling.tex`. `latexmk` runs BibTeX automatically. The repository does not contain the lattice/input decks, original particle samples, controller code, or plotting scripts needed to reproduce the simulations. Compiling this repository reproduces the manuscript, not the scientific calculations.
 
 ## Build
 
-Use a TeX distribution providing `pdflatex`, `latexmk`, the Elsevier `cas-sc` class (`els-cas-templates`), and the packages declared in the manuscript. The existing `subfigure` package is retained for compatibility. No package installation is needed when these dependencies are already available.
+Use a TeX distribution providing `pdflatex`, `bibtex`, `latexmk`, the Elsevier `cas-sc` class (`els-cas-templates`), the `elsarticle-num.bst` style, and the packages declared in the manuscript. The existing `subfigure` package is retained for compatibility. No package installation is needed when these dependencies are already available.
 
 Run from the repository root. This example keeps generated files in a new temporary directory:
 
@@ -30,7 +31,16 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error \
   -outdir="$build_dir" beamstudy-mod.tex
 ```
 
-The resulting PDF is `$build_dir/beamstudy-mod.pdf`. If `latexmk` is unavailable, run `pdflatex` twice with the same output directory, then inspect the log for unresolved references. Retain the build directory until the PDF has been reviewed.
+The resulting PDF is `$build_dir/beamstudy-mod.pdf`. If `latexmk` is unavailable, use the following sequence from the repository root:
+
+```bash
+pdflatex -interaction=nonstopmode -halt-on-error -output-directory="$build_dir" beamstudy-mod.tex
+bibtex "$build_dir/beamstudy-mod"
+pdflatex -interaction=nonstopmode -halt-on-error -output-directory="$build_dir" beamstudy-mod.tex
+pdflatex -interaction=nonstopmode -halt-on-error -output-directory="$build_dir" beamstudy-mod.tex
+```
+
+Inspect the final log for unresolved references. Retain the build directory until the PDF has been reviewed.
 
 For optional visual verification with Poppler:
 
@@ -38,7 +48,7 @@ For optional visual verification with Poppler:
 pdftoppm -r 120 -png "$build_dir/beamstudy-mod.pdf" "$build_dir/page"
 ```
 
-Check for undefined citations/references, overfull boxes, clipped content, illegible figure text, and misplaced captions. The checked-in source uses a single-column review layout with double spacing and line numbers. Adapt journal-specific formatting only after the target journal is confirmed.
+Check for undefined citations/references, overfull boxes, clipped content, illegible figure text, and misplaced captions. The checked-in source follows the companion manuscript's A4 single-column review layout: title/abstract/keywords followed by contents, a page break before the main text, double spacing, line numbers, and numbered `elsarticle-num` references. This author-requested format match does not establish compliance with a target journal's current submission rules. BibTeX reports empty-year warnings for the combined PIMMS entry (the two part-specific years remain in its text) and the undated internal monitor reports; no dates have been invented.
 
 ## Submission status
 

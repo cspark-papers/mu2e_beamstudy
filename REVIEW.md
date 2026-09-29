@@ -4,6 +4,20 @@ Reviewed: 2026-09-29. Active source: `beamstudy-mod.tex`.
 
 This is a substantive editorial and internal-consistency revision, not a rerun of the simulations. The supplied figures and reported numerical results are preserved. The manuscript is improved but still requires the author/data checks below before journal submission.
 
+## Companion-manuscript format conversion
+
+Completed 2026-09-29 at the author's request, using `../mu2e_modeling-submission/mu2e_modeling.tex` as the formatting reference.
+
+- Retained the shared `cas-sc` class with `a4paper,fleqn`, numerical `natbib` citations, first-paragraph indentation, double spacing, line numbers, and CAS title/affiliation/abstract/keyword styling.
+- Matched the companion's float-fraction definitions and restored its contents block (`tocdepth=10`) followed by a page break before the main text. This supersedes the earlier decision to omit the contents for this requested format conversion.
+- Moved the existing 14 bibliography entries into `beamstudy-mod.bib` and selected the companion's `elsarticle-num` style. Removed the forced page break before references to match the companion's continuous end matter. Citation keys, cited sources, known dates, report identifiers, and existing provenance caveats are retained; no fresh bibliographic verification or scientific revision was performed. The paired PIMMS parts and paired internal monitor reports remain grouped under their original keys.
+- Kept the corrected email field, institution spelling, PDF-author metadata, and suppression of the empty ORCID footnote. Unused packages and revision-colored text in the companion were not needed for its layout.
+- Updated README dependencies and build instructions for BibTeX. This formatting pass does not complete editorial Tasks 03–10 or select a target journal.
+
+Validation: `latexmk` with pdfLaTeX and BibTeX completed successfully from the repository root. The 16-page PDF was rendered and visually inspected, including contents, equations, both tables, all eight figures, captions, and references. All 37 labels are unique and all reference/citation keys resolve. The only final LaTeX box warning is the previously documented 117.0831 pt CAS keyword-overlay warning; the title page has no visible overflow. BibTeX reports missing-year warnings for the combined PIMMS entry (1999 and 2000 remain attached to their respective parts) and the internal monitor reports (dates remain unknown). These are retained metadata limitations, not unresolved citations.
+
+The manuscript body from Introduction through Acknowledgments, including all equations, tables, captions, and figure declarations, is byte-identical to the pre-conversion source. All 22 image files, both reference drafts, and the companion TeX source retain their pre-edit hashes. No simulations, new results, figure edits, staging, commits, or pushes were performed. Build files, rendered pages, and the review PDF are outside the tracked source tree in `/private/tmp/mu2e-format-3l7y9cgf/`.
+
 ## Current author-directed scope and task backlog
 
 On 2026-09-29, the author requested a task plan to improve journal submission quality using the existing figures and without new simulations. `tasks/README.md` and Tasks 02–10 now define that editorial work. The original Task 01 is preserved. Task 02 is now complete; Tasks 03–10 remain planned. The completion record below distinguishes the executed revision from the initial task-plan update.

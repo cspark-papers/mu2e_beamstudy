@@ -19,6 +19,7 @@ Priority P1 means scientific interpretation and narrative; P2 means presentation
 
 | Task | Status | Priority | Deliverable | Depends on |
 | --- | --- | --- | --- | --- |
+| [01 — Original request and repository setup](Task_01.md) | Reference | — | Original manuscript-improvement request, direct TeX editing authorization, repository guidance, and commit-message format | None |
 | [02 — Contribution and narrative](Task_02.md) | Done | P1 | Clear problem, contribution, abstract, introduction, and conclusion | None |
 | [03 — Methods and configuration](Task_03.md) | Done | P1 | Concise case definitions with known/unknown settings distinguished | 02 |
 | [04 — Theory and notation](Task_04.md) | Done | P1 | Consistent equations, coordinates, units, and model scope | 03 |
@@ -27,7 +28,7 @@ Priority P1 means scientific interpretation and narrative; P2 means presentation
 | [07 — Scattering interpretation](Task_07.md) | Todo | P1 | Transparent handoff and conditional-loss discussion | 03, 04 |
 | [08 — Existing figures and captions](Task_08.md) | Todo | P2 | Self-contained captions and readable layout with unchanged images | 05, 06, 07 |
 | [09 — References and submission metadata](Task_09.md) | Todo | P2 | Verified attribution and a short author-only checklist | 02, 03 |
-| [11 — Figure–text discrepancies](Task_11.md) | Todo | P1 | Text and captions that match the plotted content; open questions for undocumented plot elements | 03, 04 |
+| [11 — Figure–text discrepancies](Task_11.md) | In progress | P1 | Text and captions that match the plotted content; open questions for undocumented plot elements | 03, 04 |
 | [12 — Numerical and unit consistency](Task_12.md) | Todo | P1 | Cross-checked table values, emittance/acceptance conventions, consistent units | 03 |
 | [13 — Structure and synthesis discussion](Task_13.md) | Todo | P1 | RFKO studies placed together, specific headings, a Discussion built from existing results | 05, 06, 07, 11 |
 | [14 — Literature positioning](Task_14.md) | Todo | P1 | Verified related-work context beyond the prior article | 02 |

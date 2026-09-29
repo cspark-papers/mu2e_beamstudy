@@ -1,6 +1,6 @@
 # Task 04 — Polish theory, notation, and dimensional consistency
 
-Status: Todo  
+Status: Done  
 Priority: P1  
 Depends on: Task 03
 
@@ -25,11 +25,11 @@ The corrected Hamiltonian and phase conventions need a readable, internally cons
 
 ## Acceptance criteria
 
-- [ ] Equations are internally consistent and all symbols used in the interpretation are defined.
-- [ ] The turn/time conversion is consistent with the tabulated beam and ring values.
-- [ ] Hamiltonian consistency is not described as validation of historical simulation code.
-- [ ] Original plot axes are preserved and their known coordinate conventions are explained.
-- [ ] No new trajectory, analytic performance prediction, or figure is generated.
+- [x] Equations are internally consistent and all symbols used in the interpretation are defined.
+- [x] The turn/time conversion is consistent with the tabulated beam and ring values.
+- [x] Hamiltonian consistency is not described as validation of historical simulation code.
+- [x] Original plot axes are preserved and their known coordinate conventions are explained.
+- [x] No new trajectory, analytic performance prediction, or figure is generated.
 
 ## If evidence is unavailable
 
@@ -37,4 +37,10 @@ Leave diagnostic normalization explicitly unresolved where necessary and use qua
 
 ## Completion record
 
-Pending. Record changed sections, checks performed, and unresolved author questions here before marking Done.
+Completed: 2026-09-29.
+
+- Rewrote `sec:model`. It now states the independent variable θ = 2πn required by the ×6π scaling, defines every symbol and its units at first use, adds the complex and real forms of Hamilton's equations, and warns that Kobayashi's ε is not an emittance.
+- Added an action–emittance paragraph covering rms/normalized/95% conventions and centroid versus reference orbit, and a new Eq. (6) (`eqn:fixedpoints`) for the unstable fixed points and straight-line separatrix.
+- Explained the plot conventions in the Fig. 3, 5, 7, and 8 captions and in the Sec. 5 text without editing any axes.
+- Re-verified the printed algebra numerically (residuals ≤ 2.3e-13; 7.9e-10 for the finite-difference equations of motion). Build succeeded (17 pages); labels are unique, all references resolve, and the affected pages were inspected. Hashes of images, drafts, and the bibliography are unchanged.
+- Open: the plotted normalizations (Fig. 3 axis, emittance and action diagnostics) and the Twiss parameters at the observation point remain author questions in REVIEW. Evidence for Tasks 11 and 12 is recorded there.

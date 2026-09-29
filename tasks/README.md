@@ -1,6 +1,6 @@
 # Manuscript improvement tasks
 
-Created: 2026-09-29. Status: Tasks 02 and 03 completed; Tasks 04–17 remain planned. Tasks 11–17 were added on 2026-09-29 after a manuscript review.
+Created: 2026-09-29. Status: Tasks 02–04 completed; Tasks 05–17 remain planned. Tasks 11–17 were added on 2026-09-29 after a manuscript review.
 
 ## Objective and boundaries
 
@@ -15,13 +15,13 @@ Improve the journal submission quality of `beamstudy-mod.tex` using the existing
 
 ## Ordered backlog
 
-Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. Tasks 02 and 03 are **Done**; Tasks 04–17 are **Todo**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
+Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. Tasks 02–04 are **Done**; Tasks 05–17 are **Todo**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
 
 | Task | Status | Priority | Deliverable | Depends on |
 | --- | --- | --- | --- | --- |
 | [02 — Contribution and narrative](Task_02.md) | Done | P1 | Clear problem, contribution, abstract, introduction, and conclusion | None |
 | [03 — Methods and configuration](Task_03.md) | Done | P1 | Concise case definitions with known/unknown settings distinguished | 02 |
-| [04 — Theory and notation](Task_04.md) | Todo | P1 | Consistent equations, coordinates, units, and model scope | 03 |
+| [04 — Theory and notation](Task_04.md) | Done | P1 | Consistent equations, coordinates, units, and model scope | 03 |
 | [05 — RFKO interpretation](Task_05.md) | Todo | P1 | Evidence-led feedback and chromaticity discussion | 03, 04 |
 | [06 — Transit-time interpretation](Task_06.md) | Todo | P1 | Precise tune-step protocol and supported comparison | 03, 04 |
 | [07 — Scattering interpretation](Task_07.md) | Todo | P1 | Transparent handoff and conditional-loss discussion | 03, 04 |

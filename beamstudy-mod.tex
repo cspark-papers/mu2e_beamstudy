@@ -193,27 +193,31 @@ Figure~\ref{fig:fig9} shows a qualitative reduction in ripple-driven modulation 
 
 \subsection{\label{sec:model}Reduced resonance model and Kobayashi Hamiltonian}
 
-Let $x$ be the horizontal displacement from the reference orbit, $x'=dx/ds$ the horizontal angle, and $\alpha$ and $\beta$ the horizontal Twiss parameters at the observation point. Define the normalized coordinates
+Let $n$ be the turn number and $\theta=2\pi n$ the corresponding orbital angle, both treated as continuous. Let $x$ be the horizontal displacement from the reference orbit, $x'=dx/ds$ its slope with respect to the path length $s$, and $\alpha$ and $\beta$ the horizontal Twiss parameters at the observation point. The normalized coordinates are
 \begin{equation}
  X=\frac{x}{\sqrt{\beta}},\qquad
  X'=\frac{\alpha x+\beta x'}{\sqrt{\beta}},\qquad
  a=\frac{X+iX'}{\sqrt{2}}.
  \label{eqn:coordinates}
 \end{equation}
-Here $X'$ denotes the normalized momentum coordinate, not $dX/ds$. In the resonance frame, the leading-order third-integer Hamiltonian is~\cite{preliminary}
-\begin{equation}
- H=\Delta\nu\,a^*a-ig a^3+ig^*(a^*)^3+\cdots,
- \label{eqn:hamiltonian1}
-\end{equation}
-where $\Delta\nu=\nu_x-29/3$ and $g$ is the complex resonance-driving coefficient determined by the sextupole strengths and phases. The cubic terms are complex conjugates, so their sum is real. Higher-order terms are neglected in the reduced model.
-
-The corresponding geometric Courant--Snyder action is
+Here $X'$ is the momentum conjugate to $X$, not $dX/ds$. When $x$ and $\beta$ are expressed in consistent length units, $X$ and $X'$ have units of $\sqrt{\mathrm{length}}$. The geometric Courant--Snyder action,
 \begin{equation}
  I_x=a^*a=\frac{X^2+X'^2}{2}
      =\frac{x^2+(\alpha x+\beta x')^2}{2\beta},
  \label{eqn:action}
 \end{equation}
-consistent with the invariant used for the phase-space aperture in Eq.~(6) of Ref.~\cite{mu2e}. The phase of the resonance coefficient must be compared using the same coordinate convention. With $a=\sqrt{I_x}e^{-i\phi_x}$, Eq.~\eqref{eqn:hamiltonian1} has the angle--action form of Eq.~(1) in Ref.~\cite{mu2e} when its coefficient is written as $g_{\mathrm{aa}}=ig$. This phase factor relates the two Hamiltonian expressions; it does not establish the phase convention used in the original tracking implementation.
+has units of length, for example $\mathrm{mm\,mrad}$, and is consistent with the invariant used for the phase-space aperture in Eq.~(6) of Ref.~\cite{mu2e}.
+
+Action and emittance are related but distinct. For a matched distribution centered on the reference orbit, the rms geometric emittance equals the mean action $\langle I_x\rangle$. The normalized emittance is larger by the relativistic factor $p/(m_pc)\simeq9.47$ for the momentum in Table~\ref{table:param}. For a Gaussian distribution, 95\% of the particles satisfy $2I_x\le6\langle I_x\rangle$, which is a common basis for quoting a 95\% emittance. If the centroid oscillates, an emittance computed about the centroid excludes the coherent motion, whereas the mean action about the reference orbit includes it. This distinction underlies the comparison of emittance growth and centroid motion in Sec.~\ref{sec:rfko}.
+
+In a frame rotating with the resonant tune $29/3$, so that a particle exactly on resonance is stationary when observed once per turn, and with $\theta$ as the independent variable, the leading-order third-integer Hamiltonian is~\cite{preliminary}
+\begin{equation}
+ H=\Delta\nu\,a^*a-ig a^3+ig^*(a^*)^3+\cdots.
+ \label{eqn:hamiltonian1}
+\end{equation}
+Here $\nu_x$ is the horizontal betatron tune, $\Delta\nu=\nu_x-29/3$ is its distance from resonance, and $g$ is the complex resonance-driving coefficient, with units of $\mathrm{length}^{-1/2}$, determined by the harmonic-sextupole strengths and phases. The two cubic terms are complex conjugates, so $H$ is real; higher-order terms are neglected. The equations of motion are $da/d\theta=-i\,\partial H/\partial a^*$, equivalent to $dX/d\theta=\partial H/\partial X'$ and $dX'/d\theta=-\partial H/\partial X$.
+
+The phase of the resonance coefficient must be compared using the same coordinate convention. With $a=\sqrt{I_x}e^{-i\phi_x}$, Eq.~\eqref{eqn:hamiltonian1} has the angle--action form of Eq.~(1) in Ref.~\cite{mu2e} when its coefficient is written as $g_{\mathrm{aa}}=ig$. This phase factor relates the two Hamiltonian expressions; it does not establish the phase convention used in the original tracking implementation.
 
 Writing $g=|g|e^{i\Psi}$ and substituting Eq.~\eqref{eqn:coordinates} gives
 \begin{equation}
@@ -224,17 +228,23 @@ Writing $g=|g|e^{i\Psi}$ and substituting Eq.~\eqref{eqn:coordinates} gives
 \end{split}
  \label{eqn:hamiltonian2}
 \end{equation}
-For the separatrix orientation used here, set $\Psi=\pi$. Multiplying Eq.~\eqref{eqn:hamiltonian2} by $6\pi$ gives the three-turn Kobayashi Hamiltonian~\cite{kobayashi},
+The phase $\Psi$ sets the orientation of the separatrix; we use $\Psi=\pi$, for which the $\sin\Psi$ term vanishes. Measuring time in units of three turns with $\tau=n/3=\theta/(6\pi)$ multiplies $H$ by $6\pi$ and gives the Kobayashi Hamiltonian~\cite{kobayashi},
 \begin{equation}
  H_K=\frac{\epsilon}{2}(X^2+X'^2)
        +\frac{S}{4}(3X^2X'-X'^3),
  \label{eqn:kobayashi}
 \end{equation}
-with $\epsilon=6\pi\Delta\nu$ and $S=-12\sqrt{2}\pi|g|$. This sign of $S$ follows from the specified phase $\Psi=\pi$. For the below-resonance setting $\Delta\nu<0$ considered here, it agrees with $12\sqrt{2}\pi|g|\,\mathrm{sgn}(\Delta\nu)$; the latter is not a general definition for a fixed separatrix orientation.
+with $\epsilon=6\pi\Delta\nu$ and $S=-12\sqrt{2}\pi|g|$. The symbol $\epsilon$ follows Kobayashi's notation for the tune distance and is not an emittance. The negative sign of $S$ follows from $\Psi=\pi$. For the below-resonance setting $\Delta\nu<0$ considered here, it agrees with the expression $12\sqrt{2}\pi|g|\,\mathrm{sgn}(\Delta\nu)$, which does not define a fixed separatrix orientation in general.
 
-The quadratic term describes linear motion, which is circular in normalized phase space. Below resonance, this motion is counterclockwise with the present coordinate convention. The cubic term creates a triangular stable region bounded by a separatrix, with hyperbolic unstable fixed points at its vertices. Particles outside the stable region can move along the outgoing branches toward the septum.
+The quadratic term describes rotation in normalized phase space, counterclockwise for $\Delta\nu<0$ in the present convention. The cubic term bounds a triangular stable region around the stable fixed point at the origin. Below resonance, $\epsilon/S=|\Delta\nu|/(2\sqrt{2}|g|)>0$, and the three unstable fixed points are
+\begin{equation}
+ (X,X')=\left(0,\ \frac{4\epsilon}{3S}\right),\qquad
+ \left(\pm\frac{2\epsilon}{\sqrt{3}\,S},\ -\frac{2\epsilon}{3S}\right),
+ \label{eqn:fixedpoints}
+\end{equation}
+all at distance $4\epsilon/(3S)$ from the origin. The separatrix consists of the three straight lines $X'=-2\epsilon/(3S)$ and $X'=4\epsilon/(3S)\pm\sqrt{3}X$, which join these hyperbolic points. Their extensions beyond the vertices are the branches along which unstable particles leave the stable region and move toward the septum. The linear size of the stable region is proportional to $|\Delta\nu|$, so the region shrinks as the tune approaches resonance. The leftmost unstable fixed point, marked in Fig.~\ref{fig:arrival2}, has $X=-2\epsilon/(\sqrt{3}S)$.
 
-Introducing the continuous turn variable $\tau=n/3$, where $n$ is the number of revolutions, Hamilton's equations become
+In terms of $\tau$, Hamilton's equations are
 \begin{equation}
  \begin{split}
   \frac{dX}{d\tau} & = \frac{\partial H_{K}}{\partial X^{\prime}}
@@ -247,7 +257,7 @@ Introducing the continuous turn variable $\tau=n/3$, where $n$ is the number of 
  \end{split}
 \label{eqn:motion}
 \end{equation}
-One unit of $\tau$ corresponds to three turns; the physical elapsed time is $t_{\mathrm{phys}}=3T_{\mathrm{rev}}\tau$. The momentum and circumference in Table~\ref{table:param} give $T_{\mathrm{rev}}\simeq1.69\,\mu\mathrm{s}$, consistent with $54\,\mathrm{ms}$ over approximately 31,795 turns. The three-turn interval is short compared with the spill duration, but this separation of timescales alone does not guarantee adiabatic motion near a separatrix. The tune steps used below are explicitly nonadiabatic changes followed by tracking at fixed quadrupole strengths.
+One unit of $\tau$ corresponds to three turns, so the elapsed time is $t=nT_{\mathrm{rev}}=3T_{\mathrm{rev}}\tau$. The momentum and circumference in Table~\ref{table:param} give $T_{\mathrm{rev}}\simeq1.69\,\mu\mathrm{s}$, consistent with $54\,\mathrm{ms}$ over approximately 31,795 turns. The three-turn interval is short compared with the spill duration, but this separation of timescales alone does not guarantee adiabatic motion near a separatrix. The tune steps used below are explicitly nonadiabatic changes followed by tracking at fixed quadrupole strengths.
 
 The reduced model retains horizontal resonance dynamics but omits space charge and detailed lattice and extraction-channel effects. It is used to interpret the Synergia2 trajectories and their transit times. Agreement in qualitative features does not by itself validate the full tracking or scattering calculation.
 
@@ -287,7 +297,7 @@ Figure~\ref{fig:arrival1a} shows the evolution of the circulating-beam fraction.
   \subfigure[Turn 25,000]{
     \includegraphics[width=.47\textwidth]{img/fig_arrival2c}
     \label{fig:arrival2c}}
-  \caption{\label{fig:arrival2}Transit time versus initial horizontal coordinate for the early, middle, and late tune-step cases. Blue and red markers denote Synergia2 and reduced-model RK4 tracking, respectively. Marginal histograms show the coordinate and transit-time distributions. The left vertical line marks the septum position; the right line marks the horizontal coordinate of the leftmost unstable fixed point. Coordinate units and normalization follow the original simulation plots.}
+  \caption{\label{fig:arrival2}Transit time versus initial horizontal coordinate for the early, middle, and late tune-step cases. Blue and red markers denote Synergia2 and reduced-model RK4 tracking, respectively. Marginal histograms show the coordinate and transit-time distributions. The left vertical line marks the septum position; the right line marks the horizontal coordinate of the leftmost unstable fixed point, Eq.~\eqref{eqn:fixedpoints}. Transit times are in turns. The horizontal axis retains the original label ``normalized x (mm)''; for $X=x/\sqrt{\beta}$ as in Eq.~\eqref{eqn:coordinates}, the unit would be $\sqrt{\mathrm{length}}$, and the normalization used for these plots is not documented.}
 \end{figure}
 
 For comparison, Eq.~\eqref{eqn:motion} is integrated with a fourth-order Runge--Kutta (RK4) method. The reduced-model trajectories use the same initial particle coordinates as the Synergia2 sample, and the effective resonance parameters are evaluated at the restored quadrupole settings. Space charge is omitted in the reduced model. The continuous variable $\tau$ must be converted to turns when comparing transit times; observing trajectories every three turns does not prescribe the numerical integration step.
@@ -321,7 +331,7 @@ The tracking workflow has three stages. First, a specialized Synergia2 aperture 
   \subfigure[Loss locations]{
     \includegraphics[width=.45\textwidth]{img/fig_beamloss2b}
     \label{fig:beamloss2b}}
-  \caption{\label{fig:beamloss2}Synergia2 tracking of the returned scattered-particle sample. (a) Turn-by-turn distributions referred to ESS1, plotted in $(x,\,\alpha x+\beta x')$ coordinates. The initial sample is blue; subsequent turns are red, yellow, and cyan. (b) Locations of losses around the Delivery Ring. These coordinates in panel (a) retain a factor of $\sqrt{\beta}$ relative to $(X,X')$ in Eq.~\eqref{eqn:coordinates}.}
+  \caption{\label{fig:beamloss2}Synergia2 tracking of the returned scattered-particle sample. (a) Turn-by-turn distributions referred to ESS1, plotted in $(x,\,\alpha x+\beta x')$ coordinates. The initial sample is blue; subsequent turns are red, yellow, and cyan. (b) Locations of losses around the Delivery Ring. The panel (a) coordinates, in millimeters, equal $\sqrt{\beta}\,(X,X')$ with $(X,X')$ from Eq.~\eqref{eqn:coordinates}; they have units of length, unlike the canonical pair.}
 \end{figure}
 
 Figure~\ref{fig:beamloss2a} shows the scattered-particle sample referred back from the C-magnet to ESS1 for comparison. The initial particles lie near the septum line at $x\simeq-11\,\mathrm{mm}$. Additional circulating particles are included as a visual reference and form the compact group near one end of the initial distribution. The next three turns populate the lower, right, and left regions of the plot. After three turns, many surviving particles have returned to the septum field region. Figure~\ref{fig:beamloss2b} locates losses near the septa, in the first arc, and near the middles of the straight sections. Approximately 43\% of the tracked scattered-particle sample is reported lost, with the remainder surviving to extraction. This conditional fraction cannot be combined with the published geometric loss estimate without matching the foil geometry, sample weights, selection criteria, and tracking endpoints. In particular, it is not evidence of a 43\% loss of the injected beam or of a correction to the published 1.2\% value.
@@ -347,7 +357,7 @@ Figure~\ref{fig:beamloss3} illustrates this deformation using the reduced Hamilt
   \subfigure[Beam-centroid motion]{
     \includegraphics[width=.45\textwidth]{img/fig_rfko1b}
     \label{fig:rfko1b}}
-  \caption{\label{fig:rfko1}RFKO excitation at $C_x=0$ (blue, solid) and $C_x=1$ (red, dashed). (a) Horizontal emittance versus turn. (b) Beam-centroid trajectories over 30,000 turns. Nonzero chromaticity produces greater emittance growth and smaller centroid excursions in these simulations.}
+  \caption{\label{fig:rfko1}RFKO excitation at $C_x=0$ (blue, solid) and $C_x=1$ (red, dashed). (a) Horizontal emittance versus turn, in the $\pi\,\mathrm{mm\,mrad}$ units of the original diagnostic. (b) Beam-centroid trajectories in horizontal position and angle over 30,000 turns. Nonzero chromaticity produces greater emittance growth and smaller centroid excursions in these simulations.}
 \end{figure}
 
 The tune-quadrupole ramp drives the principal extraction process, while RFKO provides an additional means of regulating the spill. To separate the response to RFKO from the resonance-driven extraction dynamics, this section considers excitation at a fixed machine tune without the third-integer resonance drive. The quantities of interest are emittance, centroid motion, and the distribution of horizontal action.
@@ -358,7 +368,7 @@ Unlike the extraction baseline in Ref.~\cite{mu2e}, the horizontal machine tune 
 % AUTHOR CHECK: acceptance/action convention; sweep period and numerical bandwidth
 % in each case (including C_x=0); kicker calibration linking 500 W to ~1 microrad.
 
-Figure~\ref{fig:rfko1a} shows little emittance growth at $C_x=0$ and substantially greater growth at $C_x=1$. The centroid trajectories in Fig.~\ref{fig:rfko1b} show the complementary behavior: large coherent excursions at zero chromaticity and motion concentrated near the origin at nonzero chromaticity. These results are consistent with chromatic phase mixing converting the driven response into increased internal beam spread. They do not imply that the RFKO force is absent or decoupled from the particles at zero chromaticity.
+Figure~\ref{fig:rfko1a} shows little emittance growth at $C_x=0$ and substantially greater growth at $C_x=1$. Whether the plotted emittance is an rms or 95\% value, and whether it is computed about the centroid (Sec.~\ref{sec:model}), is not documented, so the comparison is qualitative. The centroid trajectories in Fig.~\ref{fig:rfko1b} show the complementary behavior: large coherent excursions at zero chromaticity and motion concentrated near the origin at nonzero chromaticity. These results are consistent with chromatic phase mixing converting the driven response into increased internal beam spread. They do not imply that the RFKO force is absent or decoupled from the particles at zero chromaticity.
 
 \begin{figure}[pos=!tbp]
   \centering
@@ -368,10 +378,10 @@ Figure~\ref{fig:rfko1a} shows little emittance growth at $C_x=0$ and substantial
   \subfigure[$C_{x} = 1.0$]{
     \includegraphics[width=.45\textwidth]{img/fig_rfko2b}
     \label{fig:rfko2b}}
-  \caption{\label{fig:rfko2}Evolution of the plotted horizontal-action distributions, $f(\sqrt{I_x})/\sqrt{I_x}$ versus $\sqrt{I_x}$, at 5,000-turn intervals for (a) $C_x=0$ and (b) $C_x=1$. The original diagnostic normalization is retained. Particles outside the modeled aperture are removed, so changes in distribution height need not represent redistribution alone.}
+  \caption{\label{fig:rfko2}Evolution of the plotted horizontal-action distributions, $f(\sqrt{I_x})/\sqrt{I_x}$ versus $\sqrt{I_x}$, at 5,000-turn intervals for (a) $C_x=0$ and (b) $C_x=1$. The action units, the reference (orbit or centroid), and the normalization of $f$ are those of the original diagnostic and are not documented. Particles outside the modeled aperture are removed, so changes in distribution height need not represent redistribution alone.}
 \end{figure}
 
-Equation~\eqref{eqn:action} defines the underlying geometric action. Quantitative comparison of the plotted action scale with the published normalized acceptance additionally requires the diagnostic units, any relativistic normalization, and the choice of reference orbit or centroid. The action distributions in Fig.~\ref{fig:rfko2} remain approximately unchanged for $C_x=0$. At $C_x=1$, the low-action population decreases and the distribution broadens under continued excitation. Because the aperture removes particles, interpreting the distribution quantitatively also requires the surviving population and a fixed normalization convention. These calculations support the role of chromaticity in RFKO-driven emittance growth. Since the resonance drive is disabled in this test, they do not directly demonstrate transfer into an extraction resonance or quantify the resulting spill.
+Equation~\eqref{eqn:action} defines the geometric action, and Sec.~\ref{sec:model} relates it to the emittance. Quantitative comparison of the plotted action scale with the acceptances in Table~\ref{table:scope} additionally requires the diagnostic units, any relativistic normalization, and whether the action is measured about the reference orbit or the centroid. The action distributions in Fig.~\ref{fig:rfko2} remain approximately unchanged for $C_x=0$. At $C_x=1$, the low-action population decreases and the distribution broadens under continued excitation. Because the aperture removes particles, interpreting the distribution quantitatively also requires the surviving population and a fixed normalization convention. These calculations support the role of chromaticity in RFKO-driven emittance growth. Since the resonance drive is disabled in this test, they do not directly demonstrate transfer into an extraction resonance or quantify the resulting spill.
 
 
 \section{\label{sec:conclusion}Conclusions}

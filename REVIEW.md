@@ -41,6 +41,43 @@ Main findings requiring author input:
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
 
+## Task 04 completed: theory, notation, and dimensional consistency
+
+Completed 2026-09-29 by checking the printed algebra only. No trajectories were integrated and no figure was changed.
+
+- **Algebra re-verified at 1,000 deterministic random points.**
+  - Complex Eq. (2) → real Eq. (4): maximum residual 1.4e-14.
+  - Ψ = π and ×6π scaling → Eq. (5) with ε = 6πΔν, S = −12√2π|g|: 2.3e-13.
+  - Eq. (7) against central finite differences of H_K: 7.9e-10.
+  - Below resonance, the linear flow is counterclockwise, confirming the text.
+  - These checks confirm the displayed equations, not the historical tracking code. The relation g_aa = i g is retained from the earlier verified revision.
+- **Independent variable made explicit.** The ×6π step requires Eq. (2) to use the orbital angle θ = 2πn, and the text now states this. It also gives the equivalent complex and real forms of Hamilton's equations and the relation τ = n/3 = θ/(6π). The elapsed time is written t = nT_rev = 3T_rev τ; the old symbol t_phys is dropped.
+- **Symbols defined at first use:** n, θ, s, x, x', α, β, X, X' (conjugate momentum, not dX/ds), ν_x, Δν, g (units length^−1/2), Ψ, τ, and T_rev. X and X' have units of √length and I_x has units of length (for example, mm mrad). A sentence now warns that Kobayashi's ε is a tune distance, not an emittance.
+- **New action–emittance paragraph:**
+  - For a matched, centered beam, the rms geometric emittance equals ⟨I_x⟩.
+  - The normalized emittance is larger by p/(m_p c) ≈ 9.47.
+  - For a Gaussian beam, 95% of particles satisfy 2I_x ≤ 6⟨I_x⟩, which is stated as a common basis for a 95% emittance, not as the convention of Table 1.
+  - Emittance about the centroid excludes coherent motion; the mean action about the reference orbit includes it.
+- **New Eq. (6), label `eqn:fixedpoints`.** The unstable fixed points are (0, 4ε/3S) and (±2ε/(√3S), −2ε/3S), all at distance 4ε/(3S). The separatrix is the three straight lines X' = −2ε/(3S) and X' = 4ε/(3S) ± √3X. The stable region's linear size scales with |Δν|, since ε/S = |Δν|/(2√2|g|). Fixed-point residuals were 1.4e-14, and H_K is constant on the three lines to 1.0e-14. The Fig. 3 caption now links its "leftmost unstable fixed point" line to this equation.
+- **Plot conventions explained without relabeling:**
+  - Fig. 3 caption: the original "normalized x (mm)" label is kept; it would be √length for X = x/√β, and its normalization is undocumented. Transit times are in turns.
+  - Fig. 5 caption: the plotted pair is √β(X, X') in mm.
+  - Fig. 7 caption and text: the emittance is in the diagnostic's π mm mrad; rms versus 95% and the centroid reference are undocumented, so the comparison is qualitative.
+  - Fig. 8 caption: the action units, reference, and normalization of f are undocumented.
+  - The Sec. 5 action paragraph now points to Sec. 4.1 and the acceptances in Table 2.
+
+### Evidence recorded for later tasks (not added to the manuscript)
+
+- **Task 11:** the orange overlay lines in Figs. 5(a) and 6 match the separatrix geometry of Eq. (6), in the (x, αx+βx') coordinates, where scaling both axes by √β preserves angles.
+  - The two slanted lines have slope about ±1.7, compared with ±√3.
+  - They meet near (0, 8.6) mm, and the horizontal line lies near −4.3 mm, or −½ of the vertex height, as the equation requires.
+  - The vertex lies on the positive-X' axis, which is consistent with ε/S > 0, that is, with Δν < 0 and the stated negative S.
+
+  This supports, but does not confirm, the reading of these lines as the separatrix. Their caption still needs author confirmation.
+- **Tasks 11 and 12:** in Fig. 7, the C_x = 0 emittance stays nearly constant while the centroid moves by millimeters. This suggests that the emittance diagnostic is computed about the centroid, but β at the observation point and the plotting units are unknown, so the question remains open.
+
+Validation: `latexmk` with pdfLaTeX and BibTeX succeeded (17 pages, seven numbered equations). All 41 labels are unique, and every reference, equation reference, and citation resolves. The only box warning is the known CAS keyword overlay; the only BibTeX warnings are the known `pimms`/`wcm` years. Pages 7–10 and the RFKO pages were inspected; a stray empty numbered line before Eq. (5) was removed by restoring the trailing comma. All image files, both reference drafts, and the `.bib` file retain their pre-edit hashes. No simulations, staging, commits, or pushes.
+
 ## Task 03 completed: methods and configurations
 
 Completed 2026-09-29 using the existing manuscript, the reference draft `beamstudy.tex`, the companion draft `modeling.tex`, and `PRIOR_WORK_COMPARISON.md`. No simulation was run.

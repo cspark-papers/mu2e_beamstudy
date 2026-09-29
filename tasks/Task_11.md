@@ -1,6 +1,6 @@
 # Task 11 — Resolve figure–text discrepancies found in review
 
-Status: Todo  
+Status: Done  
 Priority: P1  
 Depends on: Tasks 03 and 04; feeds Tasks 05–08
 
@@ -30,10 +30,10 @@ A 2026-09-29 review inspected the image files at native resolution. It found sta
 
 ## Acceptance criteria
 
-- [ ] Every finding above is either reflected in corrected text or caption wording or recorded in `REVIEW.md` as an open author question.
-- [ ] No visually read period, delay, width, or count is presented in the manuscript as a result.
-- [ ] Captions explain every plotted element whose meaning is documented; undocumented elements are flagged, not guessed.
-- [ ] Figure files are byte-identical before and after the task.
+- [x] Every finding above is either reflected in corrected text or caption wording or recorded in `REVIEW.md` as an open author question.
+- [x] No visually read period, delay, width, or count is presented in the manuscript as a result.
+- [x] Captions explain every plotted element whose meaning is documented; undocumented elements are flagged, not guessed.
+- [x] Figure files are byte-identical before and after the task.
 
 ## If evidence is unavailable
 
@@ -41,4 +41,10 @@ Narrow each affected sentence to what the image unambiguously shows and keep the
 
 ## Completion record
 
-Pending. Record changed sections, checks performed, and unresolved author questions here before marking Done.
+Completed: 2026-09-29.
+
+- Findings 3, 4, 6, 10, and 11 were corrected in the text or captions to match the plots, qualitatively and without new numbers.
+- Findings 1, 2, 5, 7, 8, and 9 were narrowed in the text and flagged in the captions or `AUTHOR CHECK` comments; they remain open author questions.
+- The ripple is still given as 60 Hz. The unsupported word "sinusoidal" was removed, and the visible modulation is no longer assigned to 60 Hz harmonics. REVIEW records the pixel-trace evidence (a period of about 1,650 turns, roughly 360 Hz).
+- Build succeeded (18 pages); labels are unique, all references resolve, and all pages were inspected. Image hashes are unchanged.
+- See REVIEW, "Task 11 completed", for the full resolution table.

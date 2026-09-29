@@ -41,6 +41,26 @@ Main findings requiring author input:
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
 
+## Task 11 completed: figure–text discrepancies
+
+Completed 2026-09-29. The image files were inspected at native and 2× zoom. Pixel-level readings (listed below) were used only as evidence for author questions and do not appear in the manuscript as results. Image bytes are unchanged.
+
+| # | Finding | Resolution in `beamstudy-mod.tex` | Still open for the author |
+| --- | --- | --- | --- |
+| 1 | The Fig. 1 middle trace repeats about every 1,650 turns. Evidence: autocorrelation peak r ≈ 0.7 at 1,646 turns and FFT peak at 1,590–1,650 turns, measured from the red trace pixels (axis 5,000 turns per 158 px); this is about 2.8 ms, or ~360 Hz, the 6th harmonic of 60 Hz. One 60 Hz period is 9,834 turns (from T_rev = 1.6948 µs). The original draft does not say "sinusoidal", a word introduced by an earlier revision. | Removed "sinusoidal" and stated that the waveform is unspecified. Replaced "components at harmonics" with a qualitative statement that the dominant modulation repeats several times within one 60 Hz period (about 9,830 turns, arithmetic from printed values), so the relation between waveform and spill spectrum is not established. Kept 60 Hz. Added an `AUTHOR CHECK`. | Was the ripple 60 Hz or 360 Hz, and what were its waveform, the modulated quadrupoles, and their phases? |
+| 2 | The Fig. 1 axis ends at about 20,000 turns (grid calibration). | The caption states that the traces cover about the first 20,000 turns of the 31,795-turn spill, and names the trace colors. | Why do the runs end near turn 20,000? |
+| 3 | Transit times rise monotonically toward x = 0, not toward the fixed-point line. | Rewrote the observation: short, matching times between the septum and the fixed-point line, rising toward x = 0, with the longest times beyond the line. Added the reduced-model mechanism (passage along the separatrix past an unstable fixed point), which follows from Eq. (6) and the flow on the separatrix sides. | — |
+| 4 | "Full tracking broader" is not uniform: the reduced-model (red) points reach about 230–245 turns at the middle and late stages. | The text now says Synergia2 scatters more widely at a given coordinate and is generally slower, whereas RK4 reaches the longest times at the middle and late stages. | — |
+| 5 | The axis stops at 250 turns, while the hold is about 500 turns. | The caption states the plotted limit and that points beyond it are undocumented. | Were any transit times above 250 turns? |
+| 6 | After restoration, the red case extracts more slowly; the plots extend about 1,000 turns past restoration; the burst lags the restoration line. | The text describes the delay and the persistent difference (expected while the strengths are held), and states that the displayed interval exceeds the 500-turn hold and that the post-hold protocol is undocumented. | Hold length and protocol after the hold. |
+| 7 | Figs. 5(a) and 6 have an unexplained orange triangle and red circle. | The captions identify the purple septum line (documented in the original draft) and flag the other overlays as undocumented. Their consistency with the Eq. (6) separatrix is recorded in the Task 04 section but not asserted in a caption. | Define the orange lines and red circle. |
+| 8 | Loss-map legend and axes are missing; markers also appear in other arcs. | The caption identifies the gray beamline and beam arrow and flags the marker colors and axis units. The text attributes the "septa, first arc, mid-straight" summary to the original analysis and notes the other markers. | Marker meanings (red versus orange, stars) and axis units. |
+| 9 | Fig. 7(b) uses hatted axes and coarse sampling. | The caption notes the original x̂ and x̂' labels and that the sampling interval is undocumented. | Definition of the hat notation; sampling interval. |
+| 10 | At C_x = 1, emittance growth slows late in the run. | The text notes the slowing and that aperture removal may contribute. | — |
+| 11 | The Fig. 8 range is truncated at √I_x = 2 and the plot carries a 10^7 scale factor. | The caption states both. | — |
+
+Validation: `latexmk` with pdfLaTeX and BibTeX succeeded (18 pages; previously 17, from the longer captions and text). Labels are unique and every reference and citation resolves. The only warnings are the known CAS keyword overlay and the `pimms`/`wcm` years. All pages were rendered and inspected. Images, reference drafts, and the `.bib` file keep their pre-edit hashes. No simulations, staging, commits, or pushes.
+
 ## Task 04 completed: theory, notation, and dimensional consistency
 
 Completed 2026-09-29 by checking the printed algebra only. No trajectories were integrated and no figure was changed.

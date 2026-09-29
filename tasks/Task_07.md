@@ -1,6 +1,6 @@
 # Task 07 — Clarify scattering transport and loss accounting
 
-Status: Todo  
+Status: Done  
 Priority: P1  
 Depends on: Tasks 03 and 04
 
@@ -25,11 +25,11 @@ The approximately 43% value applies to a returned scattered-particle sample, not
 
 ## Acceptance criteria
 
-- [ ] The sample-selection chain and conditional denominator are unambiguous.
-- [ ] Survival and extraction endpoints are not silently equated.
-- [ ] MARS illustrations do not imply zero loss at ESS2 or an inclusive secondary-particle count.
-- [ ] No total-beam loss, activation, dose, or corrected efficiency estimate is created.
-- [ ] Existing images and the reported numerical result remain intact, with unsupported interpretation narrowed.
+- [x] The sample-selection chain and conditional denominator are unambiguous.
+- [x] Survival and extraction endpoints are not silently equated.
+- [x] MARS illustrations do not imply zero loss at ESS2 or an inclusive secondary-particle count.
+- [x] No total-beam loss, activation, dose, or corrected efficiency estimate is created.
+- [x] Existing images and the reported numerical result remain intact, with unsupported interpretation narrowed.
 
 ## If evidence is unavailable
 
@@ -37,4 +37,10 @@ Retain the reported conditional fraction with explicit limitations. Do not inven
 
 ## Completion record
 
-Pending. Record changed sections, checks performed, and unresolved author questions here before marking Done.
+Completed: 2026-09-29.
+
+- Rewrote `sec:beamloss` around a numbered three-stage workflow (interception, MARS transport, ring tracking), with the 50 versus 100 µm foils contrasted once.
+- Added the thin-foil signature (vertical line, Δ(αx+βx') = βΔx'), the three-turn return to the septum, and the two-population V-shape. Grounded the Fig. 6 shearing in differing H_K values.
+- 43% audit: the denominator is the returned sample; "extracted" is attributed to the original study, with the undocumented duration and criterion stated; reference-particle inclusion is flagged; no combination with 1.2% and no injected-beam reading. `AUTHOR CHECK` added.
+- Fig. 4 caption notes the undocumented axis units.
+- Build succeeded (20 pages); labels are unique, all references resolve, and pages 13–17 were inspected. Image hashes are unchanged. The Fig. 7 float position is deferred to Task 08.

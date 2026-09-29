@@ -41,6 +41,28 @@ Main findings requiring author input:
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
 
+## Task 07 completed: scattering transport and loss accounting
+
+Completed 2026-09-29 from the existing text, figures, and the reference draft `beamstudy.tex`.
+
+- **Opening.** Rewrote the two opening paragraphs:
+  - The 50 µm (present) and 100 µm (Ref. [2]) foils are contrasted once, with a pointer to Table 2.
+  - The published hit/cross loss is described as motivation, not normalization.
+  - Scattering is stated to change angle and hence action (Eq. 2), and the four possible fates are listed.
+- **Three-stage workflow** is now a numbered list: primary interception (Synergia2 ESS1 aperture, particles removed from the primary calculation), material transport (MARS, ESS1 to C-magnet, 50 µm foils, secondaries), and ring tracking (Synergia2 on the selected MARS output recorded at the C-magnet). The undocumented species, number, and weights are stated beside the denominator. The Fig. 4 description now follows the list, and the ESS2 no-zero-loss caveat is retained.
+- **Fig. 4 caption** now states that the axis units are undocumented. The native-resolution check confirmed the upper circulating band, the lower outgoing band, and the element labels.
+- **Fig. 5(a) interpretation added.** The initial sample lies on a vertical line at the septum because thin-foil scattering changes angle, not position; in (x, αx+βx') coordinates an angle change Δx' is a vertical shift βΔx' (follows directly from the coordinate definition). The reference group is identified as the compact cluster at the lower end. The three-turn return to the septum region explains repeated extraction or interception chances and the losses near the septa. The undocumented C-magnet-to-ESS1 back-transformation is flagged.
+- **43% audit.**
+  - The denominator is now "the returned scattered-particle sample".
+  - The original draft's "survived and extracted" is attributed to the original study, and the text states that the tracking duration and extraction criterion are undocumented, so "not lost within the tracked interval" and "extracted" cannot be distinguished.
+  - Whether the reference particles enter the denominator is flagged.
+  - The no-combination and no-injected-beam statements (1.2%) are kept in one place. An `AUTHOR CHECK` was added.
+- **Shearing (Fig. 6).** A vertical line has a common X but different X' and hence different H_K (Eq. 5), so it shears. Some particles leave along the separatrix branches. The V-shape in Fig. 5(a) is identified as mixing the reference group and the scattered population. The paragraph is kept qualitative, with no validation of scattering, losses, or efficiency.
+
+Validation: `latexmk` with pdfLaTeX and BibTeX succeeded (20 pages). Labels are unique, and every reference and citation resolves. The only warnings are the known ones. Pages 13–17 were inspected; Fig. 7 now floats onto the Fig. 6 page ahead of the Sec. 5 heading, which is left for Task 08 placement. All image, reference-draft, and bibliography hashes are unchanged. No simulations, staging, commits, or pushes.
+
+Open for the author (existing High row, "Scattering handoff and 43% denominator"): tracking duration and extraction criterion; reference particles in the denominator; species, number, and weights; the C-magnet-to-ESS1 transformation; loss-map legend; Fig. 4 axis units.
+
 ## Task 06 completed: tune-step and transit-time evidence
 
 Completed 2026-09-29 from the existing figures and text only.

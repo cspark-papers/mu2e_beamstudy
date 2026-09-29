@@ -1,69 +1,61 @@
-%\documentclass[a4paper,fleqn,longmktitle]{cas-dc}
 \documentclass[a4paper,fleqn]{cas-sc}
 
 \usepackage{graphicx}
-\usepackage{epsfig}
 \usepackage{subfigure}
-\usepackage{fancyhdr}
-\usepackage{color}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{siunitx}
 \sisetup{separate-uncertainty=true, per-mode=symbol}
-%\usepackage{dcolumn}
-\usepackage{bm}
 \usepackage{indentfirst}
-\usepackage{rotating}
-\usepackage{moreverb}
 \usepackage{setspace}
 \usepackage{lineno}
 \usepackage[numbers]{natbib}
+\pdfstringdefDisableCommands{%
+  \def\corref#1{}%
+  \def\fnref#1{}%
+}
 
 
 \begin{document}
 \let\WriteBookmarks\relax
-\def\floatpagepagefraction{1}
-\def\textpagefraction{.001}
 
-\shorttitle{Particle Motions during Slow Resonant Extraction}
+\shorttitle{Particle dynamics during slow resonant extraction}
 \shortauthors{C.S. Park}
+% Suppress the class's empty ORCID footnote; restore if an ORCID is supplied.
+\let\printorcid\relax
 
-\title [mode = title] {Studies of Particle Motions During Slow Resonant Extraction}
+\title [mode = title] {Particle dynamics during third-integer resonant extraction for Mu2e}
 \author[1,2]{Chong Shik Park\corref{cor1}\fnref{fn1}}
-\ead[url]{kuphy@korea.ac.kr}
+\ead{kuphy@korea.ac.kr}
 \cortext[cor1]{Corresponding author}
-\fntext[fn1]{Formerly affiliated at Fermil National Accelerator Laboratory}
+\fntext[fn1]{Formerly affiliated with Fermi National Accelerator Laboratory}
 
-\affiliation[1]{organization={Department of Accelerator Science, Korea University.}, 
+\affiliation[1]{organization={Department of Accelerator Science, Korea University},
 %addressline={2511 Sejong-ro},
-city={Sejong}, 
-postcode={30019}, 
+city={Sejong},
+postcode={30019},
 country={Republic of Korea}}
 
-\affiliation[2]{organization={Accelerator Research Center, Korea University.}, 
+\affiliation[2]{organization={Accelerator Research Center, Korea University},
 %addressline={2511 Sejong-ro},
-city={Sejong}, 
-postcode={30019}, 
+city={Sejong},
+postcode={30019},
 country={Republic of Korea}}
 
 
 \begin{abstract}
-We present beam dynamics simulation studies for third-integer resonant extraction of the Mu2e experiment at Fermilab. 
-The RF Knockout (RFKO) technique, which excites particles transversely, is employed for spill regulation. Combined with a feedback system, it assists in fine-tuning spill uniformity. Simulation studies were carried out to optimize the RFKO feedback scheme, which will be helpful in designing the final spill regulation system.
-Dynamic bumps are implemented for local orbit corrections in which septum entrance angles are controlled to reduce angular spreads of extracted beams. We perform particle tracking simulations to investigate arrival time profile of extracted particles as well as beam loss distributions of scattered particles. We also discuss motions of particles with an RFKO beam heating, which will help to understand spill regulations using RFKO feedback system.
+We investigate particle dynamics relevant to spill regulation and beam loss during third-integer resonant extraction from the Fermilab Delivery Ring for Mu2e. Multiparticle tracking with Synergia2 is combined with a reduced model based on the Kobayashi Hamiltonian and with MARS transport through the extraction channel. Radio-frequency knockout (RFKO) feedback reduces ripple-driven spill modulation in the simulated cases, although residual spikes remain. Tune-step studies at three stages of extraction show that transit times depend strongly on the initial phase-space coordinates and increase near the unstable fixed points. The reduced model reproduces the main trends but differs from the full tracking calculation near the separatrix. Tracking a MARS-generated scattered-particle sample identifies losses in the extraction channel and at downstream ring apertures; approximately 43\% of that sample is lost in the modeled ring. Separate RFKO studies show weak emittance growth and appreciable centroid motion at zero chromaticity, whereas nonzero chromaticity promotes emittance growth and suppresses coherent centroid motion. These results clarify the particle response relevant to spill feedback and identify the modeling and validation needed for quantitative predictions.
 \end{abstract}
 
 \begin{keywords}
-Mu2e \sep Resonant Extraction  \sep Spill Regulation \sep Beam Dynamics 
+Mu2e \sep Resonant extraction \sep Spill regulation \sep Beam dynamics \sep Radio-frequency knockout
 \end{keywords}
 
 \maketitle
+\hypersetup{pdfauthor={Chong Shik Park}}
 
-\setcounter{tocdepth}{10}
-\tableofcontents
-
-\clearpage
+% Review layout: retain line numbers and double spacing for editorial review.
 \doublespacing
 \linenumbers
 
@@ -71,240 +63,237 @@ Mu2e \sep Resonant Extraction  \sep Spill Regulation \sep Beam Dynamics
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{\label{sec:intro}Introduction}
 
-For the Mu2e experiment at Fermilab, slow resonant extraction method provides proton pulses from the Delivery Ring to the production target system~\cite{tdr}. Using the accelerator simulation package, Synergia2, we have performed beam dynamics simulations to demonstrate resonant extraction with a stable spill structure, and results are discussed in~\cite{mu2e}. The third-integer resonance is excited with the harmonic sextupoles, and slow spills are realized by tune-quad ramps. Table~\ref{table:param} shows beam and machine parameters we have used in the Mu2e resonant extraction simulations. To meet the extraction beam requirements, we employed a piece-wise ramp profile, septum plane rotations, and RFKO feedback system, described in the previous study~\cite{mu2e}. In this paper, we present various beam dynamics studies with particle tracking simulations to optimize the spill structure during slow resonant extraction. 
+Slow resonant extraction from the Delivery Ring is part of the proton-delivery scheme for the Mu2e experiment at Fermilab~\cite{tdr}. Harmonic sextupoles excite the third-integer resonance, and a ramp of the tune-control quadrupoles moves the beam toward resonance. Previous Synergia2 simulations examined a piecewise linear tune ramp, septum alignment, and local orbit corrections for this extraction scheme~\cite{mu2e}. The present study uses the design parameters in Table~\ref{table:param} to investigate the particle dynamics underlying spill feedback, transit-time distributions, and the subsequent transport of particles scattered in the septa. These parameters describe the simulated configuration rather than an operational measurement.
 
 
-\begin{table*}[width=.7\linewidth,cols=4,pos=h]
-    \caption{\label{table:param}Beam and Machine Parameters}
-    %\begin{tabular}{rrr}
-    \begin{tabular*}{\tblwidth}{@{} RRR@{} }
+\begin{table}[width=\linewidth,cols=3,pos=htbp]
+  \caption{\label{table:param}Beam and machine parameters used in the simulations. The mean number of protons per extracted pulse is $10^{12}/31{,}795 \simeq 3.15\times10^{7}$, assuming one extracted pulse per revolution.}
+  \begin{tabular*}{\tblwidth}{@{} LRR@{}}
     \toprule
-      Parameters                             & Value          & Units         \\
+    Parameter & Value & Unit \\
     \midrule
-      Beam Momentum                          & 8.886          & GeV/c         \\
-      Beam Intensity/Spill                   & 1              & Tp            \\
-      $B \rho$                               & 29.650         & T-m           \\
-      Bunch Length (rms)                     & 40             & nsec          \\
-      95 \% invariant norm emittance         & 20             & $\pi$ mm-mrad \\
-      Ring Circumference                     & 505.283        & m             \\
-      Resonant Tune($\nu_{x})$               & 29/3           &               \\
-      Bare Tunes, ($\nu_{x0}$, $\nu_{y0}$)   & (9.65, 9.78)   &               \\
-      $\Delta p / p$                         & 0.0016         &               \\
-      Spill Duration                         &  54            & msec          \\
-      $N_{\text{turn}} / {\text{spill}}$     & 31,795         &               \\
-      Protons per pulse                      & 31.5           & Mp            \\
-      Harmonic Number                        & 4              &               \\
-      RF Frequency                           & 2.36           & MHz           \\
-      RF Peak Voltage                        & 10             & kV            \\
+    Beam momentum & 8.886 & $\mathrm{GeV}/c$ \\
+    Protons per spill & $1.0\times10^{12}$ & \\
+    Magnetic rigidity, $B\rho$ & 29.650 & $\mathrm{T\,m}$ \\
+    rms bunch length & 40 & ns \\
+    95\% normalized emittance & 20 & $\pi\,\mathrm{mm\,mrad}$ \\
+    Ring circumference & 505.283 & m \\
+    Horizontal resonance tune, $\nu_{\mathrm{res}}$ & $29/3$ & \\
+    Bare tunes, $(\nu_{x0},\nu_{y0})$ & $(9.65,9.78)$ & \\
+    Relative momentum spread, $\Delta p/p$ & 0.0016 & \\
+    Spill duration & 54 & ms \\
+    Turns per spill & 31,795 & \\
+    Mean protons per extracted pulse & $3.15\times10^{7}$ & \\
+    RF harmonic number & 4 & \\
+    RF frequency & 2.36 & MHz \\
+    Peak RF voltage & 10 & kV \\
     \bottomrule
-    \end{tabular*}
-\end{table*}
+  \end{tabular*}
+\end{table}
 
 
-Most of medical accelerators for the cancer therapy using slow resonant extraction are built to satisfy the Hardt condition requirement, which is a condition to arrange separatrix geometries by superimposing them for different momenta~\cite{hardt,pullia,pimms}. By fulfilling this condition, the extracted beam angle is independent of the particle momentum spread. Since the extraction channel in the Delivery Ring resides in the dispersion free section, we have a restriction to satisfy the Hardt condition. To overcome this limit, we adopt a dynamic compensation of the extracted beam angle to achieve the spill uniformity. Two families of dynamic bumps are placed at upstream and downstream of extraction channel, so that we are able to adjust the angular spread of the extracted beam.
+The Hardt condition aligns the outgoing separatrices for different momenta and thereby reduces the momentum dependence of the extracted-beam angle~\cite{hardt,pullia,pimms}. The dispersion-free extraction region in the Delivery Ring constrains this approach. Local orbit corrections and septum alignment have therefore been studied to control the beam position and angle at the septum~\cite{mu2e}. Those corrections provide context for the present work; their optimization is not repeated here.
 
-For the slow resonant extraction methods, one of the most important parts is to maintain stable spills during the entire extraction. With the help of optimal tune-ramp profile and RFKO feedback system, multi-particle tracking simulations using Synergia2 showed \mbox{$\pm 20\%$} variations in spill structures~\cite{mu2e}. However, it is quite possible to have unwanted spill fluctuations in the presences of magnet imperfections or magnet power supply ripples. Moreover, the RFKO feedback system to regulate the spill rate for the Mu2e experiment requires precise predictions of those fluctuations. To understand beam behaviors by machine tune changes, we measure the arrival time profile of unstable particles during the transition from the outside the separatrix to the septum field region. The measurements are done with tracking simulations using Synergia2 as well as the simplified resonance model using the Kobayashi Hamiltonian method.
+Maintaining a uniform spill requires control of both the average extraction rate and fluctuations driven by magnet errors or power-supply ripple. Radio-frequency knockout (RFKO) provides transverse excitation that can be adjusted in response to the measured spill rate~\cite{HB10,ipac11}. Its feedback response depends on the delay between excitation, escape from the stable region, and arrival at the septum. We study this delay using tune-step tracking calculations and compare the results with a reduced resonance model.
 
-In order to locate beam loss locations inside the ring, Synergia2 first applied various apertures in the beamline. These apertures show that most dominant beam losses are occurred at the extraction channel. However, more precise investigations are needed to understand their loss mechanisms. And we carried out the detailed particle transportation studies inside the extraction channel using the MARS simulation code~\cite{mars1}. The MARS code is capable of including various types of particle interactions with beamline materials as well as the tracking of secondary particles~\cite{mars2}. With the help of the MARS simulations, Synergia2 tracking simulations are performed to track secondary particles. The analytical tracking simulations are also prepared to understand behaviors of these scattered particles. 
+Aperture-based tracking identifies particles that intercept extraction-channel components but does not, by itself, describe their subsequent scattering. We therefore combine Synergia2 tracking with MARS transport through the septa and downstream extraction elements~\cite{mars1,mars2}. The returned scattered-particle sample is then tracked around the ring to locate subsequent losses. A separate RFKO study examines how chromaticity affects the balance between coherent centroid motion and emittance growth.
 
-Beside dynamic tune-quad ramps for bringing the particle's tune to the resonance, the RFKO beam heating is also implemented to assist the spill regulation. The effects of the RFKO frequency and its bandwidth with the beam tune spread were studied and reported previously in~\cite{ipac11}. In this paper, we will show the importance of the chromaticity induced tune spread in emittance growth and action distributions of the beam.
+The calculations use complementary descriptions of the beam. Synergia2 provides multiparticle tracking with space charge~\cite{synergia2}; the Kobayashi Hamiltonian isolates horizontal resonance dynamics without space charge or detailed extraction-channel geometry; and MARS models particle interactions with material. Comparisons between these descriptions are used to interpret the dynamics, rather than to establish a complete validation of the loss or feedback models.
 
-Outline of this paper is as follows. In Sec.~\ref{sec:tracking}, arrival time profile measurements and scattered particle tracking simulations are presented using Synergia2. Tracking simulations with simplified resonance model using the Kobayashi Hamiltonian method are also presented. Sec.~\ref{sec:rfko} describes motions of particles under the influence of the RFKO beam heating.
+Section~\ref{sec:rfko1} describes the simulated RFKO feedback. Section~\ref{sec:tracking} presents the reduced Hamiltonian, transit-time calculations, and scattered-particle tracking. Section~\ref{sec:rfko} examines RFKO-driven emittance growth and action distributions, and Sec.~\ref{sec:conclusion} summarizes the results and their limitations.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{\label{sec:rfko1}Spill Control with RFKO Feedback System}
+\section{\label{sec:rfko1}Spill regulation with RFKO feedback}
 
-Sec.~\ref{sec:tune} shows that a reasonably uniform spill structure was achieved in Synergia2 tracking simulations with a piecewise linear ramp of tune-quad strengths. However, fast variations of spills still could be substantial because of ``dirt effects,'' such as magnet imperfections or magnet power supply ripples. We have adopted an RF Knockout (RFKO) method to finely control the spill uniformity~\cite{HB10}. A transverse RF system creates an RF field with a narrow bandwidth around the betatron frequency which ``heats'' the beam horizontally and pushes it out of the central stable region of the separatrix.
+A piecewise linear ramp of the tune-control quadrupoles can maintain an approximately constant average extraction rate~\cite{mu2e}. Magnet errors and power-supply ripple can nevertheless produce fluctuations about that average. The RFKO system applies a transverse RF kick near the horizontal betatron frequency to increase particle amplitudes and assist their passage across the separatrix~\cite{HB10,ipac11}.
 
-The RFKO feedback system, comprising the RFKO kicker, spill monitor, and feedback control unit, will be used to minimize spill fluctuations and to regulate spill uniformity. A wall current monitor will be installed in the external beam line and operate as the spill monitor. It will detect signals of beam extracted from the Delivery Ring and send them to the feedback system, which will then calculate strengths of the feedback amplitude, integrated over 100 turns, or so, and apply it to the RFKO kicker~\cite{wcm}.
+The proposed feedback loop comprises an RFKO kicker, a spill monitor, and a controller. A wall-current monitor in the external beamline supplies the extracted-beam signal used to adjust the kicker amplitude~\cite{wcm}. The simulated control scheme uses a spill signal accumulated over approximately 100 turns, corresponding to about $0.17\,\mathrm{ms}$. This averaging interval and the particle transit-time distribution both contribute to the effective response time.
 
-In order to effectively excite the beam, the RFKO kicker frequency must match the particles' betatron frequency. Since there is a significant tune spread in the beam, a narrow band frequency can match only to a small fraction of the particles. To cover the tune range of all particles, the RF frequency must be frequency-modulated within a bandwidth comparable to the tune spread. A previous study showed that the space charge tune shift alone does not lead to sufficient mixing of coherent oscillations and emittance growth~\cite{HB10}.  For the extraction simulation, we set the chromaticity \mbox{$C_{x} = 1.0$} using chromaticity correction sextupoles. The bandwidth is then determined from the chromatic tune spread, given the momentum spread of the beam. As the machine tune is ramped during the spill, the central frequency of the RFKO kicker must change accordingly.
+The RFKO center frequency follows the betatron frequency associated with the ramped machine tune. Frequency modulation broadens the excitation to cover the chromatic tune spread. In the extraction simulations, the horizontal chromaticity is set to $C_x=d\nu_x/d\delta=1.0$, where $\delta=(p-p_0)/p_0$, using chromaticity-correction sextupoles. The incoherent space-charge tune spread alone need not provide the phase mixing required for efficient emittance growth under dipole excitation~\cite{ipac11}; this distinction is examined further in Sec.~\ref{sec:rfko}.
 
-In this study, we used a linear chirp FM signal for the RF field. The central frequency is matched to the betatron frequency, and the bandwidth covers the betatron tune spread. When the frequency-sweep interval is changed at every 100 turns, its frequency spectrum shows a series of narrow lines around the central frequency. To overcome this feature, we add random phases for each sweep to smear the spectrum. 
+The excitation uses a linear frequency chirp with a sweep duration of 100 turns. Repeating an identical sweep produces discrete spectral lines. Randomizing the phase at the start of each sweep reduces this periodic structure and broadens the excitation spectrum.
 
-In order to test the feedback system, we added artificial power supply ripples to the simulation. Strengths of quadrupoles varied in time with a frequency of 60 Hz and peak-to-peak variations of \mbox{$\pm0.5$ \%} of the designed values. These power supply ripples create large fluctuations in the spill structure. The frequency of the resulting spill rate follows harmonics of the ripple frequency. 
+To test the response to a controlled disturbance, a sinusoidal ripple at $60\,\mathrm{Hz}$ is applied to the quadrupole strengths. The fractional modulation is specified as $\pm0.5\%$ about the nominal strengths. It produces pronounced spill modulation, including components at harmonics of the applied ripple frequency.
+% AUTHOR CHECK: the original draft also called this value "peak-to-peak".
+% Confirm whether the simulation used a 0.5% amplitude or a 0.5% peak-to-peak ripple.
 
-\begin{figure}[!tbp]
+\begin{figure}[pos=!tbp]
   \centering
   \includegraphics[width=.9\textwidth]{img/fig9.png}
-  \caption{\label{fig:fig9}(Color) Normalized spill rates in the presence of power supply ripples: (top) ripples off and feedback off, (middle) ripples on and feedback off, and (bottom) ripples on and feedback on. Power supply ripples bring large fluctuations on the spill rate, and it is improved by the feedback system.}
+  \caption{\label{fig:fig9}Normalized spill rate for three simulated configurations: no ripple and no feedback (top), quadrupole ripple without feedback (middle), and quadrupole ripple with RFKO feedback (bottom). Feedback reduces the visible ripple-driven modulation, although residual spikes remain.}
 \end{figure}
 
-To control this behavior, we tried various feedback mechanisms based on the classic PID (Proportional-Integral-Derivative) feedback theory~\cite{pid}.
-When we applied only the proportional gain feedback signal, we observed that there were very large oscillations in spill rates. 
-One reason for this was latency between the spill monitor and beam responses to RFKO excitations. This results in over-regulations of spill ripples.
-Our current best method is to combine dynamical changes of the proportional gain in time with a constant derivative gain.
+Controllers based on proportional--integral--derivative feedback were investigated~\cite{pid}. Proportional-only control produced large spill oscillations, consistent with excessive correction in the presence of a delayed beam response. Among the tested configurations, a time-dependent proportional gain combined with a constant derivative gain gave the most favorable behavior. The result shown here therefore uses proportional--derivative control, without an integral term.
 
-Fig.~\ref{fig:fig9} shows a comparison of spill rates with and without the feedback loop in the presence of power supply ripples. Power supply ripples drive the oscillations in the spill rate. We observe that fluctuations are improved with the feedback routine, although there remain a few large spikes, as seen at the bottom of Fig.~\ref{fig:fig9}. We expect this performance could be improved further by adding integral gain to the RFKO feedback system. 
+Figure~\ref{fig:fig9} shows a qualitative reduction in ripple-driven modulation with feedback. The remaining spikes indicate that the tested controller does not eliminate all fluctuations. The traces do not establish a numerical suppression factor, a stability margin, or an optimum set of gains. An integral term could be investigated to reduce steady-state error, but its effect on stability and spill fluctuations has not been demonstrated here.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{\label{sec:tracking}Particle Tracking Simulations}
+\section{\label{sec:tracking}Particle tracking simulations}
 
-\subsection{\label{sec:model}Simplified Resonance Model and Kobayashi Hamiltonian}
+\subsection{\label{sec:model}Reduced resonance model and Kobayashi Hamiltonian}
 
-With a complex, normalized, horizontal phasespace coordinates, $a = [x + i (\alpha x + \beta x^{\prime})] / \sqrt{2 \beta}$, the Hamiltonian for the third-integer resonance model based on the perturbation theory~\cite{preliminary} can be derived as
+Let $x$ be the horizontal displacement from the reference orbit, $x'=dx/ds$ the horizontal angle, and $\alpha$ and $\beta$ the horizontal Twiss parameters at the observation point. Define the normalized coordinates
 \begin{equation}
-  H = \Delta \nu \cdot a^{*} a - i g a^{3} + i g^{*} a^{*} + \cdots,
-\label{eqn:hamiltonian1}
+ X=\frac{x}{\sqrt{\beta}},\qquad
+ X'=\frac{\alpha x+\beta x'}{\sqrt{\beta}},\qquad
+ a=\frac{X+iX'}{\sqrt{2}}.
+ \label{eqn:coordinates}
 \end{equation}
-where $\Delta \nu$ is the difference between the horizontal and resonant tunes, and $g$ is  a linear functional of the sextupole field strength distribution:
-\begin{equation*}
-  g = \frac{i}{6 \sqrt{2}} \frac{1}{4 \pi} \sum_{\text{sextupoles}}
-      \Bigg[
-        \frac{B^{\prime\prime} l}{(B\rho)} \beta^{3/2}
-        e^{-i 3(\psi - \Delta \nu \theta)}
-      \Bigg].
-\end{equation*}
-By changing variables to real, normalized coordinates, $(X, X^{\prime}) = (x/\sqrt{\beta}, (\alpha x + \beta x^{\prime}) / \sqrt{\beta})$, in Eq.~(\ref{eqn:hamiltonian1}), with $g = |g| e^{i \Psi}$, the Hamiltonian has the new form,
-%\begin{widetext}
+Here $X'$ denotes the normalized momentum coordinate, not $dX/ds$. In the resonance frame, the leading-order third-integer Hamiltonian is~\cite{preliminary}
 \begin{equation}
-  H = \frac{\Delta \nu}{2} \left( X^{2} + X^{\prime2} \right)
-    + \frac{|g|}{\sqrt{2}}
-      \Big[
-        \left( X^{3} - 3 X X^{\prime 2} \right) \sin{\Psi}
-      + \left( 3 X^{2} X^{\prime} - X^{\prime 3} \right) \cos{\Psi}
-      \Big].
-\label{eqn:hamiltonian2}
+ H=\Delta\nu\,a^*a-ig a^3+ig^*(a^*)^3+\cdots,
+ \label{eqn:hamiltonian1}
 \end{equation}
-%\end{widetext}
-The orientation of the separatrix at the entrance of the first septum is formed an upright triangle in the normalized phase space by setting $\Psi = \pi$. With multiplying by $6 \pi$ to Eq.~(\ref{eqn:hamiltonian2}), a well-known Kobayashi Hamiltonian can be obtained
+where $\Delta\nu=\nu_x-29/3$ and $g$ is the complex resonance-driving coefficient determined by the sextupole strengths and phases. The cubic terms are complex conjugates, so their sum is real. Higher-order terms are neglected in the reduced model.
+
+Writing $g=|g|e^{i\Psi}$ and substituting Eq.~\eqref{eqn:coordinates} gives
 \begin{equation}
-  H_{K} = \frac{\epsilon}{2} \left( X^{2} + X^{\prime2} \right)
-    + \frac{S}{4} \left( 3 X^{2} X^{\prime} - X^{\prime 3} \right),
-\label{eqn:kobayashi}
+\begin{split}
+ H={}&\frac{\Delta\nu}{2}(X^2+X'^2)\\
+ &+\frac{|g|}{\sqrt{2}}\left[(X^3-3XX'^2)\sin\Psi
+             +(3X^2X'-X'^3)\cos\Psi\right].
+\end{split}
+ \label{eqn:hamiltonian2}
 \end{equation}
-where $\epsilon = 6\pi \Delta \nu$, and a normalized sextupole strength, $S = 12\sqrt{2} \pi |g| \cdot \text{sgn}(\Delta \nu)$. 
+For the separatrix orientation used here, set $\Psi=\pi$. Multiplying Eq.~\eqref{eqn:hamiltonian2} by $6\pi$ gives the three-turn Kobayashi Hamiltonian~\cite{kobayashi},
+\begin{equation}
+ H_K=\frac{\epsilon}{2}(X^2+X'^2)
+       +\frac{S}{4}(3X^2X'-X'^3),
+ \label{eqn:kobayashi}
+\end{equation}
+with $\epsilon=6\pi\Delta\nu$ and $S=-12\sqrt{2}\pi|g|$. This sign of $S$ follows from the specified phase $\Psi=\pi$. For the below-resonance setting $\Delta\nu<0$ considered here, it agrees with $12\sqrt{2}\pi|g|\,\mathrm{sgn}(\Delta\nu)$; the latter is not a general definition for a fixed separatrix orientation.
 
-The Kobayashi Hamiltonian describes motions of particles in the phase space coordinates for every three turn~\cite{kobayashi}.
-The first term in $H_{K}$ prescribes the unperturbed linear motion of particles, and their motions are described as circles in the normalized phase space. For Mu2e resonant extraction, $\Delta \nu = \nu_{x} - 29/3$, thus the machine tune is set to below resonance. This yields that particles inside the separatrix are rotating counterclockwise direction. The second term contributes perturbed motions of particles associated with harmonic sextupoles. Due to this term, stable particles are bounded by the triangular separatrix, while unstable particles are streaming away along the outgoing separatrix branches. 
+The quadratic term describes linear motion, which is circular in normalized phase space. Below resonance, this motion is counterclockwise with the present coordinate convention. The cubic term creates a triangular stable region bounded by a separatrix, with hyperbolic unstable fixed points at its vertices. Particles outside the stable region can move along the outgoing branches toward the septum.
 
-With Eq.~(\ref{eqn:kobayashi}), equations of motion are given by
+Introducing the continuous turn variable $\tau=n/3$, where $n$ is the number of revolutions, Hamilton's equations become
 \begin{equation}
  \begin{split}
-  \frac{dX}{dt} & = \frac{\partial H_{K}}{\partial X^{\prime}}
+  \frac{dX}{d\tau} & = \frac{\partial H_{K}}{\partial X^{\prime}}
                   = \epsilon X^{\prime} + \frac{3}{4} S
                     \left(
                       X^{2} - X^{\prime 2}
                     \right), \\
-  \frac{dX^{\prime}}{dt} & = - \frac{\partial H_{K}}{\partial X}
+  \frac{dX^{\prime}}{d\tau} & = - \frac{\partial H_{K}}{\partial X}
                            = - \epsilon X - \frac{3}{2} S X X^{\prime}.
  \end{split}
 \label{eqn:motion}
 \end{equation}
-The unit of the time in Eq.~(\ref{eqn:motion}) is three consecutive turns, i.e., $t = 1 [\times 3 \; \text{turns}] = 3 T_{\text{rev}}$[sec], where $T_{\text{rev}} \simeq 1.6 \mu$sec.
-Compared to the total spill time (54 msec), three turns (3$\times$1.6~$\mu$sec) can be considered as an infinitesimal time increment, therefore the particle motion is adiabatic. 
+One unit of $\tau$ corresponds to three turns; the physical elapsed time is $t_{\mathrm{phys}}=3T_{\mathrm{rev}}\tau$. The momentum and circumference in Table~\ref{table:param} give $T_{\mathrm{rev}}\simeq1.69\,\mu\mathrm{s}$, consistent with $54\,\mathrm{ms}$ over approximately 31,795 turns. The three-turn interval is short compared with the spill duration, but this separation of timescales alone does not guarantee adiabatic motion near a separatrix. The tune steps used below are explicitly nonadiabatic changes followed by tracking at fixed quadrupole strengths.
 
-Using the simplified resonance model described above and accelerator simulation package, Synergia2, we measure arrival time of particles streaming to the septum plane, and perform tracking simulations for particles scattered by septum foils.
+The reduced model retains horizontal resonance dynamics but omits space charge and detailed lattice and extraction-channel effects. It is used to interpret the Synergia2 trajectories and their transit times. Agreement in qualitative features does not by itself validate the full tracking or scattering calculation.
 
 
-\subsection{\label{sec:arrival}Arrival Time Profile}
+\subsection{\label{sec:arrival}Transit-time distributions}
 
-In this section, we will discuss arrival time profiles of extracted particles using Synergia2 tracking simulations. An arrival time is defined as a transition time change of a particle from the unstable region to the septum field region. This is called as the transit time in the reference~\cite{pullia}. As M. Pullia suggested, the arrival time profile of extracted particles could help to predict and provide behaviors of spill structures under influences of magnetic field variations.
+The transit time is the interval between a particle becoming unstable and reaching the septum field region~\cite{pullia}. In the diagnostic used here, elapsed time is measured from an imposed tune step. The resulting response includes particles already in transit as well as particles made unstable by the step, unless these populations are explicitly separated.
 
-Analytical expressions for the arrival time(transit time) in the reference \cite{pullia} were derived based on equations of motion from the Kobayashi Hamiltonian. With these expressions, the transit times were given for either a constant resonance or a slowly varying resonance. However, we realized that it is hard to predict arrival time with approximations used in~\cite{pullia}, especially when particles are close to stable fixed points. Particles' motions are strongly bounded near the stable fixed points, and it takes longer time to escape these points, and therefore, the transit time calculated with analytical expressions easily goes infinity.
+Analytical treatments based on the Kobayashi Hamiltonian describe transit times for fixed or slowly varying resonance conditions~\cite{pullia}. Near an unstable fixed point, the phase-space velocity becomes small and escape can take many turns. This produces a strong dependence on initial conditions and long transit-time tails. Such behavior reflects slow passage near a hyperbolic point, rather than trapping by a stable fixed point.
 
-\begin{figure*}[!tbp]
+\begin{figure}[pos=!tbp]
   \centering
   \subfigure[Beam intensities]{
     \includegraphics[width=.45\textwidth]{img/fig_arrival1a}
     \label{fig:arrival1a}}
-  \subfigure[Particles' $x$ coordinates and their distribution vs. arrival time]{
+  \subfigure[Normalized spill intensity]{
     \includegraphics[width=.45\textwidth]{img/fig_arrival1b}
     \label{fig:arrival1b}}
-  \caption{\label{fig:arrival1}Arrival Time Measurement Stages. (top:early, middle:middle, and bottom:end}
-\end{figure*}
+  \caption{\label{fig:arrival1}Tune-step diagnostic at early (top), middle (center), and late (bottom) stages of extraction. Panel (a) shows the circulating-beam fraction and panel (b) the normalized spill intensity. Blue curves use the uninterrupted ramp; red curves use the paused-and-restored ramp. Purple vertical lines mark restoration of the quadrupole strengths to the values of the uninterrupted ramp at that turn.}
+\end{figure}
 
-Synergia2 tracking simulations are prepared to measure arrival times for extracted particles. 500k macro particles are initially injected and slowly extracted from the Delivery Ring. Other beam and machine parameters are listed in Table~\ref{table:param}. The optimal tune-quads ramp profile provides a constant slow spill. At a selected turn, tune-quads ramp are intentionally stopped, and their strengths are kept constant for about $\sim$1\% of the spill duration, roughly $\sim$300 turns. During this first constant period, a small amount of beam could be extracted. After this period, strengths of tune-quads are restored to original settings instantaneously and kept constant again. The second constant period is for about 500 turns, which should be enough to observe whole transitions of unstable particles to the septum field region. During the transition, the amount of affected particles are relatively small, so that particles inside the narrow separatrix shell induced by the tune jump are involved, and we measure arrival times for those particle transitions. 
+The Synergia2 calculation starts with $5\times10^5$ macroparticles and the parameters in Table~\ref{table:param}. At a selected turn, the tune-quadrupole ramp is paused for approximately 300 turns, or about 1\% of the spill duration. The strengths are then stepped to the values that the uninterrupted ramp would have reached at that turn and held for a further observation interval of approximately 500 turns. The step reduces the stable region and releases a population near its boundary. This procedure probes the extraction response to a finite tune change; it is not a measurement of the feedback-loop transfer function.
 
-As the separatrix is shrinking by the tune ramp, its distance to the septum field region is getting longer. Therefore, the arrival time depends on the extraction stage, and we choose three different stages for measurement points: early (2000 turn), middle (15,000 turn), and close to the end (25,000 turn). 500k macro particles in the initial beam is large enough to observe a smooth transition distribution for each stage.
+The pauses begin at turns 2,000, 15,000, and 25,000, representing early, middle, and late extraction. The changing separatrix size and its distance from the septum can affect transit times. Using the same initial macroparticle population at the three stages allows these trends to be compared, although the number of particles contributing to each distribution differs and no statistical-convergence study is presented.
 
-Fig.~\ref{fig:arrival1a} shows quadrupole strengths vs.~turn for three different stages (top:early, middle:middle, and bottom:end). \textcolor{red}{Dashed} lines (color:blue) are beam intensities with a normal ramp profile, while solid lines (color:red) are those with paused ramp profiles explained above. Each solid line shows small extraction rates during first constant ramp periods, and there are sudden drops of beam intensities after passing restored tune points, shown with vertical lines (color:purple). The turn-by-turn normalized beam intensities are shown in Fig.~\ref{fig:arrival1b}. Ideal normalized intensities should be 1.0, and spill intensities with normal ramp profile are close to the ideal one. With a paused ramp profile for the arrival time measurements, spill intensities are reduced during constant ramp periods. Since sizes of separatrices are relatively small in last two stages, thicknesses of separatrix changes induced by tune variations are very thin, therefore we observe that spill intensities are not reduced as much in the early stage. For the early stage, this separatrix change is large enough to hold many unstable particles inside the separatrix, so that extracted particle rates are very small during the constant ramp and there are large bursts of particles after restoring. 
+Figure~\ref{fig:arrival1a} shows the evolution of the circulating-beam fraction. The uninterrupted ramp produces a nearly steady decrease in beam intensity. Pausing the ramp slows extraction, and the subsequent tune step produces an additional decrease in circulating intensity. The corresponding normalized spill traces in Fig.~\ref{fig:arrival1b} show a pronounced burst in the early-stage case and a weaker, broader response at the later stages. Continued extraction during a pause is consistent with particles already traveling toward the septum and, in the full calculation, with evolving collective dynamics. The traces alone do not isolate the contributions of these effects.
 
-\begin{figure*}[!tbp]
+\begin{figure}[pos=!tbp]
   \centering
   \subfigure[Turn 2,000]{
-    \includegraphics[width=.3\textwidth]{img/fig_arrival2a}
+    \includegraphics[width=.47\textwidth]{img/fig_arrival2a}
     \label{fig:arrival2a}}
   \subfigure[Turn 15,000]{
-    \includegraphics[width=.3\textwidth]{img/fig_arrival2b}
+    \includegraphics[width=.47\textwidth]{img/fig_arrival2b}
     \label{fig:arrival2b}}
+  \par\medskip
   \subfigure[Turn 25,000]{
-    \includegraphics[width=.3\textwidth]{img/fig_arrival2c}
+    \includegraphics[width=.47\textwidth]{img/fig_arrival2c}
     \label{fig:arrival2c}}
-  \caption{\label{fig:arrival2}Arrival Time Distributions. (left:early, middle:middle, and right:end)}
-\end{figure*}
+  \caption{\label{fig:arrival2}Transit time versus initial horizontal coordinate for the early, middle, and late tune-step cases. Blue and red markers denote Synergia2 and reduced-model RK4 tracking, respectively. Marginal histograms show the coordinate and transit-time distributions. The left vertical line marks the septum position; the right line marks the horizontal coordinate of the leftmost unstable fixed point. Coordinate units and normalization follow the original simulation plots.}
+\end{figure}
 
-Beside Synergia2 tracking simulations, we also track particles' motions with the Kobayashi Hamiltonian method to calculate arrival times. By solving equations of the motion in Eq.~(\ref{eqn:motion}) with 4th order Runge-Kutta (RK4) method, particle's motions are tracked for every three turn and their arrival times are calculated. For a one-to-one comparison, their initial positions are same as those of Synergia2 tracking simulations, however, space charge effects are excluded for simplicity reasons. Effective normalized sextupole strengths are calculated with harmonic sextupole strengths at the second tune stopping points.
+For comparison, Eq.~\eqref{eqn:motion} is integrated with a fourth-order Runge--Kutta (RK4) method. The reduced-model trajectories use the same initial particle coordinates as the Synergia2 sample, and the effective resonance parameters are evaluated at the restored quadrupole settings. Space charge is omitted in the reduced model. The continuous variable $\tau$ must be converted to turns when comparing transit times; observing trajectories every three turns does not prescribe the numerical integration step.
 
-In Fig.~\ref{fig:arrival2}, arrival time profiles of particles are plotted as a function of their initial positions. Each dot represents an individual particles with Synergia2 (\textcolor{red}{triangle}, blue) and RK4 (\textcolor{red}{circle}, red) methods. Attached plots on top and right are histograms of their distributions. The left vertical line is the septum foil position, and the right one indicates the $x$ coordinates of the leftmost unstable fixed point. 
+Figure~\ref{fig:arrival2} compares individual-particle transit times and their marginal distributions. Both calculations show short transit times for particles starting close to the septum along the outgoing branch, with increasing times for starting coordinates nearer the unstable fixed point. Away from the short-transit region, the full tracking result has a broader distribution and differs systematically from the reduced model.
 
-When particles are sitting on or slightly off the outgoing separatrix branch, arrival times are almost same for two methods. However, there are large offsets between two methods, if particles' initial positions are near the side of the separatrix triangle. Speed of the transit time varies particles' distance from the separatrix line. In other words, the arrival time is inversely proportional to the distance between particle and separatrix. This is predicted in M.~Pullia's analytical expressions, too. In Synergia2 simulations, we include space charge effects, which shake particle's motions and eventually varies distance to the separatrix. Consequently, these effects make particles travel more time to reach the septum field region. Moreover, both cases have relatively large arrival times near the unstable fixed point, shown with large peaks in the upper histogram plots. Since particles starting near this point are strongly bounded by restoring forces, escape times are longer than other initial positions. 
+Transit time depends on the full initial phase-space coordinates and resonance parameters; it is not generally inversely proportional to the perpendicular distance from a separatrix. Slow escape near a hyperbolic fixed point accounts qualitatively for the long transit times in both calculations. Space charge can change individual trajectories and the effective resonance conditions in Synergia2. However, the comparison also changes the lattice description and other model details, so the observed differences cannot be attributed uniquely to space charge without a matched calculation in which space charge alone is switched off.
 
 
-\subsection{\label{sec:beamloss}Beam Loss Tracking}
+\subsection{\label{sec:beamloss}Tracking of particles scattered at the septum}
 
-In slow resonant extraction, unstable particles outside the separatrix are separated from the circulating beam and streaming through the separatrix branches. When these particles are entering the septum field region, they are kicked by electrostatic fields biased between septum foils and cathode. For the Mu2e experiment, two septa are placed with 50~$\mu$m thickness foils. Due to the finite thickness and width of foils, some particles have chances to hit these foils and scatter throughout the beamline. In order to reduce these hitting rates, we adopt many techniques. such as septum foil plane rotation, dynamic bumps, and diffusers. Synergia2 tracking studies predicted that these chances are approximately less than 2\%. 
+Particles moving along an outgoing separatrix branch enter the electrostatic septum field and receive a deflection toward the extraction line. The modeled channel contains two electrostatic septa with $50\,\mu\mathrm{m}$ foils. Finite foil thickness and extent allow some particles to intercept material and scatter. The aperture-based Synergia2 calculations reported an interception fraction below approximately 2\% for the studied configurations. An interception fraction is distinct from the fraction ultimately lost after scattering and further transport.
 
-Synergia2 has capability of filtering these particles at the entrance of the septum, and handles as beam losses. However, it can not track scattered particles inside and after septum elements. In the real machine, particles could cross a gap between two foils, or be scattered by foils. If these particles go back into the field free region, they will circulate with the existing circulating beam, again. In case of entering into the septum field region, they will be partially kicked by the electrostatic fields. Of these scattered particles, some could be survived by scattering, however, most of them will hit a beam pipe somewhere around the ring and generate very hazardous radio-activities.
+In the aperture treatment used here, a particle that intercepts a septum component is removed from the primary tracking sample. This does not determine its subsequent fate. A scattered particle may return to the field-free region, receive a partial electrostatic kick, be extracted, or be lost at another aperture. MARS transport is used to resolve these alternatives through the extraction-channel geometry before selected scattered particles are returned to ring tracking.
 
-\begin{figure*}[!tbp]
+\begin{figure}[pos=!tbp]
   \centering
-  \includegraphics[width=.9\textwidth]{img/fig_beamloss1}
-  \caption{\label{fig:beamloss1}The MARS tracking results inside the extraction channel.}
-\end{figure*}
+  \includegraphics[width=.68\textwidth]{img/fig_beamloss1}
+  \caption{\label{fig:beamloss1}MARS trajectories through the modeled extraction channel, showing ESS1, Q203, ESS2, Q204, and the Lambertson magnet (ELAM). The main black trajectories represent circulating (upper) and outgoing (lower) protons; other trajectories illustrate scattering and secondary-particle transport. The downstream C-magnet is outside the displayed region.}
+\end{figure}
 
-In order to observe behaviors of scattered particles, we use the MARS code in conjunction with Synergia2~\cite{mars1}. MARS is a Monte Carlo code with capabilities of hardronic and electromagnetic cascades for particles in accelerators, detectors, spacecrafts, etc~\cite{mars2}. Fig.~\ref{fig:beamloss1} shows a beam tracking with the MARS code through the extraction channel in the Delivery Ring. The extraction channel consists of two electrostatic septa (ESS1 and ESS2), a Lambertson magnet (ELAM), and two quadrupoles (Q203 and Q204). Two main streams with black traces representing protons are circulating (upper) and outgoing (lower) particles. Outgoing particles will be transported to the C-magnet (not presented in the figure) and extracted. Other colored traces are secondary particles scattered by the septum foils. Circulating and outgoing beams are separated in the first septum, ESS1. At ESS2, their separation is large enough to have no losses. 
+MARS models hadronic and electromagnetic interactions, including secondary-particle production~\cite{mars2}. Figure~\ref{fig:beamloss1} shows transport through the two electrostatic septa (ESS1 and ESS2), two quadrupoles (Q203 and Q204), and the Lambertson magnet (ELAM). The outgoing beam subsequently reaches the C-magnet. Separation of the circulating and outgoing beams begins at ESS1 and increases before ESS2. The displayed trajectories illustrate this separation but do not, by themselves, establish zero loss at ESS2.
 
-In Synergia2 multi-particle tracking simulations, a specialized aperture at the entrance of the first septum is applied to filter out lost particles. This aperture consists of two parts: 1) determining particle hittings to the first foil head or other septum components at its entrance, and 2) calculating particle trajectories inside the septum to check their crossings over the septum plane. After applying the septum aperture, the collection of filtered particles are prepared as an input of MARS tracking simulations. In MARS simulations, filtered particles are tracked through the extraction channel from the first septum (ESS1) to the C-magnet. Each septum has detailed geometries of foil configurations, such as foil thickness, width, separations, material properties, etc. Therefore, particles cascade motions can be tracked in detail. Then, the second Synergia2 tracking simulations are performed for scattered particles, which are output of MARS simulations.
+The tracking workflow has three stages. First, a specialized Synergia2 aperture at ESS1 selects particles that hit the foil head or another entrance component, or whose calculated trajectories cross a septum plane inside the element. Second, these particles are transported by MARS from ESS1 through the extraction channel to the C-magnet, using the modeled foil thicknesses, widths, spacings, and materials~\cite{mars1}. Third, the scattered-particle output selected for further ring transport is used as input to Synergia2. The loss fraction below refers to this returned sample; it is not an inclusive count of all secondary species produced by MARS.
 
-\begin{figure*}[!tbp]
+\begin{figure}[pos=!tbp]
   \centering
-  \subfigure[Synergia2 Tracking Results]{
+  \subfigure[Phase-space trajectories]{
     \includegraphics[width=.45\textwidth]{img/fig_beamloss2a}
     \label{fig:beamloss2a}}
-  \subfigure[Beam loss locations]{
+  \subfigure[Loss locations]{
     \includegraphics[width=.45\textwidth]{img/fig_beamloss2b}
     \label{fig:beamloss2b}}
-  \caption{\label{fig:beamloss2}Synergia2 tracking results for scattered particles at the entrance of the first septum: a) turn-by-turn results with normalized phasespace coordinates, b) beam loss locations.}
-\end{figure*}
+  \caption{\label{fig:beamloss2}Synergia2 tracking of the returned scattered-particle sample. (a) Turn-by-turn distributions referred to ESS1, plotted in $(x,\,\alpha x+\beta x')$ coordinates. The initial sample is blue; subsequent turns are red, yellow, and cyan. (b) Locations of losses around the Delivery Ring. These coordinates in panel (a) retain a factor of $\sqrt{\beta}$ relative to $(X,X')$ in Eq.~\eqref{eqn:coordinates}.}
+\end{figure}
 
-Fig.~\ref{fig:beamloss2a} shows turn-by-turn tracking results for scattered particles at the entrance of the first septum in normalized phasespace coordinates. Particles (color:blue) along with the vertical line (color:purple) at 11~mm are input sample particles from MARS results. Their original measured locations are at the C-magnet, but we traced them back to the septum just for the comparison. We also add arbitrary circulating particles, which are shown as a large block at one edge in their distribution. Particles after 1, 2, and 3 revolutions are plotted on the bottom, right, and left, respectively. After 3 turns, most of survived particles are inside the septum field region. Fig.~\ref{fig:beamloss2b} shows where scattered particles are lost inside the ring. Black line represents the beamline of the Delivery Ring. This plot shows that beam losses are occurred mostly at septa elements, first arc section, and middles of each straight section. From simulations results, about \~43\% of scattered particles are lost, while the rest particles are survived and extracted. 
+Figure~\ref{fig:beamloss2a} shows the scattered-particle sample referred back from the C-magnet to ESS1 for comparison. The initial particles lie near the septum line at $x\simeq-11\,\mathrm{mm}$. Additional circulating particles are included as a visual reference and form the compact group near one end of the initial distribution. The next three turns populate the lower, right, and left regions of the plot. After three turns, many surviving particles have returned to the septum field region. Figure~\ref{fig:beamloss2b} locates losses near the septa, in the first arc, and near the middles of the straight sections. Approximately 43\% of the tracked scattered-particle sample is reported lost, with the remainder surviving to extraction. This conditional fraction cannot be combined with the initial interception estimate to obtain a total beam-loss fraction without consistent sample weights, selection criteria, and tracking endpoints.
 
-\begin{figure*}[!tbp]
+\begin{figure}[pos=!tbp]
   \centering
-  \includegraphics[width=.9\textwidth]{img/fig_beamloss3}
-  \caption{\label{fig:beamloss3} Particle tracking results with the simplified resonance model.}
-\end{figure*}
+  \includegraphics[width=.75\textwidth]{img/fig_beamloss3}
+  \caption{\label{fig:beamloss3} Reduced-model trajectories sampled at turns 0 (blue), 3 (red), and 6 (green), shown in the same phase-space coordinates as Fig.~\ref{fig:beamloss2a}. The septum line is a reference only: extraction fields, material interactions, and particle removal are absent from this calculation.}
+\end{figure}
 
-In Fig.~\ref{fig:beamloss2a}, we observe that distributions of scattering particles have curved shapes after each revolution, although its initial distribution is well aligned along the line. After the third revolution, it has V-like shape distribution in which particles along the outgoing separatrix branch are our additional circulating particles, not scattered particles. That is, scattered particles are off from the separatrix branch. 
+Although the initial scattered-particle distribution is approximately aligned with the septum, its subsequent distributions are curved. After three turns, the added circulating-particle group follows the outgoing separatrix branch, whereas scattered particles can lie away from that branch. The distinction matters when interpreting the apparent shape of the combined distribution.
 
-To examine these behaviors, we use equations of motion with the simplified resonance model, again. Particles' motions are tracked for every 3 turns using Eq.~(\ref{eqn:motion}), and those are plotted in Fig~\ref{fig:beamloss3}. In this tracking simulation, there are no extraction channel including septa and Lambertson, so that there is no extraction. Particles (color:blue) aligned with the septum line (vertical line) are initial particle distributions (turn 0). The Flipped S-like shape distribution (color:red) is at the next third turn, and the remaining distribution is the final 6th turn. Although all initial particles are aligned on the straight line at the beginning, they are sitting on the different field line. In other words, they are moving with different speeds along the distinguished hyperbola trajectories. Therefore, these validates Synergia2 tracking simulation results. 
+Figure~\ref{fig:beamloss3} illustrates this deformation using the reduced Hamiltonian. It omits the extraction fields and apertures, so trajectories continue beyond the reference septum line. Particles initially lying on a straight line generally have different Hamiltonian values and follow different level curves at different speeds. Their distribution therefore deforms after three and six turns. This behavior provides a qualitative explanation of phase-space shearing in the Synergia2 results, but it does not validate material scattering, aperture losses, or extraction efficiency.
 
 
-\section{\label{sec:rfko}Effects of RFKO Beam Heating}
+\section{\label{sec:rfko}Effects of RFKO excitation on emittance and centroid motion}
 
-\begin{figure*}[!tbp]
+\begin{figure}[pos=!tbp]
   \centering
-  \subfigure[Emittance Growth Rates]{
+  \subfigure[Horizontal emittance]{
     \includegraphics[width=.45\textwidth]{img/fig_rfko1a}
     \label{fig:rfko1a}}
-  \subfigure[Motions of Beam Centers]{
+  \subfigure[Beam-centroid motion]{
     \includegraphics[width=.45\textwidth]{img/fig_rfko1b}
     \label{fig:rfko1b}}
-  \caption{\label{fig:rfko1}Emittance growth rates and beam central motions for $C_{x} = 0.0$ (solid, color:blue) and $C_{x} = 1.0$ (dashed, color:red).}
-\end{figure*}
+  \caption{\label{fig:rfko1}RFKO excitation at $C_x=0$ (blue, solid) and $C_x=1$ (red, dashed). (a) Horizontal emittance versus turn. (b) Beam-centroid trajectories over 30,000 turns. Nonzero chromaticity produces greater emittance growth and smaller centroid excursions in these simulations.}
+\end{figure}
 
-In the Mu2e experiment, the main mechanism to slowly extract particles from the ring is adjusting the machine tune by increasing tune-quad strengths. We also adopt a well-known technique, RF Knock-Out, to assist particle extraction. This technique is primarily used in many medical facilities for slow resonant extractions. However, we are planning to implement the RFKO method as a feedback system for the fine spill regulation. We have investigated the RFKO feedback system, and its behavior is a bit promising~\cite{mu2e}. In this section, we will show particles' motions under the influence of RFKO beam heating. 
+The tune-quadrupole ramp drives the principal extraction process, while RFKO provides an additional means of regulating the spill. To separate the response to RFKO from the resonance-driven extraction dynamics, this section considers excitation at a fixed machine tune without the third-integer resonance drive. The quantities of interest are emittance, centroid motion, and the distribution of horizontal action.
 
-Our previous study showed that the optimal beam heating efficiency can be achieved when the RFKO frequency is set to the machine tune rather than the center of the tune spread and its FM bandwidth corresponds to the chromatic tune spread~\cite{ipac11}. The study also presented that dipole oscillations induced by the beam heating are decoupled from the incoherent space charge effects, henceforth, there is no emittance growth. In order to verify the results, we perform similar simulations using Synergia2.
+Earlier simulations found effective excitation when the RFKO center frequency follows the machine tune and the modulation bandwidth is comparable to the chromatic tune spread~\cite{ipac11}. Dipole excitation can drive coherent motion without a corresponding increase in emittance about the beam centroid. A spread in betatron frequencies promotes phase mixing, allowing the excitation to increase the internal phase-space area. An incoherent space-charge tune spread does not necessarily provide the same mixing mechanism as chromaticity.
 
-In order to simplify the problem, there are no third-integer resonance excitation and machine tune ramps, but the horizontal machine tune is corrected to 9.65. We place a circular aperture to remove out of boundary particles beyond $20~\pi$mm-mrad. The linear chirp scheme is used for the RFKO frequency modulation. Its frequency spectrum covers the betatron tune spread of the beam with a suitable bandwidth and random phase shifts for every sweep. Space charge effects are included, but their effects to the emittance growth rate has a very low dependencies. We tested two horizontal chromaticity ($C_{x} = 0,1$). RFKO power is 500 Watt, which yields approximately 1~$\mu$rad horizontal kick to particles. 
+The horizontal machine tune is fixed at 9.65, and the resonance drive and tune ramp are disabled. The model includes space charge and uses a circular transverse aperture, specified in the original simulation as a $20\pi\,\mathrm{mm\,mrad}$ acceptance, to remove particles outside the accepted region. A linear chirp with randomized sweep phases supplies the RFKO excitation. Two horizontal chromaticities, $C_x=0$ and $C_x=1$, are compared. The assumed RFKO power is $500\,\mathrm{W}$, corresponding in the modeled kicker to an approximately $1\,\mu\mathrm{rad}$ horizontal kick.
+% AUTHOR CHECK: supply the acceptance/action convention, chirp bandwidth in
+% each case (including C_x=0), and kicker calibration from the simulation inputs.
 
-As predicted, the emittance growth for $C_{x}=0.0$ is significantly low compared to that for $C_{x}=1.0$ (See Fig.~\ref{fig:rfko1a}). A non-zero chromaticity brings a chromatic tune spread, which span the whole beam spread. Therefore, RFKO forces excites the most of particles in the bunch, and induces the emittance growth. Fig.~\ref{fig:rfko1b} presents motions of the beam center for 30,000 turns. Since particles' motions are decoupled from the RFKO beam heating with a zero chromaticity, the beam center is wobbling. On the other hand, beam central motions are well confined near the origin for $C_{x}=1.0$.
+Figure~\ref{fig:rfko1a} shows little emittance growth at $C_x=0$ and substantially greater growth at $C_x=1$. The centroid trajectories in Fig.~\ref{fig:rfko1b} show the complementary behavior: large coherent excursions at zero chromaticity and motion concentrated near the origin at nonzero chromaticity. These results are consistent with chromatic phase mixing converting the driven response into increased internal beam spread. They do not imply that the RFKO force is absent or decoupled from the particles at zero chromaticity.
 
-\begin{figure*}[!tbp]
+\begin{figure}[pos=!tbp]
   \centering
   \subfigure[$C_{x} = 0.0$]{
     \includegraphics[width=.45\textwidth]{img/fig_rfko2a}
@@ -312,15 +301,21 @@ As predicted, the emittance growth for $C_{x}=0.0$ is significantly low compared
   \subfigure[$C_{x} = 1.0$]{
     \includegraphics[width=.45\textwidth]{img/fig_rfko2b}
     \label{fig:rfko2b}}
-  \caption{\label{fig:rfko2}Changes of action distributions ($f(\sqrt{I_{x}}) / \sqrt{I_{x}}$ vs.~$\sqrt{I_{x}}$) for $C_{x} = 0.0$ and $C_{x} = 1.0$.}
-\end{figure*}
+  \caption{\label{fig:rfko2}Evolution of the plotted horizontal-action distributions, $f(\sqrt{I_x})/\sqrt{I_x}$ versus $\sqrt{I_x}$, at 5,000-turn intervals for (a) $C_x=0$ and (b) $C_x=1$. The original diagnostic normalization is retained. Particles outside the modeled aperture are removed, so changes in distribution height need not represent redistribution alone.}
+\end{figure}
 
-In Fig.~\ref{fig:rfko2}, distributions of beam actions are plotted for every 5,000 turns. When an RFKO power is heating with a zero chromaticity (Fig.~\ref{fig:rfko2a}), action distributions are staying in a same shape. With a proper frequency spectrum spanning the beam tune spread, however, particles near the center are depopulated by the RFKO heating, and are moving the edge as shown in Fig.~\ref{fig:rfko2b}. These motions induce the emittance growth, and consequently particles at the vicinity are transferred to the resonance.
+The action distributions in Fig.~\ref{fig:rfko2} remain approximately unchanged for $C_x=0$. At $C_x=1$, the low-action population decreases and the distribution broadens under continued excitation. Because the aperture removes particles, interpreting the distribution quantitatively also requires the surviving population and a fixed normalization convention. These calculations support the role of chromaticity in RFKO-driven emittance growth. Since the resonance drive is disabled in this test, they do not directly demonstrate transfer into an extraction resonance or quantify the resulting spill.
 
 
-\section{\label{sec:conclusion}Conclusion}
+\section{\label{sec:conclusion}Conclusions}
 
-In this paper, we have demonstrated beam dynamics simulations of third-integer resonant extraction for the Mu2e experiment at Fermilab. We implemented local orbit corrections in which we were able to achieve smaller footprint and angular spread of the extracted particles. Orbit corrections are realized with 4 dynamic bumps, and their strengths are being dynamically changed. These dynamical corrections also help to reduce beamlosses by avoiding the septum shadow region with narrow angular spreads. Compared with the simplified resonance model, Synergia2 tracking simulations were performed to understand the spill structure of the extracted beam by measuring the arrival time profile. Results show that particles near the separatrix line are strongly attracted by the resonance force, and they need more time to reach the septum field region. Changes of the separatrix size are comparably small near the end of the extraction, so that stable and unstable particles are mingled near the separatrix boundary. In order to investigate lost locations of particles, scattered by foils inside the electrostatic septum, we used the particle sample generated by the MARS code. We examined turn-by-turn distributions of scattered particles, and those are also verified with the simplified resonance model derived from the Kobayashi Hamiltonian model. Moreover, the importance of the chromaticity for the RFKO beam heating is discussed by comparing emittance growth rate and action distributions. The RFKO FM frequency spectrum should cover the betatron spread of the beam, and its central frequency should be matched to the machine tune. The non-zero chromaticity is also important to make the beam have a coherent motion with the RFKO heating. These Synergia2 simulation studies provided us better understandings in the resonant extraction, and helped to get more stable spills for the Mu2e experiment.
+The simulations examine three aspects of particle dynamics relevant to third-integer extraction for Mu2e: RFKO spill feedback, transit times following tune changes, and the fate of particles scattered in the extraction septa. The tested proportional--derivative controller reduces visible ripple-driven spill modulation, but residual spikes remain and a quantitative suppression metric has not been established.
+
+Tune-step calculations at three stages of extraction show a strong dependence of transit time on initial phase-space coordinates, with long delays near unstable fixed points. The reduced Kobayashi model reproduces the main trends while differing from Synergia2 near the separatrix. Because the models differ in more than their treatment of space charge, matched tracking comparisons are needed to identify the source of those differences.
+
+The combined Synergia2--MARS workflow locates subsequent losses of a scattered-particle sample in the extraction channel and elsewhere around the ring. The reported loss of approximately 43\% applies to that sample rather than to the full circulating beam. Reduced-model trajectories explain phase-space shearing qualitatively, without validating the scattering calculation. Separate RFKO tests show that nonzero chromaticity favors emittance growth and smaller centroid excursions, whereas zero chromaticity primarily produces coherent motion in the studied configuration.
+
+These results provide a physical basis for refining spill feedback and loss modeling. Quantitative predictions require documented controller settings and latency, convergence checks for tracking and transit-time distributions, and a fully specified particle handoff between MARS and Synergia2. The present evidence supports these priorities without establishing final operational performance.
 
 
 
@@ -329,38 +324,52 @@ In this paper, we have demonstrated beam dynamics simulations of third-integer r
 This work was supported by the United States Department of Energy under contract DE-AC02-07CH11359 and the ComPASS project funded through the Scientific Discovery through Advanced Computing program in the DOE Office of High Energy Physics.
 
 
-\begin{thebibliography}{77}
-  \bibitem{tdr}
-  Mu2e Technical Design Report, http://arxiv.org/abs/1501.05241.
+\clearpage
+\begin{thebibliography}{99}
 
-  \bibitem{mu2e}
-  C.S. Park, ``Tracking Simulation of the Third-Integer Resonant Extraction for the Fermilab Mu2e Experiment,'' submitted to PRST-AB.
+\bibitem{tdr}
+L. Bartoszek et al. (Mu2e Collaboration), ``Mu2e Technical Design Report,'' FERMILAB-TM-2594 (2014), \href{https://arxiv.org/abs/1501.05241}{arXiv:1501.05241}.
 
-  \bibitem{hardt}
+\bibitem{mu2e}
+C.S. Park, ``Tracking simulation of third-integer resonant extraction for Fermilab's Mu2e experiment,'' Nuclear Engineering and Technology \textbf{58} (2026) 104097, \href{https://doi.org/10.1016/j.net.2025.104097}{doi:10.1016/j.net.2025.104097}.
+
+\bibitem{hardt}
   W. Hardt, ``Ultraslow Extraction out of LEAR,'' CERN Internal Note PS/DL/LEAR Note 81-6, 1981.
 
-  \bibitem{pullia}
-  M. Pullia, ``Dynamics of slow extraction and its influence on transfer lines design,'' in his Thesis.
+\bibitem{pullia}
+M. Pullia, ``Detailed dynamics of slow extraction and its influence on transfer line design,'' Ph.D. thesis, Universit\'e Claude Bernard Lyon 1 (1999).
 
-  \bibitem{pimms}
-  Proton-Ion Medical Machine Study Part I(PIMMS), CERN/PS 99-010; Proton-Ion Medical Machine Study Part II(PIMMS), CERN/PS 2000-007
+\bibitem{pimms}
+PIMMS Study Group, ``Proton-Ion Medical Machine Study (PIMMS),'' Part I, CERN/PS 99-010 (DI) (1999); Part II, CERN/PS 2000-007 (DR) (2000).
 
+\bibitem{HB10}
+  V. Nagaslaev, J. Amundson, J. Johnstone, L. Michelotti, C.S. Park, S. Werkema, and M. Syphers, ``Third Integer Resonance Slow Extraction Scheme for a $\mu\to e$ Experiment at Fermilab,'' FERMILAB-CONF-10-395-AD (2010), contribution to HB2010.
 
-  \bibitem{mars1}
-  V. Nagaslaev, ``MARS simulations for Mu2e resonant extraction'', in preparation.
+\bibitem{ipac11}
+V. Nagaslaev, J. Amundson, J. Johnstone, C.S. Park, and S. Werkema, ``Third Integer Resonance Slow Extraction Using RFKO at High Space Charge,'' in Proceedings of IPAC2011, San Sebasti\'an, Spain (2011), pp. 3559--3561, paper THPS058.
 
-  \bibitem{mars2}
+\bibitem{mars1}
+V. Nagaslaev and I. Rakhno, ``MARS Simulations for the Mu2e Delivery Ring Extraction Channel,'' Mu2e Document 3697-v1 (internal report).
+% Bibliographic details recovered from modeling.tex; author verification needed.
+
+\bibitem{mars2}
   N.V. Mokhov, ``Recent Mars15 Developments: Nuclide Inventory, DPA and Gas Production,'' Fermilab-Conf-10-518-APC (2010).
 
-  \bibitem{ipac11}
-  V. Nagaslaev, J.F. Amundson, J.A. Johnstone, C.S. Park, and S.J. Werkema,  ``Third Integer Resonance Slow Extraction Using RFKO at High Space Charge,'' in  IPAC 2011 proceeding.
+\bibitem{synergia2}
+  J. Amundson, P. Spentzouris, J. Qiang, and R. Ryne, ``Synergia: An accelerator modeling tool with 3-D space charge,'' Journal of Computational Physics \textbf{211} (2006) 229--248, \href{https://doi.org/10.1016/j.jcp.2005.05.024}{doi:10.1016/j.jcp.2005.05.024}.
 
-  \bibitem{preliminary}
-  L. Michelotti and J. Johnstone, ``Preliminaries Toward Studying Resonant Extraction from the Debuncher,'' Technical Report, Fermilab, 2009. FERMILAB-FN-0842-APC-CD.
+\bibitem{wcm}
+  P. Prieto, ``Wall Current Monitor for fast Spill Measurement,'' Mu2e Document 3627-v4; ``RFKO regulation for the Mu2e Resonant Extraction,'' Mu2e Document 3625-v1 (internal reports).
+% Bibliographic details recovered from modeling.tex; author verification needed.
 
-  \bibitem{kobayashi}
+\bibitem{pid}
+  T. Himel, ``Feedback: Theory and Accelerator Applications,'' SLAC-PUB-7398 (1997).
+
+\bibitem{preliminary}
+L. Michelotti and J. Johnstone, ``Preliminaries toward studying resonant extraction from the Debuncher,'' FERMILAB-FN-0842-APC-CD (2009; revised 2010), \href{https://doi.org/10.2172/966797}{doi:10.2172/966797}.
+
+\bibitem{kobayashi}
   Y. Kobayashi, H. Takahashi, ``Improvement of the Emittance in the Resonant Ejection,'' Proceedings of 6th Int. Conf. on High Energy Accelerators, Cambridge, Massachusetts, (1967), p347-51.
-
 
 \end{thebibliography}
 

@@ -1,6 +1,6 @@
 # Task 06 — Clarify the tune-step and transit-time evidence
 
-Status: Todo  
+Status: Done  
 Priority: P1  
 Depends on: Tasks 03 and 04
 
@@ -25,11 +25,11 @@ Elapsed time after a finite tune step can include particles already in transit. 
 
 ## Acceptance criteria
 
-- [ ] Time origins, pause/restoration turns, and observation intervals are not conflated.
-- [ ] The ideal transit concept and measured diagnostic are distinguished.
-- [ ] No unsupported percentiles, fitted tail law, missing-tail correction, or causal isolation is introduced.
-- [ ] The RK4 model is described as a reduced interpretation, not a validated substitute for the full lattice.
-- [ ] No matched space-charge or longer-duration run is required.
+- [x] Time origins, pause/restoration turns, and observation intervals are not conflated.
+- [x] The ideal transit concept and measured diagnostic are distinguished.
+- [x] No unsupported percentiles, fitted tail law, missing-tail correction, or causal isolation is introduced.
+- [x] The RK4 model is described as a reduced interpretation, not a validated substitute for the full lattice.
+- [x] No matched space-charge or longer-duration run is required.
 
 ## If evidence is unavailable
 
@@ -37,4 +37,10 @@ Explicitly describe the available diagnostic and its limits. Retain questions ab
 
 ## Completion record
 
-Pending. Record changed sections, checks performed, and unresolved author questions here before marking Done.
+Completed: 2026-09-29.
+
+- Separated the ideal transit time from the diagnostic elapsed time after the common restoration step, and flagged the undocumented selection and arrival criteria.
+- Stated the protocol consistently and linked the stages to the shrinking stable region (Eq. 6). Explained burst size and delay (Fig. 2) and the histogram roles, discrete levels, and stage trends (Fig. 3).
+- Restated the mechanism positively (passage near unstable fixed points) without the inverse-distance law, kept the space-charge attribution non-unique, and added the observation-window caveat.
+- Added the spill-regulation implication (spread of arrival times leads to a gradual response) without a delay constant or transfer function.
+- Build succeeded (20 pages); labels are unique, all references resolve, and pages 9–13 were inspected. Image hashes are unchanged. The pixel check for the discrete levels is recorded only in REVIEW.

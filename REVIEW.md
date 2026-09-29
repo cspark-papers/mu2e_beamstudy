@@ -41,6 +41,27 @@ Main findings requiring author input:
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
 
+## Task 06 completed: tune-step and transit-time evidence
+
+Completed 2026-09-29 from the existing figures and text only.
+
+- **Two definitions separated.** The ideal single-particle transit time (from instability to septum, with no common origin) is now distinguished from the diagnostic's elapsed time from the common restoration step. The two nearly coincide for particles released by the step. For particles already in transit, which the undocumented selection may include, the elapsed times are shorter than their full transit times. The arrival criterion is noted as undocumented for both codes.
+- **Protocol stated consistently.** The pause starts at turns 2,000, 15,000, and 25,000, lasts about 300 turns, and is followed by a step to the uninterrupted-ramp values and a hold of about 500 turns. The shrinking stable region (Eq. 6) and growing fixed-point-to-septum distance are now tied to the stages. "Same initial macroparticle population" was reworded to "one simulated beam".
+- **Fig. 2 explained.**
+  - Burst size follows how strongly the pause suppresses extraction: the spill nearly stops at the early stage but continues at a reduced rate later. The original draft's "thicker shell" explanation is attributed to it.
+  - The burst delay and duration are linked to the Fig. 3 transit-time distribution.
+  - The caption now states the spill normalization (ideal uniform spill equals unity, documented in the original draft).
+- **Fig. 3 explained.**
+  - Caption: the top histogram shows common starting coordinates, the right histograms show per-model transit times, and times are measured from restoration.
+  - Text: short times fall on discrete levels, explained by the particle returning to the septum side only every third turn. Across stages the fixed-point line moves toward x = 0, the starting coordinates concentrate there, and the longest times shown increase.
+- **Mechanism restated positively.** Long times come from passing close to an unstable fixed point, and they increase at later stages. The residual mention of the rejected inverse-distance law was deleted. Model differences are still not assigned uniquely to space charge. A window caveat was added: the hold is about 500 turns and the plot ends at 250 turns, so the longest delays may be omitted.
+- **Implication paragraph.** The arrival-time spread (a few turns to more than one hundred, lengthening later) makes tune or RFKO changes act gradually, which contributes to the delayed response in Sec. 3. No delay constant or transfer function is extracted.
+- **Review-only pixel check** of the discrete levels. Marker blobs in the short-transit region of Fig. 3 sit near 3.2, 5.9, 9.6, 15.9, 18.4, and 22.5 turns in (a), near 3.3, 5.8, and 9.6 in (b), and near 3.3, 6.0, and 8.3 in (c), at 1.32 px per turn with markers about 4 px wide. This is roughly a 3-turn spacing within about ±1 turn of marker blur. Only "discrete levels" appears in the manuscript, with no spacing value.
+
+Validation: `latexmk` with pdfLaTeX and BibTeX succeeded (20 pages). Labels are unique, and every reference and citation resolves. The only warnings are the known ones. Pages 9–13 were inspected. All image, reference-draft, and bibliography hashes are unchanged. No simulations, staging, commits, or pushes.
+
+Open for the author (existing rows): the selection criterion and per-stage counts; the arrival criterion; the exact restoration values; the post-hold protocol; and whether any transit times exceeded 250 turns.
+
 ## Task 05 completed: RFKO results and interpretation
 
 Completed 2026-09-29 using the existing figures and text only. No metric was derived for the manuscript, and no figure was changed.

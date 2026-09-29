@@ -11,6 +11,7 @@ This repository contains a journal manuscript on particle dynamics during third-
 | `beamstudy.tex` | Reference draft; not automatically synchronized with the active manuscript. |
 | `modeling.tex` | Companion/reference draft; also contains provenance for internal report citations. |
 | `REVIEW.md` | Revision record, evidence checks, and remaining author/data questions. |
+| `PRIOR_WORK_COMPARISON.md` | Page-by-page evidence map, figure comparison, and configuration differences relative to the supplied prior publication. |
 | `AGENTS.md` | Editing, validation, and version-control instructions. |
 | `.gitignore` | Excludes generated LaTeX products and local task notes. |
 
@@ -40,7 +41,7 @@ Check for undefined citations/references, overfull boxes, clipped content, illeg
 
 ## Submission status
 
-The September 2026 revision improves the prose, theory conventions, evidence qualifications, captions, and references. It does not add new simulation results. Consult `REVIEW.md` before submission: the ripple-amplitude convention, controller details, numerical convergence, particle-sample definitions, and diagnostic normalizations still need confirmation from the original calculations.
+The September 2026 revision improves the prose, theory conventions, evidence qualifications, captions, and references. A second revision based on the complete prior publication identifies RFKO response, tune-step transit times, and post-interception scattering transport as the follow-up topics. A new manuscript table distinguishes shared parameters from differing foil thicknesses and acceptances. No new simulation results were added. Consult `REVIEW.md` and `PRIOR_WORK_COMPARISON.md` before submission: geometry, controller details, numerical convergence, particle-sample definitions, and diagnostic normalizations still need confirmation from the original calculations.
 
 The citation to the companion tracking paper now uses its published record: Nuclear Engineering and Technology 58 (2026), 104097, DOI [10.1016/j.net.2025.104097](https://doi.org/10.1016/j.net.2025.104097). This does not select a target journal for the present manuscript.
 

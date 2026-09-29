@@ -25,7 +25,7 @@
 % Suppress the class's empty ORCID footnote; restore if an ORCID is supplied.
 \let\printorcid\relax
 
-\title [mode = title] {Particle dynamics during third-integer resonant extraction for Mu2e}
+\title [mode = title] {RFKO response, transit times, and septum-scattered particle dynamics for Mu2e extraction}
 \author[1,2]{Chong Shik Park\corref{cor1}\fnref{fn1}}
 \ead{kuphy@korea.ac.kr}
 \cortext[cor1]{Corresponding author}
@@ -45,7 +45,7 @@ country={Republic of Korea}}
 
 
 \begin{abstract}
-We investigate particle dynamics relevant to spill regulation and beam loss during third-integer resonant extraction from the Fermilab Delivery Ring for Mu2e. Multiparticle tracking with Synergia2 is combined with a reduced model based on the Kobayashi Hamiltonian and with MARS transport through the extraction channel. Radio-frequency knockout (RFKO) feedback reduces ripple-driven spill modulation in the simulated cases, although residual spikes remain. Tune-step studies at three stages of extraction show that transit times depend strongly on the initial phase-space coordinates and increase near the unstable fixed points. The reduced model reproduces the main trends but differs from the full tracking calculation near the separatrix. Tracking a MARS-generated scattered-particle sample identifies losses in the extraction channel and at downstream ring apertures; approximately 43\% of that sample is lost in the modeled ring. Separate RFKO studies show weak emittance growth and appreciable centroid motion at zero chromaticity, whereas nonzero chromaticity promotes emittance growth and suppresses coherent centroid motion. These results clarify the particle response relevant to spill feedback and identify the modeling and validation needed for quantitative predictions.
+We investigate particle dynamics that complement the published feed-forward extraction studies for the Fermilab Mu2e Delivery Ring. Those studies optimized the tune ramp, septum alignment, and dynamic orbit bumps without simulating radio-frequency knockout (RFKO) feedback. Here, Synergia2 tracking is combined with a reduced Kobayashi-Hamiltonian model and MARS transport to examine RFKO response, transit times, and the subsequent motion of septum-scattered particles. The tested RFKO controller reduces visible ripple-driven spill modulation, although residual spikes remain. Tune-step calculations at three extraction stages show a strong dependence of transit time on initial phase-space coordinates, with long delays near unstable fixed points. The reduced model reproduces the main trends but differs from full tracking near the separatrix. Approximately 43\% of a returned MARS-generated scattered-particle sample is lost in subsequent ring tracking; this conditional result applies to the stated $50\,\mu\mathrm{m}$-foil model and is not the total extraction-loss fraction of the published $100\,\mu\mathrm{m}$-foil configuration. Separate fixed-tune RFKO tests show that nonzero chromaticity promotes emittance growth while reducing coherent centroid motion. The results extend the published baseline with particle-response diagnostics, while a quantitative assessment of the complete feedback system requires matched configurations and documented controller and monitor dynamics.
 \end{abstract}
 
 \begin{keywords}
@@ -63,11 +63,11 @@ Mu2e \sep Resonant extraction \sep Spill regulation \sep Beam dynamics \sep Radi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{\label{sec:intro}Introduction}
 
-Slow resonant extraction from the Delivery Ring is part of the proton-delivery scheme for the Mu2e experiment at Fermilab~\cite{tdr}. Harmonic sextupoles excite the third-integer resonance, and a ramp of the tune-control quadrupoles moves the beam toward resonance. Previous Synergia2 simulations examined a piecewise linear tune ramp, septum alignment, and local orbit corrections for this extraction scheme~\cite{mu2e}. The present study uses the design parameters in Table~\ref{table:param} to investigate the particle dynamics underlying spill feedback, transit-time distributions, and the subsequent transport of particles scattered in the septa. These parameters describe the simulated configuration rather than an operational measurement.
+Slow resonant extraction from the Delivery Ring is part of the proton-delivery scheme for the Mu2e experiment at Fermilab~\cite{tdr}. Harmonic sextupoles excite the third-integer resonance, and a ramp of the tune-control quadrupoles moves the beam toward resonance. The preceding Synergia2 study~\cite{mu2e} established a feed-forward approach based on a piecewise linear tune ramp, septum-plane alignment, and dynamic local-orbit bumps. That publication explicitly excluded RFKO excitation from its extraction simulations and identified closed-loop spill regulation as follow-up work. The present paper examines particle-response mechanisms relevant to that next step, together with the transport of particles after septum interception.
 
 
 \begin{table}[width=\linewidth,cols=3,pos=htbp]
-  \caption{\label{table:param}Beam and machine parameters used in the simulations. The mean number of protons per extracted pulse is $10^{12}/31{,}795 \simeq 3.15\times10^{7}$, assuming one extracted pulse per revolution.}
+  \caption{\label{table:param}Nominal beam and ring parameters shared with the published study~\cite{mu2e}. Study-specific geometry and acceptance differences are distinguished in Table~\ref{table:scope}. The mean number of protons per extracted pulse is $10^{12}/31{,}795 \simeq 3.15\times10^{7}$, assuming one extracted pulse per revolution.}
   \begin{tabular*}{\tblwidth}{@{} LRR@{}}
     \toprule
     Parameter & Value & Unit \\
@@ -92,23 +92,52 @@ Slow resonant extraction from the Delivery Ring is part of the proton-delivery s
 \end{table}
 
 
-The Hardt condition aligns the outgoing separatrices for different momenta and thereby reduces the momentum dependence of the extracted-beam angle~\cite{hardt,pullia,pimms}. The dispersion-free extraction region in the Delivery Ring constrains this approach. Local orbit corrections and septum alignment have therefore been studied to control the beam position and angle at the septum~\cite{mu2e}. Those corrections provide context for the present work; their optimization is not repeated here.
+The Hardt condition aligns outgoing separatrices for different momenta and thereby reduces the momentum dependence of the extracted-beam angle~\cite{hardt,pullia,pimms}. In the dispersion-free extraction straight, the preceding study instead used four time-dependent correctors to control the septum entrance angle~\cite{mu2e}. We use that work to motivate the extraction scheme; the optimization of the dynamic bumps and septum positions is not repeated or claimed as a contribution of the present paper.
 
-Maintaining a uniform spill requires control of both the average extraction rate and fluctuations driven by magnet errors or power-supply ripple. Radio-frequency knockout (RFKO) provides transverse excitation that can be adjusted in response to the measured spill rate~\cite{HB10,ipac11}. Its feedback response depends on the delay between excitation, escape from the stable region, and arrival at the septum. We study this delay using tune-step tracking calculations and compare the results with a reduced resonance model.
+The open-loop spill in Sec.~4 and Fig.~5 of Ref.~\cite{mu2e} was reported to remain within approximately $\pm20\%$ of its mean for the optimized tune ramp. This result characterizes the reported feed-forward calculation, rather than a measured closed-loop response. RFKO provides transverse excitation that can be adjusted in response to the spill signal~\cite{HB10,ipac11}. The relevant response depends on phase mixing within the bunch and on the time taken by unstable particles to reach the septum. We investigate these effects with fixed-tune RFKO tests and tune-step tracking diagnostics.
 
-Aperture-based tracking identifies particles that intercept extraction-channel components but does not, by itself, describe their subsequent scattering. We therefore combine Synergia2 tracking with MARS transport through the septa and downstream extraction elements~\cite{mars1,mars2}. The returned scattered-particle sample is then tracked around the ring to locate subsequent losses. A separate RFKO study examines how chromaticity affects the balance between coherent centroid motion and emittance growth.
+The published aperture model classifies septum-head hits and foil-plane crossings and removes the intercepted particles~\cite{mu2e}. The present transport study follows a selected population beyond that geometric loss classification: MARS supplies scattering through the extraction channel, and Synergia2 tracks the returned sample around the ring~\cite{mars1,mars2}. This addresses where surviving scattered particles subsequently travel or are lost. It does not replace the published interception calculation with an independently established total extraction efficiency.
 
 The calculations use complementary descriptions of the beam. Synergia2 provides multiparticle tracking with space charge~\cite{synergia2}; the Kobayashi Hamiltonian isolates horizontal resonance dynamics without space charge or detailed extraction-channel geometry; and MARS models particle interactions with material. Comparisons between these descriptions are used to interpret the dynamics, rather than to establish a complete validation of the loss or feedback models.
 
-Section~\ref{sec:rfko1} describes the simulated RFKO feedback. Section~\ref{sec:tracking} presents the reduced Hamiltonian, transit-time calculations, and scattered-particle tracking. Section~\ref{sec:rfko} examines RFKO-driven emittance growth and action distributions, and Sec.~\ref{sec:conclusion} summarizes the results and their limitations.
+Section~\ref{sec:scope} distinguishes the published baseline from the present simulation cases. Section~\ref{sec:rfko1} describes the simulated RFKO feedback. Section~\ref{sec:tracking} presents the reduced Hamiltonian, transit-time calculations, and scattered-particle tracking. Section~\ref{sec:rfko} examines RFKO-driven emittance growth and action distributions, and Sec.~\ref{sec:conclusion} summarizes the implications for further spill-control studies.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\label{sec:scope}Published baseline and scope of the present calculations}
+
+The common beam parameters are listed in Table~\ref{table:param}. In Ref.~\cite{mu2e}, the sextupole excitation was established during the first 100 turns, after which the tune-quadrupole ramp drove extraction. The ramp used 200-turn segments. The published space-charge calculation used an open-boundary Hockney solver with a $64\times64\times128$ grid and 240 kicks per turn; its comparison of 2.5D and 3D solvers concerned the incoherent tune shift. These settings document the preceding calculation. Their use and convergence must be established separately for the feedback, transit-time, and scattering cases reported here; agreement of tune shifts alone does not establish convergence of spill fluctuations or loss tails.
+
+Table~\ref{table:scope} separates the study-specific configurations. In particular, the scattering calculation is described with $50\,\mu\mathrm{m}$ foils, whereas the published extraction model used $100\,\mu\mathrm{m}$ foils. The $20\pi\,\mathrm{mm\,mrad}$ acceptance in the isolated RFKO test is also distinct from the $35\pi\,\mathrm{mm\,mrad}$ normalized phase-space acceptance of the published ring model. We retain these stated values and interpret the cases separately. The existing results therefore do not establish the performance of an integrated model combining the published optimized geometry and dynamic-bump waveforms with the feedback and scattering treatments used here.
+% AUTHOR CHECK: confirm the 50-micrometre foil thickness from the MARS deck;
+% do not substitute the published 100-micrometre geometry without rerunning.
+% Confirm which published lattice, solver, ramp and bump settings were reused.
+
+\begin{table}[width=\linewidth,cols=3,pos=tbp]
+  \caption{\label{table:scope}Relationship between the published baseline and the present calculations. Values in the middle column are reported in Ref.~\cite{mu2e}; the cases in the right column are interpreted individually.}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{.18\linewidth}>{\raggedright\arraybackslash}p{.36\linewidth}>{\raggedright\arraybackslash}p{.38\linewidth}@{}}
+    \toprule
+    Aspect & Published baseline & Present calculations \\
+    \midrule
+    Spill control & Segmented tune ramp and dynamic bumps; RFKO excluded & RFKO feedback under imposed ripple and tune-step response diagnostics \\
+    Time intervals & 200-turn ramp segments; 100-turn moving window in the spill diagnostic & Approximately 100-turn feedback averaging and chirp sweeps; 300-turn pause and 500-turn observation in tune-step tests \\
+    Septum foil & $100\,\mu\mathrm{m}$ in the extraction model & $50\,\mu\mathrm{m}$ specified for the scattering study \\
+    Phase-space acceptance & $35\pi\,\mathrm{mm\,mrad}$, normalized & $20\pi\,\mathrm{mm\,mrad}$ in the isolated RFKO test; conversion convention requires confirmation \\
+    Loss population & Geometric hit/cross losses relative to the injected beam & Subsequent ring losses conditional on the returned scattered-particle sample \\
+    RFKO test dynamics & No RFKO tracking result & Fixed tune 9.65, resonance drive disabled, $C_x=0$ and 1 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The published work reports a reduction in the cumulative geometric loss fraction with dynamic bumps, with a quoted final value of 1.2\%~\cite{mu2e}. Here, the approximately 43\% loss fraction refers to a selected scattered-particle sample after material transport. The two fractions have different denominators and different stated foil thicknesses. They cannot be compared as extraction efficiencies or combined into a corrected total loss without a common geometry, particle weighting, and accounting of extraction-channel interactions.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{\label{sec:rfko1}Spill regulation with RFKO feedback}
 
-A piecewise linear ramp of the tune-control quadrupoles can maintain an approximately constant average extraction rate~\cite{mu2e}. Magnet errors and power-supply ripple can nevertheless produce fluctuations about that average. The RFKO system applies a transverse RF kick near the horizontal betatron frequency to increase particle amplitudes and assist their passage across the separatrix~\cite{HB10,ipac11}.
+The feed-forward result of Ref.~\cite{mu2e} motivates regulating the fluctuations that remain after the average spill has been flattened. The present feedback test adds an imposed quadrupole ripple and a transverse RFKO kick near the horizontal betatron frequency. It examines the beam response to feedback in the stated simulation case, rather than re-establishing the published tune-ramp and dynamic-bump optimization.
 
-The proposed feedback loop comprises an RFKO kicker, a spill monitor, and a controller. A wall-current monitor in the external beamline supplies the extracted-beam signal used to adjust the kicker amplitude~\cite{wcm}. The simulated control scheme uses a spill signal accumulated over approximately 100 turns, corresponding to about $0.17\,\mathrm{ms}$. This averaging interval and the particle transit-time distribution both contribute to the effective response time.
+The proposed feedback loop comprises an RFKO kicker, a spill monitor, and a controller. A wall-current monitor in the external beamline supplies the extracted-beam signal used to adjust the kicker amplitude~\cite{wcm}. The simulated control scheme uses a spill signal accumulated over approximately 100 turns, corresponding to about $0.17\,\mathrm{ms}$. This averaging interval and the particle transit-time distribution both contribute to the effective response time. The 100-turn moving window used to display the spill in Fig.~13 of Ref.~\cite{mu2e} is a diagnostic choice and does not, by itself, specify a feedback update rate or monitor transfer function.
 
 The RFKO center frequency follows the betatron frequency associated with the ramped machine tune. Frequency modulation broadens the excitation to cover the chromatic tune spread. In the extraction simulations, the horizontal chromaticity is set to $C_x=d\nu_x/d\delta=1.0$, where $\delta=(p-p_0)/p_0$, using chromaticity-correction sextupoles. The incoherent space-charge tune spread alone need not provide the phase mixing required for efficient emittance growth under dipole excitation~\cite{ipac11}; this distinction is examined further in Sec.~\ref{sec:rfko}.
 
@@ -126,7 +155,7 @@ To test the response to a controlled disturbance, a sinusoidal ripple at $60\,\m
 
 Controllers based on proportional--integral--derivative feedback were investigated~\cite{pid}. Proportional-only control produced large spill oscillations, consistent with excessive correction in the presence of a delayed beam response. Among the tested configurations, a time-dependent proportional gain combined with a constant derivative gain gave the most favorable behavior. The result shown here therefore uses proportional--derivative control, without an integral term.
 
-Figure~\ref{fig:fig9} shows a qualitative reduction in ripple-driven modulation with feedback. The remaining spikes indicate that the tested controller does not eliminate all fluctuations. The traces do not establish a numerical suppression factor, a stability margin, or an optimum set of gains. An integral term could be investigated to reduce steady-state error, but its effect on stability and spill fluctuations has not been demonstrated here.
+Figure~\ref{fig:fig9} shows a qualitative reduction in ripple-driven modulation with feedback. The remaining spikes indicate that the tested controller does not eliminate all fluctuations. The traces do not establish a numerical suppression factor, a stability margin, or an optimum set of gains. The factor of 1.5--3 ripple reduction discussed in Ref.~\cite{mu2e} was an expectation based on other facilities, not a Mu2e closed-loop result; the present traces do not test that numerical expectation. An integral term could be investigated to reduce steady-state error, but its effect on stability and spill fluctuations has not been demonstrated here.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -147,6 +176,14 @@ Here $X'$ denotes the normalized momentum coordinate, not $dX/ds$. In the resona
  \label{eqn:hamiltonian1}
 \end{equation}
 where $\Delta\nu=\nu_x-29/3$ and $g$ is the complex resonance-driving coefficient determined by the sextupole strengths and phases. The cubic terms are complex conjugates, so their sum is real. Higher-order terms are neglected in the reduced model.
+
+The corresponding geometric Courant--Snyder action is
+\begin{equation}
+ I_x=a^*a=\frac{X^2+X'^2}{2}
+     =\frac{x^2+(\alpha x+\beta x')^2}{2\beta},
+ \label{eqn:action}
+\end{equation}
+consistent with the invariant used for the phase-space aperture in Eq.~(6) of Ref.~\cite{mu2e}. The phase of the resonance coefficient must be compared using the same coordinate convention. With $a=\sqrt{I_x}e^{-i\phi_x}$, Eq.~\eqref{eqn:hamiltonian1} has the angle--action form of Eq.~(1) in Ref.~\cite{mu2e} when its coefficient is written as $g_{\mathrm{aa}}=ig$. This phase factor relates the two Hamiltonian expressions; it does not establish the phase convention used in the original tracking implementation.
 
 Writing $g=|g|e^{i\Psi}$ and substituting Eq.~\eqref{eqn:coordinates} gives
 \begin{equation}
@@ -202,7 +239,7 @@ Analytical treatments based on the Kobayashi Hamiltonian describe transit times 
   \caption{\label{fig:arrival1}Tune-step diagnostic at early (top), middle (center), and late (bottom) stages of extraction. Panel (a) shows the circulating-beam fraction and panel (b) the normalized spill intensity. Blue curves use the uninterrupted ramp; red curves use the paused-and-restored ramp. Purple vertical lines mark restoration of the quadrupole strengths to the values of the uninterrupted ramp at that turn.}
 \end{figure}
 
-The Synergia2 calculation starts with $5\times10^5$ macroparticles and the parameters in Table~\ref{table:param}. At a selected turn, the tune-quadrupole ramp is paused for approximately 300 turns, or about 1\% of the spill duration. The strengths are then stepped to the values that the uninterrupted ramp would have reached at that turn and held for a further observation interval of approximately 500 turns. The step reduces the stable region and releases a population near its boundary. This procedure probes the extraction response to a finite tune change; it is not a measurement of the feedback-loop transfer function.
+The Synergia2 calculation starts with $5\times10^5$ macroparticles and the parameters in Table~\ref{table:param}. At a selected turn, the tune-quadrupole ramp is paused for approximately 300 turns, or about 1\% of the spill duration. The strengths are then stepped to the values that the uninterrupted ramp would have reached at that turn and held for a further observation interval of approximately 500 turns. The step reduces the stable region and releases a population near its boundary. This deliberately perturbed ramp differs from the uninterrupted 200-turn-segment feed-forward ramp studied in Ref.~\cite{mu2e}. The procedure probes the extraction response to a finite tune change; it is not a measurement of the feedback-loop transfer function.
 
 The pauses begin at turns 2,000, 15,000, and 25,000, representing early, middle, and late extraction. The changing separatrix size and its distance from the septum can affect transit times. Using the same initial macroparticle population at the three stages allows these trends to be compared, although the number of particles contributing to each distribution differs and no statistical-convergence study is presented.
 
@@ -232,7 +269,7 @@ Transit time depends on the full initial phase-space coordinates and resonance p
 
 \subsection{\label{sec:beamloss}Tracking of particles scattered at the septum}
 
-Particles moving along an outgoing separatrix branch enter the electrostatic septum field and receive a deflection toward the extraction line. The modeled channel contains two electrostatic septa with $50\,\mu\mathrm{m}$ foils. Finite foil thickness and extent allow some particles to intercept material and scatter. The aperture-based Synergia2 calculations reported an interception fraction below approximately 2\% for the studied configurations. An interception fraction is distinct from the fraction ultimately lost after scattering and further transport.
+Particles moving along an outgoing separatrix branch enter the electrostatic septum field and receive a deflection toward the extraction line. The scattering model reported here contains two electrostatic septa with $50\,\mu\mathrm{m}$ foils. This differs from the $100\,\mu\mathrm{m}$ geometry in Table~1 and Sec.~5 of Ref.~\cite{mu2e}. Finite foil thickness and extent allow particles to intercept material and scatter. The published geometric hit/cross classification supplies the motivation for following those particles, but its optimized loss fraction is not an input normalization for the present scattering sample.
 
 In the aperture treatment used here, a particle that intercepts a septum component is removed from the primary tracking sample. This does not determine its subsequent fate. A scattered particle may return to the field-free region, receive a partial electrostatic kick, be extracted, or be lost at another aperture. MARS transport is used to resolve these alternatives through the extraction-channel geometry before selected scattered particles are returned to ring tracking.
 
@@ -257,7 +294,7 @@ The tracking workflow has three stages. First, a specialized Synergia2 aperture 
   \caption{\label{fig:beamloss2}Synergia2 tracking of the returned scattered-particle sample. (a) Turn-by-turn distributions referred to ESS1, plotted in $(x,\,\alpha x+\beta x')$ coordinates. The initial sample is blue; subsequent turns are red, yellow, and cyan. (b) Locations of losses around the Delivery Ring. These coordinates in panel (a) retain a factor of $\sqrt{\beta}$ relative to $(X,X')$ in Eq.~\eqref{eqn:coordinates}.}
 \end{figure}
 
-Figure~\ref{fig:beamloss2a} shows the scattered-particle sample referred back from the C-magnet to ESS1 for comparison. The initial particles lie near the septum line at $x\simeq-11\,\mathrm{mm}$. Additional circulating particles are included as a visual reference and form the compact group near one end of the initial distribution. The next three turns populate the lower, right, and left regions of the plot. After three turns, many surviving particles have returned to the septum field region. Figure~\ref{fig:beamloss2b} locates losses near the septa, in the first arc, and near the middles of the straight sections. Approximately 43\% of the tracked scattered-particle sample is reported lost, with the remainder surviving to extraction. This conditional fraction cannot be combined with the initial interception estimate to obtain a total beam-loss fraction without consistent sample weights, selection criteria, and tracking endpoints.
+Figure~\ref{fig:beamloss2a} shows the scattered-particle sample referred back from the C-magnet to ESS1 for comparison. The initial particles lie near the septum line at $x\simeq-11\,\mathrm{mm}$. Additional circulating particles are included as a visual reference and form the compact group near one end of the initial distribution. The next three turns populate the lower, right, and left regions of the plot. After three turns, many surviving particles have returned to the septum field region. Figure~\ref{fig:beamloss2b} locates losses near the septa, in the first arc, and near the middles of the straight sections. Approximately 43\% of the tracked scattered-particle sample is reported lost, with the remainder surviving to extraction. This conditional fraction cannot be combined with the published geometric loss estimate without matching the foil geometry, sample weights, selection criteria, and tracking endpoints. In particular, it is not evidence of a 43\% loss of the injected beam or of a correction to the published 1.2\% value.
 
 \begin{figure}[pos=!tbp]
   \centering
@@ -287,7 +324,7 @@ The tune-quadrupole ramp drives the principal extraction process, while RFKO pro
 
 Earlier simulations found effective excitation when the RFKO center frequency follows the machine tune and the modulation bandwidth is comparable to the chromatic tune spread~\cite{ipac11}. Dipole excitation can drive coherent motion without a corresponding increase in emittance about the beam centroid. A spread in betatron frequencies promotes phase mixing, allowing the excitation to increase the internal phase-space area. An incoherent space-charge tune spread does not necessarily provide the same mixing mechanism as chromaticity.
 
-The horizontal machine tune is fixed at 9.65, and the resonance drive and tune ramp are disabled. The model includes space charge and uses a circular transverse aperture, specified in the original simulation as a $20\pi\,\mathrm{mm\,mrad}$ acceptance, to remove particles outside the accepted region. A linear chirp with randomized sweep phases supplies the RFKO excitation. Two horizontal chromaticities, $C_x=0$ and $C_x=1$, are compared. The assumed RFKO power is $500\,\mathrm{W}$, corresponding in the modeled kicker to an approximately $1\,\mu\mathrm{rad}$ horizontal kick.
+Unlike the extraction baseline in Ref.~\cite{mu2e}, the horizontal machine tune is fixed at 9.65, and the resonance drive and tune ramp are disabled. The model includes space charge and uses a circular transverse aperture, specified in the original simulation as a $20\pi\,\mathrm{mm\,mrad}$ acceptance, to remove particles outside the accepted region. This diagnostic acceptance is not identified with the $35\pi\,\mathrm{mm\,mrad}$ normalized machine acceptance of Ref.~\cite{mu2e}. A linear chirp with randomized sweep phases supplies the RFKO excitation. Two horizontal chromaticities, $C_x=0$ and $C_x=1$, are compared. The assumed RFKO power is $500\,\mathrm{W}$, corresponding in the modeled kicker to an approximately $1\,\mu\mathrm{rad}$ horizontal kick.
 % AUTHOR CHECK: supply the acceptance/action convention, chirp bandwidth in
 % each case (including C_x=0), and kicker calibration from the simulation inputs.
 
@@ -304,18 +341,18 @@ Figure~\ref{fig:rfko1a} shows little emittance growth at $C_x=0$ and substantial
   \caption{\label{fig:rfko2}Evolution of the plotted horizontal-action distributions, $f(\sqrt{I_x})/\sqrt{I_x}$ versus $\sqrt{I_x}$, at 5,000-turn intervals for (a) $C_x=0$ and (b) $C_x=1$. The original diagnostic normalization is retained. Particles outside the modeled aperture are removed, so changes in distribution height need not represent redistribution alone.}
 \end{figure}
 
-The action distributions in Fig.~\ref{fig:rfko2} remain approximately unchanged for $C_x=0$. At $C_x=1$, the low-action population decreases and the distribution broadens under continued excitation. Because the aperture removes particles, interpreting the distribution quantitatively also requires the surviving population and a fixed normalization convention. These calculations support the role of chromaticity in RFKO-driven emittance growth. Since the resonance drive is disabled in this test, they do not directly demonstrate transfer into an extraction resonance or quantify the resulting spill.
+Equation~\eqref{eqn:action} defines the underlying geometric action. Quantitative comparison of the plotted action scale with the published normalized acceptance additionally requires the diagnostic units, any relativistic normalization, and the choice of reference orbit or centroid. The action distributions in Fig.~\ref{fig:rfko2} remain approximately unchanged for $C_x=0$. At $C_x=1$, the low-action population decreases and the distribution broadens under continued excitation. Because the aperture removes particles, interpreting the distribution quantitatively also requires the surviving population and a fixed normalization convention. These calculations support the role of chromaticity in RFKO-driven emittance growth. Since the resonance drive is disabled in this test, they do not directly demonstrate transfer into an extraction resonance or quantify the resulting spill.
 
 
 \section{\label{sec:conclusion}Conclusions}
 
-The simulations examine three aspects of particle dynamics relevant to third-integer extraction for Mu2e: RFKO spill feedback, transit times following tune changes, and the fate of particles scattered in the extraction septa. The tested proportional--derivative controller reduces visible ripple-driven spill modulation, but residual spikes remain and a quantitative suppression metric has not been established.
+This study complements the published feed-forward optimization for Mu2e~\cite{mu2e} by examining RFKO feedback response, transit times after tune changes, and transport following septum scattering. The tune-ramp optimization, dynamic-bump design, and geometric loss reduction are established context from that publication. The tested proportional--derivative controller reduces visible ripple-driven spill modulation, but residual spikes remain and a quantitative suppression metric has not been established. These traces do not establish the projected closed-loop improvement discussed in the prior work.
 
 Tune-step calculations at three stages of extraction show a strong dependence of transit time on initial phase-space coordinates, with long delays near unstable fixed points. The reduced Kobayashi model reproduces the main trends while differing from Synergia2 near the separatrix. Because the models differ in more than their treatment of space charge, matched tracking comparisons are needed to identify the source of those differences.
 
-The combined Synergia2--MARS workflow locates subsequent losses of a scattered-particle sample in the extraction channel and elsewhere around the ring. The reported loss of approximately 43\% applies to that sample rather than to the full circulating beam. Reduced-model trajectories explain phase-space shearing qualitatively, without validating the scattering calculation. Separate RFKO tests show that nonzero chromaticity favors emittance growth and smaller centroid excursions, whereas zero chromaticity primarily produces coherent motion in the studied configuration.
+The combined Synergia2--MARS workflow locates subsequent losses of a scattered-particle sample in the extraction channel and elsewhere around the ring. The reported loss of approximately 43\% applies to that sample in the stated $50\,\mu\mathrm{m}$-foil configuration. It is distinct from the full-beam geometric losses reported for the published $100\,\mu\mathrm{m}$-foil model. Reduced-model trajectories explain phase-space shearing qualitatively, without validating the scattering calculation. Separate RFKO tests show that nonzero chromaticity favors emittance growth and smaller centroid excursions, whereas zero chromaticity primarily produces coherent motion in the studied configuration.
 
-These results provide a physical basis for refining spill feedback and loss modeling. Quantitative predictions require documented controller settings and latency, convergence checks for tracking and transit-time distributions, and a fully specified particle handoff between MARS and Synergia2. The present evidence supports these priorities without establishing final operational performance.
+The next quantitative comparison should use a common lattice, foil geometry, acceptance, tune ramp, and dynamic-bump waveform across open-loop and feedback cases. The published solver settings provide a documented starting point, while transit-time and loss observables require their own convergence checks. Combining those checks with a defined MARS--Synergia2 handoff and measured monitor and controller dynamics would connect the particle-response studies presented here to the integrated spill-regulation objective identified in Ref.~\cite{mu2e}.
 
 
 
@@ -349,8 +386,8 @@ PIMMS Study Group, ``Proton-Ion Medical Machine Study (PIMMS),'' Part I, CERN/PS
 V. Nagaslaev, J. Amundson, J. Johnstone, C.S. Park, and S. Werkema, ``Third Integer Resonance Slow Extraction Using RFKO at High Space Charge,'' in Proceedings of IPAC2011, San Sebasti\'an, Spain (2011), pp. 3559--3561, paper THPS058.
 
 \bibitem{mars1}
-V. Nagaslaev and I. Rakhno, ``MARS Simulations for the Mu2e Delivery Ring Extraction Channel,'' Mu2e Document 3697-v1 (internal report).
-% Bibliographic details recovered from modeling.tex; author verification needed.
+N. Mokhov, V. Nagaslaev, and I. Rakhno, ``MARS Simulations for the Mu2e Delivery Ring Extraction Channel,'' Mu2e Document 3697-v1, Fermilab (2010), internal report.
+% Metadata follows Ref. mu2e, bibliography item 19; original DocDB report not inspected.
 
 \bibitem{mars2}
   N.V. Mokhov, ``Recent Mars15 Developments: Nuclide Inventory, DPA and Gas Production,'' Fermilab-Conf-10-518-APC (2010).

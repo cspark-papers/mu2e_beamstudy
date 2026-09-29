@@ -1,6 +1,6 @@
 # Task 05 — Strengthen RFKO results and physical interpretation
 
-Status: Todo  
+Status: Done  
 Priority: P1  
 Depends on: Tasks 03 and 04
 
@@ -25,11 +25,11 @@ The feedback comparison and the fixed-tune chromaticity tests answer different q
 
 ## Acceptance criteria
 
-- [ ] The feedback and fixed-tune cases are clearly distinguished.
-- [ ] Conclusions match the visible traces without new numerical metrics.
-- [ ] The action diagnostic is identified accurately and unknown normalization is not concealed.
-- [ ] No transfer function, stability margin, optimal controller, or space-charge-only causal claim is inferred.
-- [ ] Interpretation is concise and positive about what the existing results support.
+- [x] The feedback and fixed-tune cases are clearly distinguished.
+- [x] Conclusions match the visible traces without new numerical metrics.
+- [x] The action diagnostic is identified accurately and unknown normalization is not concealed.
+- [x] No transfer function, stability margin, optimal controller, or space-charge-only causal claim is inferred.
+- [x] Interpretation is concise and positive about what the existing results support.
 
 ## If evidence is unavailable
 
@@ -37,4 +37,8 @@ Retain qualitative comparisons. Move unresolved gain/filter/bandwidth/calibratio
 
 ## Completion record
 
-Pending. Record changed sections, checks performed, and unresolved author questions here before marking Done.
+Completed: 2026-09-29.
+
+- Sec. 3: restructured as controller → three-trace observation → delayed-correction interpretation (100-turn averaging plus the transit times of Sec. 4.2) → bounded implication. PD attributed to the original study, "(not shown)" added for P-only, "most favorable" removed, and the 1.5–3 expectation kept separate.
+- Sec. 5: added the dephasing and filamentation mechanism, the rigid-dipole space-charge argument, a bandwidth caveat for C_x = 0, an interpretation of Figs. 7 and 8, the identification of f(√I)/√I as phase-space density (checked by sampling), and the implication for C_x = 1 in the feedback case.
+- No new numerical metric; the pixel check behind the spike-height wording is recorded only in REVIEW. Build succeeded (19 pages); labels are unique, all references resolve, and the affected pages were inspected. Image hashes are unchanged.

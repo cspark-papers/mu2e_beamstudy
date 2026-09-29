@@ -41,6 +41,28 @@ Main findings requiring author input:
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
 
+## Task 05 completed: RFKO results and interpretation
+
+Completed 2026-09-29 using the existing figures and text only. No metric was derived for the manuscript, and no figure was changed.
+
+- **Sec. 3 (feedback), restructured as controller → observation → interpretation → implication:**
+  - Proportional-only oscillation is marked "(not shown)". The PD choice is attributed to the original study, with its comparison criterion and gains undocumented; the word "most favorable" was removed.
+  - The three traces are described qualitatively: a start-up transient, small fast fluctuations without ripple, larger quasi-periodic sawtooth-like excursions with ripple, and smaller residual modulation plus isolated spikes with feedback.
+  - Residual spikes and P-only oscillation are interpreted as delayed correction. The ~100-turn averaging combines with transit times ranging from a few turns to more than one hundred turns, a qualitative reading of the existing Fig. 3 axis. The derivative term is described as a standard damping means [pid].
+  - The implication is stated positively and bounded; the 1.5–3 factor from Ref. [2] is kept separate as untested.
+- **Sec. 5 (fixed-tune RFKO):**
+  - Added the dephasing mechanism: identical kicks change only the centroid without a tune spread; a tune spread filaments the coherent motion into internal area. The chromatic spread C_x δ is of order 1e-3 for C_x = 1 (arithmetic from Table 1).
+  - Stated that a rigidly displaced bunch carries its direct space-charge field with it, consistent with the finding in [ipac11].
+  - Added a caveat: the chirp is said to cover the tune spread, so C_x = 0 and C_x = 1 may differ in excitation spectrum as well as in chromaticity.
+  - Fig. 7 is interpreted as a wandering, random-phase coherent response at C_x = 0 and as phase mixing at C_x = 1. The "RFKO not absent at C_x = 0" point is kept, and the aperture caveat for the late slowing is retained.
+  - Fig. 8 diagnostic identified: if f is the density in √I_x, then f/√I_x is proportional to the phase-space density at amplitude √(2I_x), and for a Gaussian beam it is Gaussian in √I_x. Checked by sampling 2×10^6 Gaussian particles (maximum relative deviation 1.8%, statistical).
+  - Implication added: nonzero chromaticity converts excitation into growth of individual amplitudes, which is relevant near the separatrix and supports the C_x = 1 choice in Sec. 3. The resonance drive is off, so there is no extraction measure.
+- **Review-only pixel check.** The Fig. 1 green trace's largest spike reaches about 1.53, against a red maximum of about 1.41 (75 px per unit, first ~700 turns excluded). This supports the wording "the largest of these slightly exceed the largest excursions without feedback". No number was added to the manuscript.
+
+Validation: `latexmk` with pdfLaTeX and BibTeX succeeded (19 pages). Labels are unique, and every reference and citation resolves. The only warnings are the known CAS overlay and the `pimms`/`wcm` years. RFKO pages 5–7 and 15–17 were inspected. All image, reference-draft, and bibliography hashes are unchanged. No simulations, staging, commits, or pushes.
+
+Open for the author (added to existing rows): the PD gain values and the selection criterion; the chirp bandwidth at C_x = 0 compared with C_x = 1; and the ripple-frequency question from Task 11.
+
 ## Task 11 completed: figure–text discrepancies
 
 Completed 2026-09-29. The image files were inspected at native and 2× zoom. Pixel-level readings (listed below) were used only as evidence for author questions and do not appear in the manuscript as results. Image bytes are unchanged.

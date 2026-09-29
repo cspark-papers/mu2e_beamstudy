@@ -12,9 +12,9 @@ This repository contains a journal manuscript on particle dynamics during third-
 | `modeling.tex` | Companion/reference draft; also contains provenance for internal report citations. |
 | `REVIEW.md` | Revision record, evidence checks, and remaining author/data questions. |
 | `PRIOR_WORK_COMPARISON.md` | Page-by-page evidence map, figure comparison, and configuration differences relative to the supplied prior publication. |
-| `tasks/README.md` | Prioritized editorial tasks using existing results and unchanged figures; currently Git-ignored local task documents. |
+| `tasks/README.md` | Prioritized editorial tasks using existing results and unchanged figures; tracked task documents. |
 | `AGENTS.md` | Editing, validation, and version-control instructions. |
-| `.gitignore` | Excludes generated LaTeX products and local task notes. |
+| `.gitignore` | Excludes generated LaTeX products. |
 
 The active source contains its own `thebibliography`; a separate BibTeX run is not required. The repository does not contain the lattice/input decks, original particle samples, controller code, or plotting scripts needed to reproduce the simulations. Compiling this repository reproduces the manuscript, not the scientific calculations.
 
@@ -50,7 +50,7 @@ The citation to the companion tracking paper now uses its published record: Nucl
 
 The author has requested journal-quality improvement with **no new simulations and the existing figures as is**. The local backlog in `tasks/README.md` contains nine ordered tasks (02–10), with scope, acceptance criteria, and a fallback for missing evidence. It covers the narrative, methods, theory, results, captions/layout, references, and final document checks. `tasks/Task_01.md` remains the original request.
 
-Missing scientific evidence is handled through transparent limitations and narrower claims, not new runs. Figures may be sized and placed more clearly in TeX, but their image content is unchanged. Earlier requests for convergence runs, matched simulations, or replacement plots are outside this plan. Creating the backlog does not mean that its manuscript edits have been executed. The existing `.gitignore` rule for `tasks/` is preserved.
+Missing scientific evidence is handled through transparent limitations and narrower claims, not new runs. Figures may be sized and placed more clearly in TeX, but their image content is unchanged. Earlier requests for convergence runs, matched simulations, or replacement plots are outside this plan. Task 02 is complete: the title, abstract, introduction, scope discussion, and conclusion have been revised and the 16-page PDF checked. Tasks 03–10 remain pending; see the task index and `REVIEW.md` for the completion record. The task files are tracked in Git; `.gitignore` no longer excludes `tasks/`.
 
 ## Working rules
 

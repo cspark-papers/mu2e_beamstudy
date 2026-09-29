@@ -1,6 +1,6 @@
 # Manuscript improvement tasks
 
-Created: 2026-09-29. Status: planned; manuscript edits are not completed by creation of this task list.
+Created: 2026-09-29. Status: Task 02 completed; Tasks 03–10 remain planned.
 
 ## Objective and boundaries
 
@@ -15,19 +15,19 @@ Improve the journal submission quality of `beamstudy-mod.tex` using the existing
 
 ## Ordered backlog
 
-Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. All tasks below are **Todo**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
+Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. Task 02 is **Done**; Tasks 03–10 are **Todo**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
 
-| Task | Priority | Deliverable | Depends on |
-| --- | --- | --- | --- |
-| [02 — Contribution and narrative](Task_02.md) | P1 | Clear problem, contribution, abstract, introduction, and conclusion | None |
-| [03 — Methods and configuration](Task_03.md) | P1 | Concise case definitions with known/unknown settings distinguished | 02 |
-| [04 — Theory and notation](Task_04.md) | P1 | Consistent equations, coordinates, units, and model scope | 03 |
-| [05 — RFKO interpretation](Task_05.md) | P1 | Evidence-led feedback and chromaticity discussion | 03, 04 |
-| [06 — Transit-time interpretation](Task_06.md) | P1 | Precise tune-step protocol and supported comparison | 03, 04 |
-| [07 — Scattering interpretation](Task_07.md) | P1 | Transparent handoff and conditional-loss discussion | 03, 04 |
-| [08 — Existing figures and captions](Task_08.md) | P2 | Self-contained captions and readable layout with unchanged images | 05, 06, 07 |
-| [09 — References and submission metadata](Task_09.md) | P2 | Verified attribution and a short author-only checklist | 02, 03 |
-| [10 — Final editorial and document checks](Task_10.md) | P2 | Compiled, visually inspected revision and readiness report | 02–09 |
+| Task | Status | Priority | Deliverable | Depends on |
+| --- | --- | --- | --- | --- |
+| [02 — Contribution and narrative](Task_02.md) | Done | P1 | Clear problem, contribution, abstract, introduction, and conclusion | None |
+| [03 — Methods and configuration](Task_03.md) | Todo | P1 | Concise case definitions with known/unknown settings distinguished | 02 |
+| [04 — Theory and notation](Task_04.md) | Todo | P1 | Consistent equations, coordinates, units, and model scope | 03 |
+| [05 — RFKO interpretation](Task_05.md) | Todo | P1 | Evidence-led feedback and chromaticity discussion | 03, 04 |
+| [06 — Transit-time interpretation](Task_06.md) | Todo | P1 | Precise tune-step protocol and supported comparison | 03, 04 |
+| [07 — Scattering interpretation](Task_07.md) | Todo | P1 | Transparent handoff and conditional-loss discussion | 03, 04 |
+| [08 — Existing figures and captions](Task_08.md) | Todo | P2 | Self-contained captions and readable layout with unchanged images | 05, 06, 07 |
+| [09 — References and submission metadata](Task_09.md) | Todo | P2 | Verified attribution and a short author-only checklist | 02, 03 |
+| [10 — Final editorial and document checks](Task_10.md) | Todo | P2 | Compiled, visually inspected revision and readiness report | 02–09 |
 
 Tasks 05–07 cover separate results sections; their order may change. Revisit the abstract and conclusion after those sections are settled. Every task has a fallback for unavailable evidence so editorial progress does not depend on new simulations.
 
@@ -37,4 +37,4 @@ For each task, change status to In progress, make the scoped edits, and record s
 
 Earlier requests in `REVIEW.md` for matched simulations, convergence runs, or regenerated figures are historical scientific recommendations, outside this editing plan. Retain appropriate limitations in the paper without making those activities required tasks or promising them as submission deliverables.
 
-The repository currently ignores `tasks/` in `.gitignore`. These task files are local deliverables and will not appear in ordinary Git status; this plan does not change that policy or stage them. Proposed commit messages may list them as intended additions, but Git will require an explicit later decision to track them.
+The task files are now tracked in Git, and the current `.gitignore` no longer excludes `tasks/`. Task status updates are ordinary modifications. Do not stage, commit, or push them unless the author separately authorizes those actions.

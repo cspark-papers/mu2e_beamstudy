@@ -1,6 +1,7 @@
 # Task 02 — Sharpen the contribution and narrative
 
-Status: Todo  
+Status: Done
+
 Priority: P1  
 Depends on: None
 
@@ -25,11 +26,11 @@ The manuscript establishes a follow-up scope but repeatedly restates what it can
 
 ## Acceptance criteria
 
-- [ ] Title, abstract, introduction, and conclusion describe the same scope.
-- [ ] Every contribution is supported by an existing result, figure, or displayed derivation.
-- [ ] No claim of validated closed-loop performance, optimized gains, absolute extraction efficiency, or new dynamic-bump optimization.
-- [ ] No new simulation is presented as a condition for finishing this revision.
-- [ ] Essential limitations remain visible; repetitive disclaimers are reduced.
+- [x] Title, abstract, introduction, and conclusion describe the same scope.
+- [x] Every contribution is supported by an existing result, figure, or displayed derivation.
+- [x] No claim of validated closed-loop performance, optimized gains, absolute extraction efficiency, or new dynamic-bump optimization.
+- [x] No new simulation is presented as a condition for finishing this revision.
+- [x] Essential limitations remain visible; repetitive disclaimers are reduced.
 
 ## If evidence is unavailable
 
@@ -37,4 +38,13 @@ Keep qualitative and configuration-specific conclusions. Do not strengthen claim
 
 ## Completion record
 
-Pending. Record changed sections, checks performed, and unresolved author questions here before marking Done.
+Completed: 2026-09-29.
+
+- Revised the title, abstract, introduction, baseline/scope prose, and conclusion. The title now uses “transport” for the septum-scattered sample; the narrative links RFKO response, chromatic mixing, finite transit times, and subsequent scattering transport.
+- Kept feed-forward ramp/bump optimization attributed to the prior publication. Consolidated shared configuration and population limitations and removed the conclusion’s prescribed new-simulation program.
+- Retained the conditional 43% loss with the stated 50 micrometre foil geometry. Preserved the distinction from the prior 100 micrometre/full-beam model and made no wider novelty or integrated-performance claim.
+- Verified the contribution-to-evidence map recorded in REVIEW. Results sections, equations, table and figure environments, captions, acknowledgments, and bibliography are unchanged.
+- Successfully compiled the complete manuscript to 16 pages. Checked 37 unique labels and 14 bibliography entries, citation order, and balanced environments. Rendered and inspected all pages; the previously documented CAS keyword-overlay warning remains visually harmless.
+- Confirmed unchanged hashes for all 22 files under img/ and both reference drafts. No simulations, new scientific results, staging, commits, or pushes.
+
+Open author questions remain those in REVIEW: foil/configuration provenance, controller metadata, sample endpoints/weights, and diagnostic normalization. They were not resolved by this editorial task. Tasks 03–10 remain Todo.

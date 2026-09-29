@@ -6,11 +6,40 @@ This is a substantive editorial and internal-consistency revision, not a rerun o
 
 ## Current author-directed scope and task backlog
 
-On 2026-09-29, the author requested a task plan to improve journal submission quality using the existing figures and without new simulations. `tasks/README.md` and Tasks 02–10 now define that editorial work. The original Task 01 is preserved. These tasks are planned, not completed manuscript changes.
+On 2026-09-29, the author requested a task plan to improve journal submission quality using the existing figures and without new simulations. `tasks/README.md` and Tasks 02–10 now define that editorial work. The original Task 01 is preserved. Task 02 is now complete; Tasks 03–10 remain planned. The completion record below distinguishes the executed revision from the initial task-plan update.
 
 This instruction supersedes the action requests below to repeat tracking, perform convergence studies, or obtain regenerated figures for this revision. Those entries remain a record of evidence gaps, not required new work. Address each gap using existing documentation where available; otherwise narrow the affected claim and explain the limitation. Do not invent settings, uncertainty estimates, or quantitative metrics from raster plots. Preserve figure files and panel content; improve captions and TeX layout only.
 
 The task-plan update changes documentation only. No TeX, figures, reference drafts, or simulation results were changed, and no simulation or manuscript build was run for this documentation update. Journal-specific requirements and essential unresolved author metadata remain submission considerations even when all feasible editorial tasks are complete.
+
+## Task 02 completed: contribution and narrative
+
+Completed 2026-09-29 using the existing results and figures only.
+
+- Revised the title, abstract, introduction, baseline/scope discussion, and conclusion. The abstract now leads with the physical question, followed by methods, observations, and bounded implications. The title uses “septum-scattered particle transport” to name the complementary transport study precisely.
+- Connected RFKO feedback, chromatic mixing, and finite transit times as aspects of beam response relevant to spill regulation. Explained post-interception scattering as a complementary transport question.
+- Retained attribution of feed-forward ramp, septum, and dynamic-bump optimization to the prior publication. Defined the contribution relative to that work without claiming general RFKO or resonance-model novelty.
+- Consolidated recurring configuration and population limitations in the scope discussion and replaced the conclusion’s proposed matched-simulation/convergence program with a synthesis of supported findings. No new simulation is required to complete this task.
+- Preserved the approximate 43% fraction as conditional on the returned scattered sample in the stated 50 micrometre geometry, separate from published full-beam geometric loss in the 100 micrometre model.
+
+### Contribution-to-evidence check
+
+| Narrative statement | Existing manuscript evidence | Retained boundary |
+| --- | --- | --- |
+| Tested feedback visibly reduces ripple-driven modulation | `fig:fig9`, existing feedback discussion | Residual spikes; no measured suppression factor or gain optimum |
+| Nonzero chromaticity favors emittance growth with smaller centroid excursions | `fig:rfko1` and `fig:rfko2`, fixed-tune results | Phase-mixing interpretation; resonance drive disabled; no direct extraction metric |
+| Tune-step response has long delays near unstable fixed points | `fig:arrival1`, `fig:arrival2`, reduced Hamiltonian discussion | Finite diagnostic window and model differences; no uniquely isolated space-charge cause |
+| Selected septum-scattered particles undergo subsequent transport and loss | `fig:beamloss1`, `fig:beamloss2`, existing reported 43% result | Conditional sample, stated 50 micrometre foils; no total-beam loss or efficiency inference |
+| Reduced resonance motion explains phase-space shearing qualitatively | `fig:beamloss3` and existing reduced-model interpretation | No material, extraction-field, or aperture-loss validation |
+
+### Validation and remaining scope
+
+- Compiled successfully with the existing TeX toolchain: 16 pages, eight figures, two tables, and six displayed equations.
+- Checked 37 unique labels, all reference/citation keys, all 14 bibliography entries in first-citation order, and balanced named environments.
+- Rendered and visually inspected all 16 pages. The only final log diagnostic is the known 117.0831 pt CAS keyword-overlay box; the title page has no visible overflow. No new manuscript-body layout warning was found. Existing image-resolution limits remain unchanged.
+- Confirmed byte-identical results sections (from RFKO feedback through fixed-tune RFKO), equation/table/figure environments including captions, acknowledgments, and bibliography. All 22 img/ files and both reference drafts retain their pre-edit hashes.
+- Task 02 is complete. Foil/configuration provenance, controller details, sample endpoints/weights, and plotted normalization remain unresolved author questions; Tasks 03–10 have not been executed. This is an editorial validation, not a validation of the simulations or a declaration of submission readiness.
+- No new simulations, scientific figures, numerical results, staging, commits, or pushes.
 
 ## Revision based on the complete prior publication
 

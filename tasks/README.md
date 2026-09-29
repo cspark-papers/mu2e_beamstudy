@@ -1,0 +1,40 @@
+# Manuscript improvement tasks
+
+Created: 2026-09-29. Status: planned; manuscript edits are not completed by creation of this task list.
+
+## Objective and boundaries
+
+Improve the journal submission quality of `beamstudy-mod.tex` using the existing results and all eight current figures (14 image assets). The author's latest instruction is binding: **no new simulations; use the figures as they are**. `Task_01.md` preserves the original request and is unchanged.
+
+- Do not run Synergia2, MARS, RK4 particle tracking, parameter scans, convergence studies, or new controller tests. Do not create additional simulation results.
+- Do not add, replace, regenerate, retouch, crop, digitize, relabel, or remove scientific figures or panels. Preserve image bytes, panel content, and aspect ratios. Caption wording, TeX sizing, spacing, and placement may improve.
+- Use the manuscript, reference drafts, prior publication, existing review records, and any already available original documentation. Missing metadata is not permission to invent settings or require another run. Narrow the affected claim, explain the limitation, and record the author question.
+- No new uncertainty estimates, ripple-suppression metrics, loss fractions, or quantitative conclusions inferred from raster plots. Arithmetic and checks of printed algebra are allowed; they are not new beam simulations.
+- Build and inspect the manuscript as a document. Do not claim that compilation validates the science or guarantees journal acceptance.
+- Do not stage, commit, or push. Supply a proposed commit message for each change batch.
+
+## Ordered backlog
+
+Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. All tasks below are **Todo**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
+
+| Task | Priority | Deliverable | Depends on |
+| --- | --- | --- | --- |
+| [02 — Contribution and narrative](Task_02.md) | P1 | Clear problem, contribution, abstract, introduction, and conclusion | None |
+| [03 — Methods and configuration](Task_03.md) | P1 | Concise case definitions with known/unknown settings distinguished | 02 |
+| [04 — Theory and notation](Task_04.md) | P1 | Consistent equations, coordinates, units, and model scope | 03 |
+| [05 — RFKO interpretation](Task_05.md) | P1 | Evidence-led feedback and chromaticity discussion | 03, 04 |
+| [06 — Transit-time interpretation](Task_06.md) | P1 | Precise tune-step protocol and supported comparison | 03, 04 |
+| [07 — Scattering interpretation](Task_07.md) | P1 | Transparent handoff and conditional-loss discussion | 03, 04 |
+| [08 — Existing figures and captions](Task_08.md) | P2 | Self-contained captions and readable layout with unchanged images | 05, 06, 07 |
+| [09 — References and submission metadata](Task_09.md) | P2 | Verified attribution and a short author-only checklist | 02, 03 |
+| [10 — Final editorial and document checks](Task_10.md) | P2 | Compiled, visually inspected revision and readiness report | 02–09 |
+
+Tasks 05–07 cover separate results sections; their order may change. Revisit the abstract and conclusion after those sections are settled. Every task has a fallback for unavailable evidence so editorial progress does not depend on new simulations.
+
+## Execution and completion
+
+For each task, change status to In progress, make the scoped edits, and record substantive changes and unresolved questions in `REVIEW.md`. Mark Done only after its acceptance criteria pass and add a short completion note identifying the edits and checks. Missing author-only metadata can remain explicitly open; it must not be called verified. Any missing information that makes an essential result uninterpretable must remain visible in the final readiness report.
+
+Earlier requests in `REVIEW.md` for matched simulations, convergence runs, or regenerated figures are historical scientific recommendations, outside this editing plan. Retain appropriate limitations in the paper without making those activities required tasks or promising them as submission deliverables.
+
+The repository currently ignores `tasks/` in `.gitignore`. These task files are local deliverables and will not appear in ordinary Git status; this plan does not change that policy or stage them. Proposed commit messages may list them as intended additions, but Git will require an explicit later decision to track them.

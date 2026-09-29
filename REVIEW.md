@@ -4,6 +4,14 @@ Reviewed: 2026-09-29. Active source: `beamstudy-mod.tex`.
 
 This is a substantive editorial and internal-consistency revision, not a rerun of the simulations. The supplied figures and reported numerical results are preserved. The manuscript is improved but still requires the author/data checks below before journal submission.
 
+## Current author-directed scope and task backlog
+
+On 2026-09-29, the author requested a task plan to improve journal submission quality using the existing figures and without new simulations. `tasks/README.md` and Tasks 02–10 now define that editorial work. The original Task 01 is preserved. These tasks are planned, not completed manuscript changes.
+
+This instruction supersedes the action requests below to repeat tracking, perform convergence studies, or obtain regenerated figures for this revision. Those entries remain a record of evidence gaps, not required new work. Address each gap using existing documentation where available; otherwise narrow the affected claim and explain the limitation. Do not invent settings, uncertainty estimates, or quantitative metrics from raster plots. Preserve figure files and panel content; improve captions and TeX layout only.
+
+The task-plan update changes documentation only. No TeX, figures, reference drafts, or simulation results were changed, and no simulation or manuscript build was run for this documentation update. Journal-specific requirements and essential unresolved author metadata remain submission considerations even when all feasible editorial tasks are complete.
+
 ## Revision based on the complete prior publication
 
 The author subsequently supplied the published 11-page article. It has now been read in full and visually inspected. `PRIOR_WORK_COMPARISON.md` records the section/page evidence and figure comparison.

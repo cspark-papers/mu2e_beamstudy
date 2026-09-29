@@ -12,6 +12,7 @@ This repository contains a journal manuscript on particle dynamics during third-
 | `modeling.tex` | Companion/reference draft; also contains provenance for internal report citations. |
 | `REVIEW.md` | Revision record, evidence checks, and remaining author/data questions. |
 | `PRIOR_WORK_COMPARISON.md` | Page-by-page evidence map, figure comparison, and configuration differences relative to the supplied prior publication. |
+| `tasks/README.md` | Prioritized editorial tasks using existing results and unchanged figures; currently Git-ignored local task documents. |
 | `AGENTS.md` | Editing, validation, and version-control instructions. |
 | `.gitignore` | Excludes generated LaTeX products and local task notes. |
 
@@ -44,6 +45,12 @@ Check for undefined citations/references, overfull boxes, clipped content, illeg
 The September 2026 revision improves the prose, theory conventions, evidence qualifications, captions, and references. A second revision based on the complete prior publication identifies RFKO response, tune-step transit times, and post-interception scattering transport as the follow-up topics. A new manuscript table distinguishes shared parameters from differing foil thicknesses and acceptances. No new simulation results were added. Consult `REVIEW.md` and `PRIOR_WORK_COMPARISON.md` before submission: geometry, controller details, numerical convergence, particle-sample definitions, and diagnostic normalizations still need confirmation from the original calculations.
 
 The citation to the companion tracking paper now uses its published record: Nuclear Engineering and Technology 58 (2026), 104097, DOI [10.1016/j.net.2025.104097](https://doi.org/10.1016/j.net.2025.104097). This does not select a target journal for the present manuscript.
+
+## Current editorial plan
+
+The author has requested journal-quality improvement with **no new simulations and the existing figures as is**. The local backlog in `tasks/README.md` contains nine ordered tasks (02–10), with scope, acceptance criteria, and a fallback for missing evidence. It covers the narrative, methods, theory, results, captions/layout, references, and final document checks. `tasks/Task_01.md` remains the original request.
+
+Missing scientific evidence is handled through transparent limitations and narrower claims, not new runs. Figures may be sized and placed more clearly in TeX, but their image content is unchanged. Earlier requests for convergence runs, matched simulations, or replacement plots are outside this plan. Creating the backlog does not mean that its manuscript edits have been executed. The existing `.gitignore` rule for `tasks/` is preserved.
 
 ## Working rules
 

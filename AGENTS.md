@@ -7,6 +7,14 @@
 - Treat `beamstudy.tex` and `modeling.tex` as reference drafts unless the user asks to revise them.
 - Read `README.md` and `REVIEW.md` before a substantial revision. Inspect the worktree and preserve existing user changes.
 
+## Current revision boundary
+
+- Follow the author’s latest scope: improve the manuscript using existing results and figures; no new simulations.
+- Do not run new Synergia2, MARS, RK4 tracking, parameter scans, convergence studies, or controller tests. Check printed algebra and document builds without generating new scientific results.
+- Preserve every existing figure file and panel as is. Caption edits and TeX sizing, spacing, and placement are allowed; do not redraw, digitize, crop, relabel, regenerate, replace, or remove figures.
+- Follow `tasks/README.md` and `tasks/Task_02.md` through `tasks/Task_10.md` for the editorial backlog. Earlier review suggestions for new calculations or replacement figures are outside this revision’s scope.
+- Where evidence is missing, qualify the claim and record the author question; do not invent metadata or make new simulations a completion requirement.
+
 ## Scientific editing
 
 - Improve structure, clarity, equations, captions, references, and consistency without inventing results or simulation settings.

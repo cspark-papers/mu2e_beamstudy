@@ -1,6 +1,6 @@
 # Task 13 — Restructure the paper and add a synthesis discussion
 
-Status: Todo  
+Status: Done  
 Priority: P1  
 Depends on: Tasks 05, 06, 07, and 11
 
@@ -36,11 +36,11 @@ The current section structure works against the paper's main argument:
 
 ## Acceptance criteria
 
-- [ ] The author has approved the section order before large text moves.
-- [ ] The RFKO material is contiguous, and the mechanism precedes its application.
-- [ ] Every Discussion statement cites an existing figure, equation, or reported result, and no new number appears.
-- [ ] All `\ref` targets resolve and no label is duplicated after the move.
-- [ ] Figures still appear near their first reference.
+- [x] The author has approved the section order before large text moves.
+- [x] The RFKO material is contiguous, and the mechanism precedes its application.
+- [x] Every Discussion statement cites an existing figure, equation, or reported result, and no new number appears.
+- [x] All `\ref` targets resolve and no label is duplicated after the move.
+- [x] Figures still appear near their first reference.
 
 ## If evidence is unavailable
 
@@ -48,4 +48,10 @@ If the author prefers the current order, keep it but retitle Sec. 4, point forwa
 
 ## Completion record
 
-Pending. Record changed sections, checks performed, and unresolved author questions here before marking Done.
+Completed: 2026-10-01 (section order approved by the author before text moves).
+
+- New order: Introduction → Baseline and cases → Reduced resonance model → RFKO response (4.1 fixed-tune mechanism, 4.2 feedback) → Transit times → Septum-scattered transport → Discussion → Conclusions. Headings are descriptive and `sec:tracking` was removed.
+- Text was moved without rewriting (verified by a sorted-line comparison). Linking sentences, the abstract order, the introduction roadmap, the Sec. 4 introduction, and the Table 3 row order were updated.
+- New Discussion: response chain (7.1), losses after interception (7.2), and the role of the reduced model (7.3), built from existing results with no new numbers. Conclusions were rewritten in the new order.
+- The contents list is set in small type so that it stays on the title page.
+- Build succeeded (22 pages); the 45 labels are unique, all references resolve, figures appear in order, and hashes are unchanged.

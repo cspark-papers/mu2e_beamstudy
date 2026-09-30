@@ -41,6 +41,42 @@ Main findings requiring author input:
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
 
+## Task 13 completed: structure and synthesis discussion
+
+Completed 2026-10-01. The author approved the proposed section order before any text was moved.
+
+- **New order:**
+  1. Introduction
+  2. Published baseline and simulation cases
+  3. Reduced resonance model
+  4. RFKO response: chromatic mixing and spill feedback
+     - 4.1 Fixed-tune excitation: emittance and centroid motion
+     - 4.2 Spill regulation with feedback under quadrupole ripple
+  5. Transit times after a tune step
+  6. Transport of septum-scattered particles
+  7. Discussion (7.1 Response chain for RFKO spill regulation; 7.2 Losses after septum interception; 7.3 Role of the reduced model)
+  8. Conclusions
+  9. Acknowledgments
+
+  The RFKO studies are now contiguous, with the mechanism before its application. The generic "Particle tracking simulations" heading and its label `sec:tracking` were removed, the model became a method section, and every heading is descriptive.
+- **Text moved, not rewritten.** A sorted-line comparison of the pre- and post-move source differs only in the headings and the two inserted sections. All labels were kept except `sec:tracking`; `sec:rfkoresp`, `sec:discussion`, `sec:chain`, `sec:lossdisc`, and `sec:modeldisc` were added. Figures renumber automatically in the new order: Figs. 1–2 fixed-tune RFKO, 3 feedback, 4–5 tune step, 6–8 scattering.
+- **Linking edits for the new order:**
+  - Abstract: sentence order now puts the fixed-tune result first, and the controller is named as PD.
+  - Introduction: the list of studies and the roadmap follow the new order.
+  - A short introduction was added for Sec. 4.
+  - The fixed-tune opening now reads as a subsection.
+  - The feedback subsection now refers back to the mechanism in Sec. 4.1.
+  - The model section names the sections it serves.
+  - Table 3 rows follow the section order.
+- **Discussion (new; existing results only, no new number):**
+  - 7.1 connects chromatic conversion (Sec. 4.1), the transit-time spread (Sec. 5), and ~100-turn averaging (Sec. 4.2) into a response chain. This explains the P-only oscillation and the derivative benefit qualitatively. It notes that the delay likely changes during the spill; whether the time-dependent P gain was meant to compensate is not documented.
+  - 7.2 explains that septum interception is followed by transport that moves part of the associated loss around the ring. The 43% figure is confined to the returned sample.
+  - 7.3 presents the reduced model as a common mechanism for fixed-point delays and scattering shear, not as a predictor.
+- **Conclusions** rewritten in the new order as four compact findings plus a synthesis sentence pointing to Sec. 7, with the scope statement retained. The 43% qualifier and the 50 versus 100 µm distinction are intact.
+- **Layout:** the longer contents list overflowed by one line onto an otherwise empty page 2. `\enlargethispage` made the title-page footnotes collide with the footer and was reverted. The contents are now set in `\small`, and page 1 is clean. The contents block remains a Task 16 decision.
+
+Validation: `latexmk` with pdfLaTeX and BibTeX succeeded (22 pages; previously 21, from the Discussion). All 45 labels are unique and every reference and citation resolves. The only warnings are the known ones. All pages were rendered: figures appear in numerical order after their first references, and the title page was inspected at reading resolution. All image, reference-draft, and bibliography hashes are unchanged. No simulations, staging, commits, or pushes.
+
 ## Task 08 completed: captions and layout with existing figures
 
 Completed 2026-10-01. Only TeX sizing, float placement, subcaptions, and caption wording were changed; no image was edited.

@@ -1,6 +1,6 @@
 # Task 12 — Audit numerical and unit consistency
 
-Status: Todo  
+Status: Done  
 Priority: P1  
 Depends on: Task 03; coordinate with Task 04
 
@@ -25,10 +25,10 @@ Printed algebra has been checked (REVIEW), but the tabulated beam parameters hav
 
 ## Acceptance criteria
 
-- [ ] Every derived number in the text reproduces from the tabulated values within its printed precision; any exception is recorded.
-- [ ] Any corrected value is backed by a source or an explicit calculation recorded in REVIEW.
-- [ ] Unit and convention questions that can't be answered from existing sources are listed once in REVIEW, not scattered through the prose.
-- [ ] Figure axes are unchanged.
+- [x] Every derived number in the text reproduces from the tabulated values within its printed precision; any exception is recorded.
+- [x] Any corrected value is backed by a source or an explicit calculation recorded in REVIEW.
+- [x] Unit and convention questions that can't be answered from existing sources are listed once in REVIEW, not scattered through the prose.
+- [x] Figure axes are unchanged.
 
 ## If evidence is unavailable
 
@@ -36,4 +36,10 @@ Keep the printed value, add an `AUTHOR CHECK` comment beside it, and record the 
 
 ## Completion record
 
-Pending. Record changed sections, checks performed, and unresolved author questions here before marking Done.
+Completed: 2026-10-01.
+
+- Corrected the beam momentum from 8.886 to 8.889 GeV/c. The Mu2e TDR states an 8 GeV kinetic energy for resonant extraction, which gives Bρ = 29.650 T m exactly as tabulated. The correction is disclosed in the Table 1 caption and an `AUTHOR CHECK`.
+- Audited every derived number (Bρ, T_rev, spill time, f_RF, 0.17 ms, 1%, 9,830 turns, pulse population, βγ, chromatic spread); all reproduce within printed precision.
+- Added derived Table 1 rows (βγ, T_rev, f_rev, marked †) and converted the unit-bearing quantities to `siunitx`, giving an upright µ.
+- Recorded the emittance, acceptance, normalized-coordinate (β ≈ 10.5 m implied), and Δp/p convention questions in REVIEW without changing any plot or claiming agreement.
+- Build succeeded (22 pages); labels are unique, all references resolve, the table page was inspected, and hashes are unchanged.

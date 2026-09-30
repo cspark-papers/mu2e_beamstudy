@@ -41,6 +41,48 @@ Main findings requiring author input:
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
 
+## Task 12 completed: numerical and unit consistency
+
+Completed 2026-10-01 using arithmetic on printed values, the local sources (`beamstudy.tex`, `modeling.tex`, and the author-supplied NET 2026 PDF), and the Mu2e TDR. No simulation was run.
+
+### Correction made
+
+- **Beam momentum: 8.886 → 8.889 GeV/c (Table 1).**
+  - All three local tables list 8.886 (the NET table gives its unit as "GeV") beside Bρ = 29.650 T m. These are inconsistent: 8.886 GeV/c gives Bρ = 29.641 T m.
+  - The Mu2e TDR ([arXiv:1501.05241](https://arxiv.org/abs/1501.05241), PDF page 273) states "Mode 2: Resonantly extracted proton beam at a kinetic energy of 8 GeV". The accelerator overview (PDF page 23) also gives Booster protons "with a kinetic energy of 8 GeV".
+  - An 8 GeV kinetic energy gives p = 8.8889 GeV/c, Bρ = 29.650 T m (exactly the tabulated value), and βγ = 9.474.
+  - The correction therefore meets the Task 12 criterion (a primary source plus an explicit calculation). The Table 1 caption states the change and notes that the earlier tables list 8.886. An `AUTHOR CHECK` comment records it.
+  - The derived quantities are insensitive to the change: T_rev = 1.6948 µs for either value, and the RF frequency is 4 f_rev = 2.360 MHz.
+
+### Derived-number audit (all reproduce within printed precision)
+
+| Printed | Recomputed |
+| --- | --- |
+| Bρ 29.650 T m | 29.650 |
+| T_rev ≈ 1.69 µs | 1.6948 µs |
+| 54 ms over 31,795 turns | 53.89 ms (0.2%, rounding) |
+| h = 4, 2.36 MHz | 4 f_rev = 2.3602 MHz |
+| 100 turns ≈ 0.17 ms | 0.1695 ms |
+| 300 turns ≈ 1% of the spill | 0.94% |
+| 60 Hz period ≈ 9,830 turns | 9,834 |
+| 10^12/31,795 ≈ 3.15×10^7 | 3.1451×10^7 |
+| βγ ≈ 9.47 | 9.4737 |
+| C_x δ of order 10^−3 | 1.6×10^−3 |
+
+### Table and unit hygiene
+
+- Added three derived rows to Table 1, marked †: βγ = 9.47, T_rev = 1.695 µs, and f_rev = 0.590 MHz. Dimensionless rows keep a blank unit cell, consistently.
+- Converted 14 unit-bearing expressions to `siunitx` (`\SI`, `\si`): the 50 and 100 µm foils, 1 µrad, 1.69 µs, 60 Hz, 500 W, 0.17 ms, 54 ms, −11 mm, and the new rows. The micro prefix is now upright instead of an italic math µ, with uniform spacing. The π mm mrad form and the thousands commas were already consistent and are unchanged.
+
+### Convention questions for the author (arithmetic only; nothing asserted in the manuscript)
+
+- **Emittance versus Fig. 1(a)**, the fixed-tune emittance. A normalized 95% emittance of 20π mm mrad, with a Gaussian ε95 = 6 ε_rms, gives a geometric rms emittance of 0.352π mm mrad. The C_x = 0 curve starts near 0.28. Which definition does the diagnostic use: rms or 95%, centroid-subtracted, truncated, matched?
+- **Acceptance convention.** A normalized 20π acceptance is 2.11π geometric (95%-type), yet the C_x = 1 rms emittance reaches about 2.75π. A hard aperture of that geometric size could not allow this, so either the acceptance is not a normalized 20π, or the emittance axis uses a different convention. This strengthens the existing "normalization not documented" entry in Table 2.
+- **Normalized transit coordinate (Fig. 5).** The septum sits at about −3.4 in "normalized x (mm)" versus x ≈ −11 mm in Fig. 7(a). If X = x/√β with β in m, this implies β ≈ 10.5 m at the observation point. The NET values of 9.1 m and 20.1 m are matched-ellipse β functions of the extracted-beam footprint, not β at ESS1, so they do not resolve this. Please supply the Twiss parameters at ESS1 and the plot normalization.
+- **Δp/p = 0.0016.** The NET text derives it from the 40 ns bunch length and the 20π emittance ("we obtain Δp/p ≈ 0.0016"), but the statistic (rms or half-width) is still not stated.
+
+Validation: `latexmk` with pdfLaTeX and BibTeX succeeded (22 pages; `siunitx` 3.4.14). Labels are unique and every reference resolves. The only warnings are the known ones. The Table 1 page was inspected at 110 dpi. All image, reference-draft, and bibliography hashes are unchanged. No simulations, staging, commits, or pushes. The TDR PDF was downloaded only to the session scratchpad for this check.
+
 ## Task 15 completed: limitations consolidated and prose tightened
 
 Completed 2026-10-01. This was an editorial pass only; no finding, number, or figure changed.

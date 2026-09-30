@@ -1,6 +1,6 @@
 # Manuscript improvement tasks
 
-Created: 2026-09-29. Status: Tasks 02–08, 11, 13, and 15 completed; Tasks 09, 10, 12, 14, 16, and 17 remain planned. Tasks 11–17 were added on 2026-09-29 after a manuscript review.
+Created: 2026-09-29. Status: Tasks 02–08, 11–13, and 15 completed; Tasks 09, 10, 14, 16, and 17 remain planned. Tasks 11–17 were added on 2026-09-29 after a manuscript review.
 
 ## Objective and boundaries
 
@@ -15,7 +15,7 @@ Improve the journal submission quality of `beamstudy-mod.tex` using the existing
 
 ## Ordered backlog
 
-Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. Tasks 02–08, 11, 13, and 15 are **Done**; the others are **Todo**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
+Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. Tasks 02–08, 11–13, and 15 are **Done**; the others are **Todo**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
 
 | Task | Status | Priority | Deliverable | Depends on |
 | --- | --- | --- | --- | --- |
@@ -29,7 +29,7 @@ Priority P1 means scientific interpretation and narrative; P2 means presentation
 | [08 — Existing figures and captions](Task_08.md) | Done | P2 | Self-contained captions and readable layout with unchanged images | 05, 06, 07 |
 | [09 — References and submission metadata](Task_09.md) | Todo | P2 | Verified attribution and a short author-only checklist | 02, 03 |
 | [11 — Figure–text discrepancies](Task_11.md) | Done | P1 | Text and captions that match the plotted content; open questions for undocumented plot elements | 03, 04 |
-| [12 — Numerical and unit consistency](Task_12.md) | Todo | P1 | Cross-checked table values, emittance/acceptance conventions, consistent units | 03 |
+| [12 — Numerical and unit consistency](Task_12.md) | Done | P1 | Cross-checked table values, emittance/acceptance conventions, consistent units | 03 |
 | [13 — Structure and synthesis discussion](Task_13.md) | Done | P1 | RFKO studies placed together, specific headings, a Discussion built from existing results | 05, 06, 07, 11 |
 | [14 — Literature positioning](Task_14.md) | Todo | P1 | Verified related-work context beyond the prior article | 02 |
 | [15 — Limitations and prose economy](Task_15.md) | Done | P2 | Each scope limit stated once in full; concise results paragraphs | 13 |

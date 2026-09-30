@@ -41,6 +41,15 @@ Main findings requiring author input:
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
 
+## Follow-up: BibTeX warnings cleared (2026-10-01)
+
+At the author's request, the remaining two BibTeX warnings (`empty year in wcm`, `empty year in rfkoreg`) were removed without inventing dates.
+
+- The NET 2026 paper and the IBIC2019 spill-regulation paper do not cite Mu2e Documents 3627 or 3625.
+- Mu2e DocDB redirects to Fermilab single sign-on, so no date could be verified.
+- Both entries now use `year = {n.d.}`, the standard "no date" marker, and render as "(n.d.)". A bibliography comment asks the author to substitute the DocDB dates.
+- BibTeX now reports `warning$ -- 0`. The build is unchanged at 23 pages, and the only LaTeX box warning is the known CAS keyword overlay.
+
 ## Task 17 completed: build, bibliography structure, and repository documentation
 
 Completed 2026-10-01.
@@ -49,7 +58,7 @@ Completed 2026-10-01.
   - `pimms` became `pimms1` (CERN/PS 99-010 (DI), 1999; L. Badano et al., 9 authors) and `pimms2` (CERN/PS 2000-007 (DR), 2000; P. J. Bryant et al., 14 authors). Authorship and report numbers come from the INSPIRE records for those report numbers; the study name is protected from the style's lowercasing.
   - `wcm` became `wcm` (P. Prieto, Mu2e Document 3627-v4) and `rfkoreg` (P. Prieto, Mu2e Document 3625-v1), from `modeling.tex`, labeled as internal reports and left undated.
   - The citations were updated to `\cite{hardt,pullia,pimms1,pimms2}` and `\cite{wcm,rfkoreg}`.
-  - BibTeX now warns only about the two genuinely undated internal reports; the merged-entry warnings are gone. The bibliography has 24 entries.
+  - BibTeX then warned only about the two genuinely undated internal reports (cleared in the follow-up above); the merged-entry warnings were gone. The bibliography has 24 entries.
 - **Layout macros.** Removed `\def\floatpagepagefraction{1}` and `\def\textpagefraction{.001}`. Neither is a LaTeX float parameter (the real names are `\floatpagefraction` and `\textfraction`); both came from the companion template and had no effect. Their effective counterparts were not substituted, because `\floatpagefraction` = 1 would force float pages to be completely full and could defer floats. The rebuilt PDF has the same 23 pages, and every table and figure is on the same page as before (compared against the Task 09 build).
 - **README.**
   - Earlier finding corrected: the README had already been updated for BibTeX in commit `f669ffb`, after the 2026-09-29 review read the pre-commit file, so the earlier statement in this file that the README was updated is accurate.

@@ -49,7 +49,7 @@ For optional visual verification with Poppler:
 pdftoppm -r 120 -png "$build_dir/beamstudy-mod.pdf" "$build_dir/page"
 ```
 
-Check for undefined citations/references, overfull boxes, clipped content, illegible figure text, and misplaced captions. The checked-in source follows the companion manuscript's A4 single-column review layout: title/abstract/keywords followed by contents, a page break before the main text, double spacing, line numbers, and numbered `elsarticle-num` references. This author-requested format match does not establish compliance with a target journal's current submission rules. BibTeX reports empty-year warnings only for the two undated internal Mu2e reports (`wcm`, `rfkoreg`); no dates have been invented. The contents list is set in small type so that it stays on the title page; whether to keep it for submission is a Task 16 decision.
+Check for undefined citations/references, overfull boxes, clipped content, illegible figure text, and misplaced captions. The checked-in source follows the companion manuscript's A4 single-column review layout: title/abstract/keywords followed by contents, a page break before the main text, double spacing, line numbers, and numbered `elsarticle-num` references. This author-requested format match does not establish compliance with a target journal's current submission rules. BibTeX runs without warnings. The two internal Mu2e DocDB reports (`wcm`, `rfkoreg`) are marked "n.d." (no date) because their dates could not be verified without Fermilab sign-on; no dates have been invented. The contents list is set in small type so that it stays on the title page; whether to keep it for submission is a Task 16 decision.
 
 ## Submission status
 

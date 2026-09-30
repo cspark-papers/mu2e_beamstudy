@@ -1,0 +1,8 @@
+Highlights (draft for author approval; 3-5 bullets, at most 85 characters each, per
+Elsevier's highlights guidance; confirm the requirement for the chosen journal)
+
+- Chromaticity decides whether knockout excitation heats a beam or moves it coherently
+- Feedback on the knockout amplitude reduces ripple-driven spill modulation in tracking
+- Particles released by a tune step need a few to over 100 turns to reach the septum
+- Transit is slowest near unstable fixed points and lengthens as extraction proceeds
+- About 43% of a returned septum-scattered sample is lost later around the ring

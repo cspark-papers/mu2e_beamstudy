@@ -41,6 +41,32 @@ Main findings requiring author input:
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
 
+## Task 16 completed: submission front matter
+
+Completed 2026-10-01. No target journal has been named, so Elsevier-wide rules were checked at Elsevier's official pages and journal-specific rules remain pending.
+
+- **Running head.** `\shorttitle` changed from "Particle dynamics during slow resonant extraction" to "RFKO, transit times, and septum scattering in Mu2e extraction" (61 characters), matching the current title.
+- **Contents list.** The review layout the author requested (contents plus a page break, matching the companion manuscript) remains the default. A submission build defined by `\SubmissionBuild` omits both:
+  `latexmk -pdf -usepretex='\def\SubmissionBuild{}' beamstudy-mod.tex`
+  The README documents the switch. Double spacing and line numbers are kept in both builds.
+- **Keywords.** Changed from Mu2e, Resonant extraction, Spill regulation, Beam dynamics, Radio-frequency knockout to six more specific terms: Mu2e, Resonant slow extraction, Radio-frequency knockout, Spill regulation, Transit time, Septum scattering. Confirm the journal's keyword limit.
+- **Highlights** (`highlights.txt`, a new file for separate upload). Five bullets of 77–85 characters, drafted only from existing findings, without acronyms, and keeping the returned-sample qualifier for 43%. Elsevier's highlights page gives "three to five" bullets of "85 characters or fewer, including spaces" and asks for no jargon or acronyms ([Elsevier highlights](https://www.elsevier.com/researcher/author/tools-and-resources/highlights)). The author must approve them.
+- **Declarations.** Commented, unrendered placeholders were added immediately before the references for the CRediT statement, competing interests, data availability, and the generative-AI declaration. The last carries Elsevier's template wording and placement rule ("at the end of your manuscript, immediately before the references"; [Elsevier generative-AI policy for journals](https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals)). No declaration was written; the Task 09 checklist remains the author action list.
+- **Figure resolution against Elsevier artwork rules** ([artwork sizing](https://www.elsevier.com/about/policies-and-standards/author/artwork-and-media-instructions/artwork-sizing)):
+  - The rules require 300 dpi for halftones, 500 dpi for combination art, and 1000 dpi for line art, with printed lettering of at least 7 pt (6 pt for sub- and superscripts). Single, 1.5, and double columns are 90, 140, and 190 mm wide.
+  - The existing plots are line art. They print at 118–261 dpi, with in-image labels of about 3.5–8 pt at the review-layout widths (Task 08 inventory), so they do not meet these rules.
+  - An 812-px image would reach 1000 dpi only at about 21 mm wide, below Elsevier's 30 mm minimum.
+  - Compliance therefore needs the original vector or high-resolution plots. No figure was modified or upsampled, and no compliance is claimed.
+- **Cover letter.** Not drafted, because the author has not asked for one. Checklist item 9 (Task 09) records the recommended statement on the relationship to Ref. [2].
+
+Validation: both variants were built with pdfLaTeX and BibTeX.
+
+- The review build has 23 pages, with the contents on page 1.
+- The submission build (`-usepretex='\def\SubmissionBuild{}'`) has 22 pages, with no contents list and the Introduction starting on page 1.
+- Both have 0 BibTeX warnings, and their only box warning is the known CAS keyword overlay.
+- Title pages were inspected: the six keywords fit the article-info column, and the new running head appears on page 2.
+- Image, reference-draft, and bibliography hashes are unchanged. No simulations, staging, commits, or pushes.
+
 ## Follow-up: BibTeX warnings cleared (2026-10-01)
 
 At the author's request, the remaining two BibTeX warnings (`empty year in wcm`, `empty year in rfkoreg`) were removed without inventing dates.

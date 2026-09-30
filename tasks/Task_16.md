@@ -1,6 +1,6 @@
 # Task 16 — Prepare submission front matter and supporting items
 
-Status: Todo  
+Status: Done  
 Priority: P2  
 Depends on: Task 09 (journal choice); Task 13
 
@@ -33,11 +33,11 @@ Several items outside the manuscript body are unfinished or inconsistent. Task 0
 
 ## Acceptance criteria
 
-- [ ] The running head matches the title.
-- [ ] The submission build has no contents block, or the author has chosen to keep it.
-- [ ] Highlights, if drafted, contain only supported findings and meet the length limit.
-- [ ] Declarations are listed as author actions, and none is invented.
-- [ ] Every journal-specific rule cites that journal's current official guide.
+- [x] The running head matches the title.
+- [x] The submission build has no contents block, or the author has chosen to keep it.
+- [x] Highlights, if drafted, contain only supported findings and meet the length limit.
+- [x] Declarations are listed as author actions, and none is invented.
+- [x] Every journal-specific rule cites that journal's current official guide.
 
 ## If evidence is unavailable
 
@@ -45,4 +45,12 @@ Without a named journal, prepare generic Elsevier items and mark every journal-s
 
 ## Completion record
 
-Pending. Record changed sections, checks performed, and unresolved author questions here before marking Done.
+Completed: 2026-10-01.
+
+- Running head now matches the title ("RFKO, transit times, and septum scattering in Mu2e extraction").
+- The contents list and page break are kept for the author-requested review layout. `\SubmissionBuild` omits them for submission (documented in the README; verified at 22 pages).
+- Keywords sharpened to six specific terms.
+- Drafted `highlights.txt` (five bullets, 77–85 characters, no acronyms, from existing findings only) for author approval.
+- Added commented placeholders before the references for CRediT, competing interests, data availability, and the AI declaration, with Elsevier's template and placement rule. No declaration was written.
+- Recorded Elsevier's artwork rules (300/500/1000 dpi; lettering at least 7 pt) against the existing assets: none complies, and originals are needed. No cover letter was drafted, because none was requested.
+- All Elsevier-wide rules are cited to Elsevier's official pages (REVIEW). Journal-specific rules remain pending until a journal is named.

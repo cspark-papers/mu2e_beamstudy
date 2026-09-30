@@ -20,7 +20,7 @@
 \begin{document}
 \let\WriteBookmarks\relax
 
-\shorttitle{Particle dynamics during slow resonant extraction}
+\shorttitle{RFKO, transit times, and septum scattering in Mu2e extraction}
 \shortauthors{C.S. Park}
 % Suppress the class's empty ORCID footnote; restore if an ORCID is supplied.
 \let\printorcid\relax
@@ -49,18 +49,23 @@ Spill regulation in resonant extraction depends on the beam response to transver
 \end{abstract}
 
 \begin{keywords}
-Mu2e \sep Resonant extraction \sep Spill regulation \sep Beam dynamics \sep Radio-frequency knockout
+Mu2e \sep Resonant slow extraction \sep Radio-frequency knockout \sep Spill regulation \sep Transit time \sep Septum scattering
 \end{keywords}
 
 \maketitle
 \hypersetup{pdfauthor={Chong Shik Park}}
 
-% Match the companion manuscript's contents and review layout.
+% Review layout (default): contents list and page break, matching the companion
+% manuscript. For the journal-submission build, omit both by defining
+% \SubmissionBuild before the class is loaded, e.g.
+%   latexmk -pdf -usepretex='\def\SubmissionBuild{}' beamstudy-mod.tex
+\ifdefined\SubmissionBuild\else
 \setcounter{tocdepth}{10}
-% Small type keeps the review-only contents on the title page (see Task 16).
+% Small type keeps the review-only contents on the title page.
 {\small\tableofcontents}
 
 \clearpage
+\fi
 \doublespacing
 \linenumbers
 
@@ -453,6 +458,17 @@ Taken together (Sec.~\ref{sec:discussion}), chromatic mixing and finite transit 
 
 This work was supported by the United States Department of Energy under contract DE-AC02-07CH11359 and the ComPASS project funded through the Scientific Discovery through Advanced Computing program in the DOE Office of High Energy Physics.
 
+
+% ---- Declarations required by Elsevier journals: AUTHOR TO COMPLETE before submission.
+% None has been drafted on the author's behalf (see REVIEW.md, Task 09 checklist).
+% \section*{CRediT authorship contribution statement}
+% \section*{Declaration of competing interest}
+% \section*{Data availability}
+% \section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+%   Elsevier template (generative-AI policy for journals): "During the preparation of this
+%   work the author(s) used [NAME OF TOOL/SERVICE] in order to [REASON]. After using this
+%   tool/service, the author(s) reviewed and edited the content as needed and take(s) full
+%   responsibility for the content of the publication." Place immediately before the references.
 
 \bibliographystyle{elsarticle-num}
 \bibliography{beamstudy-mod}

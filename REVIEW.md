@@ -41,6 +41,29 @@ Main findings requiring author input:
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
 
+## Follow-up: final title chosen by the author (2026-10-01)
+
+From the journal-style options offered, the author selected: **"Particle response and septum scattering in third-integer resonant extraction for Fermilab's Mu2e experiment"** (106 characters). This supersedes the 147-character title recorded below.
+
+- The running head is now "Particle response and septum scattering in Mu2e resonant extraction".
+- The title fits on two lines, so the review-layout contents list is back to `\small` type and fits on page 1.
+- Validation: the build has 23 pages, the Introduction starts on page 2, BibTeX reports 0 warnings, the only box warning is the known CAS keyword overlay, and the PDF metadata title is updated.
+
+## Follow-up: journal-style title (2026-10-01)
+
+At the author's request, the title was revised to a conventional journal style.
+
+- **Old:** "RFKO response, transit times, and septum-scattered particle transport in Mu2e extraction"
+- **New:** "Beam response to radio-frequency knockout, transit times, and septum scattering in third-integer resonant extraction for Fermilab's Mu2e experiment" (147 characters)
+- **Rationale:**
+  - Acronyms are removed; "RFKO" is spelled out, following Elsevier's guidance against abbreviations in titles.
+  - The title names the physical process (third-integer resonant extraction) and the facility for indexing.
+  - The new wording parallels the companion article, "Tracking simulation of third-integer resonant extraction for Fermilab's Mu2e experiment" (Ref. [2]).
+  - The scope is unchanged. "Septum scattering" stands for the transport and loss of septum-scattered particles, and "beam response" covers both the fixed-tune and the feedback results.
+- **Running head:** changed to "Knockout response, transit times, and septum scattering in Mu2e extraction" (74 characters), which supersedes the Task 16 wording and keeps the head acronym-free.
+- **Contents list:** the three-line title pushed the last two contents entries onto page 2 in the review layout, so the contents list is now set in `\footnotesize`. The submission build has no contents list and is unaffected.
+- **Validation:** the review build has 23 pages; page 1 holds the title, abstract, keywords, and full contents; the Introduction starts on page 2. The only box warning is the known CAS keyword overlay, BibTeX reports 0 warnings, and the PDF metadata title is updated. No other text changed.
+
 ## Task 16 completed: submission front matter
 
 Completed 2026-10-01. No target journal has been named, so Elsevier-wide rules were checked at Elsevier's official pages and journal-specific rules remain pending.

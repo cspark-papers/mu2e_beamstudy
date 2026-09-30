@@ -1,6 +1,6 @@
 # Task 09 — Verify attribution and prepare submission metadata
 
-Status: Todo  
+Status: Done  
 Priority: P2  
 Depends on: Tasks 02 and 03
 
@@ -25,11 +25,11 @@ Publication-quality prose also requires accurate references and author-approved 
 
 ## Acceptance criteria
 
-- [ ] Every citation key resolves and substantive attribution is accurate to the consulted source.
-- [ ] Conflicting or unverified bibliographic metadata remains documented.
-- [ ] No fabricated declaration, authorship information, or data-access promise.
-- [ ] Any journal-specific rule is tied to the named journal’s official instructions.
-- [ ] Figure-resolution requirements, if incompatible with existing assets, are reported without modifying the figures or claiming compliance.
+- [x] Every citation key resolves and substantive attribution is accurate to the consulted source.
+- [x] Conflicting or unverified bibliographic metadata remains documented.
+- [x] No fabricated declaration, authorship information, or data-access promise.
+- [x] Any journal-specific rule is tied to the named journal’s official instructions.
+- [x] Figure-resolution requirements, if incompatible with existing assets, are reported without modifying the figures or claiming compliance.
 
 ## If evidence is unavailable
 
@@ -37,4 +37,9 @@ Keep verified portions of the citation and log the missing field. Leave author d
 
 ## Completion record
 
-Pending. Record changed sections, checks performed, and unresolved author questions here before marking Done.
+Completed: 2026-10-01.
+
+- Audited all 22 citations (table in REVIEW). Corrected `pullia` to the thesis title-page title (French, Lyon 1, CERN-THESIS-99-070) and `kobayashi` to the INSPIRE title ("…resonant beam ejection"). `hardt` is only partly verifiable (CDS bot wall); `mars1` and `wcm` remain honestly labeled internal reports.
+- Re-checked the attribution of prior-work results and settings to Ref. [2] and of theory to its sources. The 2026 volume and DOI of Ref. [2] are retained.
+- Consolidated an 11-item author-only checklist in REVIEW (authorship and acknowledgments, affiliations and ORCID, funding, CRediT, competing interests, data availability, AI-use declaration, figure provenance including the MARS plot, relationship to Ref. [2], internal references, target journal). Nothing was invented.
+- No journal is named, so the class is retained and journal rules remain pending. Build succeeded (23 pages).

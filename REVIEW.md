@@ -41,6 +41,46 @@ Main findings requiring author input:
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
 
+## Task 09 completed: attribution and submission metadata
+
+Completed 2026-10-01. No target journal has been named, so the `cas-sc` class is retained and journal-specific adaptation remains pending. No declaration was written on the author's behalf.
+
+### Citation audit (22 references, first-citation order)
+
+| Key | Status | Primary record / note |
+| --- | --- | --- |
+| `tdr` | Verified | TDR PDF (arXiv:1501.05241): October 2014, FERMILAB-TM-2594, first author L. Bartoszek |
+| `mu2e` | Verified | Author-supplied NET PDF and DOI 10.1016/j.net.2025.104097; vol. 58 (2026) retained |
+| `hardt` | Partly verified | CERN CDS record 1025914 carries the exact title; report number and date could not be read (bot wall) and remain as cited in the literature |
+| `pullia` | **Corrected** | Thesis title page (INSPIRE 511446, CERN-THESIS-99-070): "Dynamique de l'éjection lente et son influence sur les lignes de transfert", Université Claude Bernard – Lyon 1, defended 25 Oct 1999. The previous English title ("Detailed dynamics of slow extraction…") is not the thesis title; the entry now gives the French title with INSPIRE's English title. This resolves the institution conflict noted in PRIOR_WORK_COMPARISON. |
+| `pimms` | Verified | CERN CDS PDFs, Parts I and II (earlier revision); entry split deferred to Task 17 |
+| `HB10`, `ipac11`, `pid`, `preliminary`, `mars2`, `synergia2` | Verified | Primary PDFs listed under "Sources consulted" (earlier revisions) |
+| `hiramoto`, `noda`, `furukawa`, `niedermayer`, `velotti`, `crystal8gev`, `srs2019`, `srs2025` | Verified | Task 14 table |
+| `kobayashi` | **Corrected** | INSPIRE record (HEACC 1967, C67-09-11, pp. 347–351): title is "Improvement of the emittance in the resonant **beam** ejection"; booktitle normalized |
+| `mars1` | Internal, not inspectable | Metadata from Ref. [2], item 19; honestly labeled as an internal report |
+| `wcm` | Internal, not inspectable | Recovered from `modeling.tex`; honestly labeled; year unknown (split deferred to Task 17) |
+
+Attribution in the text was re-checked. The feed-forward ramp, septum and bump optimization, solver settings, ±20% open-loop spill, 1.2% geometric loss, 35π acceptance, 100 µm foils, and the 1.5–3 expectation are all attributed to Ref. [2]. The Hamiltonian is attributed to [preliminary] and [kobayashi], transit-time theory to [pullia], and the Hardt condition to [hardt, pullia, pimms]. Every citation key resolves.
+
+### Author-only submission checklist (not answered by editing)
+
+1. **Authorship and acknowledgments.** The manuscript lists a single author. `modeling.tex` thanks J. Amundson, L. Michelotti, and V. Nagaslaev; decide whether this manuscript should acknowledge contributors to the simulations, the MARS work, or the controller.
+2. **Affiliations and ORCID.** Confirm the two Korea University affiliations and the "formerly Fermilab" footnote. Supply an ORCID if desired; the empty ORCID footnote is currently suppressed.
+3. **Funding.** The acknowledgment cites the Fermilab operating contract (DE-AC02-07CH11359, matching the TDR's contract statement) and ComPASS/SciDAC. Confirm whether current support at Korea University, for example a national research grant, must also be acknowledged.
+4. **CRediT author statement** (Elsevier practice), required by most target journals.
+5. **Declaration of competing interests.**
+6. **Data availability.** The input decks, particle samples, controller code, and plotting data are not in this repository. Choose a truthful statement; none has been drafted.
+7. **Generative-AI use declaration.** Elsevier journals ask authors to disclose AI-assisted writing. This revision was prepared with an AI assistant, so the author should decide on and approve the wording.
+8. **Figure provenance and permissions.**
+   - Confirm that every figure was produced by the author for this study.
+   - In particular, confirm whether the MARS trajectory plot (Fig. 6, `fig_beamloss1.png`) comes from the internal MARS report of Mokhov, Nagaslaev, and Rakhno. If it does, credit or permission is needed.
+   - Confirm that no figure duplicates one in Ref. [2]; none was found visually (PRIOR_WORK_COMPARISON).
+9. **Relationship to Ref. [2].** State in the cover letter that this is a follow-up with distinct simulations, to avoid a duplicate-publication concern (see Task 16).
+10. **Internal references.** Some journals discourage citing non-public DocDB reports. Decide whether to keep `mars1` and `wcm` as internal reports, replace them with public equivalents if any exist, or cite them as private communications.
+11. **Target journal.** Required before checking article type, abstract length, highlights, declarations format, and figure-resolution rules (see the Task 08 residuals).
+
+Validation: `latexmk` with pdfLaTeX and BibTeX succeeded (23 pages). The corrected entries render as shown above, and the only BibTeX warnings are the known `pimms`/`wcm` years. Labels are unique and every reference resolves. Image and reference-draft hashes are unchanged. No simulations, staging, commits, or pushes.
+
 ## Task 14 completed: literature positioning
 
 Completed 2026-10-01. Eight references were added. Each was checked at a primary record (publisher, OSTI, JACoW, or PubMed Central) before use, and each supports a specific sentence. No reference was added from memory or from a secondary citation alone.
@@ -481,7 +521,7 @@ The author subsequently supplied the published 11-page article. It has now been 
 | Medium | RFKO excitation settings | Provide the center-frequency/sideband convention, numerical chirp bandwidth at each chromaticity (especially Cx=0), random-phase distribution, seed policy, and kick calibration connecting 500 W with approximately 1 microradian. |
 | Medium | Momentum spread | Clarify whether 0.0016 is rms, a half width, or another measure. It has not been silently relabeled rms. |
 | Medium | Reduced-model coefficient | Recover the lattice-to-resonance coefficient and phase convention, observation-point Twiss parameters, and values of effective sextupole strength and tune detuning for each comparison. The algebraic correction does not prove the original numerical implementation used the same convention. |
-| Medium | Internal citations and source attribution | MARS Document 3697-v1 metadata now follows the supplied publication’s Ref. [19]: N. Mokhov, V. Nagaslaev, I. Rakhno (2010). Verify the original report and confirm it is the actual calculation used. Monitor Documents 3627-v4 and 3625-v1 remain locally recovered references. Check the Pullia thesis title/institution against its title page; the prior article’s bibliography conflicts with the separately checked institution. |
+| Medium | Internal citations and source attribution | MARS Document 3697-v1 metadata now follows the supplied publication’s Ref. [19]: N. Mokhov, V. Nagaslaev, I. Rakhno (2010). Verify the original report and confirm it is the actual calculation used. Monitor Documents 3627-v4 and 3625-v1 remain locally recovered references. The Pullia thesis title page was checked in Task 09 (Lyon 1, French title; entry corrected). |
 | Medium | Novelty and relationship to prior publication | The complete prior article was inspected and explicitly excludes RFKO tracking. The distinct current figure topics and any possible underlying-data overlap are recorded in PRIOR_WORK_COMPARISON.md. Confirm raw-data provenance and inheritance of the optimized baseline; no claim of novelty over the wider RFKO literature is made. |
 | Medium | Journal package and author declarations | Choose the target journal and check its current template, abstract length, figure-resolution requirements, data-availability statement, author contributions, competing-interest declaration, and any applicable disclosure policy. Author declarations and data-sharing commitments were not invented. |
 

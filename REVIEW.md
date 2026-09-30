@@ -41,6 +41,26 @@ Main findings requiring author input:
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
 
+## Task 17 completed: build, bibliography structure, and repository documentation
+
+Completed 2026-10-01.
+
+- **Bibliography split.**
+  - `pimms` became `pimms1` (CERN/PS 99-010 (DI), 1999; L. Badano et al., 9 authors) and `pimms2` (CERN/PS 2000-007 (DR), 2000; P. J. Bryant et al., 14 authors). Authorship and report numbers come from the INSPIRE records for those report numbers; the study name is protected from the style's lowercasing.
+  - `wcm` became `wcm` (P. Prieto, Mu2e Document 3627-v4) and `rfkoreg` (P. Prieto, Mu2e Document 3625-v1), from `modeling.tex`, labeled as internal reports and left undated.
+  - The citations were updated to `\cite{hardt,pullia,pimms1,pimms2}` and `\cite{wcm,rfkoreg}`.
+  - BibTeX now warns only about the two genuinely undated internal reports; the merged-entry warnings are gone. The bibliography has 24 entries.
+- **Layout macros.** Removed `\def\floatpagepagefraction{1}` and `\def\textpagefraction{.001}`. Neither is a LaTeX float parameter (the real names are `\floatpagefraction` and `\textfraction`); both came from the companion template and had no effect. Their effective counterparts were not substituted, because `\floatpagefraction` = 1 would force float pages to be completely full and could defer floats. The rebuilt PDF has the same 23 pages, and every table and figure is on the same page as before (compared against the Task 09 build).
+- **README.**
+  - Earlier finding corrected: the README had already been updated for BibTeX in commit `f669ffb`, after the 2026-09-29 review read the pre-commit file, so the earlier statement in this file that the README was updated is accurate.
+  - This task updated the opening summary to the new section order and added `CLAUDE.md` to the file table.
+  - The build note now describes the remaining BibTeX warnings and the small-type contents list.
+  - "Submission status" was rewritten to the current state, pointing to the author checks and checklist in this file.
+  - The long task-completion paragraph was replaced with a Done/Pending table.
+- The task index in `tasks/README.md` already lists Tasks 11–17.
+
+Validation: the README's `latexmk` command, run unchanged from a clean `mktemp` directory (with `TMPDIR` set to the session scratchpad), succeeded. The result has 23 pages, 24 bibliography entries, and the only box warning is the known CAS keyword overlay. The only BibTeX warnings are the empty years of `wcm` and `rfkoreg`. Labels are unique and every reference resolves. Image and reference-draft hashes are unchanged. No simulations, staging, commits, or pushes.
+
 ## Task 09 completed: attribution and submission metadata
 
 Completed 2026-10-01. No target journal has been named, so the `cas-sc` class is retained and journal-specific adaptation remains pending. No declaration was written on the author's behalf.

@@ -1,6 +1,6 @@
 # Task 17 — Fix the build, bibliography structure, and repository documentation
 
-Status: Todo  
+Status: Done  
 Priority: P2  
 Depends on: None
 
@@ -29,10 +29,10 @@ The companion-format conversion left the documentation and bibliography out of s
 
 ## Acceptance criteria
 
-- [ ] The README build instructions reproduce the PDF from a clean temporary directory.
-- [ ] BibTeX reports no merged-entry warnings; any remaining warnings concern genuinely unknown dates and are documented.
-- [ ] No unused or misspelled layout macros remain, and the rendered layout has been inspected.
-- [ ] REVIEW and README agree on the build procedure.
+- [x] The README build instructions reproduce the PDF from a clean temporary directory.
+- [x] BibTeX reports no merged-entry warnings; any remaining warnings concern genuinely unknown dates and are documented.
+- [x] No unused or misspelled layout macros remain, and the rendered layout has been inspected.
+- [x] REVIEW and README agree on the build procedure.
 
 ## If evidence is unavailable
 
@@ -40,4 +40,9 @@ If the metadata for the second document in a merged entry can't be verified, kee
 
 ## Completion record
 
-Pending. Record changed sections, checks performed, and unresolved author questions here before marking Done.
+Completed: 2026-10-01.
+
+- Split `pimms` into `pimms1` and `pimms2` (INSPIRE-verified report numbers, first authors, and years) and `wcm` into `wcm` and `rfkoreg` (internal, undated), and updated both `\cite` commands. BibTeX now warns only about the two genuinely undated internal reports.
+- Removed the no-op `\floatpagepagefraction` and `\textpagefraction` definitions. The layout was verified unchanged (23 pages, identical table and figure pages). The effective parameters were deliberately not substituted.
+- README: the BibTeX build text had already been fixed in `f669ffb`. This task updated the summary, the file table (`CLAUDE.md`), the warning note, "Submission status", and the task-status table. The REVIEW statement about the README is accurate and was left unchanged.
+- The README build command succeeded from a clean `mktemp` directory (23 pages, 24 references).

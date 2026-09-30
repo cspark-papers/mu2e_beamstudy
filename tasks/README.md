@@ -1,6 +1,6 @@
 # Manuscript improvement tasks
 
-Created: 2026-09-29. Status: Tasks 02–09 and 11–15 completed; Tasks 10, 16, and 17 remain planned. Tasks 11–17 were added on 2026-09-29 after a manuscript review.
+Created: 2026-09-29. Status: Tasks 02–09, 11–15, and 17 completed; Tasks 16 and 10 remain planned. Tasks 11–17 were added on 2026-09-29 after a manuscript review.
 
 ## Objective and boundaries
 
@@ -15,7 +15,7 @@ Improve the journal submission quality of `beamstudy-mod.tex` using the existing
 
 ## Ordered backlog
 
-Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. Tasks 02–09 and 11–15 are **Done**; the others are **Todo**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
+Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. Tasks 02–09, 11–15, and 17 are **Done**; the others are **Todo**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
 
 | Task | Status | Priority | Deliverable | Depends on |
 | --- | --- | --- | --- | --- |
@@ -34,7 +34,7 @@ Priority P1 means scientific interpretation and narrative; P2 means presentation
 | [14 — Literature positioning](Task_14.md) | Done | P1 | Verified related-work context beyond the prior article | 02 |
 | [15 — Limitations and prose economy](Task_15.md) | Done | P2 | Each scope limit stated once in full; concise results paragraphs | 13 |
 | [16 — Submission front matter](Task_16.md) | Todo | P2 | Running head, contents decision, highlights, declaration checklist | 09, 13 |
-| [17 — Build, bibliography structure, docs](Task_17.md) | Todo | P2 | README/REVIEW match the BibTeX build; merged bib entries split | None |
+| [17 — Build, bibliography structure, docs](Task_17.md) | Done | P2 | README/REVIEW match the BibTeX build; merged bib entries split | None |
 | [10 — Final editorial and document checks](Task_10.md) | Todo | P2 | Compiled, visually inspected revision and readiness report | 02–09, 11–17 |
 
 Tasks 05–07 cover separate results sections; their order may change. Task 11 supplies specific findings to Tasks 05–08, and Task 10 remains the final pass after Tasks 11–17. Revisit the abstract and conclusion after those sections are settled. Every task has a fallback for unavailable evidence so editorial progress does not depend on new simulations.

@@ -19,8 +19,6 @@
 
 \begin{document}
 \let\WriteBookmarks\relax
-\def\floatpagepagefraction{1}
-\def\textpagefraction{.001}
 
 \shorttitle{Particle dynamics during slow resonant extraction}
 \shortauthors{C.S. Park}
@@ -104,7 +102,7 @@ Slow resonant extraction from the Delivery Ring is part of the proton-delivery s
 \end{table}
 
 
-The extraction geometry provides the context for both questions. The Hardt condition aligns outgoing separatrices for different momenta and reduces the momentum dependence of the extracted-beam angle~\cite{hardt,pullia,pimms}. In the dispersion-free extraction straight, Ref.~\cite{mu2e} used four time-dependent correctors to control the septum entrance angle. That geometric optimization forms the published baseline for the particle-response studies reported here.
+The extraction geometry provides the context for both questions. The Hardt condition aligns outgoing separatrices for different momenta and reduces the momentum dependence of the extracted-beam angle~\cite{hardt,pullia,pimms1,pimms2}. In the dispersion-free extraction straight, Ref.~\cite{mu2e} used four time-dependent correctors to control the septum entrance angle. That geometric optimization forms the published baseline for the particle-response studies reported here.
 
 For its optimized tune ramp, Ref.~\cite{mu2e} reported an open-loop spill within approximately $\pm20\%$ of the mean. RFKO supplies transverse excitation whose amplitude can be adjusted in response to the spill signal~\cite{HB10,ipac11}. Interpreting that response requires distinguishing coherent motion of the bunch from growth of its internal phase-space area, and accounting for the finite time between destabilization and arrival at the septum. We address these aspects through fixed-tune RFKO tests at two chromaticities, a feedback test under imposed quadrupole ripple, and tune-step diagnostics at three stages of extraction.
 
@@ -288,7 +286,7 @@ For spill regulation, the relevant effect is the growth of individual amplitudes
 
 The feed-forward result of Ref.~\cite{mu2e} motivates regulating the fluctuations that remain after the average spill has been flattened. The feedback test adds an imposed quadrupole ripple and a transverse RFKO kick near the horizontal betatron frequency.
 
-Feedback on the RFKO amplitude has been used to control the spill in medical synchrotrons~\cite{furukawa}. The proposed Mu2e loop comprises an RFKO kicker, a spill monitor, and a controller. A wall-current monitor in the external beamline supplies the extracted-beam signal used to adjust the kicker amplitude~\cite{wcm}. The simulated control scheme uses a spill signal accumulated over approximately 100 turns, corresponding to about \SI{0.17}{\milli\second}. This averaging interval and the particle transit-time distribution both contribute to the effective response time. Section~\ref{sec:cases} distinguishes it from other intervals of similar length.
+Feedback on the RFKO amplitude has been used to control the spill in medical synchrotrons~\cite{furukawa}. The proposed Mu2e loop comprises an RFKO kicker, a spill monitor, and a controller. A wall-current monitor in the external beamline supplies the extracted-beam signal used to adjust the kicker amplitude~\cite{wcm,rfkoreg}. The simulated control scheme uses a spill signal accumulated over approximately 100 turns, corresponding to about \SI{0.17}{\milli\second}. This averaging interval and the particle transit-time distribution both contribute to the effective response time. Section~\ref{sec:cases} distinguishes it from other intervals of similar length.
 
 The RFKO center frequency follows the betatron frequency associated with the ramped machine tune. Frequency modulation broadens the excitation to cover the chromatic tune spread. In the extraction simulations, the horizontal chromaticity is set to $C_x=d\nu_x/d\delta=1.0$, where $\delta=(p-p_0)/p_0$, using chromaticity-correction sextupoles. Section~\ref{sec:rfko} showed that this chromatic spread provides the phase mixing needed for emittance growth under dipole excitation.
 

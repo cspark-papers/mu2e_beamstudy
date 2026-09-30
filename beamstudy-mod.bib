@@ -41,10 +41,23 @@
   note = {In French; English title: Slow extraction dynamics and its influence on transfer lines design. CERN-THESIS-99-070}
 }
 
-@misc{pimms,
-  author = {{PIMMS Study Group}},
-  title = {{Proton-Ion Medical Machine Study (PIMMS)}},
-  howpublished = {Part I, CERN/PS 99-010 (DI) (1999); Part II, CERN/PS 2000-007 (DR) (2000)}
+% Split in Task 17; authorship and report numbers from the INSPIRE records
+% for CERN-PS-99-010-DI (9 authors) and CERN-PS-2000-007-DR (14 authors).
+@techreport{pimms1,
+  author = {Badano, L. and others},
+  title = {{Proton-Ion Medical Machine Study (PIMMS)}, {Part I}},
+  institution = {CERN},
+  number = {CERN/PS 99-010 (DI)},
+  year = {1999}
+}
+
+@techreport{pimms2,
+  author = {Bryant, P. J. and others},
+  title = {{Proton-Ion Medical Machine Study (PIMMS)}, {Part II}},
+  institution = {CERN},
+  number = {CERN/PS 2000-007 (DR)},
+  year = {2000}
+}
 }
 
 @techreport{HB10,
@@ -95,13 +108,19 @@
   doi = {10.1016/j.jcp.2005.05.024}
 }
 
-% Bibliographic details recovered from modeling.tex; author verification needed.
-% No publication date supplied in the existing manuscript.
+% Split in Task 17. Details recovered from modeling.tex; the internal DocDB
+% originals were not inspected, and no publication dates are available.
 @misc{wcm,
   author = {Prieto, P.},
-  title = {Wall Current Monitor for fast Spill Measurement},
-  howpublished = {Mu2e Document 3627-v4},
-  note = {{RFKO} regulation for the {Mu2e} Resonant Extraction, Mu2e Document 3625-v1 (internal reports)}
+  title = {Wall current monitor for fast spill measurement},
+  howpublished = {Mu2e Document 3627-v4, Fermilab (internal report)}
+}
+
+@misc{rfkoreg,
+  author = {Prieto, P.},
+  title = {{RFKO} regulation for the {Mu2e} resonant extraction},
+  howpublished = {Mu2e Document 3625-v1, Fermilab (internal report)}
+}
 }
 
 @techreport{pid,

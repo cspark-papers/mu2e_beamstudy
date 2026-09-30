@@ -1,6 +1,6 @@
 # Mu2e beam-study manuscript
 
-This repository contains a journal manuscript on particle dynamics during third-integer resonant extraction from Fermilab's Delivery Ring for Mu2e. It covers RFKO spill feedback, transit-time calculations, septum-scattered particle tracking, and chromaticity-dependent RFKO excitation.
+This repository contains a journal manuscript on particle dynamics during third-integer resonant extraction from Fermilab's Delivery Ring for Mu2e. It covers a reduced resonance model, chromaticity-dependent RFKO excitation and RFKO spill feedback, transit times after a tune step, and the transport of septum-scattered particles, followed by a synthesis discussion.
 
 ## Files
 
@@ -15,6 +15,7 @@ This repository contains a journal manuscript on particle dynamics during third-
 | `PRIOR_WORK_COMPARISON.md` | Page-by-page evidence map, figure comparison, and configuration differences relative to the supplied prior publication. |
 | `tasks/README.md` | Prioritized editorial tasks using existing results and unchanged figures; tracked task documents. |
 | `AGENTS.md` | Editing, validation, and version-control instructions. |
+| `CLAUDE.md` | Symbolic link to `AGENTS.md` for agent tooling. |
 | `.gitignore` | Excludes generated LaTeX products. |
 
 The active source uses `beamstudy-mod.bib` and the `elsarticle-num` bibliography style, matching the companion manuscript `../mu2e_modeling-submission/mu2e_modeling.tex`. `latexmk` runs BibTeX automatically. The repository does not contain the lattice/input decks, original particle samples, controller code, or plotting scripts needed to reproduce the simulations. Compiling this repository reproduces the manuscript, not the scientific calculations.
@@ -48,19 +49,40 @@ For optional visual verification with Poppler:
 pdftoppm -r 120 -png "$build_dir/beamstudy-mod.pdf" "$build_dir/page"
 ```
 
-Check for undefined citations/references, overfull boxes, clipped content, illegible figure text, and misplaced captions. The checked-in source follows the companion manuscript's A4 single-column review layout: title/abstract/keywords followed by contents, a page break before the main text, double spacing, line numbers, and numbered `elsarticle-num` references. This author-requested format match does not establish compliance with a target journal's current submission rules. BibTeX reports empty-year warnings for the combined PIMMS entry (the two part-specific years remain in its text) and the undated internal monitor reports; no dates have been invented.
+Check for undefined citations/references, overfull boxes, clipped content, illegible figure text, and misplaced captions. The checked-in source follows the companion manuscript's A4 single-column review layout: title/abstract/keywords followed by contents, a page break before the main text, double spacing, line numbers, and numbered `elsarticle-num` references. This author-requested format match does not establish compliance with a target journal's current submission rules. BibTeX reports empty-year warnings only for the two undated internal Mu2e reports (`wcm`, `rfkoreg`); no dates have been invented. The contents list is set in small type so that it stays on the title page; whether to keep it for submission is a Task 16 decision.
 
 ## Submission status
 
-The September 2026 revision improves the prose, theory conventions, evidence qualifications, captions, and references. A second revision based on the complete prior publication identifies RFKO response, tune-step transit times, and post-interception scattering transport as the follow-up topics. A new manuscript table distinguishes shared parameters from differing foil thicknesses and acceptances. No new simulation results were added. Consult `REVIEW.md` and `PRIOR_WORK_COMPARISON.md` before submission: geometry, controller details, numerical convergence, particle-sample definitions, and diagnostic normalizations still need confirmation from the original calculations.
+The manuscript (23 pages in the review layout) has been revised editorially using only the existing results and figures; no new simulation was run. Since the September 2026 revisions it has:
 
-The citation to the companion tracking paper now uses its published record: Nuclear Engineering and Technology 58 (2026), 104097, DOI [10.1016/j.net.2025.104097](https://doi.org/10.1016/j.net.2025.104097). This does not select a target journal for the present manuscript.
+- defined the five simulation cases separately from the published baseline (Table 3);
+- made the reduced-model notation, units, and fixed points explicit;
+- aligned figure descriptions with the plotted evidence;
+- strengthened the physical interpretation of the RFKO, transit-time, and scattering results;
+- reordered the sections, adding a Discussion with a consolidated "Scope of the evidence";
+- corrected the beam momentum to 8.889 GeV/c (8 GeV kinetic energy per the Mu2e TDR, consistent with Bρ = 29.650 T m);
+- added eight primary-source-verified references and audited all 22 citations.
+
+The companion tracking paper is cited from its published record: Nuclear Engineering and Technology 58 (2026), 104097, DOI [10.1016/j.net.2025.104097](https://doi.org/10.1016/j.net.2025.104097). This does not select a target journal for the present manuscript.
+
+Before submission, consult `REVIEW.md`:
+
+- The author/data checks list the unresolved simulation metadata: ripple frequency (60 versus ~360 Hz), controller gains, particle selection and endpoints, and plot normalizations.
+- The Task 09 author-only checklist covers acknowledgments, funding, CRediT, competing interests, data availability, AI-use disclosure, figure provenance, and the target journal.
+- The Task 08 record notes that every figure asset prints below 300 dpi.
+
+A successful build does not validate the underlying simulations.
 
 ## Current editorial plan
 
-The author has requested journal-quality improvement with **no new simulations and the existing figures as is**. The local backlog in `tasks/README.md` contains ordered Tasks 02–17, with scope, acceptance criteria, and a fallback for missing evidence. Tasks 11–17 were added after a manuscript review on 2026-09-29. It covers the narrative, methods, theory, results, captions/layout, references, and final document checks. `tasks/Task_01.md` remains the original request.
+The author has requested journal-quality improvement with **no new simulations and the existing figures as is**. `tasks/README.md` indexes Tasks 02–17 with scope, acceptance criteria, and a fallback for missing evidence; `tasks/Task_01.md` preserves the original request. Missing scientific evidence is handled through transparent limitations and narrower claims, not new runs. Figures may be sized and placed in TeX, but their image content is unchanged.
 
-Missing scientific evidence is handled through transparent limitations and narrower claims, not new runs. Figures may be sized and placed more clearly in TeX, but their image content is unchanged. Earlier requests for convergence runs, matched simulations, or replacement plots are outside this plan. Task 02 is complete: the title, abstract, introduction, scope discussion, and conclusion have been revised and the 16-page PDF checked. Task 03 is complete: Sec. 2 now separates shared parameters, published-only settings, and five individually defined simulation cases (new Table 3); the PDF is 17 pages. Task 04 is complete: the reduced-model section defines its independent variable, symbols, units, action–emittance conventions, and unstable fixed points. Task 11 is complete: figure descriptions now match the plotted content, and undocumented plot elements and the apparent ~360 Hz spill modulation are flagged for the author (PDF now 18 pages). Task 05 is complete: both RFKO sections now move from setup to observation, physical interpretation, and implication (PDF now 19 pages). Task 06 is complete: the transit-time section separates the ideal transit time from the tune-step diagnostic and explains both figures (PDF now 20 pages). Task 07 is complete: the scattering section presents a numbered interception–MARS–ring-tracking workflow and a denominator-explicit, endpoint-qualified 43% result. Task 08 is complete: captions are self-contained, Fig. 2 is enlarged, float order follows first references, and the asset inventory and resolution limits are recorded (PDF now 21 pages). Task 13 is complete: sections now run baseline → model → RFKO (mechanism, then feedback) → transit times → scattering → Discussion → Conclusions (PDF now 22 pages). Task 15 is complete: each scope limit is stated once in full (Sec. 2.1, §7.3, and the new §7.4 "Scope of the evidence"), and hedging fell by about 30%. Task 12 is complete: the beam momentum is corrected to 8.889 GeV/c (8 GeV kinetic energy per the Mu2e TDR, consistent with Bρ = 29.650 T m), all derived numbers are verified, and units use siunitx. Task 14 is complete: eight primary-source-verified references now position the work against RFKO, spill-quality, septum-loss, and current Mu2e spill-regulation literature (PDF now 23 pages). Task 09 is complete: all 22 citations are audited (Pullia and Kobayashi entries corrected from primary records) and an author-only submission checklist is in REVIEW. Tasks 10, 16, and 17 remain pending; see the task index and `REVIEW.md` for the completion record. The task files are tracked in Git; `.gitignore` no longer excludes `tasks/`.
+| Status | Tasks |
+| --- | --- |
+| Done | 02 narrative, 03 methods, 04 theory, 05 RFKO, 06 transit times, 07 scattering, 08 captions/layout, 09 references/metadata, 11 figure–text, 12 numbers/units, 13 structure/discussion, 14 literature, 15 limitations/prose, 17 build/bibliography/docs |
+| Pending | 16 front matter (running head, contents, highlights), then 10 final editorial and document checks |
+
+Completion notes for each task are in the task files and in `REVIEW.md`. The task files are tracked in Git.
 
 ## Working rules
 

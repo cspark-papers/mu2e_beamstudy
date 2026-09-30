@@ -41,6 +41,47 @@ Main findings requiring author input:
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
 
+## Task 14 completed: literature positioning
+
+Completed 2026-10-01. Eight references were added. Each was checked at a primary record (publisher, OSTI, JACoW, or PubMed Central) before use, and each supports a specific sentence. No reference was added from memory or from a secondary citation alone.
+
+| Key | Reference | Verified at | Supports |
+| --- | --- | --- | --- |
+| `hiramoto` | K. Hiramoto, M. Nishi, NIM A 322(2) (1992) 154–160, doi:10.1016/0168-9002(92)90023-W | [OSTI 6767253](https://www.osti.gov/etdeweb/biblio/6767253) | RFKO origin: amplitude growth inside a constant separatrix by transverse perturbation (Introduction) |
+| `noda` | K. Noda et al. (14 authors), NIM A 374(2) (1996) 269–277, doi:10.1016/0168-9002(96)00096-4 | [OSTI 275317](https://www.osti.gov/etdeweb/biblio/275317) | HIMAC AM/FM RFKO; extraction response "within 1 ms" (Introduction) |
+| `furukawa` | T. Furukawa et al., NIM A 522(3) (2004) 196–204, doi:10.1016/j.nima.2003.11.395 | [OSTI 20499458](https://www.osti.gov/etdeweb/biblio/20499458) | RFKO amplitude feedback for spill control (Introduction, Sec. 4.2) |
+| `niedermayer` | P. Niedermayer, R. Singh, Sci. Rep. 14 (2024) 10310, doi:10.1038/s41598-024-60966-y | [PMC11070430](https://pmc.ncbi.nlm.nih.gov/articles/PMC11070430/) | Recent knock-out excitation optimization for spill fluctuations (Introduction) |
+| `velotti` | F. M. Velotti et al. (14 authors), PRAB 22 (2019) 093502, doi:10.1103/PhysRevAccelBeams.22.093502 | [APS abstract](https://journals.aps.org/prab/abstract/10.1103/PhysRevAccelBeams.22.093502) | Septum loss limits slow-extracted flux through activation; crystal shadowing developed and prototype-tested at the SPS (Introduction, Secs. 6 and 7.2) |
+| `crystal8gev` | V. Nagaslaev et al. (11 authors), NIM A 1058 (2023) 168892, doi:10.1016/j.nima.2023.168892 (FERMILAB-CONF-23-473-AD) | [OSTI 2336770](https://www.osti.gov/pages/biblio/2336770) | Mu2e 8 GeV shadowing simulations: loss reductions "between 40% and factor of three" (Introduction, Sec. 7.2) |
+| `srs2019` | M. A. Ibrahim et al., Proc. IBIC2019, pp. 177–180, MOPP033, doi:10.18429/JACoW-IBIC2019-MOPP033 | [JACoW](https://proceedings.jacow.org/ibic2019/doi/JACoW-IBIC2019-MOPP033.html) | Mu2e SRS design with tune-ramp-quadrupole and RFKO loops (Introduction) |
+| `srs2025` | A. Narayanan, Proc. NAPAC2025, pp. 522–524, TUP068, doi:10.18429/JACoW-NAPAC2025-TUP068 (published 28 Jan 2026) | [JACoW landing page](https://proceedings.jacow.org/napac2025/doi/jacow-napac2025-tup068/) and [PDF](https://proceedings.jacow.org/napac2025/pdf/TUP068.pdf) text | Current Mu2e simulations use PID fast-quadrupole regulation and plan to compare RFKO ("explore radio-frequency knockout (RFKO) as a fast regulator", p. 524) (Introduction, Sec. 7.1) |
+
+Not added:
+- IPAC2021 THPAB243 (verified, pp. 4281–4284), because the NAPAC2025 paper states the current status more directly.
+- PRAB 26, 014402 (spill ripple with bunched beams), for which there was no specific supporting sentence.
+- CERN octupole loss-reduction work, where one SPS reference suffices.
+
+### Manuscript changes
+
+- **Introduction:**
+  - A new related-work paragraph covers the RFKO origin, HIMAC development and feedback, recent knock-out optimization, transit-time theory (existing `pullia`), and the Mu2e SRS design and status. It ends by noting that the RFKO results bear on the open RFKO-versus-quadrupole comparison for Mu2e.
+  - The septum paragraph now opens with the septum-loss literature, including the Mu2e 8 GeV result.
+  - The contribution statement is now given relative to both Ref. [2] and the literature (Mu2e-specific, high-space-charge diagnostics), without claiming novelty for RFKO or the resonance model.
+- **Sec. 4.2:** RFKO amplitude feedback in medical synchrotrons is cited [furukawa] before the proposed Mu2e loop.
+- **Sec. 6:** septum interception is identified as a principal loss and activation source [velotti].
+- **Sec. 7.1:** relates chromatic mixing and transit-time spread to the planned Mu2e comparison of RFKO with PID quadrupole regulation [srs2025]. The note that a tune change also acts through transit is supported by Sec. 5.
+- **Sec. 7.2:** shadowing reduces arrivals at the septum [velotti, crystal8gev], whereas this study addresses particles that are intercepted.
+
+### Internal-report dependence (remaining limitation)
+
+- The MARS channel model rests on Mu2e Document 3697 [mars1] (internal; cited also by the published Ref. [2]) and the public MARS15 reference [mars2].
+- The wall-current spill monitor rests on internal Documents 3627/3625 [wcm].
+- The public IBIC2019 paper now documents the regulation-system design, but not the monitor specifically, so it was not substituted.
+
+No other central claim relies only on an internal report.
+
+Validation: `latexmk` with pdfLaTeX and BibTeX succeeded (23 pages; previously 22). The bibliography has 22 entries in first-citation order. BibTeX shows only the two known missing-year warnings (`pimms`, `wcm`). Labels are unique and every reference and citation resolves. The introduction page and reference pages were inspected, and the contents still fit on page 1. All image and reference-draft hashes are unchanged. No simulations, staging, commits, or pushes.
+
 ## Task 12 completed: numerical and unit consistency
 
 Completed 2026-10-01 using arithmetic on printed values, the local sources (`beamstudy.tex`, `modeling.tex`, and the author-supplied NET 2026 PDF), and the Mu2e TDR. No simulation was run.

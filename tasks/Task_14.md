@@ -1,6 +1,6 @@
 # Task 14 — Situate the work in the slow-extraction and RFKO literature
 
-Status: Todo  
+Status: Done  
 Priority: P1  
 Depends on: Task 02; coordinate with Task 09
 
@@ -28,10 +28,10 @@ The manuscript cites 14 sources, and five of them are internal reports or notes 
 
 ## Acceptance criteria
 
-- [ ] Every added reference is verified at a primary source, with the check recorded in REVIEW.
-- [ ] Each added reference supports a specific claim in the text.
-- [ ] The introduction states how the three studies relate to prior slow-extraction work at other facilities.
-- [ ] Internal reports are no longer the only support for any central claim, or that limitation is recorded.
+- [x] Every added reference is verified at a primary source, with the check recorded in REVIEW.
+- [x] Each added reference supports a specific claim in the text.
+- [x] The introduction states how the three studies relate to prior slow-extraction work at other facilities.
+- [x] Internal reports are no longer the only support for any central claim, or that limitation is recorded.
 
 ## If evidence is unavailable
 
@@ -39,4 +39,9 @@ If a candidate can't be verified, leave it out and note the gap in REVIEW. Cover
 
 ## Completion record
 
-Pending. Record changed sections, checks performed, and unresolved author questions here before marking Done.
+Completed: 2026-10-01.
+
+- Added eight references, each verified at a publisher, OSTI, JACoW, or PMC record (URLs in REVIEW): Hiramoto & Nishi 1992, Noda et al. 1996, Furukawa et al. 2004, Niedermayer & Singh 2024, Velotti et al. 2019, Nagaslaev et al. 2023 (Mu2e 8 GeV shadowing), Ibrahim et al. IBIC2019 (Mu2e SRS design), and Narayanan NAPAC2025 (current PID-quadrupole regulation with RFKO still to be compared).
+- Added a related-work paragraph and a literature-relative contribution statement to the Introduction, plus targeted citations in Sec. 4.2, Sec. 6, §7.1, and §7.2. Each citation supports a specific sentence.
+- Recorded the remaining internal-report dependence (MARS model, wall-current monitor) in REVIEW.
+- Build succeeded (23 pages, 22 references); labels are unique, all references resolve, and hashes are unchanged.

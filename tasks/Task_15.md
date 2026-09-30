@@ -1,6 +1,6 @@
 # Task 15 — Consolidate limitations and tighten the prose
 
-Status: Todo  
+Status: Done  
 Priority: P2  
 Depends on: Task 13
 
@@ -25,10 +25,10 @@ The source contains about 30 negating or hedging constructions ("does not establ
 
 ## Acceptance criteria
 
-- [ ] Each of the scope boundaries listed above is stated fully exactly once, and every number keeps its qualifier.
-- [ ] Qualifiers required by `AGENTS.md` (the 43% denominator, coherent motion versus emittance, the 50 versus 100 µm foils) remain intact.
-- [ ] The hedging count falls substantially with no loss of a material limitation.
-- [ ] Terminology is consistent across the text, captions, and tables.
+- [x] Each of the scope boundaries listed above is stated fully exactly once, and every number keeps its qualifier.
+- [x] Qualifiers required by `AGENTS.md` (the 43% denominator, coherent motion versus emittance, the 50 versus 100 µm foils) remain intact.
+- [x] The hedging count falls substantially with no loss of a material limitation.
+- [x] Terminology is consistent across the text, captions, and tables.
 
 ## If evidence is unavailable
 
@@ -36,4 +36,10 @@ This is a pure editing task; no evidence is needed.
 
 ## Completion record
 
-Pending. Record changed sections, checks performed, and unresolved author questions here before marking Done.
+Completed: 2026-10-01.
+
+- Inventoried the limitation sentences by boundary. Each boundary is now stated in full once: inherited settings and the 43% denominator in Sec. 2.1, model differences in §7.3, and the feedback limits and undocumented plot conventions in the new §7.4 "Scope of the evidence". Short qualifiers remain beside the numbers.
+- Removed or merged about 20 repeats across Secs. 2–6, Table 3, and the captions. Results paragraphs now lead with the observation and interpretation.
+- Hedge count, broad pattern: 70 → 50 (−29%). "Not documented": 31 → 20. The remaining negations are mostly physics statements or caption-level flags.
+- Standardized "transit time" and "returned sample", defined the Hockney solver, 2.5D/3D, and the C-magnet, and removed filler.
+- Build succeeded (22 pages); labels are unique, all references resolve, and hashes are unchanged.

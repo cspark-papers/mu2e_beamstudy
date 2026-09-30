@@ -41,6 +41,59 @@ Main findings requiring author input:
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
 
+## Task 15 completed: limitations consolidated and prose tightened
+
+Completed 2026-10-01. This was an editorial pass only; no finding, number, or figure changed.
+
+### Hedge count (abstract through conclusions, comment lines excluded)
+
+| Version | Original review pattern | "not documented" | Broad hedge pattern | Words (detex, including tables) |
+| --- | --- | --- | --- | --- |
+| Before Task 03 (original review) | 29 | 0 | 31 | 4,230 |
+| Before Task 15 | 36 | 31 | 70 | 6,896 |
+| After Task 15 | 27 | 20 | 50 | 6,671 |
+
+The broad count fell by 29% (70 → 50) and "not documented" by 35% (31 → 20). Most of the remaining negations are physics statements, not scope hedges: a rigid bunch's field "does not by itself change" the dipole frequency, timescale separation "does not guarantee" adiabaticity, a sign expression "does not define" the separatrix orientation, and removal "does not determine" a particle's fate. The rest are flags that a reader of a single caption needs.
+
+### Where each boundary is now stated in full
+
+| Boundary | Full statement | Short qualifiers kept |
+| --- | --- | --- |
+| Inherited settings and convergence | Sec. 2.1 | §7.4 pointer |
+| 43% denominator | Sec. 2.1 (loss populations) | Beside every use: abstract, Table 3, Sec. 6, §7.2, §7.4, conclusions |
+| Feedback evidence qualitative (no suppression factor, stability margin, or optimum gains; 1.5–3 untested) | new §7.4 "Scope of the evidence" | conclusions pointer |
+| Fixed-tune tests do not measure extraction | Sec. 4.1, last paragraph | conclusions clause |
+| Model differences not assigned to one cause | §7.3, now listing space charge, lattice description, and extraction-channel treatment | Sec. 5 one-line pointer |
+| Undocumented plot conventions | §7.4, one list | individual captions only |
+
+### Removed or merged repeats
+
+- Sec. 2.2 scope sentences, replaced by a pointer to §7.4.
+- The Sec. 3 "qualitative agreement does not validate" sentence, moved into §7.3.
+- The Sec. 4.1 emittance-definition sentence (caption and §7.4 cover it) and the action-normalization list.
+- The Sec. 4.2 "within these limits", "qualitative interpretation", and 1.5–3 sentences (now in §7.4); the scope sentence about re-establishing the ramp; and the repeated space-charge-mixing caveat, now a back-reference to Sec. 4.1.
+- In Sec. 5: the ramp-identity sentence (covered in Table 2 and Sec. 2.1), the transfer-function sentence (twice; kept in §7.1), the convergence clause, and the integration-step clause. The two criterion flags were merged into one, and the caption's 250-turn note is kept only in the text.
+- In Sec. 6: the marker-color flag (the caption covers it); the three endpoint and denominator flags, merged into one sentence; the "cannot be combined with 1.2%" repeat, now pointing to Sec. 2.1; and the validation disclaimer.
+- Table 3 per-cell "not documented" entries (normalization, selection, species), which the caption already covers.
+- The Sec. 2.1 acceptance-normalization repeat, now pointing to Table 2.
+- The Fig. 7 caption, whose two flags were merged.
+
+### Copy edits
+
+- **Terminology:**
+  - "transit time" is used for the interval, and "arrival" only for the event (arrival criterion, arrival at the septum).
+  - "arrival delays" in the abstract became "long transit times".
+  - "spread of arrival times" became "spread of transit times".
+  - "selected sample" became "scattered-particle sample returned from MARS" or "returned sample".
+- **Definitions at first use:**
+  - the Hockney solver (a fast-Fourier-transform Poisson solver);
+  - 2.5D solvers (a transverse field scaled by the local longitudinal density), contrasted with 3D solvers;
+  - the C-magnet (downstream of the Lambertson magnet).
+- **Filler removed:** "the present study/feedback test", "within these limits".
+- **Abstract:** the final two sentences were tightened.
+
+Validation: `latexmk` with pdfLaTeX and BibTeX succeeded (22 pages; the build ran slowly on the host but completed normally in five passes). Labels are unique, and every reference and citation resolves, including the new `sec:limits`. The only warnings are the known ones. All pages were rendered and the contents still fit on page 1. All image, reference-draft, and bibliography hashes are unchanged. No simulations, staging, commits, or pushes.
+
 ## Task 13 completed: structure and synthesis discussion
 
 Completed 2026-10-01. The author approved the proposed section order before any text was moved.

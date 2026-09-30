@@ -41,6 +41,64 @@ Main findings requiring author input:
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
 
+## Task 10 completed: final editorial pass and readiness report
+
+Completed 2026-10-01. This closes the editorial backlog (Tasks 02–17). No simulation was run at any stage; no figure image, reference draft, or scientific number changed except the documented momentum correction (Task 12).
+
+### Final edits in this pass
+
+- **Acronyms now defined at first use:**
+  - RK4 ("fourth-order Runge–Kutta") and ESS1 ("first electrostatic septum") first appeared in Table 3 and the Sec. 6 workflow list before their definitions; both are now defined there.
+  - HIMAC is expanded (Heavy Ion Medical Accelerator in Chiba), and "CERN SPS" is written out as "CERN Super Proton Synchrotron".
+- **Units:** the last two raw quantities (1 ms, 8 GeV) now use `siunitx`.
+- **Title, abstract, introduction, and conclusions** were re-read against the final section order: all present the same scope and the same four findings in the same order.
+
+### Claim–evidence map (abstract and conclusions)
+
+| Claim | Evidence in the manuscript |
+| --- | --- |
+| Nonzero chromaticity gives emittance growth; zero chromaticity gives mainly coherent centroid motion | Figs. 1–2, Sec. 4.1; mechanism in Sec. 4.1 and the Sec. 3 action–emittance paragraph |
+| PD RFKO feedback reduces visible ripple-driven modulation, with residual spikes | Fig. 3, Sec. 4.2 |
+| Transit times range widely, are longest near unstable fixed points, and lengthen later in the spill; the reduced model reproduces the trends qualitatively | Figs. 4–5, Sec. 5; Eq. (6) |
+| ~43% of the returned scattered-particle sample (50 µm foils) is lost in ring tracking, near the septa and elsewhere | Fig. 7, Sec. 6; reported value from the original study, with denominator and endpoint qualified (Secs. 2.1, 6) |
+| Chromatic mixing and transit time are links in the RFKO response chain; interception is followed by loss redistribution | Sec. 7.1–7.2, built only from the results above |
+
+### Document checks
+
+- **Build:** the README commands were run unchanged in fresh `mktemp` directories.
+  - Review build: 23 pages, with the contents on page 1.
+  - Submission build (`\SubmissionBuild`): 23 pages, with no contents list and the Introduction on page 1; the references end on page 23.
+- **Warnings:** the only LaTeX diagnostic is the known 117.08 pt CAS keyword-overlay box, which is visually harmless on the title page. BibTeX reports 0 warnings, with 24 entries. There are no undefined or multiply defined references and no rerun requests.
+- **Source integrity:**
+  - 46 labels, none duplicated, with every reference and equation reference resolved. Ten labels (subfigures, some sections, and Eq. 4) are defined but never referenced, which is harmless.
+  - All 24 citation keys are present in the bibliography, and every entry is cited. All environments are balanced.
+- **Visual inspection:** all 23 review pages were rendered and inspected: equations, three tables, eight figures (in numerical order, near first reference), captions, line numbers, Discussion, and references. There is no clipping, stretching, or empty page.
+- **Assets:** all 22 image files are unchanged since the repository's first commit (`aeffd56`). Both reference drafts are byte-identical to the pre-backlog commit `c037b4e`.
+- **Prose:** broad hedge count 50 (70 before Task 15). There are seven non-rendering `AUTHOR CHECK` comments, which record open questions and should be removed after they are resolved.
+
+### Readiness report
+
+**Editorially complete:** structure, theory, interpretation, captions, references, numbers and units, front matter, and build are finished within the author's no-new-simulation scope.
+
+**Not yet ready for submission.** The following need author action; none can be resolved by editing:
+
+1. **Essential scientific metadata** (the "Author/data checks" table and case-metadata status above):
+   - the quadrupole ripple frequency and waveform: the plot suggests ~360 Hz where the text says 60 Hz (Task 11);
+   - the ripple amplitude convention;
+   - controller gains and the selection criterion;
+   - tune-step selection and arrival criteria;
+   - the scattered-sample endpoints, weights, and whether the reference particles enter the 43% denominator;
+   - the emittance, action, and acceptance conventions and plot normalizations (the Task 12 arithmetic shows inconsistencies);
+   - the 50 µm foil provenance.
+
+   The ripple-frequency question in particular affects how Fig. 3 can be described.
+2. **Figures:** every asset falls below Elsevier's artwork rules (1000 dpi line art; lettering at least 7 pt). Original or higher-resolution plots are needed, and the MARS figure's provenance must be confirmed (Tasks 08, 09, 16).
+3. **Declarations and metadata:** acknowledgments, funding, CRediT, competing interests, data availability, and the generative-AI disclosure. Placeholders are in the source before the references; see the Task 09 checklist.
+4. **Journal choice:** the article type, abstract length, keyword limit, highlights approval (`highlights.txt`), and any template change depend on it.
+5. **Internal references:** decide how to handle `mars1`, `wcm`, and `rfkoreg` (DocDB, marked n.d.).
+
+A successful build does not validate the simulations. The editorial changes improve the presentation and the scoping of existing results; they do not add evidence.
+
 ## Follow-up: final title chosen by the author (2026-10-01)
 
 From the journal-style options offered, the author selected: **"Particle response and septum scattering in third-integer resonant extraction for Fermilab's Mu2e experiment"** (106 characters). This supersedes the 147-character title recorded below.

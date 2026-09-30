@@ -88,8 +88,8 @@ The author has requested journal-quality improvement with **no new simulations a
 
 | Status | Tasks |
 | --- | --- |
-| Done | 02 narrative, 03 methods, 04 theory, 05 RFKO, 06 transit times, 07 scattering, 08 captions/layout, 09 references/metadata, 11 figure–text, 12 numbers/units, 13 structure/discussion, 14 literature, 15 limitations/prose, 16 front matter, 17 build/bibliography/docs |
-| Pending | 10 final editorial and document checks |
+| Done | 02–17, including the Task 10 final editorial pass and readiness report (2026-10-01) |
+| Author actions before submission | See the "Readiness report" in `REVIEW.md`: essential simulation metadata, figure originals meeting Elsevier artwork rules, declarations, journal choice, internal references |
 
 Completion notes for each task are in the task files and in `REVIEW.md`. The task files are tracked in Git.
 

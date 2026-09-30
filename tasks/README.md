@@ -1,6 +1,6 @@
 # Manuscript improvement tasks
 
-Created: 2026-09-29. Status: All tasks (02–17) completed on 2026-10-01; submission awaits the author actions listed in REVIEW.md. Tasks 11–17 were added on 2026-09-29 after a manuscript review.
+Created: 2026-09-29. Status: Tasks 02–17 retain their recorded completed status; follow-up Tasks 18–21 are Todo after the updated-manuscript review dated 2026-09-30. Submission also awaits the author actions listed in REVIEW.md. Tasks 11–17 were added on 2026-09-29 after an earlier manuscript review.
 
 ## Objective and boundaries
 
@@ -15,7 +15,7 @@ Improve the journal submission quality of `beamstudy-mod.tex` using the existing
 
 ## Ordered backlog
 
-Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. All tasks (02–17) are **Done**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
+Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. Tasks 02–17 are **Done**; Tasks 18–21 are **Todo**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
 
 | Task | Status | Priority | Deliverable | Depends on |
 | --- | --- | --- | --- | --- |
@@ -36,8 +36,26 @@ Priority P1 means scientific interpretation and narrative; P2 means presentation
 | [16 — Submission front matter](Task_16.md) | Done | P2 | Running head, contents decision, highlights, declaration checklist | 09, 13 |
 | [17 — Build, bibliography structure, docs](Task_17.md) | Done | P2 | README/REVIEW match the BibTeX build; merged bib entries split | None |
 | [10 — Final editorial and document checks](Task_10.md) | Done | P2 | Compiled, visually inspected revision and readiness report | 02–09, 11–17 |
+| [18 — RFKO diagnostic and causal consistency](Task_18.md) | Todo | P1 | Conditional action-density interpretation; coherent/chromatic/space-charge distinctions; bounded chromaticity claims | 04, 05, 11 |
+| [19 — Sampling and response-time interpretation](Task_19.md) | Todo | P1 | Correct rotating-frame statement; separate timing cadence, phase-space interpretation, and feedback-delay inference | 04, 06, 13 |
+| [20 — Scattering coordinates and encounters](Task_20.md) | Todo | P1 | Separate local scattering from transported coordinates and displayed returns from repeated physical encounters | 07, 11; coordinate with 19 |
+| [21 — Bibliography syntax and current review status](Task_21.md) | Todo | P2 | Remove two stray braces, correct citation count, reconcile current summaries, and validate follow-up edits | 17; final summary after 18–20 |
 
 Tasks 05–07 cover separate results sections; their order may change. Task 11 supplies specific findings to Tasks 05–08, and Task 10 remains the final pass after Tasks 11–17. Revisit the abstract and conclusion after those sections are settled. Every task has a fallback for unavailable evidence so editorial progress does not depend on new simulations.
+
+## Updated-manuscript review: Tasks 18–21
+
+The review dated 2026-09-30 inspected the complete updated `beamstudy-mod.tex`, bibliography, all 14 referenced image assets, prior task completion records, and the current review PDF. It found residual interpretation issues, not a need for new scientific calculations. The tasks above record source locations, the distinction between observations and interpretations, actionable edits, and acceptance criteria. They leave earlier completed tasks intact and do not duplicate the already recorded ripple-frequency, controller-metadata, foil-provenance, and 43% denominator questions.
+
+Validation performed for this review:
+
+- Fresh review and submission builds both succeeded at 23 pages. All 46 labels are unique; all 24 distinct citation keys resolve, with zero BibTeX warnings. The two stray bibliography braces are silently ignored by the current BibTeX toolchain.
+- All 23 review pages and the submission title page were rendered and inspected. No new clipping, missing panels, or float-layout defect was identified. The previously documented CAS keyword-overlay warning and source-image resolution/lettering limits remain.
+- Checks of the printed equations confirm the stated fixed points and expose the unqualified zero-detuning stationarity claim recorded in Task 19. No trajectories, distributions, controller tests, or other scientific results were generated.
+- Hashes confirm the active TeX, bibliography, all 22 image files, and both reference drafts are unchanged by this review. Only task documentation was edited. An existing untracked `tasks/TODO.md` was left untouched.
+- Temporary builds and rendered review pages are outside the tracked source tree in `/private/tmp/mu2e-review-27mvpkui/`. Successful compilation is document validation, not simulation validation.
+
+Tasks 18–20 can be completed by qualifying the unsupported assertions if existing records cannot resolve them. Task 21 includes the follow-up document checks and current-status update after those edits; the prior Task 10 completion remains a record of the earlier pass.
 
 ## Execution and completion
 

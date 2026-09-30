@@ -41,6 +41,54 @@ Main findings requiring author input:
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
 
+## Task 08 completed: captions and layout with existing figures
+
+Completed 2026-10-01. Only TeX sizing, float placement, subcaptions, and caption wording were changed; no image was edited.
+
+### Referenced asset inventory
+
+All 8 figures and 14 referenced assets remain included. The eight unused `img/fig_bump*.png` files (dynamic-bump material covered by Ref. [2]) are untouched. All 22 image files, both reference drafts, and the `.bib` file have identical SHA-256 hashes before and after the task (25/25 OK). The effective resolution assumes a text width of 468.33 pt (6.48 in) from the build log.
+
+| Fig. | Asset | Pixels | SHA-256 (first 12) | Width (text widths) | Effective dpi |
+| --- | --- | --- | --- | --- | --- |
+| 1 | `img/fig9.png` | 812×612 | `b53cfd2d2f33` | .9 | 139 |
+| 2(a) | `img/fig_arrival1a.png` | 812×612 | `85cf337b5501` | .72 | 174 |
+| 2(b) | `img/fig_arrival1b.png` | 812×612 | `d7cbe19ce3bc` | .72 | 174 |
+| 3(a) | `img/fig_arrival2a.png` | 800×600 | `44b66b1d0084` | .48 | 257 |
+| 3(b) | `img/fig_arrival2b.png` | 800×600 | `2a442e2ffe44` | .48 | 257 |
+| 3(c) | `img/fig_arrival2c.png` | 800×600 | `5d2288f247f9` | .48 | 257 |
+| 4 | `img/fig_beamloss1.png` | 475×419 | `bd957a04d7aa` | .62 | 118 |
+| 5(a) | `img/fig_beamloss2a.png` | 812×612 | `0efdc3bc6c39` | .48 | 261 |
+| 5(b) | `img/fig_beamloss2b.png` | 812×612 | `0445dbbe3949` | .48 | 261 |
+| 6 | `img/fig_beamloss3.png` | 812×612 | `d702e75301de` | .7 | 179 |
+| 7(a) | `img/fig_rfko1a.png` | 812×612 | `f87b6ca861b7` | .48 | 261 |
+| 7(b) | `img/fig_rfko1b.png` | 812×612 | `9f1d3077ffc1` | .48 | 261 |
+| 8(a) | `img/fig_rfko2a.png` | 812×612 | `0a8e9e811a18` | .48 | 261 |
+| 8(b) | `img/fig_rfko2b.png` | 812×612 | `0affe01c6172` | .48 | 261 |
+
+### Changes
+
+- **Fig. 2:** panels are stacked vertically at 0.72 text width instead of side by side at 0.45. Estimated in-image tick labels rise from about 3.4 pt to about 5.4 pt, at 174 dpi. The figure now occupies its own float page. Subcaption (a) was renamed "Circulating-beam fraction" to match the plotted quantity.
+- **Widths:** the other paired panels went from 0.45 to 0.48, and Fig. 3 from 0.47 to 0.48. Fig. 6 went from 0.75 to 0.70 and Fig. 4 (MARS) from 0.68 to 0.62, raising their effective dpi while the MARS labels stay at about 8 pt. Aspect ratios are preserved, because only widths are set.
+- **Float order:** Fig. 7 moved from directly under the Sec. 5 heading to after the setup paragraph. It previously floated ahead of the heading onto the Fig. 6 page; every figure now appears after or near its first reference.
+- **Captions rewritten to be self-contained and less redundant:**
+  - Fig. 1: case name, trace colors, PD control, displayed range, undocumented normalization.
+  - Fig. 2: stage rows and pause turns, spill normalization, color key.
+  - Fig. 3: both models, histogram roles, time origin, fixed-point equation, axis ceiling, undocumented axis normalization.
+  - Fig. 4: element list, bands, undocumented units.
+  - Fig. 5: coordinate relation and units, sample and reference cluster, turn colors, undocumented overlays and loss-map legend.
+  - Fig. 6: vertical-line initial condition, turn colors, no fields or removal.
+  - Fig. 7: resonance drive off, color and line key, undocumented emittance definition and sampling.
+  - Fig. 8: now called a phase-space density profile, consistent with the Sec. 5 derivation; undocumented units and reference, 10^7 factor, truncated range, aperture removal.
+
+### Residual limitations (author or journal considerations; no replacement figures required by this task)
+
+- Every asset prints below 300 dpi at its displayed size (118–261 dpi). An 812-px image reaches 300 dpi only at 0.42 text width or less, and the 475×419 MARS image only at 0.24 text width. Elsevier's usual guidance of at least 300 dpi for halftones, and more for line art, would need the original vector or higher-resolution plots if a journal enforces it. No upsampling was done.
+- In-image tick labels in the side-by-side panels are about 3.5 pt at print size. Some original images have overlapping tick labels at panel boundaries, for example "0.89"/"1500" in Fig. 2(a) and the "0.0"/"2.0" pairs in Fig. 1. These are baked into the pixels and remain.
+- Undocumented plot elements (overlays, loss-map markers and units, MARS axis units, hatted centroid labels, emittance and action normalizations) are flagged in the captions, as recorded under Task 11.
+
+Validation: `latexmk` with pdfLaTeX and BibTeX succeeded (21 pages; previously 20, because of the enlarged Fig. 2). Labels are unique and every reference and citation resolves. The log has no float or overfull warnings except the known CAS overlay. BibTeX shows only the two known warnings. All 21 pages were rendered; pages 11 (Fig. 2) and 18 (Figs. 7–8) were inspected at reading resolution with no clipping or stretching. No simulations, staging, commits, or pushes.
+
 ## Task 07 completed: scattering transport and loss accounting
 
 Completed 2026-09-29 from the existing text, figures, and the reference draft `beamstudy.tex`.

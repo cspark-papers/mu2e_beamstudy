@@ -181,7 +181,7 @@ To test the response to a controlled disturbance, a ripple at $60\,\mathrm{Hz}$ 
 \begin{figure}[pos=!tbp]
   \centering
   \includegraphics[width=.9\textwidth]{img/fig9.png}
-  \caption{\label{fig:fig9}Normalized spill rate for three simulated configurations: no ripple and no feedback (top, blue), quadrupole ripple without feedback (middle, red), and quadrupole ripple with RFKO feedback (bottom, green). The traces cover approximately the first 20,000 turns of the 31,795-turn spill. Feedback reduces the visible ripple-driven modulation, although residual spikes remain.}
+  \caption{\label{fig:fig9}Normalized spill rate versus turn for the ripple and feedback case: no ripple and no feedback (top, blue), quadrupole ripple without feedback (middle, red), and ripple with proportional--derivative RFKO feedback (bottom, green). The traces cover approximately the first 20,000 turns of the 31,795-turn spill; the spill normalization of the original plot is not documented. Feedback reduces the visible ripple-driven modulation, although isolated spikes remain.}
 % AUTHOR CHECK: why the displayed runs end near turn 20,000.
 \end{figure}
 
@@ -276,13 +276,14 @@ Analytical treatments based on the Kobayashi Hamiltonian describe transit times 
 
 \begin{figure}[pos=!tbp]
   \centering
-  \subfigure[Beam intensities]{
-    \includegraphics[width=.45\textwidth]{img/fig_arrival1a}
+  \subfigure[Circulating-beam fraction]{
+    \includegraphics[width=.72\textwidth]{img/fig_arrival1a}
     \label{fig:arrival1a}}
+  \par\medskip
   \subfigure[Normalized spill intensity]{
-    \includegraphics[width=.45\textwidth]{img/fig_arrival1b}
+    \includegraphics[width=.72\textwidth]{img/fig_arrival1b}
     \label{fig:arrival1b}}
-  \caption{\label{fig:arrival1}Tune-step diagnostic at early (top), middle (center), and late (bottom) stages of extraction. Panel (a) shows the circulating-beam fraction and panel (b) the spill intensity, normalized so that the ideal uniform spill equals unity. Blue curves use the uninterrupted ramp; red curves use the paused-and-restored ramp. Purple vertical lines mark restoration of the quadrupole strengths to the values of the uninterrupted ramp at that turn.}
+  \caption{\label{fig:arrival1}Tune-step diagnostic at the early (top row), middle (center row), and late (bottom row) stages, with ramp pauses beginning at turns 2,000, 15,000, and 25,000. (a) Circulating-beam fraction. (b) Spill intensity, normalized so that the ideal uniform spill equals unity. Blue: uninterrupted ramp; red: paused-and-restored ramp. Purple vertical lines mark the restoration of the quadrupole strengths to the values of the uninterrupted ramp.}
 \end{figure}
 
 The Synergia2 calculation starts with $5\times10^5$ macroparticles, the parameters in Table~\ref{table:param}, and a tune-quadrupole ramp described as optimized for a uniform spill. At a selected turn, the ramp is paused for approximately 300 turns, or about 1\% of the spill duration. The strengths are then stepped to the values that the uninterrupted ramp would have reached at that turn and held for a further observation interval of approximately 500 turns. The step reduces the stable region and releases a population near its boundary. Whether the uninterrupted reference ramp is identical to the published 200-turn-segment ramp of Ref.~\cite{mu2e} is not documented. The procedure probes the extraction response to a finite tune change; it is not a measurement of the feedback-loop transfer function.
@@ -294,16 +295,16 @@ Figure~\ref{fig:arrival1a} shows the evolution of the circulating-beam fraction.
 \begin{figure}[pos=!tbp]
   \centering
   \subfigure[Turn 2,000]{
-    \includegraphics[width=.47\textwidth]{img/fig_arrival2a}
+    \includegraphics[width=.48\textwidth]{img/fig_arrival2a}
     \label{fig:arrival2a}}
   \subfigure[Turn 15,000]{
-    \includegraphics[width=.47\textwidth]{img/fig_arrival2b}
+    \includegraphics[width=.48\textwidth]{img/fig_arrival2b}
     \label{fig:arrival2b}}
   \par\medskip
   \subfigure[Turn 25,000]{
-    \includegraphics[width=.47\textwidth]{img/fig_arrival2c}
+    \includegraphics[width=.48\textwidth]{img/fig_arrival2c}
     \label{fig:arrival2c}}
-  \caption{\label{fig:arrival2}Transit time versus initial horizontal coordinate for the early, middle, and late tune-step cases. Blue and red markers denote Synergia2 and reduced-model RK4 tracking, respectively. The top histogram shows the starting coordinates, which are common to both calculations; the right histograms show the transit-time distributions of each calculation in the same colors. Times are measured from the restoration of the quadrupole strengths. The left vertical line marks the septum position; the right line marks the horizontal coordinate of the leftmost unstable fixed point, Eq.~\eqref{eqn:fixedpoints}. Transit times are in turns; the plotted range ends at 250 turns, whereas the hold lasts about 500 turns, and whether any particles lie beyond the plotted range is not documented. The horizontal axis retains the original label ``normalized x (mm)''; for $X=x/\sqrt{\beta}$ as in Eq.~\eqref{eqn:coordinates}, the unit would be $\sqrt{\mathrm{length}}$, and the normalization used for these plots is not documented.}
+  \caption{\label{fig:arrival2}Transit time versus starting horizontal coordinate for the tune-step cases whose pauses begin at the turns indicated. Blue: Synergia2; red: reduced-model RK4 tracking from the same starting coordinates. The top histogram shows the common starting coordinates; the right histograms show the transit-time distributions in the same colors. Times, in turns, are measured from the restoration of the quadrupole strengths. The left vertical line marks the septum; the right line marks the leftmost unstable fixed point, Eq.~\eqref{eqn:fixedpoints}. The plotted range ends at 250 turns, whereas the hold lasts about 500 turns. The axis label ``normalized x (mm)'' is that of the original plot; for $X=x/\sqrt{\beta}$ the unit would be $\sqrt{\mathrm{length}}$, and the plot normalization is not documented.}
 \end{figure}
 
 For comparison, Eq.~\eqref{eqn:motion} is integrated with a fourth-order Runge--Kutta (RK4) method. The reduced-model trajectories use the same initial particle coordinates as the Synergia2 sample, and the effective resonance parameters are evaluated at the restored quadrupole settings. Space charge is omitted in the reduced model. The continuous variable $\tau$ must be converted to turns when comparing transit times; observing trajectories every three turns does not prescribe the numerical integration step.
@@ -323,8 +324,8 @@ Removal from the primary tracking sample does not determine the fate of a scatte
 
 \begin{figure}[pos=!tbp]
   \centering
-  \includegraphics[width=.68\textwidth]{img/fig_beamloss1}
-  \caption{\label{fig:beamloss1}MARS trajectories through the modeled extraction channel, showing ESS1, Q203, ESS2, Q204, and the Lambertson magnet (ELAM). The main black trajectories represent circulating (upper) and outgoing (lower) protons; other trajectories illustrate scattering and secondary-particle transport. The downstream C-magnet is outside the displayed region. The axis units of the original plot are not documented.}
+  \includegraphics[width=.62\textwidth]{img/fig_beamloss1}
+  \caption{\label{fig:beamloss1}MARS trajectories through the modeled extraction channel: electrostatic septa ESS1 and ESS2, quadrupoles Q203 and Q204, and the Lambertson magnet ELAM. The dense black bands are circulating (upper) and outgoing (lower) protons; the other trajectories illustrate scattering and secondary-particle transport. The downstream C-magnet lies outside the displayed region. The axis units of the original plot are not documented.}
 \end{figure}
 
 The calculation has three stages, each addressing a different question.
@@ -340,12 +341,12 @@ Figure~\ref{fig:beamloss1} illustrates stage~2 through the two electrostatic sep
 \begin{figure}[pos=!tbp]
   \centering
   \subfigure[Phase-space trajectories]{
-    \includegraphics[width=.45\textwidth]{img/fig_beamloss2a}
+    \includegraphics[width=.48\textwidth]{img/fig_beamloss2a}
     \label{fig:beamloss2a}}
   \subfigure[Loss locations]{
-    \includegraphics[width=.45\textwidth]{img/fig_beamloss2b}
+    \includegraphics[width=.48\textwidth]{img/fig_beamloss2b}
     \label{fig:beamloss2b}}
-  \caption{\label{fig:beamloss2}Synergia2 tracking of the returned scattered-particle sample. (a) Turn-by-turn distributions referred to ESS1, plotted in $(x,\,\alpha x+\beta x')$ coordinates. The initial sample is blue; subsequent turns are red, yellow, and cyan. The purple vertical line marks the septum; the orange straight lines and red circle are overlays in the original plot whose definitions are not documented. (b) Locations of losses around the Delivery Ring. The gray curve is the ring beamline and the arrow shows the beam direction; the meanings of the red and orange markers and the axis units are not documented. The panel (a) coordinates, in millimeters, equal $\sqrt{\beta}\,(X,X')$ with $(X,X')$ from Eq.~\eqref{eqn:coordinates}; they have units of length, unlike the canonical pair.}
+  \caption{\label{fig:beamloss2}Synergia2 ring tracking of the returned scattered-particle sample. (a) Turn-by-turn distributions referred to ESS1 in $(x,\,\alpha x+\beta x')$, which equals $\sqrt{\beta}\,(X,X')$ of Eq.~\eqref{eqn:coordinates} and is in millimeters. Blue: initial sample, lying along the septum (purple vertical line), with the added unscattered reference group as the compact cluster at its lower end; red, yellow, and cyan: the next three turns. The orange lines and red circle are overlays in the original plot whose definitions are not documented. (b) Loss locations around the Delivery Ring (gray curve); the arrow shows the beam direction. The meanings of the red and orange markers and the axis units are not documented.}
 \end{figure}
 
 Figure~\ref{fig:beamloss2a} shows the returned sample. Its coordinates, recorded at the C-magnet, are referred back to ESS1 for display; the transformation used is not documented. The initial particles lie on a nearly vertical line at the septum position, $x\simeq-11\,\mathrm{mm}$. This is the expected signature of scattering in a thin foil: scattering changes a particle's angle but not its position, and in the plotted coordinates an angle change $\Delta x'$ moves a particle vertically by $\beta\Delta x'$. A group of unscattered circulating particles is added as a visual reference and forms the compact cluster at the lower end of the initial line. Over the next three turns the sample populates the lower, right, and left regions of the plot in turn, and after three turns many surviving particles have returned to the septum field region. Scattered particles therefore meet the septum again every third turn, which gives them repeated chances to be extracted or intercepted.
@@ -358,8 +359,8 @@ Approximately 43\% of the returned scattered-particle sample is reported lost in
 
 \begin{figure}[pos=!tbp]
   \centering
-  \includegraphics[width=.75\textwidth]{img/fig_beamloss3}
-  \caption{\label{fig:beamloss3} Reduced-model trajectories sampled at turns 0 (blue), 3 (red), and 6 (green), shown in the same phase-space coordinates as Fig.~\ref{fig:beamloss2a}. The purple septum line is a reference only: extraction fields, material interactions, and particle removal are absent from this calculation. The orange lines and red circle are the same undocumented overlays as in Fig.~\ref{fig:beamloss2a}.}
+  \includegraphics[width=.7\textwidth]{img/fig_beamloss3}
+  \caption{\label{fig:beamloss3}Reduced-model trajectories of particles starting on a vertical line at the septum, sampled at turns 0 (blue), 3 (red), and 6 (green), in the coordinates of Fig.~\ref{fig:beamloss2a}. The purple septum line is a reference only: extraction fields, material interactions, and particle removal are absent from this calculation. The orange lines and red circle are the same undocumented overlays as in Fig.~\ref{fig:beamloss2a}.}
 % AUTHOR CHECK: define the orange lines and red circle in Figs. beamloss2a and beamloss3.
 % Their geometry matches the separatrix lines of Eq. (6) (see REVIEW, Task 04).
 \end{figure}
@@ -371,17 +372,6 @@ Figure~\ref{fig:beamloss3} illustrates this deformation using the reduced Hamilt
 
 \section{\label{sec:rfko}Effects of RFKO excitation on emittance and centroid motion}
 
-\begin{figure}[pos=!tbp]
-  \centering
-  \subfigure[Horizontal emittance]{
-    \includegraphics[width=.45\textwidth]{img/fig_rfko1a}
-    \label{fig:rfko1a}}
-  \subfigure[Beam-centroid motion]{
-    \includegraphics[width=.45\textwidth]{img/fig_rfko1b}
-    \label{fig:rfko1b}}
-  \caption{\label{fig:rfko1}RFKO excitation at $C_x=0$ (blue, solid) and $C_x=1$ (red, dashed). (a) Horizontal emittance versus turn, in the $\pi\,\mathrm{mm\,mrad}$ units of the original diagnostic. (b) Beam-centroid trajectories in horizontal position and angle over 30,000 turns, labeled $\hat{x}$ and $\hat{x}'$ in the original plot; the sampling interval is not documented. Nonzero chromaticity produces greater emittance growth and smaller centroid excursions in these simulations.}
-\end{figure}
-
 The tune-quadrupole ramp drives the principal extraction process, while RFKO regulates the spill by changing the transverse amplitudes of particles near the stable-region boundary. To isolate how RFKO changes the beam distribution, this section considers excitation at a fixed machine tune without the third-integer resonance drive. The diagnostics are emittance, centroid motion, and the distribution of horizontal action.
 
 A transverse dipole kick deflects every particle in the bunch by the same angle. If all particles had the same betatron tune, successive kicks would change only the coherent oscillation of the centroid, leaving the distribution about the centroid, and hence the emittance about the centroid, unchanged. A spread of betatron tunes makes the particles dephase after each kick, so the coherent oscillation filaments into a larger internal phase-space area: the centroid motion decays while the emittance grows. With chromaticity, the tune spread is $C_x\delta$, which is of order $10^{-3}$ for $C_x=1$ and the momentum spread in Table~\ref{table:param}. Earlier simulations found effective excitation when the RFKO center frequency follows the machine tune and the modulation bandwidth is comparable to the chromatic tune spread, and they found that the incoherent space-charge tune spread alone does not provide this mixing~\cite{ipac11}. A rigidly displaced bunch carries its direct space-charge field with it, so this field does not by itself change the frequency of the dipole oscillation.
@@ -390,17 +380,28 @@ Unlike the extraction baseline in Ref.~\cite{mu2e}, the horizontal machine tune 
 % AUTHOR CHECK: acceptance/action convention; sweep period and numerical bandwidth
 % in each case (including C_x=0); kicker calibration linking 500 W to ~1 microrad.
 
+\begin{figure}[pos=!tbp]
+  \centering
+  \subfigure[Horizontal emittance]{
+    \includegraphics[width=.48\textwidth]{img/fig_rfko1a}
+    \label{fig:rfko1a}}
+  \subfigure[Beam-centroid motion]{
+    \includegraphics[width=.48\textwidth]{img/fig_rfko1b}
+    \label{fig:rfko1b}}
+  \caption{\label{fig:rfko1}Fixed-tune RFKO excitation with the resonance drive off, for $C_x=0$ (blue, solid) and $C_x=1$ (red, dashed). (a) Horizontal emittance versus turn, in the $\pi\,\mathrm{mm\,mrad}$ units of the original diagnostic; its rms or 95\% definition and centroid reference are not documented. (b) Beam-centroid trajectory in horizontal position and angle over 30,000 turns, labeled $\hat{x}$ and $\hat{x}'$ in the original plot; the sampling interval is not documented. Nonzero chromaticity gives greater emittance growth and smaller centroid excursions.}
+\end{figure}
+
 Figure~\ref{fig:rfko1} shows the expected contrast. At $C_x=0$ the emittance stays nearly constant (Fig.~\ref{fig:rfko1a}), while the centroid wanders irregularly with excursions of several millimeters and milliradians (Fig.~\ref{fig:rfko1b}). This is the behavior of a beam with little tune spread: each randomized sweep adds a response of random phase to the coherent oscillation, whose amplitude therefore wanders rather than growing steadily. At $C_x=1$ the centroid remains near the origin while the emittance grows substantially, consistent with chromatic phase mixing converting the driven motion into internal spread. The growth slows during the later part of the run; because particles outside the aperture are removed, this slowing may partly reflect particle removal rather than a change in the excitation. Whether the plotted emittance is an rms or 95\% value, and whether it is computed about the centroid (Sec.~\ref{sec:model}), is not documented, so the comparison is qualitative. The small emittance change at $C_x=0$ does not mean that the RFKO force is absent: the excitation acts on every particle but, without a tune spread, mainly moves the bunch as a whole.
 
 \begin{figure}[pos=!tbp]
   \centering
   \subfigure[$C_{x} = 0.0$]{
-    \includegraphics[width=.45\textwidth]{img/fig_rfko2a}
+    \includegraphics[width=.48\textwidth]{img/fig_rfko2a}
     \label{fig:rfko2a}}
   \subfigure[$C_{x} = 1.0$]{
-    \includegraphics[width=.45\textwidth]{img/fig_rfko2b}
+    \includegraphics[width=.48\textwidth]{img/fig_rfko2b}
     \label{fig:rfko2b}}
-  \caption{\label{fig:rfko2}Evolution of the plotted horizontal-action distributions, $f(\sqrt{I_x})/\sqrt{I_x}$ versus $\sqrt{I_x}$, at 5,000-turn intervals for (a) $C_x=0$ and (b) $C_x=1$. The action units, the reference (orbit or centroid), and the normalization of $f$ are those of the original diagnostic and are not documented. The plotted range ends at $\sqrt{I_x}=2$, before the $C_x=1$ distributions fall to zero, and the vertical axis carries the $10^7$ scale factor of the original plot. Particles outside the modeled aperture are removed, so changes in distribution height need not represent redistribution alone.}
+  \caption{\label{fig:rfko2}Horizontal phase-space density profiles, $f(\sqrt{I_x})/\sqrt{I_x}$ versus $\sqrt{I_x}$ (Sec.~\ref{sec:rfko}), at 5,000-turn intervals for (a) $C_x=0$ and (b) $C_x=1$. The action units, the reference (orbit or centroid), and the normalization of $f$ are those of the original diagnostic and are not documented; the vertical axis carries the plot's $10^7$ scale factor. The plotted range ends at $\sqrt{I_x}=2$, before the $C_x=1$ profiles fall to zero. Particles outside the aperture are removed, so changes in height need not represent redistribution alone.}
 \end{figure}
 
 Figure~\ref{fig:rfko2} shows the diagnostic $f(\sqrt{I_x})/\sqrt{I_x}$, with $I_x$ the action of Eq.~\eqref{eqn:action}. If $f$ is the particle density in $\sqrt{I_x}$, this quantity is proportional to the particle density in normalized phase space at amplitude $\sqrt{2I_x}$, because the area of an annulus in the $(X,X')$ plane is proportional to $dI_x=2\sqrt{I_x}\,d\sqrt{I_x}$. For a Gaussian beam it is therefore a Gaussian function of $\sqrt{I_x}$. At $C_x=0$ the profiles at all times nearly coincide, consistent with the constant emittance in Fig.~\ref{fig:rfko1a}. At $C_x=1$ the central density falls steadily while the profile flattens and extends to larger amplitudes, beyond the plotted range. Phase-space density thus moves from the core toward large amplitudes, as expected when the excitation increases individual amplitudes in a diffusion-like manner. Because the aperture removes particles, the population is not conserved. Quantitative interpretation, including comparison with the acceptances in Table~\ref{table:scope}, would require the surviving population, the diagnostic units and normalization, and whether the action is measured about the reference orbit or the centroid.

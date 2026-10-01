@@ -1,6 +1,6 @@
 # Task 20 — Qualify transported scattering coordinates and repeated encounters
 
-Status: Todo  
+Status: Done  
 Priority: P1  
 Depends on: 07, 11; coordinate with 19  
 Review date: 2026-09-30
@@ -27,12 +27,18 @@ Follow `tasks/README.md`: no new MARS or Synergia2 transport, no new encounter s
 
 ## Acceptance criteria
 
-- [ ] The local angular-kick identity is not presented as verification of the undocumented C-magnet-to-ESS1 map.
-- [ ] A return in transverse phase space is distinguished from an actual material or extraction-field encounter.
-- [ ] No universal or indefinitely repeated three-turn collision/extraction claim is inferred from the snapshots.
-- [ ] The workflow and result paragraph use consistent endpoint qualifications.
-- [ ] The conditional loss fraction, all image bytes, and the original panels remain unchanged.
+- [x] The local angular-kick identity is not presented as verification of the undocumented C-magnet-to-ESS1 map.
+- [x] A return in transverse phase space is distinguished from an actual material or extraction-field encounter.
+- [x] No universal or indefinitely repeated three-turn collision/extraction claim is inferred from the snapshots.
+- [x] The workflow and result paragraph use consistent endpoint qualifications.
+- [x] The conditional loss fraction, all image bytes, and the original panels remain unchanged.
 
 ## Completion record
 
-Pending. Findings recorded only; the manuscript has not been edited for this task.
+Completed: 2026-10-01.
+
+- Finding 1: the Fig. 7(a) paragraph leads with the observed near-vertical line. It presents Δ(αx+βx') = βΔx' as a local idealization and states that, because of the undocumented C-magnet-to-ESS1 transformation and possible angle-to-position transport, the line does not verify that mapping.
+- Finding 2: "meet the septum again every third turn" and "repeated chances/opportunities" were replaced by the observed return of displayed particles to the septum field region after three turns. Later encounters are stated as an interpretation, with the explicit note that the snapshots do not show interceptions, field crossings, or long-term recurrence. The loss-location sentence and §7.2 were aligned.
+- Finding 3: the workflow step now reports particles as "lost" or "surviving" with an undocumented duration and extraction criterion, consistent with the results paragraph.
+- The mapping and encounter questions were added to the REVIEW "Scattering handoff" row. The conditional 43% fraction, loss locations, and images are unchanged.
+- Build succeeded (24 pages; 0 BibTeX warnings; known CAS overlay only); all references resolve; hashes are unchanged.

@@ -31,6 +31,7 @@ The manuscript is editorially complete and **not yet submission-ready**. The aut
 - the 43% denominator (2,402 tracked versus 127,975 returned; Task 27);
 - the momentum reported in Table 1 (simulations used 8.827 GeV/c; Task 27);
 - the plotted fixed-tune and feedback runs, which were not among the recovered records (Task 27);
+- figure resolution and lettering below Elsevier's artwork rules, which cannot be fixed from the archive; recorded as a submission blocker (Task 29);
 - whether the RFKO loop delay was measured;
 - later-turn encounter records of the scattered sample.
 The action reference, chirp bandwidth of the related runs, RK4 step and cadence, and mapping type were recovered in Task 27.
@@ -71,6 +72,10 @@ Main findings requiring author input:
 - **Documentation and front matter (Tasks 16–17).** README still describes an inline `thebibliography`, contrary to the earlier statement in this file that it was updated for BibTeX. The `pimms` and `wcm` entries each merge two documents. `\floatpagepagefraction` has no effect. The running head no longer matches the title, and the contents block is unsuitable for submission.
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
+
+## Task 29: figures recorded as a submission blocker (no figure change)
+
+2026-10-01. Asked whether to authorize figure regeneration, the author chose to record the figures as a submission blocker; **no authorization was given**, and no figure, caption, or TeX line changed. A read-only check of the Task 27 archive shows that original plotting data survive at most for Fig. 4 (`arrival_time.*` logs and `kicked*.dat`, read by `mu2e_arrival_time-05.py`). Figs. 1–3 and 7 lack their run data, Fig. 6 is a MARS image without data, and Figs. 5 and 8 would also require re-running RK4 integrations, which the project rules exclude. All 14 assets therefore stay at 118–261 dpi with lettering of about 3.5–8 pt, below Elsevier's artwork requirements (1000 dpi line art, 7 pt lettering; Task 16 record). **Readiness impact:** this is a production blocker for an Elsevier journal unless the editor accepts the supplied figures, the missing data are recovered, or the author authorizes a scope change. Task 31 should weigh it in the venue choice.
 
 ## Task 28 completed: internal numerical inconsistencies
 

@@ -1,6 +1,6 @@
 # Task 29 — Bring the figures to publication standard (requires a scope decision)
 
-Status: Blocked — awaiting author authorization  
+Status: Blocked — recorded as a submission blocker (author decision, 2026-10-01)  
 Priority: P1  
 Owner: Author decision, then author or editor  
 Depends on: 27 (original plotting data or scripts)  
@@ -33,4 +33,18 @@ Record the figures as a submission blocker for Elsevier production, and keep the
 
 ## Completion record
 
-Pending.
+2026-10-01: When asked, the author chose to record the figures as a submission blocker and **did not authorize** any figure change. No figure file, caption, or TeX line changed.
+
+A read-only feasibility check against the Task 27 archive found the following:
+
+| Figure | Original data | Regenerable without new computation |
+| --- | --- | --- |
+| Figs. 1–2 | Plotted 30,000-turn runs not found (related 20,000-turn runs differ) | No |
+| Fig. 3 | Ripple/feedback runs not found | No |
+| Fig. 4 | `arrival_time.*` run directories contain `log` and `kicked*.dat` read by `mu2e_arrival_time-05.py` | Possibly, after confirming which run directories are plotted |
+| Fig. 5 | Particle dumps at the restoration turns absent; needs RK4 re-integration | No (data missing; RK4 runs excluded) |
+| Fig. 6 | MARS image only | No |
+| Fig. 7 | Ring-tracking run directory (`tune_ramp/mars`) absent | No |
+| Fig. 8 | Input sample present; needs RK4 re-integration | No (RK4 runs excluded) |
+
+Consequence: the 14 assets remain at 118–261 dpi with lettering of about 3.5–8 pt, below Elsevier's artwork rules (1000 dpi line art, 7 pt minimum). This is a production blocker for an Elsevier journal unless the editor accepts the figures as supplied, the missing data are found, or the author authorizes a scope change. Task 31 (venue and scope) should take it into account.

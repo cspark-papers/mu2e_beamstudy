@@ -47,7 +47,7 @@ Priority P1 means scientific interpretation and narrative; P2 means presentation
 | [26 — Layout, bibliography, and style](Task_26.md) | Done | P2 | Table 1 placement, MARS15 capitalization (primary source checked), single TDR link, Acknowledgments numbering decision | None |
 | [27 — Recover essential simulation records](Task_27.md) | Done | P1 | Author retrieves decks, logs, controller and accounting records; recovered facts replace Appendix A entries | None |
 | [28 — Resolve internal numerical inconsistencies](Task_28.md) | Done | P1 | Ripple frequency (60 vs ~360 Hz), emittance and acceptance conventions, normalized coordinate, Δp/p | 27 |
-| [29 — Publication-standard figures](Task_29.md) | Blocked (needs author authorization) | P1 | Regenerate figures from original plotting data at Elsevier resolution with defined labels | 27 |
+| [29 — Publication-standard figures](Task_29.md) | Blocked (author declined figure changes 2026-10-01; recorded as submission blocker) | P1 | Regenerate figures from original plotting data at Elsevier resolution with defined labels | 27 |
 | [30 — Quantitative metrics from existing outputs](Task_30.md) | Blocked (needs author authorization) | P1 | Spill rms or duty factor and spectrum, transit-time statistics, 43% sample size and uncertainty from original files | 27 |
 | [31 — Venue and scope decision](Task_31.md) | Todo | P1 | Journal choice and full-article versus narrower or proceedings scope, with the journal guide applied | 27, 29, 30 |
 | [32 — Submission package](Task_32.md) | Todo | P2 | Cover letter, declarations, highlights approval, acknowledgments, internal references, final submission build | 31 |

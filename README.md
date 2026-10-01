@@ -95,6 +95,7 @@ The author has requested journal-quality improvement with **no new simulations a
 | Author actions before submission | See "Current status" and the Task 10 "Readiness report" in `REVIEW.md`: essential simulation metadata, figure originals meeting Elsevier artwork rules, declarations, journal choice, internal references |
 | Records recovered | 27: archived run options, logs, scripts, and MARS output found in local cluster backups; facts incorporated (REVIEW, Task 27) |
 | Numerical inconsistencies | 28: ripple frequency, emittance, acceptance, transit coordinate, and momentum spread resolved from the records |
+| Figures | 29: no figure change authorized; resolution and lettering below Elsevier rules recorded as a submission blocker (REVIEW) |
 | Open tasks from `reviews/` | 29–34: figures and metrics (29–30 need author authorization), venue and scope, submission package, consolidation, hygiene |
 
 Completion notes for each task are in the task files and in `REVIEW.md`. The task files are tracked in Git.

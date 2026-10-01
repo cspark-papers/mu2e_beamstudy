@@ -1,6 +1,6 @@
 # Task 25 — Consolidate undocumented-setting disclosures into a provenance table
 
-Status: Todo  
+Status: Done  
 Priority: P2  
 Depends on: 22, 23, 24  
 Review date: 2026-10-01
@@ -31,10 +31,10 @@ The body now contains 24 occurrences of "not documented", 8 of them in figure ca
 
 ## Acceptance criteria
 
-- [ ] Every undocumented setting disclosed before the edit is still disclosed, either in the table or locally.
-- [ ] The conditional 43% fraction, the ripple-amplitude convention, and the action-diagnostic reference remain qualified where they are used.
-- [ ] The count of reader-facing "not documented" phrases falls substantially, with the reduction recorded.
-- [ ] Figures and reported values are unchanged; the rebuilt PDF is checked.
+- [x] Every undocumented setting disclosed before the edit is still disclosed, either in the table or locally.
+- [x] The conditional 43% fraction, the ripple-amplitude convention, and the action-diagnostic reference remain qualified where they are used.
+- [x] The count of reader-facing "not documented" phrases falls substantially, with the reduction recorded.
+- [x] Figures and reported values are unchanged; the rebuilt PDF is checked.
 
 ## If the author recovers metadata first
 
@@ -42,4 +42,10 @@ Any setting documented from the original files should be stated as a fact, with 
 
 ## Completion record
 
-Pending. Findings recorded only; the manuscript has not been edited for this task.
+Completed: 2026-10-01.
+
+- Added Appendix A with Table 4 (`table:records`), listing the settings and conventions missing from the records case by case, sourced only from the REVIEW author checks.
+- Kept the disclosures that sit beside dependent numbers or claims, or that a reader of a single caption needs. Replaced the secondary ones with pointers to Appendix A.
+- Main-body "not documented": 28 → 16 (7 in captions); broad hedge count 74 → 63. All 28 earlier disclosures were checked as preserved locally or in Table 4.
+- The 43% denominator, the ripple-amplitude convention (Sec. 4.2 and Table 4), and the action-diagnostic reference (Sec. 4.1, the Fig. 2 caption, and Table 4) remain qualified where used.
+- The appendix starts on its own page and is excluded from the review-only contents list. Both builds pass (25 pages; 0 BibTeX warnings; known CAS overlay only); all hashes are unchanged.

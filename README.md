@@ -62,7 +62,7 @@ Check for undefined citations/references, overfull boxes, clipped content, illeg
 
 ## Submission status
 
-The manuscript (24 pages in the review layout) has been revised editorially using only the existing results and figures; no new simulation was run. Since the September 2026 revisions it has:
+The manuscript (25 pages in the review layout) has been revised editorially using only the existing results and figures; no new simulation was run. Since the September 2026 revisions it has:
 
 - defined the five simulation cases separately from the published baseline, in a Section 2 rewritten as "Simulation methods" (cases in Table 2, comparison with the earlier study in Table 3);
 - made the reduced-model notation, units, and fixed points explicit;
@@ -72,6 +72,7 @@ The manuscript (24 pages in the review layout) has been revised editorially usin
 - corrected the beam momentum to 8.889 GeV/c (8 GeV kinetic energy per the Mu2e TDR, consistent with Bρ = 29.650 T m);
 - added eight primary-source-verified references and audited every citation (24 entries after splitting the combined PIMMS and monitor-report entries);
 - narrowed the RFKO, transit-time, and scattering interpretations to what the existing figures support (follow-up Tasks 18–20).
+- gathered the settings missing from the simulation records into Appendix A (Table 4), keeping only the disclosures that local results depend on in the text.
 
 The companion tracking paper is cited from its published record: Nuclear Engineering and Technology 58 (2026), 104097, DOI [10.1016/j.net.2025.104097](https://doi.org/10.1016/j.net.2025.104097). This does not select a target journal for the present manuscript.
 

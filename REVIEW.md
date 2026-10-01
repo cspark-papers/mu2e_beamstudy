@@ -9,7 +9,7 @@ This is a substantive editorial and internal-consistency revision, not a rerun o
 This section is the current summary. The sections below are a chronological record, newest first after this section. Earlier status statements in them, such as the 2026-09-29 backlog section and the Task 10 readiness report, are historical and are kept as evidence.
 
 - **Backlog:** Tasks 02–21 are complete. Tasks 18–21 came from the updated-manuscript review dated 2026-09-30.
-- **Pending (recorded 2026-10-01):** Tasks 25–26 (Tasks 22–24 done) from two further reviews of revision `9b299a3`. They are editorial corrections only (setup wording, readability, attribution and scope slips, a provenance table, small layout and bibliography fixes); see `tasks/README.md`. The current status above describes the manuscript before those edits.
+- **Pending (recorded 2026-10-01):** Task 26 (Tasks 22–25 done) from two further reviews of revision `9b299a3`. They are editorial corrections only (setup wording, readability, attribution and scope slips, a provenance table, small layout and bibliography fixes); see `tasks/README.md`. The current status above describes the manuscript before those edits.
 - **Manuscript:** `beamstudy-mod.tex`, 24 pages in both the review layout (contents on page 1) and the submission build (`\SubmissionBuild`, no contents). The bibliography has 24 cited entries and 0 BibTeX warnings. The only LaTeX diagnostic is the known CAS keyword-overlay box. There are 46 unique labels, all resolved.
 - **Figures and drafts:** all 22 image files are unchanged since the first commit, and the reference drafts are unchanged since `c037b4e`.
 
@@ -68,6 +68,31 @@ Main findings requiring author input:
 - **Documentation and front matter (Tasks 16–17).** README still describes an inline `thebibliography`, contrary to the earlier statement in this file that it was updated for BibTeX. The `pimms` and `wcm` entries each merge two documents. `\floatpagepagefraction` has no effect. The running head no longer matches the title, and the contents block is unsuitable for submission.
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
+
+## Task 25 completed: undocumented-setting disclosures consolidated in Appendix A
+
+Completed 2026-10-01. Presentation only; every disclosure is retained and no value, figure, or bibliography entry changed.
+
+- **New Appendix A** ("Settings not specified in the available simulation records", label `app:records`) with Table 4 (`table:records`). It lists, by case (all Synergia2 cases, fixed-tune RFKO, ripple and feedback, tune step, reduced model, septum scattering), every setting or plot convention that the available records do not specify. It is built only from the existing REVIEW author-check rows and case-metadata status. It also makes visible several items that previously appeared only in REVIEW or `AUTHOR CHECK` comments: the 20,000-turn run length, the restoration values, the Twiss parameters, the coefficient phase convention, the MARS version, and whether transit times beyond 250 turns occurred.
+- **Kept in place (13 main-body occurrences)**, because a number or claim depends on them or a reader of that figure alone needs them:
+  - the inherited-settings statement (§2.1);
+  - the 20π acceptance normalization (§2.4) and three comparison-table cells;
+  - the bandwidth confound (Sec. 4.1);
+  - the transit-time selection and arrival criteria (Sec. 5);
+  - the C-magnet-to-ESS1 mapping and the 43% endpoints (Sec. 6);
+  - the caption notes on emittance definition, action diagnostic, spill normalization, transit-axis normalization, MARS axis units, overlays, and loss-map legend.
+- **Replaced by pointers to Appendix A (about 10):**
+  - the controller update interval, the Table 2 caption and tune-step cell;
+  - the centroid sampling interval in the Fig. 1 caption;
+  - controller gains and comparison criterion, the post-hold protocol, the integration step and detection cadence, and the scattering-workflow endpoint (now "discussed below");
+  - the duplicate overlay note (now "see the figure caption");
+  - in §7.1, controller gains and delay, plus the gain-schedule rationale (now "for reasons the records do not state");
+  - in §7.4, the action-reference and plot-convention lists.
+- **Counts.** Main-body "not documented" fell from 28 to 16 (7 in captions); the broad hedge count from 74 to 63. Every disclosure from before the edit appears either locally or in Table 4; all 28 were checked individually.
+- **Layout.**
+  - The appendix starts on a new page so that Table 4 stays with its heading, before the references. In the review layout it is kept out of the contents list (`\addtocontents{toc}{…tocdepth 0}`), so the contents remain on page 1.
+  - Both builds are 25 pages (previously 24) and pass with 0 BibTeX warnings and only the known CAS overlay; pages 23–25 were inspected.
+  - There are 50 unique labels, all resolved, and all 26 figure, draft, bibliography, and highlight hashes are unchanged.
 
 ## Follow-up: Section 2 rewritten as "Simulation methods" (author request, 2026-10-01)
 

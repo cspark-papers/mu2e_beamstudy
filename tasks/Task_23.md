@@ -1,6 +1,6 @@
 # Task 23 — Tighten the follow-up prose while preserving its qualifications
 
-Status: Todo  
+Status: Done  
 Priority: P2  
 Depends on: 18–22  
 Review date: 2026-10-01
@@ -28,13 +28,21 @@ Review date: 2026-10-01
 
 ## Acceptance criteria
 
-- [ ] The chirp coverage sentence appears once in the setup paragraph.
-- [ ] RFKO-profile and transit-time observations are easy to distinguish from their conditional interpretations.
-- [ ] The response-chain comparison is concise and retains its cross-case limitation.
-- [ ] The transit-time summaries refer to the plotted horizontal coordinate rather than an unspecified path length.
-- [ ] No diagnostic convention, causal conclusion, particle selection, or new result is introduced by shortening the prose.
-- [ ] Both builds pass; affected pages and highlights are checked, with all figures unchanged.
+- [x] The chirp coverage sentence appears once in the setup paragraph.
+- [x] RFKO-profile and transit-time observations are easy to distinguish from their conditional interpretations.
+- [x] The response-chain comparison is concise and retains its cross-case limitation.
+- [x] The transit-time summaries refer to the plotted horizontal coordinate rather than an unspecified path length.
+- [x] No diagnostic convention, causal conclusion, particle selection, or new result is introduced by shortening the prose.
+- [x] Both builds pass; affected pages and highlights are checked, with all figures unchanged.
 
 ## Completion record
 
-Pending. This review records improvements only; the manuscript and highlights are unchanged.
+Completed: 2026-10-01.
+
+- Removed the duplicated chirp sentence.
+- Split the action-profile paragraph (definition and conditional interpretation / observations) and the transit-time paragraph (observations / labeled pathway interpretation / discrete-level origin). The speculative C_x = 0 alternatives were condensed to one sentence, with the full list kept in REVIEW.
+- Rewrote the response-chain comparison as an explicit cross-case condition in its own paragraph.
+- The abstract, Conclusions, and highlight 4 now refer to the starting horizontal coordinate, scoped to the displayed samples.
+- Qualifier counts are preserved (hedge count 74 before and after); no new causal claim, convention, or result.
+- The review-only contents list was returned to `\footnotesize` so that it stays on page 1.
+- Both builds pass (24 pages; 0 BibTeX warnings; known CAS overlay only); affected pages were inspected; figures are unchanged.

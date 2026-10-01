@@ -4,5 +4,5 @@ Elsevier's highlights guidance; confirm the requirement for the chosen journal)
 - Knockout heating grew with chromaticity; without it, coherent beam motion dominated
 - Feedback on the knockout amplitude reduces ripple-driven spill modulation in tracking
 - Particles released by a tune step need a few to over 100 turns to reach the septum
-- Transit time grew with a particle's starting distance from the septum
+- Transit time grew as the starting horizontal coordinate lay farther from the septum
 - About 43% of a returned septum-scattered sample is lost later around the ring

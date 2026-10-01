@@ -9,7 +9,7 @@ This is a substantive editorial and internal-consistency revision, not a rerun o
 This section is the current summary. The sections below are a chronological record, newest first after this section. Earlier status statements in them, such as the 2026-09-29 backlog section and the Task 10 readiness report, are historical and are kept as evidence.
 
 - **Backlog:** Tasks 02–21 are complete. Tasks 18–21 came from the updated-manuscript review dated 2026-09-30.
-- **Pending (recorded 2026-10-01):** Tasks 23–26 (Task 22 done) from two further reviews of revision `9b299a3`. They are editorial corrections only (setup wording, readability, attribution and scope slips, a provenance table, small layout and bibliography fixes); see `tasks/README.md`. The current status above describes the manuscript before those edits.
+- **Pending (recorded 2026-10-01):** Tasks 24–26 (Tasks 22–23 done) from two further reviews of revision `9b299a3`. They are editorial corrections only (setup wording, readability, attribution and scope slips, a provenance table, small layout and bibliography fixes); see `tasks/README.md`. The current status above describes the manuscript before those edits.
 - **Manuscript:** `beamstudy-mod.tex`, 24 pages in both the review layout (contents on page 1) and the submission build (`\SubmissionBuild`, no contents). The bibliography has 24 cited entries and 0 BibTeX warnings. The only LaTeX diagnostic is the known CAS keyword-overlay box. There are 46 unique labels, all resolved.
 - **Figures and drafts:** all 22 image files are unchanged since the first commit, and the reference drafts are unchanged since `c037b4e`.
 
@@ -68,6 +68,24 @@ Main findings requiring author input:
 - **Documentation and front matter (Tasks 16–17).** README still describes an inline `thebibliography`, contrary to the earlier statement in this file that it was updated for BibTeX. The `pimms` and `wcm` entries each merge two documents. `\floatpagepagefraction` has no effect. The running head no longer matches the title, and the contents block is unsuitable for submission.
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
+
+## Task 23 completed: follow-up prose tightened without losing qualifications
+
+Completed 2026-10-01. Wording and paragraph structure only; no claim, number, figure, or citation changed.
+
+- **Chirp coverage (finding 1).** The repeated "The chirp is described as covering the betatron tune spread" was removed. The setup now names the two chromaticities, describes the chirp once, and follows directly with the space-charge and bandwidth qualification.
+- **Action profiles (finding 2).** The 271-word paragraph is now two. The first gives the diagnostic, its undocumented reference, the conditional annulus/Gaussian interpretation, and why the reference matters. The second gives the observed C_x = 0 and C_x = 1 profiles. The three speculative explanations of the C_x = 0 coincidence were reduced to one sentence: the records do not establish whether it reflects a centroid-referenced diagnostic or differently sampled turns. The full list remains in the REVIEW author checks (Task 18).
+- **Transit times (finding 3).** The 289-word paragraph is now three: observations (coordinate trend, model comparison, stage trend); pathway interpretations, explicitly labeled because only the starting x is plotted; and the discrete levels with their unresolved sampling-or-physics origin.
+- **Response chain (finding 4).** "comparable … comparable" became "If the RFKO case has transit delays similar to those of the separate tune-step case, these delays are comparable to or longer than the averaging interval". The conditional interpretation now starts its own paragraph, and the cross-case limitation is unchanged.
+- **Summaries (finding 5).**
+  - Abstract: "increasing as the starting horizontal coordinate lies farther from the septum in the displayed samples".
+  - Conclusions: "In the displayed samples, the delays increase as the starting horizontal coordinate lies farther from the septum".
+  - Highlight 4: "Transit time grew as the starting horizontal coordinate lay farther from the septum" (83 characters; still needs author approval).
+- **Layout.** The longer abstract pushed the review contents onto page 2, so the review-only contents list is set in `\footnotesize` again. The submission build is unaffected.
+
+**Qualifier preservation.** The counts are unchanged for "not documented" (27), "consistent with" (16), "possible" (4), "may" (10), "undocumented" (5), "conditional" (5), the 43% mentions (8), and `\cite` (53). Small shifts are rewordings: a "plausible interpretation" and "do not distinguish" became "pathways are interpretations" and "do not establish whether". The broad hedge count is unchanged at 74. The paragraphs over 200 words are now only the 252- and 222-word ones assigned to Task 24.
+
+Validation: review build 24 pages, with the contents on page 1 and the Introduction on page 2. Submission build 24 pages. Both have 0 BibTeX warnings, and the only box warning is the known CAS overlay. Pages 1, 11, 16, and 22 were inspected. All 25 figure, draft, and bibliography hashes are unchanged.
 
 ## Task 22 completed: setup statements aligned with documented uncertainty
 

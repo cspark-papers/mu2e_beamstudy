@@ -64,7 +64,7 @@ Check for undefined citations/references, overfull boxes, clipped content, illeg
 
 The manuscript (24 pages in the review layout) has been revised editorially using only the existing results and figures; no new simulation was run. Since the September 2026 revisions it has:
 
-- defined the five simulation cases separately from the published baseline (Table 3);
+- defined the five simulation cases separately from the published baseline, in a Section 2 rewritten as "Simulation methods" (cases in Table 2, comparison with the earlier study in Table 3);
 - made the reduced-model notation, units, and fixed points explicit;
 - aligned figure descriptions with the plotted evidence;
 - strengthened the physical interpretation of the RFKO, transit-time, and scattering results;

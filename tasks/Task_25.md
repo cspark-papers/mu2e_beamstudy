@@ -7,15 +7,15 @@ Review date: 2026-10-01
 
 ## Scope
 
-`beamstudy-mod.tex`: all reader-facing "not documented" statements in the body and captions, Table 3 (`table:cases`), and `sec:limits`. This is a presentation change. Every disclosure must remain visible to the reader.
+`beamstudy-mod.tex`: all reader-facing "not documented" statements in the body and captions, Table 2 (`table:cases`; numbered Table 3 before the Section 2 rewrite), and `sec:limits`. This is a presentation change. Every disclosure must remain visible to the reader.
 
 ## Finding
 
-The body now contains 24 occurrences of "not documented", 8 of them in figure captions, in addition to the Table 3 caption and §7.4. Each disclosure is accurate, and the AGENTS rules require that missing methodology not be concealed. Repeated in running prose, however, they read as a list of gaps and will draw referee attention away from the results. A journal reader is better served by one authoritative place that states what the archived simulation records do and do not specify, case by case, with brief pointers elsewhere.
+The body now contains 24 occurrences of "not documented", 8 of them in figure captions, in addition to the cases-table caption and §7.4. Each disclosure is accurate, and the AGENTS rules require that missing methodology not be concealed. Repeated in running prose, however, they read as a list of gaps and will draw referee attention away from the results. A journal reader is better served by one authoritative place that states what the archived simulation records do and do not specify, case by case, with brief pointers elsewhere.
 
 ## Work
 
-- Add a compact table, for example in an appendix or as an extension of Table 3, listing for each case the settings that the available records do not specify:
+- Add a compact table, for example in an appendix or as an extension of the cases table (`table:cases`), listing for each case the settings that the available records do not specify:
   - spill normalization and controller gains, update interval, and delay;
   - selection and arrival criteria, integration step, and detection cadence;
   - the return mapping, tracking duration, extraction criterion, and sample weights;

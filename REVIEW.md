@@ -69,6 +69,28 @@ Main findings requiring author input:
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
 
+## Follow-up: Section 2 rewritten as "Simulation methods" (author request, 2026-10-01)
+
+The author found the Section 2 title ("Published baseline and simulation cases") unsuitable for a journal paper and asked for the section to be checked and, if needed, rewritten.
+
+**Problems found.** The title and the subsection title "Shared parameters and published settings" read as review language. The section never described the machine, the extraction hardware, or the simulation codes, which appeared only in passing in the Introduction. It contained meta-commentary ("Several intervals of about 100 turns occur in this paper…", "We therefore do not assume…"). Table 1 was defined in the Introduction rather than with its discussion (Task 26, finding 1).
+
+**New structure** (labels `sec:scope`, `sec:baseline`, and `sec:cases` kept so that existing references resolve; `sec:codes` and `sec:comparison` added):
+- **§2.1 Machine and beam.** The extraction hardware, taken from Ref. [2] and checked against its text: two harmonic-sextupole circuits of three sextupoles each, three tune-control quadrupoles near the middle of each straight section, two electrostatic septa, one Lambertson magnet, one C-magnet, and the chromaticity sextupole families. This subsection now holds Table 1 and states the Ref. [2] settings, with the existing statement that their reuse in the present cases and any convergence study are undocumented.
+- **§2.2 Simulation codes.** Synergia2 (three-dimensional space charge, included only in the cases marked in the cases table; aperture models; the dedicated ESS1 septum aperture), MARS ([mars2] with the channel model of [mars1]), and the reduced model with RK4 (now defined here, at first use).
+- **§2.3 Simulation cases.** A short overview with the case table, and the distinct time structures stated as method facts. The undocumented controller update interval is kept.
+- **§2.4 Comparison with the feed-forward study.** The 50 versus 100 µm foils, the three 20π/20π/35π mm mrad quantities, the comparison table (headers "Ref. [2]" and "This work"), and the loss-population statement.
+
+**Other changes.**
+- The Introduction's "three models" paragraph was shortened to point to §2.2, and the roadmap sentence was updated.
+- Cross-references moved with the content: the RFKO-acceptance pointer and the two 43% pointers now go to §2.4, while the §7.4 inherited-settings pointer stays at §2.1.
+- Captions were rewritten in journal style. Tables are numbered in order of appearance, so the cases table is now **Table 2** and the comparison table **Table 3**; all in-text references use `\ref`. The README and pending-task numbering was updated.
+- Bibliography numbering shifted, because Synergia2 is now first cited in §2.2. All 24 entries are still cited.
+
+**Preserved.** No number, setting, or disclosure was removed: the undocumented reuse of published settings, the convergence statement, the acceptance normalization, the controller update interval, the conditional 43%, and the `AUTHOR CHECK` comment. The broad hedge count is unchanged or lower (see Task 25 for consolidation).
+
+**Validation.** Both variants were rebuilt fresh: 24 pages each, 0 BibTeX warnings, 24 bibliography entries, and only the known CAS overlay box. The review contents stay on page 1. Pages 3–6 were inspected. All 26 figure, draft, bibliography, and highlight hashes are unchanged.
+
 ## Task 24 completed: residual attribution and scope slips
 
 Completed 2026-10-01. Wording and paragraph structure only; no value, figure, or bibliography metadata changed.

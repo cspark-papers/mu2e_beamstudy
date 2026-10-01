@@ -9,7 +9,7 @@ This is a substantive editorial and internal-consistency revision, not a rerun o
 This section is the current summary. The sections below are a chronological record, newest first after this section. Earlier status statements in them, such as the 2026-09-29 backlog section and the Task 10 readiness report, are historical and are kept as evidence.
 
 - **Backlog:** Tasks 02–21 are complete. Tasks 18–21 came from the updated-manuscript review dated 2026-09-30.
-- **Task 27 (2026-10-01):** the archived simulation records were found in local cluster backups and incorporated (see "Task 27 completed" below). Task 28 items 1–4 are resolved or explained by the records; the 43% denominator, the simulation momentum, and the missing fixed-tune and feedback runs are now the leading author questions.
+- **Task 27 (2026-10-01):** the archived simulation records were found in local cluster backups and incorporated (see "Task 27 completed" below). Task 28 (2026-10-01) resolved all five numerical inconsistencies from the records; the 43% denominator, the simulation momentum, and the missing fixed-tune and feedback runs are now the leading author questions.
 - **Open backlog (recorded 2026-10-01):** Tasks 27–34 from `reviews/review1.md` and `reviews/review2.md`: record recovery (27), numerical inconsistencies (28), publication-standard figures and quantitative metrics (29–30, blocked pending author authorization because they change the editorial boundaries), venue and scope (31), submission package (32), consolidation (33), and review-file hygiene (34). See `tasks/README.md`.
 - **Follow-up backlog (recorded 2026-10-01):** Tasks 22–26 from two further reviews, all completed on 2026-10-01 of revision `9b299a3`. They are editorial corrections only (setup wording, readability, attribution and scope slips, a provenance table, small layout and bibliography fixes); see `tasks/README.md`. The current status above describes the manuscript before those edits.
 - **Manuscript:** `beamstudy-mod.tex`, 27 pages in the review layout (contents on page 1) and 26 in the submission build (`\SubmissionBuild`, no contents), after Task 27. The bibliography has 24 cited entries and 0 BibTeX warnings. The only LaTeX diagnostic is the known CAS keyword-overlay box. There are 46 unique labels, all resolved.
@@ -71,6 +71,22 @@ Main findings requiring author input:
 - **Documentation and front matter (Tasks 16–17).** README still describes an inline `thebibliography`, contrary to the earlier statement in this file that it was updated for BibTeX. The `pimms` and `wcm` entries each merge two documents. `\floatpagepagefraction` has no effect. The running head no longer matches the title, and the contents block is unsuitable for submission.
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
+
+## Task 28 completed: internal numerical inconsistencies
+
+Completed 2026-10-01. Every item is resolved from a recorded source (Task 27 archive); none relies on reading values from raster images. The figures are unchanged.
+
+| Item | Resolution | Source |
+| --- | --- | --- |
+| 1. Ripple frequency (60 vs ~360 Hz) | Resolved in Task 27 text. The 60 Hz is the line frequency; every archived ripple routine (2013 `tune.*`, 2014 profile snapshot, 2015 run modules) builds a three-phase full-wave-rectified waveform whose fundamental is 6 × 60 = 360 Hz (1/(360 Hz × 1.6949 µs) = 1,639 turns), consistent with the ~1,650-turn period of Fig. 3. No archived routine uses another frequency. **No longer a submission blocker**; the remaining gap is the amplitude A of the plotted runs (Appendix A) | `ramp_modules.py`, f0 = 60, Σ\|sin(2πf0t + 2πi/3)\| |
+| 2. Initial emittance 0.28 vs 0.35 | Resolved in Task 27 text: the archived fixed-tune runs use 16π mm mrad; the driver gives ε_rms = 16/(5.991 × 9.408) = 0.2839 mm mrad (logged 0.28344); 20π would give 0.355. Task 28 adds the 16π note to the Table 1 caption. The extraction and tune-step runs (15 run directories) use 20π | `alloptions` `norm_emit`; `mu2e.py` line 1018 |
+| 3. Acceptance vs 2.75 | Resolved in Task 27 text: geometric Courant–Snyder limit of 20 mm mrad (J ≤ 10 mm mrad); no contradiction | Synergia2 `aperture_operation.tcc` |
+| 4. Normalized transit coordinate | Resolved in Task 27 text: X = x/√β (mm/√m), wire at −10 mm, β = 8.67–8.81 m at the restoration turns → −3.37 to −3.40; the −11 mm of Fig. 7(a) belongs to the separate ring-tracking run | `alloptions` `wire_x`; Twiss table; `test_particle.sh` |
+| 5. Momentum spread | Resolved: Δp/p = 0.0016265 is the **rms** of the matched Gaussian beam, σ_δ = σ_z/β_z with σ_z = 11.92 m (40 ns rms) and β_z = 7,331.5 m, printed identically in all 11 archived logs that report it; all 19 checked runs have `bunchlen=40.0`. Table 1 row relabeled "(rms)" with a caption note; §4.1 now states the rms chromatic spread C_x σ_δ ≈ 0.0016 for C_x = 1 | `mu2e.py` lines 1392–1424; `synergia.out` |
+
+Consistency check of the Task 27 statements: emittance conversion (βγ = 9.408 at 8.827 GeV/c), kicker kick (1.12 µrad), 360 Hz period (1,639 turns), X_w values, and |g| units (m^{−1/2}; with Δν = −0.0109 and |g| = 2.585 the separatrix half-size h = 2ε/(3S) ≈ 1.0 × 10⁻³ m^{1/2}, a vertex near 6 mm at β = 8.8 m, which is plausible) were recomputed and agree. No `AUTHOR CHECK` or Appendix A entry belonged only to these items, so none was removed; six `AUTHOR CHECK`s remain (momentum choice, MARS foil, missing fixed-tune runs, ripple amplitude, Fig. 3 run length, 43% denominator).
+
+Validation: review build 27 pages, submission build 26; only the known keyword-box warning; BibTeX 0 warnings; 50 unique labels, all references resolved; Table 1 page rendered and inspected. `img/*`, drafts, bib, and highlights unchanged.
 
 ## Task 27 completed: simulation records recovered
 

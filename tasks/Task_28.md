@@ -1,6 +1,6 @@
 # Task 28 — Resolve the internal numerical inconsistencies
 
-Status: Todo  
+Status: Done  
 Priority: P1  
 Depends on: 27  
 Source: `reviews/review2.md` major concern 2; `reviews/review1.md` concern 3; Tasks 11 and 12 evidence in REVIEW
@@ -27,9 +27,9 @@ Using the records from Task 27, determine the correct value or convention for ea
 
 ## Acceptance criteria
 
-- [ ] Each item is resolved from a recorded source, or remains explicitly flagged with its arithmetic in REVIEW.
-- [ ] No resolution relies on reading values from raster images.
-- [ ] Figures are unchanged; both builds pass.
+- [x] Each item is resolved from a recorded source, or remains explicitly flagged with its arithmetic in REVIEW.
+- [x] No resolution relies on reading values from raster images.
+- [x] Figures are unchanged; both builds pass.
 
 ## If evidence is unavailable
 
@@ -37,4 +37,9 @@ Keep the current disclosures. Item 1 is a submission blocker: Fig. 3 cannot be d
 
 ## Completion record
 
-Pending.
+Completed: 2026-10-01.
+
+- Items 1–4 were resolved in the manuscript text by Task 27 from the archived records and rechecked here. Item 1 is no longer a submission blocker: every archived ripple routine has a 360 Hz fundamental derived from 60 Hz three-phase rectification. Only the amplitude of the plotted runs is unrecorded.
+- Item 5: Δp/p = 0.0016 is the rms of the matched beam (σ_z/β_z for the 40 ns rms bunch length; identical in all archived logs). Table 1 is relabeled with a caption note, and §4.1 gives the rms chromatic spread.
+- The Table 1 caption now notes that the archived fixed-tune runs used 16π mm mrad.
+- REVIEW ("Task 28 completed") records the sources and arithmetic. Both builds pass; figures are unchanged.

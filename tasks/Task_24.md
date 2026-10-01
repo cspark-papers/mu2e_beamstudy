@@ -1,6 +1,6 @@
 # Task 24 — Correct residual attribution and scope slips not covered by Tasks 22–23
 
-Status: Todo  
+Status: Done  
 Priority: P1  
 Depends on: 22, 23  
 Review date: 2026-10-01 (second review of revision `9b299a3`)
@@ -37,13 +37,20 @@ Follow `tasks/README.md`: existing evidence only, no new simulations, no figure 
 
 ## Acceptance criteria
 
-- [ ] No sentence attributes space charge to a case whose records do not state it.
-- [ ] Ref. [pid] supports only the controller concept.
-- [ ] The reference-group branch statement is attributed or rephrased observationally.
-- [ ] The `fig:rfko1` caption is observational.
-- [ ] No body paragraph exceeds about 200 words, after Tasks 23 and 24 together.
-- [ ] Figures, reported values, and bibliography metadata are unchanged; both builds pass with resolved references.
+- [x] No sentence attributes space charge to a case whose records do not state it.
+- [x] Ref. [pid] supports only the controller concept.
+- [x] The reference-group branch statement is attributed or rephrased observationally.
+- [x] The `fig:rfko1` caption is observational.
+- [x] No body paragraph exceeds about 200 words, after Tasks 23 and 24 together.
+- [x] Figures, reported values, and bibliography metadata are unchanged; both builds pass with resolved references.
 
 ## Completion record
 
-Pending. Findings recorded only; the manuscript has not been edited for this task.
+Completed: 2026-10-01.
+
+- Finding 1: space charge is now claimed only for the fixed-tune and tune-step cases (Sec. 4.2 reads "Synergia2 tracking case"; the Introduction is scoped). The drafts gave no evidence for the feedback case, and the question was added to REVIEW.
+- Finding 2: "The original study investigated PID controllers, a standard feedback scheme [pid]."
+- Finding 3: the reference-group branch statement is attributed to the original analysis, with the note that the branch is identifiable only through the undocumented overlays.
+- Finding 4: the `fig:rfko1` caption is now observational.
+- Finding 5: the Fig. 4 and Fig. 7(a) paragraphs were split; "thus" replaces the second "therefore"; "at the restoration turn" is explicit. The longest body paragraph is now 195 words.
+- Both builds pass (24 pages; 0 BibTeX warnings; known CAS overlay only); pages 12, 15, and 20 were inspected; figures, values, and bibliography are unchanged.

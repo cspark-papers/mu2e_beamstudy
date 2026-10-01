@@ -9,7 +9,7 @@ This is a substantive editorial and internal-consistency revision, not a rerun o
 This section is the current summary. The sections below are a chronological record, newest first after this section. Earlier status statements in them, such as the 2026-09-29 backlog section and the Task 10 readiness report, are historical and are kept as evidence.
 
 - **Backlog:** Tasks 02–21 are complete. Tasks 18–21 came from the updated-manuscript review dated 2026-09-30.
-- **Pending (recorded 2026-10-01):** Tasks 24–26 (Tasks 22–23 done) from two further reviews of revision `9b299a3`. They are editorial corrections only (setup wording, readability, attribution and scope slips, a provenance table, small layout and bibliography fixes); see `tasks/README.md`. The current status above describes the manuscript before those edits.
+- **Pending (recorded 2026-10-01):** Tasks 25–26 (Tasks 22–24 done) from two further reviews of revision `9b299a3`. They are editorial corrections only (setup wording, readability, attribution and scope slips, a provenance table, small layout and bibliography fixes); see `tasks/README.md`. The current status above describes the manuscript before those edits.
 - **Manuscript:** `beamstudy-mod.tex`, 24 pages in both the review layout (contents on page 1) and the submission build (`\SubmissionBuild`, no contents). The bibliography has 24 cited entries and 0 BibTeX warnings. The only LaTeX diagnostic is the known CAS keyword-overlay box. There are 46 unique labels, all resolved.
 - **Figures and drafts:** all 22 image files are unchanged since the first commit, and the reference drafts are unchanged since `c037b4e`.
 
@@ -68,6 +68,22 @@ Main findings requiring author input:
 - **Documentation and front matter (Tasks 16–17).** README still describes an inline `thebibliography`, contrary to the earlier statement in this file that it was updated for BibTeX. The `pimms` and `wcm` entries each merge two documents. `\floatpagepagefraction` has no effect. The running head no longer matches the title, and the contents block is unsuitable for submission.
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
+
+## Task 24 completed: residual attribution and scope slips
+
+Completed 2026-10-01. Wording and paragraph structure only; no value, figure, or bibliography metadata changed.
+
+- **Space charge only where documented (finding 1).** The reference drafts give no evidence that the feedback case included space charge; the companion's "with space charge" statement refers to the feed-forward study.
+  - Sec. 4.2: "in this space-charge tracking model" became "in this Synergia2 tracking case".
+  - Introduction: "at high space charge" became "with space charge included in the fixed-tune and tune-step tracking".
+  - Whether the feedback and scattering ring-tracking cases included space charge remains an author question (Task 03 metadata status).
+- **PID citation (finding 2).** "Controllers based on PID feedback were investigated [pid]" became "The original study investigated PID controllers, a standard feedback scheme [pid]". Ref. [pid] now supports only the concept.
+- **Reference-group branch (finding 3).** Now attributed: "According to the original analysis, after three turns the added reference group follows the outgoing separatrix branch…". A new sentence notes that in Fig. 7(a) the branch can be identified only through the orange overlays, whose definition is not documented.
+- **Fig. 1 caption (finding 4).** "Nonzero chromaticity gives greater emittance growth…" became "With nonzero chromaticity, emittance growth is greater and centroid excursions are smaller."
+- **Paragraphs and wording (finding 5).** The Fig. 4 paragraph (252 words) was split into burst behavior and post-restoration behavior. The Fig. 7(a) paragraph (222 words) was split into the initial line with its mapping caveat and the three-turn evolution. The second "therefore" became "thus", and "at that turn" became "at the restoration turn". The longest body paragraph is now 195 words, so none exceeds 200 after Tasks 23–24.
+- **Counts.** "Not documented" rose from 27 to 28 (the new overlay caveat), and the broad hedge count from 74 to 75. Task 25 consolidates these disclosures.
+
+Validation: both variants were rebuilt fresh, 24 pages each; the review contents stay on page 1. Both have 0 BibTeX warnings, and the only box warning is the known CAS overlay. Pages 12, 15, and 20 were inspected. All 26 figure, draft, bibliography, and highlight hashes are unchanged. The space-charge question for the feedback and scattering cases was added to the "Geometry and inherited baseline" author check.
 
 ## Task 23 completed: follow-up prose tightened without losing qualifications
 
@@ -785,7 +801,7 @@ The author subsequently supplied the published 11-page article. It has now been 
 
 | Priority | Issue | Evidence or decision needed |
 | --- | --- | --- |
-| High | Geometry and inherited baseline | Confirm the 50 micrometre scattering foil against the MARS deck; the prior model consistently uses 100 micrometres. Identify the actual lattice, ramp, bump waveform, space-charge configuration, and acceptance used in each present case. The new scope table distinguishes the stated values without claiming a matched configuration. Also confirm the beam momentum actually used in the Synergia2 input decks; Table 1 now gives the corrected nominal 8.889 GeV/c (Task 22). |
+| High | Geometry and inherited baseline | Confirm the 50 micrometre scattering foil against the MARS deck; the prior model consistently uses 100 micrometres. Identify the actual lattice, ramp, bump waveform, space-charge configuration, and acceptance used in each present case. The new scope table distinguishes the stated values without claiming a matched configuration. Also confirm the beam momentum actually used in the Synergia2 input decks; Table 1 now gives the corrected nominal 8.889 GeV/c (Task 22). State whether the ripple-and-feedback and scattering ring-tracking cases included space charge; the manuscript now claims it only for the fixed-tune and tune-step cases (Task 24). |
 | High | Quadrupole ripple amplitude | The original text says both “peak-to-peak” and “±0.5%.” The revision retains ±0.5% as an amplitude provisionally. Confirm from the input whether the modulation was 0.5% amplitude (1% peak-to-peak) or 0.5% peak-to-peak. Record which quadrupoles were modulated and their relative phases. |
 | High | Controller reproducibility and performance | Provide the discrete update law, proportional-gain schedule, derivative gain/filter, averaging and update intervals, latency, amplitude limits, and initial conditions. Define spill normalization and binning. Report an RMS/ripple-spectrum or duty-factor comparison with uncertainty and the relevant spill window before making quantitative suppression or optimality claims. State whether the RFKO loop's actual delay was measured; the tune-step diagnostic only motivates a delay mechanism (Task 19). |
 | High | Transit-time sample and tune-step definition | Confirm that restoration means the uninterrupted-ramp value at the restoration turn, the exact step sizes, the start-time convention, whether already-unstable particles are excluded, the particle count at each stage, and the extraction criterion. The draft's approximately 500-turn observation interval is preserved; test for unobserved tails. Also state the RK4 integration step and the arrival-detection cadence in both codes; these determine whether the discrete short-transit levels are physical or sampling artifacts (Task 19). |

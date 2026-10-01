@@ -19,7 +19,7 @@ This repository contains a journal manuscript on particle dynamics during third-
 | `CLAUDE.md` | Symbolic link to `AGENTS.md` for agent tooling. |
 | `.gitignore` | Excludes generated LaTeX products. |
 
-The active source uses `beamstudy-mod.bib` and the `elsarticle-num` bibliography style, matching the companion manuscript `../mu2e_modeling-submission/mu2e_modeling.tex`. `latexmk` runs BibTeX automatically. The repository does not contain the lattice/input decks, original particle samples, controller code, or plotting scripts needed to reproduce the simulations. Compiling this repository reproduces the manuscript, not the scientific calculations.
+The active source uses `beamstudy-mod.bib` and the `elsarticle-num` bibliography style, matching the companion manuscript `../mu2e_modeling-submission/mu2e_modeling.tex`. `latexmk` runs BibTeX automatically. The repository does not contain the lattice/input decks, original particle samples, controller code, or plotting scripts needed to reproduce the simulations. Archived copies of most of them exist outside the repository, in the author's local cluster backups; REVIEW.md (Task 27) lists them. Compiling this repository reproduces the manuscript, not the scientific calculations.
 
 ## Build
 
@@ -93,7 +93,8 @@ The author has requested journal-quality improvement with **no new simulations a
 | --- | --- |
 | Done | 02–26, including the Task 10 final pass, the follow-up Tasks 18–21 (2026-09-30 review), and Tasks 22–26 (2026-10-01 reviews), all completed by 2026-10-01 |
 | Author actions before submission | See "Current status" and the Task 10 "Readiness report" in `REVIEW.md`: essential simulation metadata, figure originals meeting Elsevier artwork rules, declarations, journal choice, internal references |
-| Open tasks from `reviews/` | 27–34: recover records, resolve inconsistencies, figures and metrics (29–30 need author authorization), venue and scope, submission package, consolidation, hygiene |
+| Records recovered | 27: archived run options, logs, scripts, and MARS output found in local cluster backups; facts incorporated (REVIEW, Task 27) |
+| Open tasks from `reviews/` | 28–34: resolve inconsistencies, figures and metrics (29–30 need author authorization), venue and scope, submission package, consolidation, hygiene |
 
 Completion notes for each task are in the task files and in `REVIEW.md`. The task files are tracked in Git.
 

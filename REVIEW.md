@@ -4,34 +4,36 @@ Reviewed: 2026-09-29. Active source: `beamstudy-mod.tex`.
 
 This is a substantive editorial and internal-consistency revision, not a rerun of the simulations. The supplied figures and reported numerical results are preserved. The manuscript is improved but still requires the author/data checks below before journal submission.
 
-## Current status (2026-10-01, after Tasks 18–21)
+## Current status (2026-10-01, after Task 27)
 
 This section is the current summary. The sections below are a chronological record, newest first after this section. Earlier status statements in them, such as the 2026-09-29 backlog section and the Task 10 readiness report, are historical and are kept as evidence.
 
 - **Backlog:** Tasks 02–21 are complete. Tasks 18–21 came from the updated-manuscript review dated 2026-09-30.
+- **Task 27 (2026-10-01):** the archived simulation records were found in local cluster backups and incorporated (see "Task 27 completed" below). Task 28 items 1–4 are resolved or explained by the records; the 43% denominator, the simulation momentum, and the missing fixed-tune and feedback runs are now the leading author questions.
 - **Open backlog (recorded 2026-10-01):** Tasks 27–34 from `reviews/review1.md` and `reviews/review2.md`: record recovery (27), numerical inconsistencies (28), publication-standard figures and quantitative metrics (29–30, blocked pending author authorization because they change the editorial boundaries), venue and scope (31), submission package (32), consolidation (33), and review-file hygiene (34). See `tasks/README.md`.
 - **Follow-up backlog (recorded 2026-10-01):** Tasks 22–26 from two further reviews, all completed on 2026-10-01 of revision `9b299a3`. They are editorial corrections only (setup wording, readability, attribution and scope slips, a provenance table, small layout and bibliography fixes); see `tasks/README.md`. The current status above describes the manuscript before those edits.
-- **Manuscript:** `beamstudy-mod.tex`, 24 pages in both the review layout (contents on page 1) and the submission build (`\SubmissionBuild`, no contents). The bibliography has 24 cited entries and 0 BibTeX warnings. The only LaTeX diagnostic is the known CAS keyword-overlay box. There are 46 unique labels, all resolved.
+- **Manuscript:** `beamstudy-mod.tex`, 27 pages in the review layout (contents on page 1) and 26 in the submission build (`\SubmissionBuild`, no contents), after Task 27. The bibliography has 24 cited entries and 0 BibTeX warnings. The only LaTeX diagnostic is the known CAS keyword-overlay box. There are 46 unique labels, all resolved.
 - **Figures and drafts:** all 22 image files are unchanged since the first commit, and the reference drafts are unchanged since `c037b4e`.
 
 ### Current claim–evidence map (supersedes the Task 10 table)
 
 | Claim | Evidence | Status after Tasks 18–20 |
 | --- | --- | --- |
-| Emittance growth with nonzero chromaticity; mainly coherent centroid motion at zero chromaticity | Figs. 1–2, Sec. 4.1 | Observation retained. Chromatic mixing is presented as consistent with it, with the mechanism credited to earlier simulations [ipac11]. A possible difference in the undocumented bandwidths is not excluded, and the action diagnostic's reference is undocumented, so the density reading is conditional (Task 18). |
+| Emittance growth with nonzero chromaticity; mainly coherent centroid motion at zero chromaticity | Figs. 1–2, Sec. 4.1 | Observation retained. Chromatic mixing is presented as consistent with it, with the mechanism credited to earlier simulations [ipac11]. A possible difference in the bandwidths of the plotted runs is not excluded (those runs were not located); Task 27 recovered the centroid-referenced action and emittance definitions (Task 18, Task 27). |
 | PD RFKO feedback reduces visible ripple-driven modulation, with residual spikes | Fig. 3, Sec. 4.2 | Observation retained. The delay mechanism is a plausible interpretation carried across from the separate tune-step case, not a measured loop delay or demonstrated cause (Task 19). |
 | Transit times range from a few to more than one hundred turns and increase with the starting distance from the septum; the longest displayed times are longer at later stages | Figs. 4–5, Sec. 5 | Observation retained. Branch membership, fixed-point passage, and the discrete-level origin (sampling or physics) are labeled as interpretations or left unresolved, and the stage dependence is scoped to the displayed, truncated diagnostic (Task 19). |
-| ~43% of the returned scattered-particle sample (50 µm foils) is reported lost in ring tracking | Fig. 7, Sec. 6 | Conditional fraction retained. The thin-foil relation is local only, given the undocumented C-magnet-to-ESS1 mapping. The return to the septum region is observed for three displayed turns, without a demonstrated encounter history, and the survival endpoint is undocumented (Task 20). |
+| ~43% of the returned scattered-particle sample (50 µm foils) is reported lost in ring tracking | Fig. 7, Sec. 6 | Conditional fraction retained. Task 27: the archived accounting divides by the 2,402-particle tracked subset of 127,975 returned particles; author confirmation pending before the abstract and highlights are changed. The C-magnet-to-ESS1 map is linear but its derivation is not recorded; the tracking duration is not recorded (Tasks 20, 27). |
 | Chromatic mixing and transit time as links in the RFKO response chain | §7.1 | Now "plausible successive links", not a demonstrated causal chain. |
 
 ### Readiness
 
 The manuscript is editorially complete and **not yet submission-ready**. The author actions in the Task 10 "Readiness report" still apply, together with the questions added by Tasks 18–20 to the author-check table:
-- the action-diagnostic reference and sample-time correspondence;
-- the chirp bandwidth per chromaticity;
-- the RK4 step and arrival-detection cadence;
+- the 43% denominator (2,402 tracked versus 127,975 returned; Task 27);
+- the momentum reported in Table 1 (simulations used 8.827 GeV/c; Task 27);
+- the plotted fixed-tune and feedback runs, which were not among the recovered records (Task 27);
 - whether the RFKO loop delay was measured;
-- the C-magnet-to-ESS1 mapping type and later-turn encounter records.
+- later-turn encounter records of the scattered sample.
+The action reference, chirp bandwidth of the related runs, RK4 step and cadence, and mapping type were recovered in Task 27.
 
 ## Companion-manuscript format conversion
 
@@ -69,6 +71,92 @@ Main findings requiring author input:
 - **Documentation and front matter (Tasks 16–17).** README still describes an inline `thebibliography`, contrary to the earlier statement in this file that it was updated for BibTeX. The `pimms` and `wcm` entries each merge two documents. `\floatpagepagefraction` has no effect. The running head no longer matches the title, and the contents block is unsuitable for submission.
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
+
+## Task 27 completed: simulation records recovered
+
+Completed 2026-10-01. The search was read-only. No simulation, tracking, or figure generation was run; no archived file was modified. The records were read, and existing archived outputs were opened only to establish provenance (which run or script produced a figure).
+
+### Where the records are
+
+| Archive (local) | Content | Relevance |
+| --- | --- | --- |
+| `~/backups/TeVCluster_Backup-Nov2020/data/results/mu2e/tune_ramp/` (also in the Dec 2018 backup) | Run directories with `alloptions`, `command`, `synergia.out`, per-run `ramp_modules.py`; analysis and plotting scripts; `img/` | Fixed-tune (`growth.00`–`07`, `agrowth.04`–`05`), tune-step (`arrival_time.00`–`19`), extraction (`beamstudy.00`–`05`) runs; plotting scripts for Figs. 1, 2, 6, 7, 8 |
+| `~/backups/TeVCluster_Backup-Nov2020/home/work/mu2e-simulations/` (git, last commit 2014-10-08) | Synergia2 driver `mu2e.py` (2015-01-06), `ramp_modules.py`, lattice | Emittance, aperture, RFKO conventions |
+| `~/backups/TeVCluster_Backup-Nov2020/home/work/mu2e_resume/` | `test_particle.py/.sh`, `CircBeamCM*.dat` (MARS output), `test_particle.lat` | Septum-scattering ring tracking |
+| `~/backups/TeVCluster_Backup-Nov2020/home/work/paper/mu2e/` (2013–2014 draft of Ref. [mu2e]) | `mu2e.tex`, `img/fig10.png` | Fig. 3 origin |
+| `~/backups/tune_ramp/` (2013 runs `run.*`, `tune.*`, `tdr.*`, `bump.*`) | Feedback runs with gains | Controller history |
+| `~/Work/projects/mu2e/mu2e-simulations-profile/` (git, 2014-04-11) | Profile-optimization driver snapshot | Ripple and controller code |
+| `~/backups/TeVCluster_Backup-Nov2020/data/synergia2-devel/` | Synergia2 source of that period | Phase-space aperture definition |
+
+### Figure provenance (byte comparison with SHA-256)
+
+- `img/fig_rfko1a.png`, `fig_rfko1b.png`, `fig_rfko2a.png`, `fig_rfko2b.png` (2015-01-30) and `img/fig_beamloss2b.png` (2015-01-24) are byte-identical to files in `.../tune_ramp/img/`.
+- `img/fig9.png` is byte-identical to `img/fig10.png` of the 2014 draft of Ref. [mu2e] (caption there: "Normalized spill rates in the presence of power supply ripples").
+- The other figures were matched by script: `mu2e_transit_time2.py` produces the Fig. 5 layout (axis label "normalized x (mm)", axes [−4, 0] × [0, 250]); `mu2e_mars_phasespace_multi.py` produces Fig. 7(a) (axes ±60 mm, septum at −11 mm, 17.7 mm circle); Fig. 8 starts from the same MARS sample as Fig. 7(a) (identical outliers) and matches a variant of `mu2e_mars_tracking.py`.
+
+### Item-by-item status (Task 27 table)
+
+| Item | Status | Record and value |
+| --- | --- | --- |
+| Lattice version | Recovered | MAD8 `Debunch_modified_rf.lat` (J. Johnstone, 2008, modified), identical in all 2014–15 runs |
+| Input-deck momentum | Recovered | 8.827385 GeV/c (KE 7.93884 GeV; `momentum :=` in the lattice; printed in every `synergia.out`). Differs from Table 1 (8.889). Manuscript now states it; Table 1 values kept pending the author's choice (AUTHOR CHECK) |
+| Space-charge solver | Recovered | `spacecharge=2d` (two-dimensional open Hockney), grid 64×64×128, 240 steps/turn, map order 2, in fixed-tune and tune-step runs; `arrival_time.19` has none; MARS ring tracking `sc=0`. §2.2 "three-dimensional space charge" was therefore removed |
+| Space charge in the feedback runs | Not found | Fig. 3 runs not located |
+| Ripple frequency and waveform | Recovered (code) | All ripple code (2013 `tune.*`, 2014 profile snapshot): f0 = 60 Hz, r(t) = Σ_{i=0..2} |sin(2π f0 t + 2πi/3)|, then (r − 1.91133)/(1.91133 − √3); applied as k1 → k1(1 + A r) to the `tqf` tune quadrupoles only. Fundamental 6f0 = 360 Hz = 1,639 turns at T_rev = 1.6949 µs, matching the ~1,650-turn period in Fig. 3 (Task 11). Peak-to-peak 1.49A |
+| Ripple amplitude A | Not found | Every one of 640 archived ramp modules has `A = 0.000`; `mu2e_quad_ripples_simple.py` (a standalone waveform plot) uses A = 0.005 but is not a run record |
+| Controller law | Recovered (code) | Per-turn update; e_p = (S_ref − S_100)/S_ref with S_100 the 100-turn average; e_d from Kaiser-smoothed (window 11) 100-turn spill; G = g_p e_p (only when e_p > 0) + g_i e_i + g_d e_d, clipped at 0; feedback from turn 500; adaptive g_p ×/÷ (1 + m·cdsp) when the mean-square same-sign error exceeds 0.010; kick = G × precomputed chirp |
+| Controller gains | Partly | 2013 feedback runs without ripple (`tune.01`–`05`): g_p = 0.5 (adaptive, m = 0.30), g_i = 0, g_d = 30; `tune.00`: g_p = 0.3, g_d = 4; `quad.00`: g_p = 0.3, g_d = 25. Values for Fig. 3 not recorded |
+| Spill normalization; why Fig. 3 ends near 20,000 | Not found | — |
+| Fixed-tune emittance definition | Recovered | `mu2e_emittance_growth_rate.py` (2015-01-29): rms geometric about the centroid, 1e6·√(Σ… ) → mm mrad, no π |
+| Action diagnostic | Recovered | `mu2e_distribution_actions1.py` (2015-01-29): centroid subtracted; Courant–Snyder action at the ESS1 entrance with the last row of the Twiss table (Python index −1; β ≈ 8.67 m, a minor inconsistency recorded here only); 300 bins of √I up to √(A/2); plotted count/√I[m^{1/2}] (explains the 10^7 scale) |
+| Centroid plot | Recovered | `mu2e_distribution_actions5.py`: means of x and αx + βx′; the latter is in mm although labeled mrad |
+| Acceptance convention | Recovered | Driver passes `aperture_emittance` unconverted; Synergia2 `Phasespace_aperture_operation` removes a particle when (x² + (αx + βx′)²)/β > A·10⁻⁶. So 20 means a geometric CS invariant 20 mm mrad (J ≤ 10). The 35 of the extraction runs is also geometric |
+| Fixed-tune runs | Partly | `growth.04`–`07` (2015-01-29; C_x = 0, 1; linear chirp; 0.5 kW; septum moved to −10 cm; sextupole ramp commented out; `fe = 0`; gain = 1): Δν = 0.01 (5.90 kHz) at both C_x; centre 0.65 f_rev = 383.5 kHz; 10⁵ macroparticles; norm_emit 16π → 0.2834 mm mrad rms. These end at turn 20,000 with C_x = 1 emittance 2.22, whereas the plotted curve is ~2.45 there and runs to 30,000, so the plotted runs were **not** located |
+| Kicker calibration | Recovered | k0 = √(8·50 Ω·P)/g · L/(βc p/e) with P = 500 W, g = 6.35 cm, L = 1.4 m → 7.04 kV/m, 1.12 µrad at 8.827 GeV/c |
+| Emittance 0.28 vs 0.35 (Task 28 item 2) | Resolved | Driver: ε_rms = ε_95,n / (5.991 βγ); with 16π: 0.283; with 20π: 0.354 |
+| Acceptance vs 2.75 (Task 28 item 3) | Resolved | Geometric 20 mm mrad CS invariant, J ≤ 10 mm mrad; no contradiction with an rms emittance of 2.75 |
+| Normalized transit coordinate (Task 28 item 4) | Resolved | X = x/√β ×10³ at the ESS1 entrance; tune-step runs have the wire at −10 mm and β = 8.67–8.81 m → X_w = −3.37 to −3.40. The −11 mm of Fig. 7(a) is the separate ring-tracking run (`test_particle.sh`, w0 = −0.0110). The inferred β ≈ 10.5 m is not needed |
+| Tune-step protocol | Recovered | `arrival_time.06` (5×10⁵, 2D SC, bumps off, wire −10 mm, 2,000 turns) resumed in `.07`/`.08`; step variants freeze k1 after `stop1` (2,000, 15,000, 25,000) and set it once at `stop2 = stop1 + 319`; no later update (held to the end of the run). Resonance parameters tabulated at 2,320, 15,320, 25,320 |
+| Selection and arrival criteria | Recovered | `mu2e_transit_time2.py`: exclude particles in the field region at t0; select extracted particles with 0 < t_e − t0 < 180 and (t_e − t0) mod 3 = 1; transit time t_e − t0. So the Synergia2 times are truncated at 180 turns by construction |
+| Per-stage particle counts | Not extracted | Would require reading run outputs; not needed for the text |
+| RK4 step and cadence | Recovered | matplotlib `rk4`, unit step in τ (three turns), ≤ 100 steps; crossing X < x_w/√β; time = 3 × step |
+| Resonance coefficients | Recovered | e.g. turn 2,320: Δν = −0.0109364, |g| = 2.58512, lattice phase 0.30107 rad; turn 25,320: Δν = −0.0028860, |g| = 2.52299. The RK4 uses |g| with the Ψ = π orientation; the lattice phase (0.29–0.31 rad) is not used — an author question whether the orientation matches the Synergia2 frame at ESS1 |
+| Twiss at ESS1 | Recovered | α = −1.28234 → −1.25845, β = 8.91279 → 8.67245 m over the ramp |
+| Returned sample | Recovered | `CircBeamCM.dat`: 127,975 rows; x, x′, y, y′, energy column 7.950–8.000 GeV (median 8.000); no weight or species column |
+| 43% denominator | Recovered (scripts) | `test_particle.py` keeps rows with transformed x > 0 → 2,402 particles; `mu2e_mars_losses.py` hard-codes `macro_particles = 2402  #127975` and divides deposits and Lambertson counts by it. dp/p set to 0 in tracking. The tracking run output (`tune_ramp/mars`) is not in the backups |
+| Tracking duration; reference particles in count | Not found | `test_particle.sh`: num_turns 1000, max_turns 6 per submission (resumable); final turn count not recorded |
+| C-magnet → ESS1 mapping | Partly | Plot scripts apply tmap = [[−1.10595, −8.26894], [−0.03679, −1.17930]] (det = 1.0000) to `CircBeamCM_transformed.dat`; the script that made the transformed file was not located |
+| Overlays in Figs. 7(a), 8 | Recovered | Orange: separatrix lines from `separatrix_piece-wise_linear.txt`; red: 35 mm mrad acceptance, radius √(35·8.91277) = 17.7 mm |
+| Loss-map markers | Recovered | `mu2e_mars_losses.py`: black > 10%, red 1–10%, orange 0–1% of 2,402; stars = septa and Lambertson; axes in metres from the lattice geometry |
+| 50 µm foils | Partly | Synergia2 wire width 50 µm in all 2014–15 runs and in the ring tracking; MARS input not located |
+| MARS version | Not found | — |
+
+### Manuscript changes
+
+- Table 1 caption: the simulation momentum, 8.827 GeV/c, is stated; tabulated values unchanged (AUTHOR CHECK).
+- §2.1: lattice file, solver, grid, steps, map order, and the bumps-off tune-step ramp stated; §2.2 no longer claims 3D space charge.
+- Tables 2–3 and §2.4: recovered acceptance convention, solver, tune-step protocol, tracked-sample sizes.
+- §4.1 and Figs. 1–2: aperture as a geometric CS limit; kicker calibration (1.1 µrad); archived related runs and their settings, explicitly not the plotted runs; emittance and action definitions (centroid-referenced); 0.28 explained by 16π; the hatted-coordinate unit.
+- §4.2: ripple routine and 360 Hz fundamental; controller structure; A and gains of Fig. 3 stated as not recorded.
+- §5 and Fig. 6: selection, arrival, RK4 step, resonance parameters, coordinate normalization, 320-turn pause, hold to run end, 180-turn truncation; discrete levels explained by procedure.
+- §6 and Figs. 7–8: sample sizes, tracked subset, tracking settings, denominator, mapping, overlays, loss markers.
+- §2.4, §7.4, conclusions: wording aligned ("tracked part of the returned sample"); the abstract and highlights still say "returned scattered-particle sample" pending the author's confirmation of the denominator.
+- Appendix A reduced to the remaining gaps.
+- AUTHOR CHECKs: the old ones on momentum, foil/acceptance/settings, fixed-tune convention, ripple, 43%, and overlays were replaced. The remaining or new ones cover momentum choice, the MARS foil thickness, the missing fixed-tune runs, the ripple amplitude, the Fig. 3 run length, and the 43% denominator.
+
+### Author questions raised by the records (highest priority first)
+
+1. **43% denominator.** The archived accounting divides by the 2,402-particle tracked subset (1.9% of the returned 127,975). Confirm that the reported 43% refers to that subset; if so, the abstract, highlights, and conclusions should say so.
+2. **Momentum.** The simulations used 8.827 GeV/c; Table 1 lists 8.889. Choose which value Table 1 reports (Bρ would become 29.445 T m, βγ 9.41).
+3. **Fixed-tune runs.** The 30,000-turn runs plotted in Figs. 1–2 are missing; the related 20,000-turn runs differ numerically. Locate them, or accept the present wording.
+4. **Ripple amplitude and gains of Fig. 3.** Not in any archived run.
+5. **Reduced-model orientation.** The RK4 ignores the lattice resonance phase (0.29–0.31 rad); confirm that the separatrix orientation matches the Synergia2 coordinates at ESS1.
+6. **Energy loss in ring tracking.** The tracking input sets dp/p = 0 for particles that lost up to 50 MeV in MARS; confirm, or state as a limitation.
+7. **Feed-forward acceptance.** Ref. [mu2e] calls its 35π acceptance normalized, but the code applies it as geometric. Consider an erratum in the companion paper.
+
+### Validation
+
+Both builds succeeded from the repository root into scratchpad `mktemp` directories: review layout 27 pages (contents on page 1), submission build 26 pages. The only LaTeX box warning is the known 117.08 pt CAS keyword overlay; BibTeX reports 0 warnings; 50 labels are unique, and every `\ref`/`\eqref` resolves. Pages 5, 6, 10, 12, and 26 were rendered and inspected. `img/*`, `beamstudy.tex`, `modeling.tex`, `beamstudy-mod.bib`, and `highlights.txt` are unchanged (`git status`). Six `AUTHOR CHECK` comments remain. The build does not validate the simulations; the archived records establish settings and definitions, not the correctness of the results.
 
 ## Task 26 completed: layout, bibliography, and style corrections
 

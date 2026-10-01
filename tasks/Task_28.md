@@ -5,6 +5,8 @@ Priority: P1
 Depends on: 27  
 Source: `reviews/review2.md` major concern 2; `reviews/review1.md` concern 3; Tasks 11 and 12 evidence in REVIEW
 
+> **Note from Task 27 (2026-10-01):** the recovered records resolve items 1–4 in the manuscript text: the ripple routine has a 360 Hz fundamental; the fixed-tune runs used a 16π normalized emittance (0.283 mm mrad rms); the aperture is a geometric 20 mm mrad Courant–Snyder limit; X = x/√β with the wire at −10 mm and β ≈ 8.7–8.9 m. What remains for this task is item 5 (Δp/p) and a consistency check of the new statements; see REVIEW, "Task 27 completed".
+
 ## Scope
 
 `sec:rfko1`, `sec:rfko`, `sec:arrival`, the `fig:fig9`, `fig:rfko1`, and `fig:arrival2` captions, Table 1, and Appendix A.

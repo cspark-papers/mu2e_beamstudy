@@ -1,6 +1,6 @@
 # Task 27 — Recover the essential simulation records
 
-Status: Todo  
+Status: Done  
 Priority: P1 (decisive for acceptance)  
 Owner: Author (record retrieval); editor (incorporation)  
 Depends on: None  
@@ -31,10 +31,10 @@ Both reviews identify this as the decisive step: "Recovering the essential recor
 
 ## Acceptance criteria
 
-- [ ] REVIEW lists each item as recovered (with provenance) or confirmed unrecoverable.
-- [ ] The manuscript states every recovered item as a sourced fact, and Table 4 lists only unrecovered items.
-- [ ] No figure or reported result changes as part of this task; any value correction is recorded with its source.
-- [ ] Both builds pass, with resolved references.
+- [x] REVIEW lists each item as recovered (with provenance) or confirmed unrecoverable.
+- [x] The manuscript states every recovered item as a sourced fact, and Table 4 lists only unrecovered items.
+- [x] No figure or reported result changes as part of this task; any value correction is recorded with its source.
+- [x] Both builds pass, with resolved references.
 
 ## If records cannot be recovered
 
@@ -42,4 +42,23 @@ Record that outcome in REVIEW and proceed to Task 31 (scope and venue reassessme
 
 ## Completion record
 
-Pending. Recorded from the reviews dated 2026-10-01; no manuscript change yet.
+Completed: 2026-10-01 (editor part; the remaining retrieval is the author's).
+
+- The records were found in local backups of the Fermilab cluster (`~/backups/TeVCluster_Backup-*`, `~/backups/tune_ramp`) and in `~/Work/projects/mu2e`. They include run options and logs, the Synergia2 driver and ramp modules, analysis and plotting scripts, the MARS output file, and the Synergia2 source of that period. Five figure files are byte-identical to archived plots, and Fig. 3 is identical to a figure of the 2014 draft of Ref. [2]. REVIEW ("Task 27 completed") lists every item with its file provenance and status.
+- **Recovered and stated in the manuscript:**
+  - simulation momentum (8.827 GeV/c), lattice file, and space-charge solver (two-dimensional, 64×64×128, 240 steps/turn);
+  - the acceptance convention (geometric Courant–Snyder limit) and kicker calibration (1.1 µrad);
+  - the fixed-tune emittance and action definitions (centroid-referenced), and the explanation of 0.28 (16π normalized);
+  - the ripple waveform (three-phase rectified 60 Hz, 360 Hz fundamental) and the controller structure;
+  - the tune-step protocol (320-turn pause, single step, hold); the selection (extraction within 180 turns, same three-turn phase) and arrival criteria;
+  - the RK4 step and cadence, the resonance coefficients, and the ESS1 Twiss parameters;
+  - the returned-sample size (127,975), the tracked subset (2,402), the loss denominator, the ring-tracking settings, the plot overlays, and the loss-map markers.
+- **Not found:**
+  - the 30,000-turn fixed-tune runs that were plotted (related 20,000-turn runs differ);
+  - the ripple amplitude and gains of Fig. 3;
+  - the output of the ring-tracking run (duration, reference particles);
+  - the MARS input and version (foil thickness);
+  - the script that converted the MARS output.
+  These remain in Appendix A and in the author questions in REVIEW.
+- No figure or reported result changed. The 43% value is kept; its denominator (the 2,402-particle tracked subset, according to the archived script) is the leading author question, and the abstract and highlights are unchanged pending confirmation.
+- Both builds pass (27 and 26 pages); labels and references resolve; BibTeX reports 0 warnings.

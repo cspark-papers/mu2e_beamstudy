@@ -1,6 +1,6 @@
 # Manuscript improvement tasks
 
-Created: 2026-09-29. Status: Tasks 02–26 are complete; Tasks 27–34 (from `reviews/`) are open, with 29–30 blocked pending author authorization following the two reviews dated 2026-10-01 (22–23, then 24–26). Follow-up Tasks 18–21 came from the updated-manuscript review dated 2026-09-30. Submission also awaits the author actions listed in REVIEW.md. Tasks 11–17 were added on 2026-09-29 after an earlier manuscript review.
+Created: 2026-09-29. Status: Tasks 02–27 are complete; Tasks 28–34 (from `reviews/`) are open, with 29–30 blocked pending author authorization following the two reviews dated 2026-10-01 (22–23, then 24–26). Follow-up Tasks 18–21 came from the updated-manuscript review dated 2026-09-30. Submission also awaits the author actions listed in REVIEW.md. Tasks 11–17 were added on 2026-09-29 after an earlier manuscript review.
 
 ## Objective and boundaries
 
@@ -15,7 +15,7 @@ Improve the journal submission quality of `beamstudy-mod.tex` using the existing
 
 ## Ordered backlog
 
-Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. Tasks 02–26 are **Done**; Tasks 27–34 are open, and 29–30 are **Blocked** until the author authorizes a scope change. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
+Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. Tasks 02–27 are **Done**; Tasks 28–34 are open, and 29–30 are **Blocked** until the author authorizes a scope change. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
 
 | Task | Status | Priority | Deliverable | Depends on |
 | --- | --- | --- | --- | --- |
@@ -45,7 +45,7 @@ Priority P1 means scientific interpretation and narrative; P2 means presentation
 | [24 — Residual attribution and scope slips](Task_24.md) | Done | P1 | Space charge only where documented; PID citation; reference-group branch attribution; observational Fig. 1 caption; two remaining long paragraphs | 22, 23 |
 | [25 — Provenance table for undocumented settings](Task_25.md) | Done | P2 | One case-by-case table of unspecified settings replacing repeated "not documented" prose, with every disclosure preserved | 22, 23, 24 |
 | [26 — Layout, bibliography, and style](Task_26.md) | Done | P2 | Table 1 placement, MARS15 capitalization (primary source checked), single TDR link, Acknowledgments numbering decision | None |
-| [27 — Recover essential simulation records](Task_27.md) | Todo | P1 | Author retrieves decks, logs, controller and accounting records; recovered facts replace Appendix A entries | None |
+| [27 — Recover essential simulation records](Task_27.md) | Done | P1 | Author retrieves decks, logs, controller and accounting records; recovered facts replace Appendix A entries | None |
 | [28 — Resolve internal numerical inconsistencies](Task_28.md) | Todo | P1 | Ripple frequency (60 vs ~360 Hz), emittance and acceptance conventions, normalized coordinate, Δp/p | 27 |
 | [29 — Publication-standard figures](Task_29.md) | Blocked (needs author authorization) | P1 | Regenerate figures from original plotting data at Elsevier resolution with defined labels | 27 |
 | [30 — Quantitative metrics from existing outputs](Task_30.md) | Blocked (needs author authorization) | P1 | Spill rms or duty factor and spectrum, transit-time statistics, 43% sample size and uncertainty from original files | 27 |

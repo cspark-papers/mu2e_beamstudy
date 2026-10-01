@@ -1,6 +1,6 @@
 # Task 18 — Reconcile RFKO diagnostics and chromaticity claims
 
-Status: Todo  
+Status: Done  
 Priority: P1  
 Depends on: 04, 05, 11  
 Review date: 2026-09-30
@@ -28,12 +28,19 @@ Follow `tasks/README.md`: existing evidence only, no new simulations, and no cha
 
 ## Acceptance criteria
 
-- [ ] No unverified equality between the plotted action and Eq. `eqn:action` remains.
-- [ ] The density/Jacobian argument states the required reference, angular averaging, and Gaussian assumptions.
-- [ ] Space-charge and chromatic tune spreads are distinguished consistently.
-- [ ] Summary claims and highlights retain the bandwidth limitation without losing the observed result.
-- [ ] Images, reported values, and citation metadata are unchanged; a rebuilt PDF has resolved references.
+- [x] No unverified equality between the plotted action and Eq. `eqn:action` remains.
+- [x] The density/Jacobian argument states the required reference, angular averaging, and Gaussian assumptions.
+- [x] Space-charge and chromatic tune spreads are distinguished consistently.
+- [x] Summary claims and highlights retain the bandwidth limitation without losing the observed result.
+- [x] Images, reported values, and citation metadata are unchanged; a rebuilt PDF has resolved references.
 
 ## Completion record
 
-Pending. Findings recorded only; the manuscript has not been edited for this task.
+Completed: 2026-10-01.
+
+- Finding 1: the profile paragraph no longer equates the plotted action with Eq. `eqn:action`. It states that the reference is undocumented, gives ⟨I_x⟩ = [Var(X)+Var(X')+⟨X⟩²+⟨X'⟩²]/2 to show why the reference matters, and lists the undistinguished explanations for the near-coincident C_x = 0 profiles.
+- Finding 2: the density argument is now conditional (fixed reference; f(u) = dN/du; annulus area 4πu du; angle-averaged density; Gaussian only for a centered, matched beam). The caption was reworded to match, and "diffusion-like" was removed.
+- Finding 3: chromatic and space-charge spreads are distinguished throughout. The C_x = 0 explanation uses the coherent-mode argument, verified against IPAC2011 pp. 3560–3561.
+- Finding 4: the Introduction, Sec. 4.1, Sec. 4.2, §7.1, §7.4, the Conclusions, and highlight 1 now present chromatic mixing as consistent with the observed contrast and cite the earlier simulations for the mechanism, while retaining the bandwidth confound.
+- Unresolved questions (action reference, sample-time correspondence, per-case bandwidth) were added to the existing REVIEW author-check rows.
+- Build succeeded (23 pages, 0 BibTeX warnings, only the known CAS overlay); all references resolve; images, bibliography, and reference drafts are unchanged; pages 8–11 were inspected.

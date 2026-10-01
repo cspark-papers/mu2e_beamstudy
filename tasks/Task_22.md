@@ -1,6 +1,6 @@
 # Task 22 — Align setup statements with the documented uncertainty
 
-Status: Todo  
+Status: Done  
 Priority: P1  
 Depends on: 03, 12, 18–20  
 Review date: 2026-10-01
@@ -28,13 +28,20 @@ Follow `tasks/README.md`: existing records and editorial corrections only, no ne
 
 ## Acceptance criteria
 
-- [ ] An undocumented controller update rate is neither equated to nor excluded from the other 100-turn intervals.
-- [ ] Possible bandwidth differences remain possible throughout the text.
-- [ ] The acceptance cross-reference accurately reports that the normalization is undocumented.
-- [ ] Table 3 and the transit-time discussion agree about intended versus confirmed particle selection.
-- [ ] Corrected nominal momentum is distinguished from verified historical input, without undoing the supported nominal correction.
-- [ ] Builds and cross-references pass; all figure files, panels, and reported results remain unchanged.
+- [x] An undocumented controller update rate is neither equated to nor excluded from the other 100-turn intervals.
+- [x] Possible bandwidth differences remain possible throughout the text.
+- [x] The acceptance cross-reference accurately reports that the normalization is undocumented.
+- [x] Table 3 and the transit-time discussion agree about intended versus confirmed particle selection.
+- [x] Corrected nominal momentum is distinguished from verified historical input, without undoing the supported nominal correction.
+- [x] Builds and cross-references pass; all figure files, panels, and reported results remain unchanged.
 
 ## Completion record
 
-Pending. This review records the findings only; the manuscript and figures are unchanged.
+Completed: 2026-10-01.
+
+- Finding 1: "Neither establishes the controller update interval, which is not documented."
+- Finding 2: the two presupposing phrases (Sec. 4.1 implication, Conclusions) now refer to a possible difference in the undocumented bandwidths, and the REVIEW current claim map was aligned.
+- Finding 3: the acceptance normalization is "not documented (Table 2)".
+- Finding 4: the Table 3 tune-step cell reads "reported as released by the step (selection criterion not documented; Sec. 5)".
+- Finding 5: the Table 1 caption and Sec. 5 distinguish the corrected nominal momentum from the unchecked input-deck value, and the question was added to the REVIEW configuration row. 8.889 is kept.
+- Both builds pass (24 pages; 0 BibTeX warnings; known CAS overlay only); Tables 1 and 3 were inspected; all figures, values, bibliography, and highlights are unchanged.

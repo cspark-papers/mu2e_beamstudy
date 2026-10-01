@@ -9,7 +9,7 @@ This is a substantive editorial and internal-consistency revision, not a rerun o
 This section is the current summary. The sections below are a chronological record, newest first after this section. Earlier status statements in them, such as the 2026-09-29 backlog section and the Task 10 readiness report, are historical and are kept as evidence.
 
 - **Backlog:** Tasks 02–21 are complete. Tasks 18–21 came from the updated-manuscript review dated 2026-09-30.
-- **Pending (recorded 2026-10-01):** Tasks 22–26 from two further reviews of revision `9b299a3`. They are editorial corrections only (setup wording, readability, attribution and scope slips, a provenance table, small layout and bibliography fixes); see `tasks/README.md`. The current status above describes the manuscript before those edits.
+- **Pending (recorded 2026-10-01):** Tasks 23–26 (Task 22 done) from two further reviews of revision `9b299a3`. They are editorial corrections only (setup wording, readability, attribution and scope slips, a provenance table, small layout and bibliography fixes); see `tasks/README.md`. The current status above describes the manuscript before those edits.
 - **Manuscript:** `beamstudy-mod.tex`, 24 pages in both the review layout (contents on page 1) and the submission build (`\SubmissionBuild`, no contents). The bibliography has 24 cited entries and 0 BibTeX warnings. The only LaTeX diagnostic is the known CAS keyword-overlay box. There are 46 unique labels, all resolved.
 - **Figures and drafts:** all 22 image files are unchanged since the first commit, and the reference drafts are unchanged since `c037b4e`.
 
@@ -17,7 +17,7 @@ This section is the current summary. The sections below are a chronological reco
 
 | Claim | Evidence | Status after Tasks 18–20 |
 | --- | --- | --- |
-| Emittance growth with nonzero chromaticity; mainly coherent centroid motion at zero chromaticity | Figs. 1–2, Sec. 4.1 | Observation retained. Chromatic mixing is presented as consistent with it, with the mechanism credited to earlier simulations [ipac11]. An undocumented bandwidth difference is not excluded, and the action diagnostic's reference is undocumented, so the density reading is conditional (Task 18). |
+| Emittance growth with nonzero chromaticity; mainly coherent centroid motion at zero chromaticity | Figs. 1–2, Sec. 4.1 | Observation retained. Chromatic mixing is presented as consistent with it, with the mechanism credited to earlier simulations [ipac11]. A possible difference in the undocumented bandwidths is not excluded, and the action diagnostic's reference is undocumented, so the density reading is conditional (Task 18). |
 | PD RFKO feedback reduces visible ripple-driven modulation, with residual spikes | Fig. 3, Sec. 4.2 | Observation retained. The delay mechanism is a plausible interpretation carried across from the separate tune-step case, not a measured loop delay or demonstrated cause (Task 19). |
 | Transit times range from a few to more than one hundred turns and increase with the starting distance from the septum; the longest displayed times are longer at later stages | Figs. 4–5, Sec. 5 | Observation retained. Branch membership, fixed-point passage, and the discrete-level origin (sampling or physics) are labeled as interpretations or left unresolved, and the stage dependence is scoped to the displayed, truncated diagnostic (Task 19). |
 | ~43% of the returned scattered-particle sample (50 µm foils) is reported lost in ring tracking | Fig. 7, Sec. 6 | Conditional fraction retained. The thin-foil relation is local only, given the undocumented C-magnet-to-ESS1 mapping. The return to the septum region is observed for three displayed turns, without a demonstrated encounter history, and the survival endpoint is undocumented (Task 20). |
@@ -68,6 +68,21 @@ Main findings requiring author input:
 - **Documentation and front matter (Tasks 16–17).** README still describes an inline `thebibliography`, contrary to the earlier statement in this file that it was updated for BibTeX. The `pimms` and `wcm` entries each merge two documents. `\floatpagepagefraction` has no effect. The running head no longer matches the title, and the contents block is unsuitable for submission.
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
+
+## Task 22 completed: setup statements aligned with documented uncertainty
+
+Completed 2026-10-01 with editorial corrections only; no value, figure, or result changed.
+
+- **Update interval (finding 1).** "Neither of these is the controller update interval" became "Neither establishes the controller update interval, which is not documented". The interval is now neither equated with nor excluded from the 100-turn accumulation and chirp sweep.
+- **Bandwidth (finding 2).** The two places that presupposed a difference now say "a possible difference between the two cases' undocumented bandwidths" (Sec. 4.1 implication) and "a possible difference in the undocumented excitation bandwidths" (Conclusions); the current claim–evidence map was aligned. All other uses already said "may differ" or "not excluded".
+- **Acceptance (finding 3).** "whose normalization is given in Table 2" became "whose normalization is not documented (Table 2)", in agreement with the table.
+- **Table 3 selection (finding 4).** The tune-step sample cell now reads "Particles reported as released by the step (selection criterion not documented; Sec. 5)".
+- **Nominal versus run momentum (finding 5).**
+  - The Table 1 caption now states that 8.889 GeV/c is a correction of the nominal value and that the momentum used in the original simulation inputs has not been checked.
+  - Sec. 5 now says the calculation uses "the nominal parameters of Table 1", noting that the input-deck momentum was not checked against the corrected entry. The supported correction is kept.
+  - The question was added to the "Geometry and inherited baseline" author-check row.
+
+Validation: both variants were rebuilt in fresh directories (review and submission, 24 pages each; contents on page 1 in review only). Both have 0 BibTeX warnings, and the only box warning is the known CAS overlay. Pages 2 and 6 (Tables 1 and 3) were inspected. All 26 tracked figure, draft, bibliography, and highlight hashes are unchanged.
 
 ## Task 21 completed: bibliography syntax and current review summaries
 
@@ -752,7 +767,7 @@ The author subsequently supplied the published 11-page article. It has now been 
 
 | Priority | Issue | Evidence or decision needed |
 | --- | --- | --- |
-| High | Geometry and inherited baseline | Confirm the 50 micrometre scattering foil against the MARS deck; the prior model consistently uses 100 micrometres. Identify the actual lattice, ramp, bump waveform, space-charge configuration, and acceptance used in each present case. The new scope table distinguishes the stated values without claiming a matched configuration. |
+| High | Geometry and inherited baseline | Confirm the 50 micrometre scattering foil against the MARS deck; the prior model consistently uses 100 micrometres. Identify the actual lattice, ramp, bump waveform, space-charge configuration, and acceptance used in each present case. The new scope table distinguishes the stated values without claiming a matched configuration. Also confirm the beam momentum actually used in the Synergia2 input decks; Table 1 now gives the corrected nominal 8.889 GeV/c (Task 22). |
 | High | Quadrupole ripple amplitude | The original text says both “peak-to-peak” and “±0.5%.” The revision retains ±0.5% as an amplitude provisionally. Confirm from the input whether the modulation was 0.5% amplitude (1% peak-to-peak) or 0.5% peak-to-peak. Record which quadrupoles were modulated and their relative phases. |
 | High | Controller reproducibility and performance | Provide the discrete update law, proportional-gain schedule, derivative gain/filter, averaging and update intervals, latency, amplitude limits, and initial conditions. Define spill normalization and binning. Report an RMS/ripple-spectrum or duty-factor comparison with uncertainty and the relevant spill window before making quantitative suppression or optimality claims. State whether the RFKO loop's actual delay was measured; the tune-step diagnostic only motivates a delay mechanism (Task 19). |
 | High | Transit-time sample and tune-step definition | Confirm that restoration means the uninterrupted-ramp value at the restoration turn, the exact step sizes, the start-time convention, whether already-unstable particles are excluded, the particle count at each stage, and the extraction criterion. The draft's approximately 500-turn observation interval is preserved; test for unobserved tails. Also state the RK4 integration step and the arrival-detection cadence in both codes; these determine whether the discrete short-transit levels are physical or sampling artifacts (Task 19). |

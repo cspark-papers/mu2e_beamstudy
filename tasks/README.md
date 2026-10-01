@@ -1,6 +1,6 @@
 # Manuscript improvement tasks
 
-Created: 2026-09-29. Status: Tasks 02–21 are complete; Tasks 22–26 are Todo following the two reviews dated 2026-10-01 (22–23, then 24–26). Follow-up Tasks 18–21 came from the updated-manuscript review dated 2026-09-30. Submission also awaits the author actions listed in REVIEW.md. Tasks 11–17 were added on 2026-09-29 after an earlier manuscript review.
+Created: 2026-09-29. Status: Tasks 02–22 are complete; Tasks 23–26 are Todo following the two reviews dated 2026-10-01 (22–23, then 24–26). Follow-up Tasks 18–21 came from the updated-manuscript review dated 2026-09-30. Submission also awaits the author actions listed in REVIEW.md. Tasks 11–17 were added on 2026-09-29 after an earlier manuscript review.
 
 ## Objective and boundaries
 
@@ -15,7 +15,7 @@ Improve the journal submission quality of `beamstudy-mod.tex` using the existing
 
 ## Ordered backlog
 
-Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. Tasks 02–21 are **Done**; Tasks 22–26 are **Todo**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
+Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. Tasks 02–22 are **Done**; Tasks 23–26 are **Todo**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
 
 | Task | Status | Priority | Deliverable | Depends on |
 | --- | --- | --- | --- | --- |
@@ -40,7 +40,7 @@ Priority P1 means scientific interpretation and narrative; P2 means presentation
 | [19 — Sampling and response-time interpretation](Task_19.md) | Done | P1 | Correct rotating-frame statement; separate timing cadence, phase-space interpretation, and feedback-delay inference | 04, 06, 13 |
 | [20 — Scattering coordinates and encounters](Task_20.md) | Done | P1 | Separate local scattering from transported coordinates and displayed returns from repeated physical encounters | 07, 11; coordinate with 19 |
 | [21 — Bibliography syntax and current review status](Task_21.md) | Done | P2 | Remove two stray braces, correct citation count, reconcile current summaries, and validate follow-up edits | 17; final summary after 18–20 |
-| [22 — Setup provenance and uncertainty](Task_22.md) | Todo | P1 | Align update-rate, bandwidth, acceptance, particle-selection, and nominal/input statements | 03, 12, 18–20 |
+| [22 — Setup provenance and uncertainty](Task_22.md) | Done | P1 | Align update-rate, bandwidth, acceptance, particle-selection, and nominal/input statements | 03, 12, 18–20 |
 | [23 — Readability after the follow-up edits](Task_23.md) | Todo | P2 | Remove repetition, separate observations from interpretation, and clarify horizontal-coordinate summaries | 18–22 |
 | [24 — Residual attribution and scope slips](Task_24.md) | Todo | P1 | Space charge only where documented; PID citation; reference-group branch attribution; observational Fig. 1 caption; two remaining long paragraphs | 22, 23 |
 | [25 — Provenance table for undocumented settings](Task_25.md) | Todo | P2 | One case-by-case table of unspecified settings replacing repeated "not documented" prose, with every disclosure preserved | 22, 23, 24 |

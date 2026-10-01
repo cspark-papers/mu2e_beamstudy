@@ -87,12 +87,13 @@ A successful build does not validate the underlying simulations.
 
 ## Current editorial plan
 
-The author has requested journal-quality improvement with **no new simulations and the existing figures as is**. `tasks/README.md` indexes Tasks 02–26 with scope, acceptance criteria, and a fallback for missing evidence; `tasks/Task_01.md` preserves the original request. Missing scientific evidence is handled through transparent limitations and narrower claims, not new runs. Figures may be sized and placed in TeX, but their image content is unchanged.
+The author has requested journal-quality improvement with **no new simulations and the existing figures as is**. `tasks/README.md` indexes Tasks 02–34 with scope, acceptance criteria, and a fallback for missing evidence; `tasks/Task_01.md` preserves the original request. Missing scientific evidence is handled through transparent limitations and narrower claims, not new runs. Figures may be sized and placed in TeX, but their image content is unchanged.
 
 | Status | Tasks |
 | --- | --- |
 | Done | 02–26, including the Task 10 final pass, the follow-up Tasks 18–21 (2026-09-30 review), and Tasks 22–26 (2026-10-01 reviews), all completed by 2026-10-01 |
 | Author actions before submission | See "Current status" and the Task 10 "Readiness report" in `REVIEW.md`: essential simulation metadata, figure originals meeting Elsevier artwork rules, declarations, journal choice, internal references |
+| Open tasks from `reviews/` | 27–34: recover records, resolve inconsistencies, figures and metrics (29–30 need author authorization), venue and scope, submission package, consolidation, hygiene |
 
 Completion notes for each task are in the task files and in `REVIEW.md`. The task files are tracked in Git.
 

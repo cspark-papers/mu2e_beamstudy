@@ -1,6 +1,6 @@
 # Manuscript improvement tasks
 
-Created: 2026-09-29. Status: All tasks (02–26) are complete following the two reviews dated 2026-10-01 (22–23, then 24–26). Follow-up Tasks 18–21 came from the updated-manuscript review dated 2026-09-30. Submission also awaits the author actions listed in REVIEW.md. Tasks 11–17 were added on 2026-09-29 after an earlier manuscript review.
+Created: 2026-09-29. Status: Tasks 02–26 are complete; Tasks 27–34 (from `reviews/`) are open, with 29–30 blocked pending author authorization following the two reviews dated 2026-10-01 (22–23, then 24–26). Follow-up Tasks 18–21 came from the updated-manuscript review dated 2026-09-30. Submission also awaits the author actions listed in REVIEW.md. Tasks 11–17 were added on 2026-09-29 after an earlier manuscript review.
 
 ## Objective and boundaries
 
@@ -15,7 +15,7 @@ Improve the journal submission quality of `beamstudy-mod.tex` using the existing
 
 ## Ordered backlog
 
-Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. All tasks (02–26) are **Done**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
+Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. Tasks 02–26 are **Done**; Tasks 27–34 are open, and 29–30 are **Blocked** until the author authorizes a scope change. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
 
 | Task | Status | Priority | Deliverable | Depends on |
 | --- | --- | --- | --- | --- |
@@ -45,8 +45,26 @@ Priority P1 means scientific interpretation and narrative; P2 means presentation
 | [24 — Residual attribution and scope slips](Task_24.md) | Done | P1 | Space charge only where documented; PID citation; reference-group branch attribution; observational Fig. 1 caption; two remaining long paragraphs | 22, 23 |
 | [25 — Provenance table for undocumented settings](Task_25.md) | Done | P2 | One case-by-case table of unspecified settings replacing repeated "not documented" prose, with every disclosure preserved | 22, 23, 24 |
 | [26 — Layout, bibliography, and style](Task_26.md) | Done | P2 | Table 1 placement, MARS15 capitalization (primary source checked), single TDR link, Acknowledgments numbering decision | None |
+| [27 — Recover essential simulation records](Task_27.md) | Todo | P1 | Author retrieves decks, logs, controller and accounting records; recovered facts replace Appendix A entries | None |
+| [28 — Resolve internal numerical inconsistencies](Task_28.md) | Todo | P1 | Ripple frequency (60 vs ~360 Hz), emittance and acceptance conventions, normalized coordinate, Δp/p | 27 |
+| [29 — Publication-standard figures](Task_29.md) | Blocked (needs author authorization) | P1 | Regenerate figures from original plotting data at Elsevier resolution with defined labels | 27 |
+| [30 — Quantitative metrics from existing outputs](Task_30.md) | Blocked (needs author authorization) | P1 | Spill rms or duty factor and spectrum, transit-time statistics, 43% sample size and uncertainty from original files | 27 |
+| [31 — Venue and scope decision](Task_31.md) | Todo | P1 | Journal choice and full-article versus narrower or proceedings scope, with the journal guide applied | 27, 29, 30 |
+| [32 — Submission package](Task_32.md) | Todo | P2 | Cover letter, declarations, highlights approval, acknowledgments, internal references, final submission build | 31 |
+| [33 — Post-recovery editorial consolidation](Task_33.md) | Todo | P2 | Remove resolved disclosures, shorten for the venue, refresh abstract and conclusions, full checks | 27, 28, 30, 31 |
+| [34 — Review-file and repository-policy hygiene](Task_34.md) | Todo | P3 | De-duplicate `reviews/review1.md`; reconcile `AGENTS.md` with tracked `reviews/`; status of `tasks/TODO.md` | None |
 
 Tasks 05–07 cover separate results sections; their order may change. Task 11 supplies specific findings to Tasks 05–08, and Task 10 remains the final pass after Tasks 11–17. Revisit the abstract and conclusion after those sections are settled. Every task has a fallback for unavailable evidence so editorial progress does not depend on new simulations.
+
+## Reviews in `reviews/`: Tasks 27–34 (2026-10-01)
+
+`reviews/review1.md` (major revision; route to acceptance through recovered records) and `reviews/review2.md` (not ready to submit; venue-dependent prospects) agree that the remaining obstacles are evidential, not editorial. Tasks 27–34 turn their recommendations into actions:
+
+- **Author actions:** record recovery (27), venue and scope (31), submission package (32).
+- **Editorial follow-ups:** consistency fixes once records exist (28), consolidation (33), repository hygiene (34).
+- **Scope changes (Tasks 29–30):** regenerating figures from original plotting data, and computing metrics from original output files, conflict with the current boundaries in this file and in `AGENTS.md`, which forbid figure changes and new quantitative metrics. Neither involves new simulations, but **both stay Blocked until the author explicitly authorizes them**, and that authorization must be recorded here and in REVIEW before work starts.
+
+Recommended order: 27 → 28 → (29, 30 if authorized) → 31 → 33 → 32. Task 34 is independent.
 
 ## Second review of 2026-10-01: Tasks 24–26
 

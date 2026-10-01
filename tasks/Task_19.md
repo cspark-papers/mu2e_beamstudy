@@ -1,6 +1,6 @@
 # Task 19 — Separate sampling, resonance motion, and feedback-delay evidence
 
-Status: Todo  
+Status: Done  
 Priority: P1  
 Depends on: 04, 06, 13  
 Review date: 2026-09-30
@@ -28,12 +28,20 @@ Follow `tasks/README.md`: printed algebra and existing records only; no tracking
 
 ## Acceptance criteria
 
-- [ ] Stationarity is not attributed to all particles at zero detuning with nonzero resonance drive.
-- [ ] Neither output cadence nor time rescaling is treated as proof of a physical arrival-time interval.
-- [ ] Branch membership is not deduced from one coordinate alone.
-- [ ] The tune-step sample is not presented as a measured RFKO transfer function or a demonstrated cause of controller behavior.
-- [ ] The observed stage dependence remains scoped to the displayed, finite diagnostic; all scientific images and results remain unchanged.
+- [x] Stationarity is not attributed to all particles at zero detuning with nonzero resonance drive.
+- [x] Neither output cadence nor time rescaling is treated as proof of a physical arrival-time interval.
+- [x] Branch membership is not deduced from one coordinate alone.
+- [x] The tune-step sample is not presented as a measured RFKO transfer function or a demonstrated cause of controller behavior.
+- [x] The observed stage dependence remains scoped to the displayed, finite diagnostic; all scientific images and results remain unchanged.
 
 ## Completion record
 
-Pending. Findings recorded only; the manuscript has not been edited for this task.
+Completed: 2026-10-01.
+
+- Finding 1: the rotating frame now removes the linear resonant rotation. Stationarity at zero detuning is stated only without the resonance drive, following Eq. `eqn:motion` at ε = 0.
+- Finding 2: the integration step and arrival-detection cadence are stated as undocumented. The discrete levels are reported as observed, with sampling and physical origins left unresolved.
+- Finding 3: branch membership and fixed-point passage are labeled as interpretations, because the plot shows only the starting x.
+- Finding 4: the tune-step evidence is presented as a plausible delay mechanism across separate cases in Sec. 4.2, Sec. 5, and §7.1. It is not a measured RFKO delay or a demonstrated cause of the controller behavior, and the stage dependence is scoped to the displayed, truncated diagnostic.
+- Propagated to the abstract, Conclusions, and highlight 4 ("Transit time grew with a particle's starting distance from the septum").
+- New author checks were added to the transit and controller rows in REVIEW.
+- Build succeeded (24 pages; contents on page 1; 0 BibTeX warnings; known CAS overlay only); all references resolve; images, bibliography, and drafts are unchanged.

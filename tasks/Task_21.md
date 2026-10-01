@@ -1,6 +1,6 @@
 # Task 21 — Clean bibliography syntax and reconcile current review summaries
 
-Status: Todo  
+Status: Done  
 Priority: P2  
 Depends on: 17; finish the review summary after 18–20  
 Review date: 2026-09-30
@@ -24,12 +24,16 @@ Review date: 2026-09-30
 
 ## Acceptance criteria
 
-- [ ] No unmatched inter-entry braces remain in `beamstudy-mod.bib`.
-- [ ] The same 24 citation keys resolve with unchanged metadata and citation order, unless a separately authorized change is recorded.
-- [ ] Current README/REVIEW/task-index summaries agree; historical records remain identifiable and intact.
-- [ ] Both build variants succeed, with warnings inspected and affected pages reviewed.
-- [ ] No manuscript results, reference drafts, or figures are modified as part of this cleanup.
+- [x] No unmatched inter-entry braces remain in `beamstudy-mod.bib`.
+- [x] The same 24 citation keys resolve with unchanged metadata and citation order, unless a separately authorized change is recorded.
+- [x] Current README/REVIEW/task-index summaries agree; historical records remain identifiable and intact.
+- [x] Both build variants succeed, with warnings inspected and affected pages reviewed.
+- [x] No manuscript results, reference drafts, or figures are modified as part of this cleanup.
 
 ## Completion record
 
-Pending. The bibliography and root documentation are unchanged by the review that created this task.
+Completed: 2026-10-01.
+
+- Removed the two stray braces (after `pimms2` and `rfkoreg`; left by the Task 17 split). A brace scan is clean, and the `.bbl` is byte-identical to the pre-fix build (24 keys, metadata, and order unchanged).
+- README: current citation count (24), page count (24), follow-up narrowing, and the Done row (02–21) updated. REVIEW: new top "Current status" with the updated claim–evidence map and readiness list; the 2026-09-29 backlog section relabeled historical; the Task 10 map marked superseded; earlier records kept intact. Task index: all 02–21 Done.
+- Review and submission builds both succeeded (24 pages each; 0 BibTeX warnings; known CAS overlay only; 46 unique resolved labels; 24 cites = 24 entries). Pages 22–24 were inspected. Manuscript, figures, and drafts are unchanged.

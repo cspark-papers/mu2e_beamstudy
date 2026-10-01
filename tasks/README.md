@@ -1,6 +1,6 @@
 # Manuscript improvement tasks
 
-Created: 2026-09-29. Status: Tasks 02–17 retain their recorded completed status; follow-up Tasks 18–20 are Done and Task 21 is Todo after the updated-manuscript review dated 2026-09-30. Submission also awaits the author actions listed in REVIEW.md. Tasks 11–17 were added on 2026-09-29 after an earlier manuscript review.
+Created: 2026-09-29. Status: All tasks (02–21) are complete as of 2026-10-01; follow-up Tasks 18–21 came from the updated-manuscript review dated 2026-09-30. Submission also awaits the author actions listed in REVIEW.md. Tasks 11–17 were added on 2026-09-29 after an earlier manuscript review.
 
 ## Objective and boundaries
 
@@ -15,7 +15,7 @@ Improve the journal submission quality of `beamstudy-mod.tex` using the existing
 
 ## Ordered backlog
 
-Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. Tasks 02–20 are **Done**; Task 21 is **Todo**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
+Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. All tasks (02–21) are **Done**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
 
 | Task | Status | Priority | Deliverable | Depends on |
 | --- | --- | --- | --- | --- |
@@ -39,7 +39,7 @@ Priority P1 means scientific interpretation and narrative; P2 means presentation
 | [18 — RFKO diagnostic and causal consistency](Task_18.md) | Done | P1 | Conditional action-density interpretation; coherent/chromatic/space-charge distinctions; bounded chromaticity claims | 04, 05, 11 |
 | [19 — Sampling and response-time interpretation](Task_19.md) | Done | P1 | Correct rotating-frame statement; separate timing cadence, phase-space interpretation, and feedback-delay inference | 04, 06, 13 |
 | [20 — Scattering coordinates and encounters](Task_20.md) | Done | P1 | Separate local scattering from transported coordinates and displayed returns from repeated physical encounters | 07, 11; coordinate with 19 |
-| [21 — Bibliography syntax and current review status](Task_21.md) | Todo | P2 | Remove two stray braces, correct citation count, reconcile current summaries, and validate follow-up edits | 17; final summary after 18–20 |
+| [21 — Bibliography syntax and current review status](Task_21.md) | Done | P2 | Remove two stray braces, correct citation count, reconcile current summaries, and validate follow-up edits | 17; final summary after 18–20 |
 
 Tasks 05–07 cover separate results sections; their order may change. Task 11 supplies specific findings to Tasks 05–08, and Task 10 remains the final pass after Tasks 11–17. Revisit the abstract and conclusion after those sections are settled. Every task has a fallback for unavailable evidence so editorial progress does not depend on new simulations.
 

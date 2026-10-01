@@ -62,7 +62,7 @@ Check for undefined citations/references, overfull boxes, clipped content, illeg
 
 ## Submission status
 
-The manuscript (23 pages in the review layout) has been revised editorially using only the existing results and figures; no new simulation was run. Since the September 2026 revisions it has:
+The manuscript (24 pages in the review layout) has been revised editorially using only the existing results and figures; no new simulation was run. Since the September 2026 revisions it has:
 
 - defined the five simulation cases separately from the published baseline (Table 3);
 - made the reduced-model notation, units, and fixed points explicit;
@@ -70,13 +70,15 @@ The manuscript (23 pages in the review layout) has been revised editorially usin
 - strengthened the physical interpretation of the RFKO, transit-time, and scattering results;
 - reordered the sections, adding a Discussion with a consolidated "Scope of the evidence";
 - corrected the beam momentum to 8.889 GeV/c (8 GeV kinetic energy per the Mu2e TDR, consistent with Bρ = 29.650 T m);
-- added eight primary-source-verified references and audited all 22 citations.
+- added eight primary-source-verified references and audited every citation (24 entries after splitting the combined PIMMS and monitor-report entries);
+- narrowed the RFKO, transit-time, and scattering interpretations to what the existing figures support (follow-up Tasks 18–20).
 
 The companion tracking paper is cited from its published record: Nuclear Engineering and Technology 58 (2026), 104097, DOI [10.1016/j.net.2025.104097](https://doi.org/10.1016/j.net.2025.104097). This does not select a target journal for the present manuscript.
 
 Before submission, consult `REVIEW.md`:
 
-- The author/data checks list the unresolved simulation metadata: ripple frequency (60 versus ~360 Hz), controller gains, particle selection and endpoints, and plot normalizations.
+- "Current status" summarizes the latest state and claim–evidence map.
+- The author/data checks list the unresolved simulation metadata: ripple frequency (60 versus ~360 Hz), controller gains and delay, particle selection, endpoints and detection cadence, the scattering return mapping, and plot normalizations and references.
 - The Task 09 author-only checklist covers acknowledgments, funding, CRediT, competing interests, data availability, AI-use disclosure, figure provenance, and the target journal.
 - The Task 08 record notes that every figure asset prints below 300 dpi.
 
@@ -84,12 +86,12 @@ A successful build does not validate the underlying simulations.
 
 ## Current editorial plan
 
-The author has requested journal-quality improvement with **no new simulations and the existing figures as is**. `tasks/README.md` indexes Tasks 02–17 with scope, acceptance criteria, and a fallback for missing evidence; `tasks/Task_01.md` preserves the original request. Missing scientific evidence is handled through transparent limitations and narrower claims, not new runs. Figures may be sized and placed in TeX, but their image content is unchanged.
+The author has requested journal-quality improvement with **no new simulations and the existing figures as is**. `tasks/README.md` indexes Tasks 02–21 with scope, acceptance criteria, and a fallback for missing evidence; `tasks/Task_01.md` preserves the original request. Missing scientific evidence is handled through transparent limitations and narrower claims, not new runs. Figures may be sized and placed in TeX, but their image content is unchanged.
 
 | Status | Tasks |
 | --- | --- |
-| Done | 02–17, including the Task 10 final editorial pass and readiness report (2026-10-01) |
-| Author actions before submission | See the "Readiness report" in `REVIEW.md`: essential simulation metadata, figure originals meeting Elsevier artwork rules, declarations, journal choice, internal references |
+| Done | 02–21, including the Task 10 final pass and the follow-up Tasks 18–21 from the 2026-09-30 review (completed 2026-10-01) |
+| Author actions before submission | See "Current status" and the Task 10 "Readiness report" in `REVIEW.md`: essential simulation metadata, figure originals meeting Elsevier artwork rules, declarations, journal choice, internal references |
 
 Completion notes for each task are in the task files and in `REVIEW.md`. The task files are tracked in Git.
 

@@ -4,6 +4,33 @@ Reviewed: 2026-09-29. Active source: `beamstudy-mod.tex`.
 
 This is a substantive editorial and internal-consistency revision, not a rerun of the simulations. The supplied figures and reported numerical results are preserved. The manuscript is improved but still requires the author/data checks below before journal submission.
 
+## Current status (2026-10-01, after Tasks 18–21)
+
+This section is the current summary. The sections below are a chronological record, newest first after this section. Earlier status statements in them, such as the 2026-09-29 backlog section and the Task 10 readiness report, are historical and are kept as evidence.
+
+- **Backlog:** Tasks 02–21 are complete. Tasks 18–21 came from the updated-manuscript review dated 2026-09-30.
+- **Manuscript:** `beamstudy-mod.tex`, 24 pages in both the review layout (contents on page 1) and the submission build (`\SubmissionBuild`, no contents). The bibliography has 24 cited entries and 0 BibTeX warnings. The only LaTeX diagnostic is the known CAS keyword-overlay box. There are 46 unique labels, all resolved.
+- **Figures and drafts:** all 22 image files are unchanged since the first commit, and the reference drafts are unchanged since `c037b4e`.
+
+### Current claim–evidence map (supersedes the Task 10 table)
+
+| Claim | Evidence | Status after Tasks 18–20 |
+| --- | --- | --- |
+| Emittance growth with nonzero chromaticity; mainly coherent centroid motion at zero chromaticity | Figs. 1–2, Sec. 4.1 | Observation retained. Chromatic mixing is presented as consistent with it, with the mechanism credited to earlier simulations [ipac11]. An undocumented bandwidth difference is not excluded, and the action diagnostic's reference is undocumented, so the density reading is conditional (Task 18). |
+| PD RFKO feedback reduces visible ripple-driven modulation, with residual spikes | Fig. 3, Sec. 4.2 | Observation retained. The delay mechanism is a plausible interpretation carried across from the separate tune-step case, not a measured loop delay or demonstrated cause (Task 19). |
+| Transit times range from a few to more than one hundred turns and increase with the starting distance from the septum; the longest displayed times are longer at later stages | Figs. 4–5, Sec. 5 | Observation retained. Branch membership, fixed-point passage, and the discrete-level origin (sampling or physics) are labeled as interpretations or left unresolved, and the stage dependence is scoped to the displayed, truncated diagnostic (Task 19). |
+| ~43% of the returned scattered-particle sample (50 µm foils) is reported lost in ring tracking | Fig. 7, Sec. 6 | Conditional fraction retained. The thin-foil relation is local only, given the undocumented C-magnet-to-ESS1 mapping. The return to the septum region is observed for three displayed turns, without a demonstrated encounter history, and the survival endpoint is undocumented (Task 20). |
+| Chromatic mixing and transit time as links in the RFKO response chain | §7.1 | Now "plausible successive links", not a demonstrated causal chain. |
+
+### Readiness
+
+The manuscript is editorially complete and **not yet submission-ready**. The author actions in the Task 10 "Readiness report" still apply, together with the questions added by Tasks 18–20 to the author-check table:
+- the action-diagnostic reference and sample-time correspondence;
+- the chirp bandwidth per chromaticity;
+- the RK4 step and arrival-detection cadence;
+- whether the RFKO loop delay was measured;
+- the C-magnet-to-ESS1 mapping type and later-turn encounter records.
+
 ## Companion-manuscript format conversion
 
 Completed 2026-09-29 at the author's request, using `../mu2e_modeling-submission/mu2e_modeling.tex` as the formatting reference.
@@ -18,7 +45,7 @@ Validation: `latexmk` with pdfLaTeX and BibTeX completed successfully from the r
 
 The manuscript body from Introduction through Acknowledgments, including all equations, tables, captions, and figure declarations, is byte-identical to the pre-conversion source. All 22 image files, both reference drafts, and the companion TeX source retain their pre-edit hashes. No simulations, new results, figure edits, staging, commits, or pushes were performed. Build files, rendered pages, and the review PDF are outside the tracked source tree in `/private/tmp/mu2e-format-3l7y9cgf/`.
 
-## Current author-directed scope and task backlog
+## Author-directed scope and task backlog (historical, 2026-09-29)
 
 On 2026-09-29, the author requested a task plan to improve journal submission quality using the existing figures and without new simulations. `tasks/README.md` and Tasks 02–10 now define that editorial work. The original Task 01 is preserved. Task 02 is now complete; Tasks 03–10 remain planned. The completion record below distinguishes the executed revision from the initial task-plan update.
 
@@ -40,6 +67,26 @@ Main findings requiring author input:
 - **Documentation and front matter (Tasks 16–17).** README still describes an inline `thebibliography`, contrary to the earlier statement in this file that it was updated for BibTeX. The `pimms` and `wcm` entries each merge two documents. `\floatpagepagefraction` has no effect. The running head no longer matches the title, and the contents block is unsuitable for submission.
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
+
+## Task 21 completed: bibliography syntax and current review summaries
+
+Completed 2026-10-01. No manuscript text, result, figure, or reference draft was changed.
+
+- **Bibliography.** Removed two unmatched inter-entry closing braces from `beamstudy-mod.bib`, after `pimms2` and after `rfkoreg`. They were introduced by the Task 17 entry split and silently ignored by BibTeX. A brace-depth scan now finds no stray braces. The generated `.bbl` is byte-identical to the pre-fix build, so all 24 keys, their metadata, and the citation order are unchanged.
+- **Current versus historical summaries.**
+  - Added a dated "Current status" section at the top of this file, with an updated claim–evidence map reflecting the Task 18–20 narrowing and an extended readiness list.
+  - Relabeled the 2026-09-29 backlog section as historical.
+  - Added a note marking the Task 10 claim–evidence map as superseded; its readiness list remains valid.
+  - No earlier record, count, or date was altered. The "22 references" heading of the Task 09 audit describes that revision.
+- **README.** The current citation statement reads "24 entries after splitting", replacing "audited all 22 citations". The page count is now 24, the follow-up narrowing is listed, the Done row covers 02–21, and the readiness pointers include "Current status".
+- **Task index.** The header and summary now report all Tasks 02–21 complete.
+
+Validation:
+- Both variants were rebuilt from the repository root into fresh `mktemp` directories. Review build: 24 pages, contents on page 1. Submission build: 24 pages, no contents.
+- Both have 0 BibTeX warnings and 24 bibliography items, and the only box warning is the known CAS overlay. There are no undefined references or rerun requests.
+- 46 unique labels, all resolved; 24 cited keys equal the 24 bibliography keys.
+- Pages 22–24 (Discussion end, Conclusions, references) were inspected.
+- All 22 image files and both reference drafts are unchanged.
 
 ## Task 20 completed: transported scattering coordinates and repeated encounters
 
@@ -98,6 +145,8 @@ Added to the author checks (Emittance/action and RFKO-settings rows):
 Evidence for the open Δp/p question (Task 12), recorded here only: IPAC2011 states that C_x = 1 "corresponds to 95% chromatic tune spread approximately 0.007" for this extraction. That is consistent with Δp/p = 0.0016 being an rms value (a ±2σ full width of about 0.0064), but it does not establish the convention for the present runs.
 
 ## Task 10 completed: final editorial pass and readiness report
+
+*Historical record of the 2026-10-01 pass before Tasks 18–21. Its claim–evidence map is superseded by the Current status section above; its readiness list remains valid and is extended there.*
 
 Completed 2026-10-01. This closes the editorial backlog (Tasks 02–17). No simulation was run at any stage; no figure image, reference draft, or scientific number changed except the documented momentum correction (Task 12).
 

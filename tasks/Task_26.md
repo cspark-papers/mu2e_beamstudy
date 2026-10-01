@@ -1,6 +1,6 @@
 # Task 26 — Small layout, bibliography, and style corrections
 
-Status: Todo  
+Status: Done  
 Priority: P2  
 Depends on: None  
 Review date: 2026-10-01
@@ -18,12 +18,18 @@ Table placement, bibliography rendering, and an author style decision. Bibliogra
 
 ## Acceptance criteria
 
-- [ ] Table 1 appears with or after its first discussion, and the layout is checked.
-- [ ] `mars2` renders "MARS15", matching the primary title page; no other metadata changes.
-- [ ] The TDR reference shows its arXiv link once.
-- [ ] The Acknowledgments numbering is left as is, or changed, by recorded author decision.
-- [ ] Both build variants succeed with 0 BibTeX warnings and the same 24 cited keys in the same order.
+- [x] Table 1 appears with or after its first discussion, and the layout is checked.
+- [x] `mars2` renders "MARS15", matching the primary title page; no other metadata changes.
+- [x] The TDR reference shows its arXiv link once.
+- [x] The Acknowledgments numbering is left as is, or changed, by recorded author decision.
+- [x] Both build variants succeed with 0 BibTeX warnings and the same 24 cited keys in the same order.
 
 ## Completion record
 
-Pending. Findings recorded only; the manuscript and bibliography have not been edited for this task.
+Completed: 2026-10-01.
+
+- Finding 1: resolved by the Section 2 rewrite (Table 1 is in §2.1).
+- Finding 2: `mars2` renders "MARS15", matching the primary title page.
+- Finding 3: the TDR `url` field was removed; the arXiv identifier now appears once.
+- Finding 4: author decision recorded — keep the numbered "9. Acknowledgments" heading (companion format).
+- Both builds pass (25 pages; 0 BibTeX warnings; the same 24 keys in the same order; known CAS overlay only); hashes are unchanged.

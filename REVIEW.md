@@ -9,7 +9,7 @@ This is a substantive editorial and internal-consistency revision, not a rerun o
 This section is the current summary. The sections below are a chronological record, newest first after this section. Earlier status statements in them, such as the 2026-09-29 backlog section and the Task 10 readiness report, are historical and are kept as evidence.
 
 - **Backlog:** Tasks 02–21 are complete. Tasks 18–21 came from the updated-manuscript review dated 2026-09-30.
-- **Pending (recorded 2026-10-01):** Task 26 (Tasks 22–25 done) from two further reviews of revision `9b299a3`. They are editorial corrections only (setup wording, readability, attribution and scope slips, a provenance table, small layout and bibliography fixes); see `tasks/README.md`. The current status above describes the manuscript before those edits.
+- **Follow-up backlog (recorded 2026-10-01):** Tasks 22–26 from two further reviews, all completed on 2026-10-01 of revision `9b299a3`. They are editorial corrections only (setup wording, readability, attribution and scope slips, a provenance table, small layout and bibliography fixes); see `tasks/README.md`. The current status above describes the manuscript before those edits.
 - **Manuscript:** `beamstudy-mod.tex`, 24 pages in both the review layout (contents on page 1) and the submission build (`\SubmissionBuild`, no contents). The bibliography has 24 cited entries and 0 BibTeX warnings. The only LaTeX diagnostic is the known CAS keyword-overlay box. There are 46 unique labels, all resolved.
 - **Figures and drafts:** all 22 image files are unchanged since the first commit, and the reference drafts are unchanged since `c037b4e`.
 
@@ -68,6 +68,17 @@ Main findings requiring author input:
 - **Documentation and front matter (Tasks 16–17).** README still describes an inline `thebibliography`, contrary to the earlier statement in this file that it was updated for BibTeX. The `pimms` and `wcm` entries each merge two documents. `\floatpagepagefraction` has no effect. The running head no longer matches the title, and the contents block is unsuitable for submission.
 
 The visual readings above are review evidence for author questions only. They are not results for the manuscript.
+
+## Task 26 completed: layout, bibliography, and style corrections
+
+Completed 2026-10-01. No manuscript text, value, or figure changed in this task.
+
+- **Finding 1 (Table 1 placement):** already resolved by the author-requested Section 2 rewrite; Table 1 sits in §2.1.
+- **Finding 2 (MARS15):** the `mars2` title now protects `{MARS15}`, matching the primary report's title page (FERMILAB-CONF-10-518-APC, December 2010). The entry renders "Recent MARS15 developments…". Nothing else changed.
+- **Finding 3 (TDR link):** removed the `url` field from `tdr`. The reference now shows the report number and "arXiv:1501.05241" once, without a hyperlinked title or a separate URL line. The verified metadata is unchanged.
+- **Finding 4 (Acknowledgments numbering):** **author decision, 2026-10-01: keep the numbered heading** ("9. Acknowledgments"), matching the companion manuscript format. Revisit only if a chosen journal requires an unnumbered heading.
+
+Validation: the bibliography diff is exactly the two intended lines. Both variants were rebuilt fresh: 25 pages each, 0 BibTeX warnings, 24 entries with the same keys in the same order as before, and only the known CAS overlay box. The rendered references were checked. All 26 figure, draft, manuscript, and highlight hashes are unchanged.
 
 ## Task 25 completed: undocumented-setting disclosures consolidated in Appendix A
 

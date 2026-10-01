@@ -1,6 +1,6 @@
 # Manuscript improvement tasks
 
-Created: 2026-09-29. Status: All tasks (02–21) are complete as of 2026-10-01; follow-up Tasks 18–21 came from the updated-manuscript review dated 2026-09-30. Submission also awaits the author actions listed in REVIEW.md. Tasks 11–17 were added on 2026-09-29 after an earlier manuscript review.
+Created: 2026-09-29. Status: Tasks 02–21 are complete; Tasks 22–23 are Todo following the review dated 2026-10-01. Follow-up Tasks 18–21 came from the updated-manuscript review dated 2026-09-30. Submission also awaits the author actions listed in REVIEW.md. Tasks 11–17 were added on 2026-09-29 after an earlier manuscript review.
 
 ## Objective and boundaries
 
@@ -15,7 +15,7 @@ Improve the journal submission quality of `beamstudy-mod.tex` using the existing
 
 ## Ordered backlog
 
-Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. All tasks (02–21) are **Done**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
+Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. Tasks 02–21 are **Done**; Tasks 22–23 are **Todo**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
 
 | Task | Status | Priority | Deliverable | Depends on |
 | --- | --- | --- | --- | --- |
@@ -40,10 +40,29 @@ Priority P1 means scientific interpretation and narrative; P2 means presentation
 | [19 — Sampling and response-time interpretation](Task_19.md) | Done | P1 | Correct rotating-frame statement; separate timing cadence, phase-space interpretation, and feedback-delay inference | 04, 06, 13 |
 | [20 — Scattering coordinates and encounters](Task_20.md) | Done | P1 | Separate local scattering from transported coordinates and displayed returns from repeated physical encounters | 07, 11; coordinate with 19 |
 | [21 — Bibliography syntax and current review status](Task_21.md) | Done | P2 | Remove two stray braces, correct citation count, reconcile current summaries, and validate follow-up edits | 17; final summary after 18–20 |
+| [22 — Setup provenance and uncertainty](Task_22.md) | Todo | P1 | Align update-rate, bandwidth, acceptance, particle-selection, and nominal/input statements | 03, 12, 18–20 |
+| [23 — Readability after the follow-up edits](Task_23.md) | Todo | P2 | Remove repetition, separate observations from interpretation, and clarify horizontal-coordinate summaries | 18–22 |
 
 Tasks 05–07 cover separate results sections; their order may change. Task 11 supplies specific findings to Tasks 05–08, and Task 10 remains the final pass after Tasks 11–17. Revisit the abstract and conclusion after those sections are settled. Every task has a fallback for unavailable evidence so editorial progress does not depend on new simulations.
 
-## Updated-manuscript review: Tasks 18–21
+## Latest review: Tasks 22–23 (2026-10-01)
+
+Reviewed `beamstudy-mod.tex` at source revision `9b299a3`, including the completed Tasks 18–21, the current bibliography, highlights, and rendered manuscript. The main action-diagnostic, timing, scattering, and bibliography findings from the previous review have been addressed. Two focused follow-ups remain:
+
+- **Task 22:** reconcile statements about undocumented controller timing, possible bandwidth differences, acceptance normalization, intended particle selection, and corrected nominal parameters versus verified historical inputs.
+- **Task 23:** remove repeated setup wording, separate long observation/interpretation paragraphs, and make the transit-time summaries refer clearly to the plotted horizontal coordinate.
+
+These tasks record editorial corrections and improvements. They do not require additional simulations or repeat the existing author-only questions about the ripple waveform, 43% denominator, image provenance, or declarations. Earlier tasks keep their recorded Done status.
+
+Validation performed:
+
+- Fresh review and submission builds both succeeded at 24 pages. There are 46 unique labels and 24 distinct cited bibliography entries, with no unresolved keys or BibTeX warnings. Bibliography braces are balanced. The only LaTeX diagnostic remains the previously documented CAS keyword-overlay box.
+- All 24 review pages and the submission title page were visually inspected. No new clipping, missing figure panel, or layout failure was found; existing image-resolution and small-lettering limitations remain.
+- All five highlights satisfy the repository's 85-character limit. This is a local formatting check, not a fresh audit of journal requirements or bibliography metadata.
+- Hashes confirm that the active manuscript, bibliography, highlights, all 22 image assets, and both reference drafts are unchanged by this review. The figures also match the assets inspected at native resolution in the previous review.
+- Only task documentation changed. No new scientific calculations, simulations, staging, commits, or pushes were performed. Temporary PDFs, logs, and rendered pages are in `/private/tmp/mu2e-review-oct01-93con_zs/`, outside the tracked source tree.
+
+## Previous updated-manuscript review: Tasks 18–21
 
 The review dated 2026-09-30 inspected the complete updated `beamstudy-mod.tex`, bibliography, all 14 referenced image assets, prior task completion records, and the current review PDF. It found residual interpretation issues, not a need for new scientific calculations. The tasks above record source locations, the distinction between observations and interpretations, actionable edits, and acceptance criteria. They leave earlier completed tasks intact and do not duplicate the already recorded ripple-frequency, controller-metadata, foil-provenance, and 43% denominator questions.
 

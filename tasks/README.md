@@ -1,6 +1,6 @@
 # Manuscript improvement tasks
 
-Created: 2026-09-29. Status: Tasks 02–21 are complete; Tasks 22–23 are Todo following the review dated 2026-10-01. Follow-up Tasks 18–21 came from the updated-manuscript review dated 2026-09-30. Submission also awaits the author actions listed in REVIEW.md. Tasks 11–17 were added on 2026-09-29 after an earlier manuscript review.
+Created: 2026-09-29. Status: Tasks 02–21 are complete; Tasks 22–26 are Todo following the two reviews dated 2026-10-01 (22–23, then 24–26). Follow-up Tasks 18–21 came from the updated-manuscript review dated 2026-09-30. Submission also awaits the author actions listed in REVIEW.md. Tasks 11–17 were added on 2026-09-29 after an earlier manuscript review.
 
 ## Objective and boundaries
 
@@ -15,7 +15,7 @@ Improve the journal submission quality of `beamstudy-mod.tex` using the existing
 
 ## Ordered backlog
 
-Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. Tasks 02–21 are **Done**; Tasks 22–23 are **Todo**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
+Priority P1 means scientific interpretation and narrative; P2 means presentation and submission checks. Tasks 02–21 are **Done**; Tasks 22–26 are **Todo**. Dependencies indicate a sensible editorial order, not permission to start additional calculations.
 
 | Task | Status | Priority | Deliverable | Depends on |
 | --- | --- | --- | --- | --- |
@@ -42,8 +42,32 @@ Priority P1 means scientific interpretation and narrative; P2 means presentation
 | [21 — Bibliography syntax and current review status](Task_21.md) | Done | P2 | Remove two stray braces, correct citation count, reconcile current summaries, and validate follow-up edits | 17; final summary after 18–20 |
 | [22 — Setup provenance and uncertainty](Task_22.md) | Todo | P1 | Align update-rate, bandwidth, acceptance, particle-selection, and nominal/input statements | 03, 12, 18–20 |
 | [23 — Readability after the follow-up edits](Task_23.md) | Todo | P2 | Remove repetition, separate observations from interpretation, and clarify horizontal-coordinate summaries | 18–22 |
+| [24 — Residual attribution and scope slips](Task_24.md) | Todo | P1 | Space charge only where documented; PID citation; reference-group branch attribution; observational Fig. 1 caption; two remaining long paragraphs | 22, 23 |
+| [25 — Provenance table for undocumented settings](Task_25.md) | Todo | P2 | One case-by-case table of unspecified settings replacing repeated "not documented" prose, with every disclosure preserved | 22, 23, 24 |
+| [26 — Layout, bibliography, and style](Task_26.md) | Todo | P2 | Table 1 placement, MARS15 capitalization (primary source checked), single TDR link, Acknowledgments numbering decision | None |
 
 Tasks 05–07 cover separate results sections; their order may change. Task 11 supplies specific findings to Tasks 05–08, and Task 10 remains the final pass after Tasks 11–17. Revisit the abstract and conclusion after those sections are settled. Every task has a fallback for unavailable evidence so editorial progress does not depend on new simulations.
+
+## Second review of 2026-10-01: Tasks 24–26
+
+The full manuscript at revision `9b299a3` was read end to end again, after Tasks 22–23 had been recorded. Findings already captured in Tasks 22–23 were not duplicated: update interval, bandwidth wording, acceptance cross-reference, Table 3 selection, nominal momentum, the duplicated chirp sentence, the action-profile and transit paragraphs, the response-chain wording, and the distance-from-septum summaries. The remaining items are:
+
+- **Task 24 (P1):**
+  - space charge is attributed to the feedback case and to all diagnostics, although it is documented only for the tune-step and fixed-tune cases;
+  - the PID citation reads as the source of the controller tests;
+  - the reference-group "outgoing branch" identification rests on an undocumented overlay;
+  - the `fig:rfko1` caption is causal;
+  - two further paragraphs exceed 220 words, with two local wording slips.
+- **Task 25 (P2):** the body uses "not documented" 24 times (8 in captions). Consolidate the disclosures into one provenance table, keeping every disclosure and the number-adjacent qualifiers.
+- **Task 26 (P2):**
+  - Table 1 is defined in the Introduction but discussed in Sec. 2.1;
+  - `mars2` renders "Mars15", whereas the primary report title page (FERMILAB-CONF-10-518-APC, December 2010) reads "MARS15";
+  - the TDR reference repeats its arXiv link;
+  - Acknowledgments numbering is left as an author decision, since it matches the requested companion format.
+
+Measurements: the abstract is 208 words. Five body paragraphs exceed 220 words (289, 271, 252, 223, 222), of which Task 23 covers the 289- and 271-word ones and the 223-word wording. Only task documentation was written; the manuscript, bibliography, highlights, figures, and drafts are unchanged by this review.
+
+Process note: while this review was being recorded, `tasks/Task_22.md` and `tasks/Task_23.md` were briefly overwritten in the working tree, because they had been committed (`ed5a6a7`) after the review began. Both were restored unchanged from `HEAD`, and the new tasks were renumbered 24–26.
 
 ## Latest review: Tasks 22–23 (2026-10-01)
 
